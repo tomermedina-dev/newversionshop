@@ -40,3 +40,8 @@
          });
 
    });
+
+   Route::group(['prefix'=>'checklist',],
+       function() {
+         Route::post('/new', 'Admin\CheckListController@createOrEditCheckList')->name('admin.checklist.new');
+   });
