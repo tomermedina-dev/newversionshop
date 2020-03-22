@@ -27,3 +27,7 @@
         Route::post('/edit', 'Admin\ServiceController@createOrEditService')->name('admin.services.edit');
         Route::get('/edit/status/{serviceId}/{status}', 'Admin\ServiceController@changeServiceStatus')->name('admin.service.status.edit');
    });
+   Route::group(['prefix'=>'pdf',],
+       function() {
+         Route::get('/invoice', 'Admin\PDFController@generateInvoicePDF')->name('admin.pdf.invoice');
+   });
