@@ -35,10 +35,17 @@ Route::group(['prefix'=>'unit',],
 
 });
 
-// Unit
+// Cart
 Route::group(['prefix'=>'cart',],
   function() {
         Route::post('/new', 'Front\CartController@addorUpdateItemToCart')->name('front.users.cart.new');
         Route::post('/edit', 'Front\CartController@addorUpdateItemToCart')->name('front.users.cart.edit');
         Route::get('/delete/{cartId}', 'Front\CartController@deleteItemCart')->name('front.users.cart.delete');
+  });
+
+// WishList
+Route::group(['prefix'=>'wishlist',],
+  function() {
+        Route::post('/new', 'Front\WishListController@addItemToWishList')->name('front.users.wishlist.new');
+        Route::get('/delete/{cartId}', 'Front\WishListController@deleteItemWishList')->name('front.users.wishlist.delete');
   });
