@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductsTable extends Migration
+class CreateServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,17 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('type_id');
-            $table->string('name');
-            $table->string('brand')->nullable();
-            $table->string('car_brand')->nullable();
-            $table->string('car_model')->nullable();
+            $table->string('name')->nullable();
             $table->string('description')->nullable();
-            $table->string('price')->nullable();
-            $table->string('quantity')->nullable();
+            $table->string('price');
+            $table->string('duration')->nullable();
             $table->string('status');
             $table->timestamps();
         });
-        DB::statement('ALTER TABLE products CHANGE id id INT(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT');
+          DB::statement('ALTER TABLE services CHANGE id id INT(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT');
     }
 
     /**
@@ -36,6 +33,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('services');
     }
 }

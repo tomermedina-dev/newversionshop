@@ -16,10 +16,10 @@ class CreateUserUnitsTable extends Migration
         Schema::create('user_units', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('car_brand');
-            $table->string('model');
-            $table->string('vin');
-            $table->string('plate_number');
+            $table->string('car_brand')->nullable();
+            $table->string('model')->nullable();
+            $table->string('vin')->nullable();
+            $table->string('plate_number')->nullable();
             $table->timestamps();
         });
         DB::statement('ALTER TABLE user_units CHANGE id id INT(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT');
