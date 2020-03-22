@@ -34,3 +34,11 @@ Route::group(['prefix'=>'unit',],
   });
 
 });
+
+// Unit
+Route::group(['prefix'=>'cart',],
+  function() {
+        Route::post('/new', 'Front\CartController@addorUpdateItemToCart')->name('front.users.cart.new');
+        Route::post('/edit', 'Front\CartController@addorUpdateItemToCart')->name('front.users.cart.edit');
+        Route::get('/delete/{cartId}', 'Front\CartController@deleteItemCart')->name('front.users.cart.delete');
+  });
