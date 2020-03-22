@@ -15,7 +15,7 @@
   });
 
 
-  Route::group(['prefix'=>'services',],
+   Route::group(['prefix'=>'services',],
       function() {
         Route::group(['prefix'=>'type',],
             function() {
@@ -30,4 +30,13 @@
    Route::group(['prefix'=>'pdf',],
        function() {
          Route::get('/invoice', 'Admin\PDFController@generateInvoicePDF')->name('admin.pdf.invoice');
+   });
+   Route::group(['prefix'=>'orders',],
+       function() {
+         Route::group(['prefix'=>'history',],
+             function() {
+               Route::post('/new', 'Admin\OrderHistoryController@createNewOrderHistory')->name('admin.order.history.new');
+               Route::get('/retrive/all', 'Admin\OrderHistoryController@getAllOrderHistory')->name('admin.order.history.retrive');
+         });
+
    });
