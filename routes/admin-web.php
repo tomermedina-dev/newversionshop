@@ -45,3 +45,9 @@
        function() {
          Route::post('/new', 'Admin\CheckListController@createOrEditCheckList')->name('admin.checklist.new');
    });
+
+   
+   // erron
+   Route::get('/admin/dashboard', function () {
+       return view('welcome');
+   });
