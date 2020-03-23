@@ -8,6 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\Admin\\OrderHistoryController' => $baseDir . '/app/Http/Controllers/Admin/OrderHistoryController.php',
+    'App\\Http\\Controllers\\Admin\\PDFController' => $baseDir . '/app/Http/Controllers/Admin/PDFController.php',
     'App\\Http\\Controllers\\Admin\\ProductController' => $baseDir . '/app/Http/Controllers/Admin/ProductController.php',
     'App\\Http\\Controllers\\Admin\\ProductTypeController' => $baseDir . '/app/Http/Controllers/Admin/ProductTypeController.php',
     'App\\Http\\Controllers\\Admin\\QRGeneratorController' => $baseDir . '/app/Http/Controllers/Admin/QRGeneratorController.php',
@@ -28,6 +30,8 @@ return array(
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Models\\Admin\\CheckList' => $baseDir . '/app/Models/Admin/CheckList.php',
+    'App\\Models\\Admin\\OrderHistory' => $baseDir . '/app/Models/Admin/OrderHistory.php',
     'App\\Models\\Admin\\Product' => $baseDir . '/app/Models/Admin/Product.php',
     'App\\Models\\Admin\\ProductType' => $baseDir . '/app/Models/Admin/ProductType.php',
     'App\\Models\\Admin\\Service' => $baseDir . '/app/Models/Admin/Service.php',
