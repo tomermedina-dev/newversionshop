@@ -1,0 +1,39 @@
+    .btn-txt-mustard{
+      background-color: #2f3640;
+      color:#e1b12c;
+    }
+    .btn-txt-mustard:hover{
+      color:white;
+      background-color: #41474f;
+    }
+    .btn-txt-white{
+      background-color: #2f3640;
+      color:white;
+    }
+    .btn-txt-white:hover{
+       background-color: #41474f;
+      color:#e1b12c;
+    }
+    /* .row div{
+      padding: 2%;
+    } */
+    .input-custom{
+      background-color: whitesmoke;
+      border: none;
+      border-left: 4px solid #e1b12c;
+      text-transform: lowercase;
+    }
+    .input-custom:focus{
+      background-color: whitesmoke;
+      border: none;
+      border-left: 4px solid #e1b12c;
+      color: none;
+      outline: ;
+      box-shadow: none;
+    }
+    .input-custom::placeholder{
+      opacity: 0.3;
+    }
+    .text-mustard{
+      color:#e1b12c;
+    }
