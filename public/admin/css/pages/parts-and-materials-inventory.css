@@ -1,0 +1,29 @@
+.e-pami-content .e-header{
+  text-decoration: underline;
+}
+
+.e-pami-content .e-table{
+  border-radius: 5px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);
+}
+
+.e-pami-content .e-table thead{
+  background-color: #fbc531;
+
+}
+
+.e-pami-content .e-table td{
+  text-align: center;
+  border: 0;
+}
+
+.e-pami-content .e-table tbody tr {
+    background-color: #dcdde1;
+}
+
+.e-pami-content .e-table tbody tr:nth-of-type(odd) {
+    background-color: #f5f6fa;
+}

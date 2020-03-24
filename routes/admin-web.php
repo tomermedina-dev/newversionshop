@@ -55,3 +55,7 @@
    Route::get('/admin/dashboard', function () {
        return view('admin.pages.dashboard');
    });
+
+   Route::get('/admin/parts-and-materials-inventory', function () {
+       return view('admin.pages.parts-and-materials-inventory');
+   });

@@ -1,4 +1,5 @@
 *{
+  color: #2f3640;
   font-family: eDefault;
 }
 .e-font-default{
@@ -12,4 +13,44 @@
 }
 .e-font-heading-light{
   font-family: eHeadingLight;
+}
+
+.e-body {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+
+#container {
+    box-sizing: border-box;
+    margin-top: 7vh;
+    display: flex;
+    width: 100%;
+    min-height: 93vh;
+}
+
+#container > .e-invisible-padding {
+    min-width: 250px;
+    max-width: 250px;
+    transition: all 0.3s;
+}
+
+#container > .e-invisible-padding.padded {
+    margin-left: -250px;
+}
+
+#container > #main-container{
+  box-sizing: border-box;
+  padding: 1em;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+    #container > .e-invisible-padding {
+        margin-left: -250px;
+    }
+    /* #container > .e-invisible-padding.padded {
+        margin-left: 0;
+    } */
 }

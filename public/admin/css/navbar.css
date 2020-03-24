@@ -1,0 +1,89 @@
+.e-navbar{
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #dcdde1;
+  height: 7vh;
+  z-index: 999;
+}
+
+.e-navbar .e-navbar-content{
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: .75em;
+  margin-right: .75em;
+  width: 100%;
+}
+
+.e-navbar .e-navbar-content .e-toggle-button{
+  font-size: 1.5em;
+  color: #2f3640;
+
+}
+
+.e-navbar .e-navbar-content .e-toggle-button:hover{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.e-navbar .e-navbar-content .dropdown-toggle::after {
+    display: none;
+}
+
+.e-navbar .e-navbar-content .e-account{
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  outline: 0;
+}
+
+.e-navbar .e-navbar-content .e-account > .e-name{
+  display: inline-block;
+  margin-left: .5em;
+}
+
+.e-navbar .e-navbar-content .e-account > .fas.fa-user{
+  display: flex;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  font-size: 1.4em;
+  overflow: hidden;
+  border-radius: 25px;
+  border: 2px solid #2f3640;
+  padding-top: 3px;
+  color: #dcdde1;
+  background-color: #2f3640;
+}
+
+.e-navbar .e-navbar-content .e-account > .fas.fa-angle-down{
+  margin-left: .5em;
+}
+
+.e-navbar > .e-invisible-padding {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100%;
+    transition: all 0.3s;
+}
+
+.e-navbar > .e-invisible-padding.padded {
+    margin-left: -250px;
+}
+
+@media (max-width: 768px) {
+    .e-navbar > .e-invisible-padding {
+        margin-left: -250px;
+    }
+    .e-navbar > .e-invisible-padding.padded {
+        margin-left: 0;
+    }
+}
