@@ -4,6 +4,7 @@ Route::group(['prefix'=> 'users' ,],
 // Registration
 Route::post('/register', 'Admin\UserController@creteNewOrEditUser')->name('admin.users.register');
 Route::post('/', 'Admin\UserController@creteNewOrEditUser')->name('admin.users.register');
+Route::post('/forgot-password', 'Admin\UserActivationController@forgotPassword')->name('admin.users.forgot.password');
 
 Route::group(['prefix'=>'activation',],
   function() {
@@ -49,3 +50,5 @@ Route::group(['prefix'=>'wishlist',],
         Route::post('/new', 'Front\WishListController@addItemToWishList')->name('front.users.wishlist.new');
         Route::get('/delete/{cartId}', 'Front\WishListController@deleteItemWishList')->name('front.users.wishlist.delete');
   });
+
+Route::get('/register', 'Front\RegistrationController@getRegistrationIndex')->name('front.register.index');
