@@ -1,4 +1,4 @@
-.e-navbar{
+.nv-navbar{
   position: fixed;
   display: flex;
   top: 0;
@@ -9,7 +9,7 @@
   z-index: 999;
 }
 
-.e-navbar .e-navbar-content{
+.nv-navbar .nv-navbar-content{
   display: flex;
   box-sizing: border-box;
   align-items: center;
@@ -19,13 +19,13 @@
   width: 100%;
 }
 
-.e-navbar .e-navbar-content .e-toggle-button{
+.nv-navbar .nv-navbar-content .nv-toggle-button{
   font-size: 1.5em;
   color: #2f3640;
 
 }
 
-.e-navbar .e-navbar-content .e-toggle-button:hover{
+.nv-navbar .nv-navbar-content .nv-toggle-button:hover{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,11 +33,11 @@
   cursor: pointer;
 }
 
-.e-navbar .e-navbar-content .dropdown-toggle::after {
+.nv-navbar .nv-navbar-content .dropdown-toggle::after {
     display: none;
 }
 
-.e-navbar .e-navbar-content .e-account{
+.nv-navbar .nv-navbar-content .nv-account{
   display: flex;
   align-items: center;
   background-color: rgba(0, 0, 0, 0);
@@ -45,12 +45,12 @@
   outline: 0;
 }
 
-.e-navbar .e-navbar-content .e-account > .e-name{
+.nv-navbar .nv-navbar-content .nv-account > .nv-name{
   display: inline-block;
   margin-left: .5em;
 }
 
-.e-navbar .e-navbar-content .e-account > .fas.fa-user{
+.nv-navbar .nv-navbar-content .nv-account > .fas.fa-user{
   display: flex;
   justify-content: center;
   width: 25px;
@@ -64,26 +64,26 @@
   background-color: #2f3640;
 }
 
-.e-navbar .e-navbar-content .e-account > .fas.fa-angle-down{
+.nv-navbar .nv-navbar-content .nv-account > .fas.fa-angle-down{
   margin-left: .5em;
 }
 
-.e-navbar > .e-invisible-padding {
+.nv-navbar > .nv-invisible-padding {
     min-width: 250px;
     max-width: 250px;
     min-height: 100%;
     transition: all 0.3s;
 }
 
-.e-navbar > .e-invisible-padding.padded {
+.nv-navbar > .nv-invisible-padding.padded {
     margin-left: -250px;
 }
 
 @media (max-width: 768px) {
-    .e-navbar > .e-invisible-padding {
+    .nv-navbar > .nv-invisible-padding {
         margin-left: -250px;
     }
-    .e-navbar > .e-invisible-padding.padded {
+    .nv-navbar > .nv-invisible-padding.padded {
         margin-left: 0;
     }
 }

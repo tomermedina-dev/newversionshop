@@ -1,29 +1,103 @@
-.e-pami-content .e-header{
+
+.nv-pami-content .nv-header{
   text-decoration: underline;
 }
 
-.e-pami-content .e-table{
-  border-radius: 5px;
-  overflow: hidden;
-  -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);
-  box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);
+
+.nv-table-container{
+    border-radius: 5px;
+    overflow-x: auto;
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
 }
 
-.e-pami-content .e-table thead{
+.nv-pami-content .nv-table{
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.nv-pami-content .nv-table thead{
   background-color: #fbc531;
 
 }
 
-.e-pami-content .e-table td{
+.nv-pami-content .nv-table td{
   text-align: center;
   border: 0;
 }
 
-.e-pami-content .e-table tbody tr {
+.nv-pami-content .nv-table tbody tr {
     background-color: #dcdde1;
 }
 
-.e-pami-content .e-table tbody tr:nth-of-type(odd) {
+.nv-pami-content .nv-table tbody tr:nth-of-type(odd) {
     background-color: #f5f6fa;
 }
+
+
+.nv-pagination > .page-item > .page-link{
+      font-family: 'Myriad Pro Bold Condensed';
+      border: 0;
+      border-radius: 5px;
+      padding: .2rem .4rem !important;
+      font-size: 1rem;
+      line-height: 1rem;
+      margin: 1px;
+      color: #2f3640;
+      outline: !important;
+      box-shadow: none !important;
+      border: none !important;
+      transition: .5s;
+}
+
+.nv-pagination > .page-item.active > .page-link{
+  background-color: #dcdde1;
+}
+
+.nv-pagination > .page-item.nv-previous > .page-link{
+  background-color: #fbc531;
+  padding: .2rem .4rem !important;
+  line-height: .7rem;
+  font-size: .7rem;
+  border-radius: .4rem;
+  margin-right: 3px;
+}
+
+.nv-pagination > .page-item.nv-next > .page-link{
+  background-color: #fbc531;
+  padding: .2rem .4rem !important;
+  line-height: .7rem;
+  font-size: .7rem;
+  border-radius: .4rem;
+  margin-left: 3px;
+}
+
+.nv-add-item{
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.nv-input-group-custom > .input-group-prepend > .input-group-text{
+  width: 115px;
+}
+
+/* .e-input-custom{
+     background-color: whitesmoke;
+     border: none;
+     border-left: 4px solid #e1b12c;
+     text-transform: lowercase;
+   }
+   .input-custom:focus{
+     background-color: whitesmoke;
+     border: none;
+     border-left: 4px solid #e1b12c;
+     color: none;
+     outline: ;
+     box-shadow: none;
+   }
+   .input-custom::placeholder{
+     opacity: 0.3;
+   } */

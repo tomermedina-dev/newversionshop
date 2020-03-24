@@ -59,3 +59,7 @@
    Route::get('/admin/parts-and-materials-inventory', function () {
        return view('admin.pages.parts-and-materials-inventory');
    });
+
+   Route::get('/admin/vehicle-check-list', function () {
+       return view('admin.pages.vehicle-check-list');
+   });

@@ -1,13 +1,13 @@
-<div class="e-navbar">
-  <div class="e-invisible-padding"></div>
-  <div class="e-navbar-content">
-    <a id="sidebarCollapse" class="e-toggle-button">
+<div class="nv-navbar">
+  <div class="nv-invisible-padding"></div>
+  <div class="nv-navbar-content">
+    <a id="sidebarCollapse" class="nv-toggle-button">
         <i class="fas fa-bars"></i>
     </a>
     <div class="dropdown">
-      <div class="e-account dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-user"></i>
-        <div class="e-name e-font-heading-bold">Darren</div>
+        <div class="nv-name nv-font-bc">Darren</div>
         <i class="fas fa-angle-down"></i>
       </div>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
