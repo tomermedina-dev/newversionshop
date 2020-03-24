@@ -6,3 +6,6 @@
 @include('fonts.fonts')
 <link rel="stylesheet" href="{{ asset('front/css/header.css') }}">
 <link rel="stylesheet" href="{{ asset('front/css/customs.css') }}">
+<script src="{{ asset('vue\vue.js') }}" ></script>
+<script src="{{ asset('vue\axios.min.js') }}" ></script>
+<script src="{{ asset('vue\vue-resource.js') }}" ></script>

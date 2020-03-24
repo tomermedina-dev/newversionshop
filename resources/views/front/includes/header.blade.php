@@ -9,17 +9,17 @@
     <!-- <input type="text" class="form-control input-search-header" id="first_name" placeholder="Search "> -->
     <div  style="width:100%;">
       <div class="input-group md-form form-sm form-2 pl-0">
-        <input class="form-control  input-search-header" type="text" placeholder="Search" aria-label="Search">
+        <input class="form-control  nv-input-search-header" type="text" placeholder="Search" aria-label="Search">
         <div class="input-group-append ">
-          <span class="input-group-text input-search-header" >
+          <span class="input-group-text nv-input-search-header" >
             <i class="fas fa-search text-white"aria-hidden="true"></i></span>
         </div>
       </div>
 
-      <div class="header-contact-details">
+      <div class="nv-header-contact-details">
          <i class="fa fa-envelope text-white"aria-hidden="true"></i>
          <span  > newversion-support@email.com</span>
-         <i class="fa fa-phone-alt "aria-hidden="true"></i>
+         <i class="fa fa-phone-alt "></i>
          <span  > +63 123 458</span>
          <i class="fab fa-facebook-square"></i>
       </div>
@@ -36,7 +36,7 @@
              <li class="nav-item">
                <a class="nav-link active " href="#">
                  <!-- <i class="fas fa-user-plus"></i> -->
-                 <h5>register</h5>
+                 <h5>Register</h5>
                  </a>
              </li>
              <li class="nav-item ">
@@ -48,13 +48,13 @@
              <li class="nav-item ">
                <a class="nav-link" href="#">
                  <!-- <i class="fas fa-car"></i> -->
-                 <h5>autos</h5>
+                 <h5>Cars</h5>
                  </a>
              </li>
              <li class="nav-item ">
                <a class="nav-link" href="#">
                  <!-- <i class="fas fa-user-plus"></i> -->
-                 <h5>about</h5>
+                 <h5>About</h5>
                  </a>
              </li>
              <li class="nav-item ">

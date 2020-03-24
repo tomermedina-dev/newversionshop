@@ -52,3 +52,4 @@ Route::group(['prefix'=>'wishlist',],
   });
 
 Route::get('/register', 'Front\RegistrationController@getRegistrationIndex')->name('front.register.index');
+Route::get('/login', 'Front\LoginController@getLoginIndex')->name('front.login.index');
