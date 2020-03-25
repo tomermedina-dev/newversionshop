@@ -8,11 +8,11 @@
   </head>
   <body>
 
-      <div class="e-body">
+      <div class="nv-body">
           @include('admin.includes.sidebar')
           @include('admin.includes.navbar')
         <div id="container">
-          <div class="e-invisible-padding"></div>
+          <div class="nv-invisible-padding"></div>
           <div id="main-container">
             @yield('content')
           </div>
@@ -25,8 +25,8 @@
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
-                $('.e-invisible-padding').toggleClass('padded');
-                $('.e-navbar .e-navbar-content .e-account').toggleClass('d-none');
+                $('.nv-invisible-padding').toggleClass('padded');
+                $('.nv-navbar .nv-navbar-content .nv-account').toggleClass('d-none');
             });
         });
     </script>

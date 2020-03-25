@@ -4,59 +4,59 @@
 
 <link rel="stylesheet" href="{{ asset('admin/css/pages/dashboard.css') }}">
 
-<div class="e-dashboard-content">
-  <h1 class="e-header e-font-heading-bold">
+<div class="nv-dashboard-content">
+  <h1 class="nv-header nv-font-bc">
   Dashboard
   </h1>
 
   <div class="row">
-    <div class="col-sm-12 col-lg-6 e-items">
+    <div class="col-sm-12 col-lg-6 nv-items">
       <div class="card">
         <div class="card-header">
           <i class="fas fa-clipboard-list"></i>
-          <div class="e-text e-font-heading-bold">ORDERS OF THE DAY</div>
+          <div class="nv-text nv-font-bc">ORDERS OF THE DAY</div>
         </div>
         <div class="card-body">
-          <div class="e-text e-font-count">
+          <div class="nv-text">
             2500
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-lg-6 e-items">
+    <div class="col-sm-12 col-lg-6 nv-items">
       <div class="card">
         <div class="card-header">
           <i class="fas fa-edit"></i>
-          <div class="e-text e-font-heading-bold">BOOKED SERVICES OF THE DAY</div>
+          <div class="nv-text nv-font-bc">BOOKED SERVICES OF THE DAY</div>
         </div>
         <div class="card-body">
-          <div class="e-text e-font-count">
+          <div class="nv-text">
             2500
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-lg-6 e-items">
+    <div class="col-sm-12 col-lg-6 nv-items">
       <div class="card">
         <div class="card-header">
           <i class="fas fa-spinner"></i>
-          <div class="e-text e-font-heading-bold">IN PROGRESS SERVICES</div>
+          <div class="nv-text nv-font-bc">IN PROGRESS SERVICES</div>
         </div>
         <div class="card-body">
-          <div class="e-text e-font-count">
+          <div class="nv-text">
             2500
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-lg-6 e-items">
+    <div class="col-sm-12 col-lg-6 nv-items">
       <div class="card">
         <div class="card-header">
           <i class="fas fa-car-side"></i>
-          <div class="e-text e-font-heading-bold">AVAILABLE CARS</div>
+          <div class="nv-text nv-font-bc">AVAILABLE CARS</div>
         </div>
         <div class="card-body">
-          <div class="e-text e-font-count">
+          <div class="nv-text">
             2500
           </div>
         </div>
