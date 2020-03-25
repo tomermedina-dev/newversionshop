@@ -1,0 +1,22 @@
+.nv-invoice-content .nv-name{
+  font-size: 3rem;
+  line-height: 3rem;
+  color: #fbc531;
+}
+.nv-invoice-content .nv-label-1{
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
+.nv-invoice-content .nv-label-2{
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+.nv-invoice-content .nv-invoice{
+  font-size: 4rem;
+  line-height: 4rem;
+  color: #fbc531;
+  letter-spacing: 1.5rem;
+  margin-right: -1.5rem;
+}

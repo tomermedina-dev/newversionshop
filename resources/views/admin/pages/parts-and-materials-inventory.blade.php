@@ -50,7 +50,18 @@
           <td class="nv-font-bc" scope="col">DESC 1</td>
           <td class="nv-font-bc" scope="col">2</td>
           <td class="nv-font-bc" scope="col">PHP 10,000</td>
-          <td class="nv-font-bc" scope="col" class="info"><i class="fas fa-ellipsis-h"></i></td>
+          <td class="nv-font-bc" scope="col" class="info">
+            <div class="dropdown">
+              <div class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <a class="dropdown-item" href="#">Something</a>
+                <a class="dropdown-item" href="#">Something again</a>
+                <a class="dropdown-item" href="#">Another Something</a>
+              </div>
+            </div>
+          </td>
         </tr>
         <tr>
           <td class="nv-font-bc" scope="col">TYPE A</td>
@@ -61,7 +72,18 @@
           <td class="nv-font-bc" scope="col">DESC 1</td>
           <td class="nv-font-bc" scope="col">2</td>
           <td class="nv-font-bc" scope="col">PHP 10,000</td>
-          <td class="nv-font-bc" scope="col" class="info"><i class="fas fa-ellipsis-h"></i></td>
+          <td class="nv-font-bc" scope="col" class="info">
+            <div class="dropdown">
+              <div class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                <a class="dropdown-item" href="#">Something</a>
+                <a class="dropdown-item" href="#">Something again</a>
+                <a class="dropdown-item" href="#">Another Something</a>
+              </div>
+            </div>
+          </td>
         </tr>
         <tr>
           <td class="nv-font-bc" scope="col">TYPE A</td>
@@ -72,7 +94,18 @@
           <td class="nv-font-bc" scope="col">DESC 1</td>
           <td class="nv-font-bc" scope="col">2</td>
           <td class="nv-font-bc" scope="col">PHP 10,000</td>
-          <td class="nv-font-bc" scope="col" class="info"><i class="fas fa-ellipsis-h"></i></td>
+          <td class="nv-font-bc" scope="col" class="info">
+            <div class="dropdown">
+              <div class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                <a class="dropdown-item" href="#">Something</a>
+                <a class="dropdown-item" href="#">Something again</a>
+                <a class="dropdown-item" href="#">Another Something</a>
+              </div>
+            </div>
+          </td>
         </tr>
         <tr>
           <td class="nv-font-bc" scope="col">TYPE A</td>
@@ -83,7 +116,18 @@
           <td class="nv-font-bc" scope="col">DESC 1</td>
           <td class="nv-font-bc" scope="col">2</td>
           <td class="nv-font-bc" scope="col">PHP 10,000</td>
-          <td class="nv-font-bc" scope="col" class="info"><i class="fas fa-ellipsis-h"></i></td>
+          <td class="nv-font-bc" scope="col" class="info">
+            <div class="dropdown">
+              <div class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                <a class="dropdown-item" href="#">Something</a>
+                <a class="dropdown-item" href="#">Something again</a>
+                <a class="dropdown-item" href="#">Another Something</a>
+              </div>
+            </div>
+          </td>
         </tr>
         <tr>
           <td class="nv-font-bc" scope="col">TYPE A</td>
@@ -94,7 +138,18 @@
           <td class="nv-font-bc" scope="col">DESC 1</td>
           <td class="nv-font-bc" scope="col">2</td>
           <td class="nv-font-bc" scope="col">PHP 10,000</td>
-          <td class="nv-font-bc" scope="col" class="info"><i class="fas fa-ellipsis-h"></i></td>
+          <td class="nv-font-bc" scope="col" class="info">
+            <div class="dropdown">
+              <div class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton5">
+                <a class="dropdown-item" href="#">Something</a>
+                <a class="dropdown-item" href="#">Something again</a>
+                <a class="dropdown-item" href="#">Another Something</a>
+              </div>
+            </div>
+          </td>
         </tr>
         <tr>
           <td class="nv-font-bc" scope="col">TYPE A</td>
@@ -105,7 +160,18 @@
           <td class="nv-font-bc" scope="col">DESC 1</td>
           <td class="nv-font-bc" scope="col">2</td>
           <td class="nv-font-bc" scope="col">PHP 10,000</td>
-          <td class="nv-font-bc" scope="col" class="info"><i class="fas fa-ellipsis-h"></i></td>
+          <td class="nv-font-bc" scope="col" class="info">
+            <div class="dropdown">
+              <div class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton6">
+                <a class="dropdown-item" href="#">Something</a>
+                <a class="dropdown-item" href="#">Something again</a>
+                <a class="dropdown-item" href="#">Another Something</a>
+              </div>
+            </div>
+          </td>
         </tr>
         <tr>
           <td class="nv-font-bc" scope="col">TYPE A</td>
@@ -116,7 +182,18 @@
           <td class="nv-font-bc" scope="col">DESC 1</td>
           <td class="nv-font-bc" scope="col">2</td>
           <td class="nv-font-bc" scope="col">PHP 10,000</td>
-          <td class="nv-font-bc" scope="col" class="info"><i class="fas fa-ellipsis-h"></i></td>
+          <td class="nv-font-bc" scope="col" class="info">
+            <div class="dropdown">
+              <div class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
+                <a class="dropdown-item" href="#">Something</a>
+                <a class="dropdown-item" href="#">Something again</a>
+                <a class="dropdown-item" href="#">Another Something</a>
+              </div>
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>
