@@ -1,6 +1,4 @@
-@extends('admin.layout.main')
 
-@section('content')
 
 <link rel="stylesheet" href="{{ asset('admin/css/pages/vehicle-check-list.css') }}">
 
@@ -193,5 +191,3 @@
         </div>
       </div>
 </div>
-
-@endsection

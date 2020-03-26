@@ -348,3 +348,12 @@ box-shadow: !important;
     padding-right: 5px;
     padding-left: 5px;
 }
+
+.nv-spinner{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  height: 3rem;
+  width: 3rem;
+  display: none;
+}

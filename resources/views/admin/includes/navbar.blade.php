@@ -3,7 +3,9 @@
   <div class="nv-navbar-content">
     <a id="sidebarCollapse" class="nv-toggle-button">
         <i class="fas fa-bars"></i>
+      
     </a>
+
     <div class="dropdown">
       <div class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-user"></i>

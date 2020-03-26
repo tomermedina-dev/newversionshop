@@ -121,43 +121,43 @@ top: -10px;
   font-size: 2em;
 }
 
-.input-search-header{
+.nv-input-search-header{
   background-color: #41474f;
   border: none;
 
   text-transform: lowercase;
 }
-.input-search-header:focus{
+.nv-input-search-header:focus{
   background-color: whitesmoke;
   border: none;
   color: none;
   outline: ;
   box-shadow: none;
 }
-.header-contact-details{
+.nv-header-contact-details{
   margin-top: 5px;
 }
-.header-contact-details i{
+.nv-header-contact-details i{
   font-size: 1em;
   padding-left: 10px;
 }
-.header-contact-details i , span{
+.nv-header-contact-details i , span{
   color: white;
 
 }
 .active{
-  border-bottom:  #e1b12c 2px solid;
+  border-bottom:  #fbc531 2px solid;
 
 }
 .active h5 {
-  color : #e1b12c;
+  color : #fbc531;
 }
 
 .nav-link:hover  {
-    color : #e1b12c;
-    border-bottom:  #e1b12c 2px solid;
+    color : #fbc531;
+    border-bottom:  #fbc531 2px solid;
 }
 
 .nav-link:hover h5 {
-    color : #e1b12c;
+    color : #fbc531;
 }

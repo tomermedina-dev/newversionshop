@@ -2,6 +2,9 @@
 <html>
 <head>
 	<title></title>
+	<script type="text/javascript" src="https://cozmo.github.io/jsQR/jsQR.js">
+
+	</script>
 </head>
 <body>
 
@@ -11,6 +14,7 @@
     {!! QrCode::size(250)->generate('1010'); !!}
 
     <p>example by ItSolutionStuf.com.</p>
+
 </div>
 
 </body>
