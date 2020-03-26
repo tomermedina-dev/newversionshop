@@ -1,7 +1,3 @@
-@extends('admin.layout.main')
-
-@section('content')
-
 <link rel="stylesheet" href="{{ asset('admin/css/pages/parts-and-materials-inventory.css') }}">
 
 <div class="nv-pami-content">
@@ -319,5 +315,3 @@
       </li>
     </ul>
 </div>
-
-@endsection

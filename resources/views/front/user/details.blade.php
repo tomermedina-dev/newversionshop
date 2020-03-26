@@ -1,5 +1,5 @@
 <div class="container" >
-  <h1>Welcome to NV - Shop</h1>
+  <h1>Welcome to <br>New Version Shop</h1>
   <div class="d-flex justify-content-center">
     <img style="float:right;" width="150px" src="{{ asset('images/logo_transpa.png') }}" />
   </div>

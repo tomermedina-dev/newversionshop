@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>New Version Shop - Register Now</title>
+    <title>New Version Shop - Login Now</title>
     @include('front.includes.resources-header')
   </head>
   <style media="screen">

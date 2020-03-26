@@ -52,22 +52,14 @@
 
 
    // erron
-   Route::get('/admin/dashboard', function () {
-       return view('admin.pages.dashboard');
-   });
+   Route::group(['prefix'=>'admin',],
+       function() {
+         // dashboard
+         // parts-and-materials-inventory
+         //vehicle-check-list
+         // booked-services-summary
+         // invoicing
+         Route::get('/page/{pageName}', 'Admin\BladePagesController@getAdminBladeIndex')->name('admin.blade.pages.index');
+         Route::get('/home', 'Admin\BladePagesController@getAdminHomeIndex')->name('admin.blade.home.index');
 
-   Route::get('/admin/parts-and-materials-inventory', function () {
-       return view('admin.pages.parts-and-materials-inventory');
-   });
-
-   Route::get('/admin/vehicle-check-list', function () {
-       return view('admin.pages.vehicle-check-list');
-   });
-
-   Route::get('/admin/booked-services-summary', function () {
-       return view('admin.pages.booked-services-summary');
-   });
-
-   Route::get('/admin/invoicing', function () {
-       return view('admin.pages.invoicing');
    });

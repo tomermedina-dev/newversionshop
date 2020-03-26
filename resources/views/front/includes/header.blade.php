@@ -36,7 +36,7 @@
              <li class="nav-item">
                <a class="nav-link active " href="#">
                  <!-- <i class="fas fa-user-plus"></i> -->
-                 <h5>Register</h5>
+                 <h5>Login</h5>
                  </a>
              </li>
              <li class="nav-item ">

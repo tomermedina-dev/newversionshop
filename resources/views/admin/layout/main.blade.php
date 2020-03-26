@@ -16,8 +16,14 @@
           <div id="main-container">
             @yield('content')
           </div>
+
+          <div class="spinner-border nv-spinner" role="status" >
+            <span class="sr-only">Loading...</span>
+          </div>
         </div>
       </div>
+
+
 
 
     @include('admin.pages.resources.footer')
