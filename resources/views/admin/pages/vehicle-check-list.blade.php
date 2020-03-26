@@ -144,6 +144,52 @@
             </div>
           </div>
 
+          <div class="col-lg-4 d-flex justify-content-center">
+            <div class="nv-checkbox">
+              <input class="nv-checkbox" type="checkbox" id="restoration">
+              <label for="restoration">RESTORATION: &nbsp;&nbsp;&nbsp;<i class="far fa-square"></i></label>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-4 d-flex justify-content-center">
+            <div class="nv-checkbox">
+              <input class="nv-checkbox" type="checkbox" id="workrepair">
+              <label for="workrepair">BODY/WORK REPAIR: &nbsp;&nbsp;&nbsp;<i class="far fa-square"></i></label>
+            </div>
+          </div>
+
+          <div class="col-lg-4 d-flex justify-content-center">
+            <div class="nv-checkbox">
+              <input class="nv-checkbox" type="checkbox" id="service">
+              <label for="service">AUTO REPAIR/SERVICE: &nbsp;&nbsp;&nbsp;<i class="far fa-square"></i></label>
+            </div>
+
+          </div>
+
+
+          <div class="col-lg-4 d-flex justify-content-start">
+            <div class="nv-input-group-line">
+              <input class="form-control nv-input-line" type="text" name="" value="">
+              <label for="">WORK AUTHORIZED BY:</label>
+            </div>
+          </div>
+
+          <div class="col-lg-4 d-flex justify-content-center">
+            <div class="nv-input-group-line">
+              <input class="form-control nv-input-line" type="text" name="" value="">
+              <label for="">AUTHORIZED CLIENT SIGNATURE</label>
+            </div>
+          </div>
+
+          <div class="col-lg-4 d-flex justify-content-end">
+            <div class="nv-input-group-line">
+              <input class="form-control nv-input-line" type="text" name="" value="">
+              <label for="">DATE</label>
+            </div>
+          </div>
+
         </div>
       </div>
 </div>

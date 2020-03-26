@@ -63,3 +63,11 @@
    Route::get('/admin/vehicle-check-list', function () {
        return view('admin.pages.vehicle-check-list');
    });
+
+   Route::get('/admin/booked-services-summary', function () {
+       return view('admin.pages.booked-services-summary');
+   });
+
+   Route::get('/admin/invoicing', function () {
+       return view('admin.pages.invoicing');
+   });

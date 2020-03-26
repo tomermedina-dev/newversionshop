@@ -230,6 +230,114 @@ box-shadow: !important;
 
 }
 
+.nv-checkbox{
+    padding: 1rem;
+}
+
+.nv-checkbox input:checked + label > .fa-square:before{
+    content: "\f14a";
+}
+.nv-checkbox input{
+    display: none;
+}
+
+.nv-checkbox label{
+    display: flex;
+    align-items: center;
+}
+
+.nv-checkbox label:hover{
+    cursor: pointer;
+}
+
+.nv-input-group-line{
+  text-align: center;
+}
+
+.nv-input-group-line input{
+  background-color: rgba(0,0,0,0);
+  border: 0;
+  outline: 0;
+  box-shadow: none !important;
+  border-radius: 0;
+  border-bottom: 1px solid #2f3640;
+  min-width: 250px;
+}
+
+.nv-input-group-line input:focus{
+  border-bottom: 1px solid #2f3640;
+}
+
+
+.nv-pagination > .page-item > .page-link{
+      font-family: 'Myriad Pro Bold Condensed';
+      border: 0;
+      border-radius: 5px;
+      padding: .2rem .4rem !important;
+      font-size: 1rem;
+      line-height: 1rem;
+      margin: 1px;
+      color: #2f3640;
+      outline: !important;
+      box-shadow: none !important;
+      border: none !important;
+      transition: .5s;
+}
+
+.nv-pagination > .page-item.active > .page-link{
+  background-color: #dcdde1;
+}
+
+.nv-pagination > .page-item.nv-previous > .page-link{
+  background-color: #fbc531;
+  padding: .2rem .4rem !important;
+  line-height: .7rem;
+  font-size: .7rem;
+  border-radius: .4rem;
+  margin-right: 3px;
+}
+
+.nv-pagination > .page-item.nv-next > .page-link{
+  background-color: #fbc531;
+  padding: .2rem .4rem !important;
+  line-height: .7rem;
+  font-size: .7rem;
+  border-radius: .4rem;
+  margin-left: 3px;
+}
+
+.nv-table-container{
+    border-radius: 5px;
+    overflow-x: auto;
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
+}
+
+.nv-table{
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.nv-table thead{
+  background-color: #fbc531;
+
+}
+
+.nv-table td{
+  text-align: center;
+  border: 0;
+}
+
+.nv-table tbody tr {
+    background-color: #dcdde1;
+}
+
+.nv-table tbody tr:nth-of-type(odd) {
+    background-color: #f5f6fa;
+}
+
 .row{
   margin: 0;
 }
