@@ -19,7 +19,7 @@
               @include('front.user.details')
               <br>
               <div class="d-flex justify-content-center">
-                <button type="button" class="btn nv-btn-mustard" name="button">Have an Account</button>
+                <a href="/register" class="btn nv-btn-mustard" name="button">Have an Account</a>
               </div>
 
               <!-- <div class="d-flex justify-content-center">
@@ -35,7 +35,7 @@
               <br>
               <br>
               <div class="d-flex justify-content-center ">
-                  <h1>Sign In</h1>
+                  <h1>Log In</h1>
               </div>
 
                <div class="">

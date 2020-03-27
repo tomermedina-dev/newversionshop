@@ -3,6 +3,7 @@ Route::group(['prefix'=> 'users' ,],
   function() {
 // Registration
 Route::post('/register', 'Admin\UserController@creteNewOrEditUser')->name('admin.users.register');
+Route::post('/validate-email', 'Admin\UserController@validateEmail')->name('admin.users.validate.email');
 Route::post('/', 'Admin\UserController@creteNewOrEditUser')->name('admin.users.register');
 Route::post('/forgot-password', 'Admin\UserActivationController@forgotPassword')->name('admin.users.forgot.password');
 
@@ -51,5 +52,7 @@ Route::group(['prefix'=>'wishlist',],
         Route::get('/delete/{cartId}', 'Front\WishListController@deleteItemWishList')->name('front.users.wishlist.delete');
   });
 
-Route::get('/register', 'Front\RegistrationController@getRegistrationIndex')->name('front.register.index');
-Route::get('/login', 'Front\LoginController@getLoginIndex')->name('front.login.index');
+
+Route::get('/register', 'Front\BladePagesController@getRegistrationIndex')->name('front.register.index');
+Route::get('/login', 'Front\BladePagesController@getLoginIndex')->name('front.login.index');
+Route::get('/validate', 'Front\BladePagesController@getValidateIndex')->name('front.login.index');
