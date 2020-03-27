@@ -28,31 +28,37 @@
     <div id="nav" class="navbar-collapse collapse w-100 order-3 dual-collapse2" >
          <ul class="navbar-nav ml-auto white">
              <li class="nav-item ">
-               <a class="nav-link" href="#">
+               <a class="nav-link" href="/home">
                  <!-- <i class="fa fa-home"></i> -->
                  <h5>Home</h5>
                  </a>
              </li>
              <li class="nav-item">
-               <a class="nav-link active " href="#">
+               <a class="nav-link active " href="/login">
                  <!-- <i class="fas fa-user-plus"></i> -->
                  <h5>Login</h5>
                  </a>
              </li>
              <li class="nav-item ">
-               <a class="nav-link" href="#">
+               <a class="nav-link" href="/products">
                  <!-- <i class="fa fa-cube"></i> -->
                  <h5>Products</h5>
                  </a>
              </li>
              <li class="nav-item ">
-               <a class="nav-link" href="#">
+               <a class="nav-link" href="/services">
+                 <!-- <i class="fa fa-cube"></i> -->
+                 <h5>Products</h5>
+                 </a>
+             </li>
+             <li class="nav-item ">
+               <a class="nav-link" href="/cars">
                  <!-- <i class="fas fa-car"></i> -->
                  <h5>Cars</h5>
                  </a>
              </li>
              <li class="nav-item ">
-               <a class="nav-link" href="#">
+               <a class="nav-link" href="/about">
                  <!-- <i class="fas fa-user-plus"></i> -->
                  <h5>About</h5>
                  </a>

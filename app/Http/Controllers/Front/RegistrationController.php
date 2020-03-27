@@ -8,9 +8,5 @@ use Illuminate\Http\Request;
 class RegistrationController extends Controller
 {
     //
-    public function getRegistrationIndex()
-    {
-      // code...
-      return view('front.user.register');
-    }
+    
 }

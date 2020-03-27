@@ -39,7 +39,9 @@
       border-top-right-radius:2.5%;
   }
 } */
-
+.nv-swal-message-holder h5{
+	color: gray;
+}
 .nv-btn-txt-mustard {
 	background-color: #2f3640;
 	color: #fbc531;
