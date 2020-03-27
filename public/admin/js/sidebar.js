@@ -10,7 +10,7 @@ var sidebarFunc = new Vue({
           $('#main-container').append(response.data);
           $('.nv-spinner').css('display' , 'none');
         }).catch(error => {
-          errorSwal();
+          swalWentWrong();
       });
     }
   }
