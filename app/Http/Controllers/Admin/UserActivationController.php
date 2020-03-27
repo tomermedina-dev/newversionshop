@@ -10,7 +10,7 @@ use App\Models\Admin\User;
 class UserActivationController extends Controller
 {
     //
-    public function generateUserActivation($userId)
+    public static function generateUserActivation($userId)
     {
       // code...
       $return = "";

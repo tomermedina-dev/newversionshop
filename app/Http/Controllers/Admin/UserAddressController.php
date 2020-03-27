@@ -17,7 +17,7 @@ class UserAddressController extends Controller
          'user_id' => $request->userId ,
          'address_details' => $request->addressDetails ,
          'notes' => $request->notes ,
-         'primary_flag' => ''
+         'primary_flag' => '1'
        ];
        $return = UserAddress::create($credentials);
      }else {
@@ -32,6 +32,18 @@ class UserAddressController extends Controller
 
      return json_encode($return);
    }
+   public static function createAddress($userId , $addressDetails)
+   {
+     // code...
+     $credentials = [
+       'user_id' => $userId ,
+       'address_details' => $addressDetails ,
+       'primary_flag' => '1'
+     ];
+     $return = UserAddress::create($credentials);
+     return json_encode($return);
+   }
+
    public function deleteUserAddress($id)
    {
      // code...
