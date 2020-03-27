@@ -133,6 +133,107 @@ font-family: 'Myriad Pro Bold Condensed Italic';
   font-weight: 900 !important;
 }
 
+
+
+
+
+
+
+.nv-product-card{
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 4px solid #2f3640;
+  overflow: hidden;
+}
+
+.nv-product-card .nv-img-container{
+  background-color: #f5f6fa;
+  width: 100%;
+  padding-top: 110%;
+  position: relative;
+}
+
+.nv-product-card .nv-img-container > img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nv-product-card .nv-img-container > .nv-product-actions{
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.nv-product-card .nv-img-container > .nv-product-actions a{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: inline-block;
+  margin: .5rem;
+  margin-left: 0;
+}
+
+
+
+
+
+.nv-product-card .nv-img-container > .nv-product-actions a i,
+.nv-product-card .nv-img-container > .nv-product-actions .nv-heart-checkbox label i{
+  font-size: 1.2rem;
+}
+
+.nv-product-card .nv-img-container > .nv-product-actions a i,
+.nv-product-card .nv-img-container > .nv-product-actions .nv-heart-checkbox label i{
+  transition: .2s;
+}
+
+.nv-product-card .nv-img-container > .nv-product-actions a:hover i,
+.nv-product-card .nv-img-container > .nv-product-actions .nv-heart-checkbox label:hover i{
+  color:#fbc531;
+}
+
+/* .nv-product-card .nv-img-container > .nv-product-actions .nv-heart-checkbox > input:checked + label > i{
+  font-weight: 900 !important;
+} */
+
+
+
+
+
+.nv-product-card .card-body{
+  padding: .7rem;
+  background-color: #2f3640;
+}
+
+
+.nv-product-card .card-body .nv-name{
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  color: #fff;
+}
+
+.nv-product-card .card-body .nv-category{
+  font-size: .8rem;
+  line-height: .8rem;
+  color: #fff;
+}
+
+.nv-product-card .card-body .nv-price{
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  color: #fff;
+}
+
 .row{
   margin: 0;
 }
