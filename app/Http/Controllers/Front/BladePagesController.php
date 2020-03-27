@@ -25,4 +25,11 @@ class BladePagesController extends Controller
       // code...
         return view('front.user.validation');
     }
+
+    public function getProductBladeIndex($pageName)
+    {
+      // code...
+         return view('front.product.'.$pageName);
+    }
+
 }
