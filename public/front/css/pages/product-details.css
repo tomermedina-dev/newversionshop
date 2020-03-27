@@ -1,0 +1,184 @@
+.nv-details-content{
+  margin-top: 1rem;
+}
+
+
+.nv-details-content > .nv-product-details{
+  margin-bottom: 2rem;
+}
+
+.nv-details-content > .nv-product-details .nv-gallery{
+  margin-right: 7.5px;
+  margin-left: 7.5px;
+}
+
+.nv-details-content > .nv-product-details .nv-gallery > .nv-selected{
+  background-color: #f5f6fa;
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  border-top: 3px solid #2f3640;
+  border-radius: 5px;
+}
+
+.nv-details-content > .nv-product-details .nv-gallery > .nv-selected > img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.nv-details-content > .nv-product-details .nv-gallery > .nv-lists{
+  position: relative;
+}
+
+.nv-details-content > .nv-product-details .nv-gallery > .nv-lists > .nv-indicators{
+  flex-grow: 1;
+}
+
+.nv-details-content > .nv-product-details .nv-gallery > .nv-lists > .nv-indicators  .nv-thumbnails{
+  padding: .25rem;
+}
+
+.nv-details-content > .nv-product-details .nv-gallery > .nv-lists > .nv-indicators .nv-thumbnails > .nv-img-container{
+  width: 100%;
+  padding-top: 100%;
+  background-color: #f5f6fa;
+  position: relative;
+  border-radius: 5px;
+}
+
+.nv-details-content > .nv-product-details .nv-gallery > .nv-lists > .nv-indicators  .nv-thumbnails > .nv-img-container > img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.nv-details-content > .nv-product-details .nv-gallery > .nv-lists > .nv-controls{
+  font-size: 1.5rem;
+}
+
+.nv-details-content > .nv-product-details .nv-gallery > .nv-lists > .nv-controls:hover > i{
+  color: #fbc531;
+  cursor: pointer;
+}
+
+.nv-details-content > .nv-product-details .nv-gallery > .nv-lists > .nv-controls:first-child{
+  margin-right: .5rem;
+}
+
+.nv-details-content > .nv-product-details .nv-gallery > .nv-lists > .nv-controls:last-child{
+  margin-left: .5rem;
+}
+
+.nv-details-content > .nv-product-details .nv-labels{
+  margin-right: 7.5px;
+  margin-left: 7.5px;
+}
+
+.nv-details-content > .nv-product-details .nv-labels .nv-details-header .nv-name{
+  font-size: 3rem;
+}
+
+.nv-details-content > .nv-product-details .nv-labels .nv-details-header .nv-brands .nv-brand{
+  margin: .25rem;
+  padding: .1rem 1rem;
+  background-color: #fbc531;
+  border-radius: 5px;
+  font-size: .75rem;
+
+}
+
+.nv-details-content > .nv-product-details .nv-labels .nv-details-header .nv-brands .nv-heart-checkbox i{
+  font-size: 1.5rem;
+  margin-left: .5rem;
+}
+
+.nv-details-content > .nv-product-details .nv-ratings i{
+  font-size: 1.3rem;
+  color: #fbc531;
+}
+
+.nv-details-content > .nv-product-details .nv-ratings .nv-percentage{
+  margin-left: .5rem;
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+}
+
+.nv-details-content > .nv-product-details .nv-price {
+  font-size: 4rem;
+  line-height: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  color: #fbc531;
+}
+
+.nv-details-content > .nv-product-details .nv-quantity{
+  margin-bottom: 2rem;
+}
+
+.nv-details-content > .nv-product-details .nv-quantity .nv-label{
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  margin-right: .5rem;
+}
+
+.nv-details-content > .nv-product-details .nv-quantity .nv-quantity-input-group .nv-actual-quantity{
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+}
+
+.nv-details-content > .nv-product-details .nv-quantity .nv-quantity-input-group a{
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  margin-left: .5rem;
+  background-color: #fff;
+  border: 0;
+  margin-right: .5rem;
+}
+
+.nv-details-content > .nv-product-details .nv-line{
+  width: 100%;
+  height: 1px;
+  background-color: #dcdde1;
+  margin-bottom: 2rem;
+}
+
+.nv-details-content > .nv-product-details .nv-product-description .nv-header{
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.nv-details-content > .nv-specification{
+  margin-bottom: 2rem;
+}
+
+.nv-details-content > .nv-specification .nv-header{
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.nv-details-content > .nv-specification .nv-label{
+  font-size: 1.1rem;
+  line-height: 1.1rem;
+  margin-bottom: 2px;
+  color: #718093;
+}
+
+.nv-details-content > .nv-specification .nv-value{
+  font-size: 1.1rem;
+  line-height: 1.1rem;
+}
+
+.nv-details-content > .nv-line{
+  width: 100%;
+  height: 1px;
+  background-color: #dcdde1;
+  margin-bottom: 2rem;
+}

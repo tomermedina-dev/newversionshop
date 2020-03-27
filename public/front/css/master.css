@@ -114,6 +114,25 @@ font-family: 'Myriad Pro Bold Condensed Italic';
   box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
 }
 
+.nv-heart-checkbox > input{
+  display: none;
+}
+
+.nv-heart-checkbox label{
+  margin: .5rem;
+  margin-left: 0;
+  padding: 0;
+}
+
+.nv-heart-checkbox label:hover{
+  cursor: pointer;
+}
+
+
+.nv-heart-checkbox > input:checked + label > i{
+  font-weight: 900 !important;
+}
+
 .row{
   margin: 0;
 }

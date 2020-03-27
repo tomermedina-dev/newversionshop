@@ -270,7 +270,7 @@ margin-right: 1rem;
 
 
 
-.nv-product-grid .nv-product-card .nv-img-container > .nv-product-actions .nv-heart-checkbox > input{
+/* .nv-product-grid .nv-product-card .nv-img-container > .nv-product-actions .nv-heart-checkbox > input{
   display: none;
 }
 
@@ -283,7 +283,7 @@ margin-right: 1rem;
 
 .nv-product-grid .nv-product-card .nv-img-container > .nv-product-actions .nv-heart-checkbox label:hover{
   cursor: pointer;
-}
+} */
 
 .nv-product-grid .nv-product-card .nv-img-container > .nv-product-actions a i,
 .nv-product-grid .nv-product-card .nv-img-container > .nv-product-actions .nv-heart-checkbox label i{
@@ -300,9 +300,9 @@ margin-right: 1rem;
   color:#fbc531;
 }
 
-.nv-product-grid .nv-product-card .nv-img-container > .nv-product-actions .nv-heart-checkbox > input:checked + label > i{
+/* .nv-product-grid .nv-product-card .nv-img-container > .nv-product-actions .nv-heart-checkbox > input:checked + label > i{
   font-weight: 900 !important;
-}
+} */
 
 
 

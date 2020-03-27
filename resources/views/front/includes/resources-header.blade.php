@@ -13,3 +13,6 @@
 <link rel="stylesheet" href="{{ asset('sweetalert/css/sweetalert2.css') }}">
 <script src="{{ asset('sweetalert\js\sweetalert2.all.min.js') }}" ></script>
 <script src="{{ asset('sweetalert\js\swal-alerts.js') }}" ></script>
+
+<script src="{{ asset('jquery\js\jquery.slim.js') }}" charset="utf-8"></script>
+<script src="{{ asset('jquery\js\jquery.min.js') }}" charset="utf-8"></script>
