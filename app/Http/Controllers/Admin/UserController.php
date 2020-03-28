@@ -8,7 +8,8 @@ use App\Models\Admin\User;
 
 use App\Http\Controllers\Admin\UserAddressController;
 use App\Http\Controllers\Admin\UserActivationController;
-use Crypt;
+use Illuminate\Support\Facades\Hash;
+use Session;
 class UserController extends Controller
 {
     //
@@ -21,7 +22,7 @@ class UserController extends Controller
           'first_name' => $request->first_name ,
           'last_name' => $request->last_name ,
           'username' =>  $request->username,
-          'password' => Crypt::encryptString($request->password),
+          'password' =>  Hash::make($request->password),
           'contact_num' => $request-> contact,
           'email' => $request->email ,
           'status' => '0'
@@ -30,6 +31,8 @@ class UserController extends Controller
         $userId = str_pad( $return->id, 10, '0', STR_PAD_LEFT) ;
         UserAddressController::createAddress( $userId, $request->address);
         UserActivationController::generateUserActivation($userId);
+        Session::put('userId' , $userId);
+        Session::put('role' , 'client');
       }else {
         // code...
         $credentials = [
@@ -65,5 +68,14 @@ class UserController extends Controller
         return 0;
       }
 
+    }
+
+    public function logout()
+    {
+      // code...
+      session()->forget('userId');
+      session()->forget('role');
+      session()->flush();
+      return redirect('/');
     }
 }

@@ -20,7 +20,7 @@
               @include('front.user.details')
               <br>
             <div class="d-flex justify-content-center">
-              <a href="/login" class="btn nv-btn-mustard" name="button">LogIn</a>
+              <a href="/login" class="btn nv-btn-mustard" name="button">Log In</a>
             </div>
           </div>
           <div class="nv-container-right col-sm-7 shadow-lg p-3 mb-5 white-bg" style="padding:2%;">

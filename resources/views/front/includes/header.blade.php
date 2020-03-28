@@ -33,12 +33,14 @@
                  <h5>Home</h5>
                  </a>
              </li>
-             <li class="nav-item">
-               <a class="nav-link active " href="/login">
-                 <!-- <i class="fas fa-user-plus"></i> -->
-                 <h5>Login</h5>
-                 </a>
-             </li>
+             @if(!session()->has('userId'))
+               <li class="nav-item">
+                 <a class="nav-link active " href="/login">
+                   <!-- <i class="fas fa-user-plus"></i> -->
+                   <h5>Login</h5>
+                   </a>
+               </li>
+             @endif
              <li class="nav-item ">
                <a class="nav-link" href="/products">
                  <!-- <i class="fa fa-cube"></i> -->
@@ -48,7 +50,7 @@
              <li class="nav-item ">
                <a class="nav-link" href="/services">
                  <!-- <i class="fa fa-cube"></i> -->
-                 <h5>Products</h5>
+                 <h5>Services</h5>
                  </a>
              </li>
              <li class="nav-item ">
@@ -69,6 +71,19 @@
                  <!-- <h5>cart</h5> -->
                  </a>
              </li>
+             @if(session()->has('userId'))
+             <li class="nav-item ">
+               <div class="dropdown" >
+                 <div style="margin-top:15px;" class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   <i class="fa fa-user-circle"></i>
+                 </div>
+                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                   <a class="dropdown-item" href="#">View Profile</a>
+                   <a class="dropdown-item" href="/logout">Logout</a>
+                 </div>
+               </div>
+             </li>
+             @endif
          </ul>
      </div>
 

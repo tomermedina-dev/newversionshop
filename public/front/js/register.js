@@ -1,7 +1,7 @@
 var formRegister = new FormData();
 var captcha_val ;
 var correctCaptcha = function(response) {captcha_val = response;};
-
+var generatedCode ;
 var registerEmailErr = "";
 var registerPassErr = "";
 Vue.component('nv-component-register', {
@@ -15,7 +15,8 @@ Vue.component('nv-component-register', {
       confirm_password: "" ,
       contact : "" ,
       address : "" ,
-      terms  : ""
+      terms  : "" ,
+      code : ""
     }
   },
   template: `
@@ -50,13 +51,26 @@ Vue.component('nv-component-register', {
           <div class="form-group">
             <input v-model="confirm_password" type="password" class="form-control nv-input-custom" id="confirm_password" placeholder="Confirm Password">
           </div>
-
-          <div class="form-group">
-            <input v-model="contact" onkeypress="return isNumber(event)" type="text" class="form-control nv-input-custom" id="contact_no" placeholder="Contact No.">
-          </div>
           <div class="form-group">
             <input v-model="address" type="text" class="form-control nv-input-custom" id="address" placeholder="Address">
           </div>
+          <div class="form-group">
+            <input v-model="contact" onkeypress="return isNumber(event)" type="text" class="form-control nv-input-custom" id="contact_no" placeholder="Contact No.">
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+                <a v-on:click="generateCode" id="nv-btn-sms-code" class="badge badge-dark text-white"  style="font-size: 1em;cursor:pointer;margin:1%;">Get SMS verificaion code</a>
+            </div>
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-7">
+              <div class="form-group">
+                <input style="display:none;" v-model="code" onkeypress="return isNumber(event)" type="text" class="form-control nv-input-custom" id="code" placeholder="Enter verification code ">
+              </div>
+            </div>
+          </div>
+
+
         </div>
       </div>
     </div>
@@ -88,7 +102,7 @@ Vue.component('nv-component-register', {
       swalLoading('Sending registration...');
       axios.post('/users/register',formRegister)
       .then(function(response){
-        window.location.href = "/validate";
+        window.location.href = "/cart";
       })
       .catch(function (error) {
         swalWentWrong();
@@ -124,6 +138,12 @@ Vue.component('nv-component-register', {
       if (!this.contact){
         return "Please enter your contact number.";
       }
+      if (!this.code){
+        return "Please enter verification code.";
+      }
+      if (this.code != generatedCode){
+        return "Invalid code.";
+      }
       if (!this.address){
         return "Please enter your address.";
       }
@@ -141,7 +161,7 @@ Vue.component('nv-component-register', {
       }
       if (registerPassErr == 1){
          return "Please enter atleast 6 character password.";
-       }
+      }
     } ,
     validateEmail : function(){
       //alert(this.register_email);
@@ -161,7 +181,6 @@ Vue.component('nv-component-register', {
                       registerEmailErr = 0;
                       $("#err_email").text("");
                     }
-
                   }
                   )
                   .catch(function (error) {
@@ -185,6 +204,21 @@ Vue.component('nv-component-register', {
           $("#err_pass").text("Please enter atleast 6 character password.");
           registerPassErr = 1;
         }
+    },
+    generateCode : function(){
+      if (this.contact){
+        swalLoading("Sending verificaion code. Please wait.");
+        axios.get('/users/activation/generate').then(function(response) {
+          swalSuccess("Verification code has been sent.");
+          generatedCode = response.data;
+          $("#nv-btn-sms-code").text("Re-send SMS verificaion code");
+          $("#code").show();
+        }).catch(function(error) {
+            swalWentWrong();
+        }).finally(function (response) {});;
+      }else{
+        swalError("Please enter your contact number first.");
+      }
     }
   }
 });

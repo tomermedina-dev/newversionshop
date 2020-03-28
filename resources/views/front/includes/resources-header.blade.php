@@ -16,3 +16,6 @@
 
 <script src="{{ asset('jquery\js\jquery.slim.js') }}" charset="utf-8"></script>
 <script src="{{ asset('jquery\js\jquery.min.js') }}" charset="utf-8"></script>
+<script type="text/javascript">
+  var userId = "{{ session('userId') != null ? session('userId') : 0}}";
+</script>
