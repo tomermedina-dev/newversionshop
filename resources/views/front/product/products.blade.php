@@ -154,10 +154,10 @@
                 </div>
 
               </div>
-              <img src="" >
+              <img src="{{ asset('images/logo_transpa.png')}}" >
             </div>
             <div class="card-body d-flex justify-content-between align-items-center">
-              <div class="">
+              <div class="{{ asset('images/logo_transpa.png')}}">
                 <div class="nv-name nv-font-bc">
                   Product 1
                 </div>
@@ -183,10 +183,10 @@
                 </div>
 
               </div>
-              <img src="" >
+              <img src="{{ asset('images/logo_transpa.png')}}" >
             </div>
             <div class="card-body d-flex justify-content-between align-items-center">
-              <div class="">
+              <div class="{{ asset('images/logo_transpa.png')}}">
                 <div class="nv-name nv-font-bc">
                   Product 1
                 </div>
@@ -212,10 +212,10 @@
                 </div>
 
               </div>
-              <img src="" >
+              <img src="{{ asset('images/logo_transpa.png')}}" >
             </div>
             <div class="card-body d-flex justify-content-between align-items-center">
-              <div class="">
+              <div class="{{ asset('images/logo_transpa.png')}}">
                 <div class="nv-name nv-font-bc">
                   Product 1
                 </div>
@@ -241,10 +241,10 @@
                 </div>
 
               </div>
-              <img src="" >
+              <img src="{{ asset('images/logo_transpa.png')}}" >
             </div>
             <div class="card-body d-flex justify-content-between align-items-center">
-              <div class="">
+              <div class="{{ asset('images/logo_transpa.png')}}">
                 <div class="nv-name nv-font-bc">
                   Product 1
                 </div>
@@ -270,10 +270,10 @@
                 </div>
 
               </div>
-              <img src="" >
+              <img src="{{ asset('images/logo_transpa.png')}}" >
             </div>
             <div class="card-body d-flex justify-content-between align-items-center">
-              <div class="">
+              <div class="{{ asset('images/logo_transpa.png')}}">
                 <div class="nv-name nv-font-bc">
                   Product 1
                 </div>
@@ -299,10 +299,10 @@
                 </div>
 
               </div>
-              <img src="" >
+              <img src="{{ asset('images/logo_transpa.png')}}" >
             </div>
             <div class="card-body d-flex justify-content-between align-items-center">
-              <div class="">
+              <div class="{{ asset('images/logo_transpa.png')}}">
                 <div class="nv-name nv-font-bc">
                   Product 1
                 </div>

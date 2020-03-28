@@ -14,7 +14,7 @@
     @include('front.includes.header')
     <div class="d-flex justify-content-center" >
       <div class="container "  style="padding:5%;">
-        <div class="row ">
+        <div class="row"  id="nv-login">
           <div  class="nv-container-left col-sm-5 container shadow-lg p-3 mb-5 nv-bg-dark" style="padding:2%;">
               @include('front.user.details')
               <br>
@@ -47,41 +47,14 @@
                <br>
 
               <div class="d-flex justify-content-center " style="margin-top:20px;">
-              <div class="container nv-login-form " style="width:70%;">
-                <label for="username"  >Username</label>
-                <div class="form-group">
-                  <div class="input-group-prepend">
-                     <span class="input-group-text nv-input-icon-plain"   ><i class="left fa fa-user-circle text-black"aria-hidden="true"></i></span>
-                     <input type="text" class="left form-control nv-input-custom" id="username" placeholder="Enter your username">
-                   </div>
-                </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <div class="input-group-prepend">
-                     <span class="input-group-text nv-input-icon-plain"   ><i class="left fa fa-lock text-black"aria-hidden="true"></i></span>
-                    <input type="text" class="form-control nv-input-custom" id="password" placeholder="Enter your password">
-                   </div>
-                </div>
-                <div class="container d-flex justify-content-center">
-                  <div class="d-flex flex-nowrap">
-                    <div class="order-1 p-2">  <button type="button" class="btn nv-btn-txt-white" name="button">Log Me in</button> </div>
-                    <div class="order-2 p-2 nv-horizontal-center">
-                      <div class="custom-control custom-checkbox  ">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1">Remember Me</label>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
+                <nv-component-login></nv-component-login> 
               </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+
   </body>
   @include('front.includes.resources-footer')
+  <script src="{{ asset('front/js/login.js') }}" ></script>
 </html>
