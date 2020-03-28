@@ -56,3 +56,6 @@ Route::group(['prefix'=>'wishlist',],
 Route::get('/register', 'Front\BladePagesController@getRegistrationIndex')->name('front.register.index');
 Route::get('/login', 'Front\BladePagesController@getLoginIndex')->name('front.login.index');
 Route::get('/validate', 'Front\BladePagesController@getValidateIndex')->name('front.login.index');
+
+
+Route::get('/page/{pageName}', 'Front\BladePagesController@getProductBladeIndex')->name('front.products.index'); 

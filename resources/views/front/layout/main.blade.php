@@ -10,7 +10,7 @@
   <body>
     @include('front.includes.header')
     <div class="container">
-
+      @yield('content')
     </div>
   </body>
   @include('front.includes.resources-footer')
