@@ -49,4 +49,10 @@ class BladePagesController extends Controller
       // code...
          return view('front.product.product-details');
     }
+    public function getProductCartIndex()
+    {
+      // code...
+         return view('front.product.cart');
+    }
+
 }
