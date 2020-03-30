@@ -54,5 +54,10 @@ class BladePagesController extends Controller
       // code...
          return view('front.product.cart');
     }
+    public function getProductCheckoutIndex()
+    {
+      // code...
+         return view('front.product.checkout');
+    }
 
 }
