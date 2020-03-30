@@ -59,10 +59,11 @@ Route::group(['prefix'=>'products',],
   function() {
     Route::get('/', 'Front\BladePagesController@getProductBladeIndex')->name('front.products.index');
     Route::get('/details', 'Front\BladePagesController@getProductDetailsIndex')->name('front.products.details');
+    Route::get('/cart', 'Front\BladePagesController@getProductCartIndex')->name('front.products.details');
   });
 
 
-Route::get('/', 'Front\BladePagesController@getHomeIndex')->name('front.home.index');  
+Route::get('/', 'Front\BladePagesController@getHomeIndex')->name('front.home.index');
 Route::get('/register', 'Front\BladePagesController@getRegistrationIndex')->name('front.register.index');
 Route::get('/login', 'Front\BladePagesController@getLoginIndex')->name('front.login.index');
 Route::get('/validate', 'Front\BladePagesController@getValidateIndex')->name('front.login.index');

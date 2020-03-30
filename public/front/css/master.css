@@ -136,6 +136,47 @@ font-family: 'Myriad Pro Bold Condensed Italic';
 
 
 
+.nv-stroke-checkbox input:checked + label > .fa-square:before{
+    content: "\f14a";
+}
+.nv-stroke-checkbox input{
+    display: none;
+}
+
+.nv-stroke-checkbox label{
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.nv-stroke-checkbox label:hover{
+    cursor: pointer;
+}
+
+
+.nv-solid-checkbox input:checked + label > .fa-square:before{
+    content: "\f14a";
+}
+
+.nv-solid-checkbox input:checked + label > .fa-square{
+    font-weight: 900;
+}
+
+.nv-solid-checkbox input{
+    display: none;
+}
+
+.nv-solid-checkbox label{
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.nv-solid-checkbox label:hover{
+    cursor: pointer;
+}
+
+
 
 
 
@@ -207,7 +248,19 @@ font-family: 'Myriad Pro Bold Condensed Italic';
 } */
 
 
+.nv-btn-mustard{
+  background-color: #fbc531;
+  color: #f5f6fa !important;
+  border-radius: 3px !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  width: 100%;
+  font-size: 1.5rem;
+}
 
+.nv-btn-mustard:hover{
+  background-color: #e1b12c;
+}
 
 
 .nv-product-card .card-body{
