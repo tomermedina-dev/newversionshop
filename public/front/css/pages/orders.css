@@ -1,0 +1,111 @@
+.nv-profile-content{
+  margin-top: 1rem;
+  border-radius: 5px;
+}
+
+
+.nv-profile-content .row > div{
+  padding-right: .4rem;
+  padding-left: .4rem;
+  margin-bottom: .8rem;
+}
+
+/* .nv-profile-content .nv-sidenav{
+  border-radius: 5px;
+  border-top: 3px solid #2f3640;
+  padding: 1rem;
+  background-color: #f5f6fa;
+}
+
+.nv-profile-content .nv-sidenav .nv-badge{
+  display: inline-block;
+  font-size: .8rem;
+  line-height: .8rem;
+  padding: .3rem;
+  background-color: #fbc531;
+  border-radius: 3px;
+  margin-bottom: 16px;
+}
+
+.nv-profile-content .nv-sidenav .nv-sidenav-lists{
+  list-style: none;
+  padding: 0;
+}
+
+.nv-profile-content .nv-sidenav .nv-sidenav-lists .nv-items{
+  margin-left: 20px;
+}
+
+.nv-profile-content .nv-sidenav .nv-sidenav-lists .nv-items a,
+.nv-profile-content .nv-sidenav .nv-sidenav-lists .nv-items a:visited{
+  color: #2f3640;
+  transition: .2s;
+}
+
+.nv-profile-content .nv-sidenav .nv-sidenav-lists .nv-items a:hover{
+  color: #fbc531;
+  text-decoration: none;
+}
+
+.nv-profile-content .nv-sidenav .nv-sidenav-lists .nv-header{
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  margin-bottom: 16px;
+} */
+
+
+
+/* .nv-profile-content .nv-my-orders > .nv-header{
+  margin-left: .4rem;
+  font-size: 1.5rem;
+} */
+
+
+
+
+.nv-profile-content .nv-my-orders .card.nv-units{
+  height: 100%;
+  border: 0;
+  background-color: #f5f6fa;
+  overflow: hidden;
+}
+
+
+.nv-profile-content .nv-my-orders .card.nv-units .card-header{
+  border: 0;
+  border-bottom: 1px solid #dcdde1;
+  background-color: #f5f6fa;
+  padding: .7rem;
+}
+
+
+.nv-profile-content .nv-my-orders .card.nv-units .card-header .nv-label{
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+}
+
+
+.nv-profile-content .nv-my-orders .card.nv-units .card-body{
+  padding: 0;
+  overflow-x: auto;
+}
+
+.nv-profile-content .nv-my-orders .card.nv-units .card-body .table thead > tr > td{
+  color: #fbc531;
+}
+
+.nv-profile-content .nv-my-orders .card.nv-units .card-body .table tr > td,
+.nv-profile-content .nv-my-orders .card.nv-units .card-body .table tr > th{
+    border: 0;
+    white-space: nowrap;
+}
+
+.nv-profile-content .nv-my-orders .card.nv-units .card-body .table tbody .nv-actions a,
+.nv-profile-content .nv-my-orders .card.nv-units .card-body .table tbody .nv-actions a:visited{
+  color: #2f3640;
+}
+
+.nv-profile-content .nv-my-orders .card.nv-units .card-body .table tbody .nv-actions a:hover{
+  color: #fbc531;
+  text-decoration: none;
+}
