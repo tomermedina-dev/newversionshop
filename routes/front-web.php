@@ -70,3 +70,8 @@ Route::get('/register', 'Front\BladePagesController@getRegistrationIndex')->name
 Route::get('/login', 'Front\BladePagesController@getLoginIndex')->name('front.login.index');
 Route::get('/validate', 'Front\BladePagesController@getValidateIndex')->name('front.login.index');
 Route::get('/logout', 'Admin\UserController@logout')->name('front.logout  ');
+
+Route::get('/user/profile', 'Front\BladePagesController@getUserProfileIndex')->name('front.user.profile  ');
+Route::get('/user/recent-orders', 'Front\BladePagesController@getUserRecentOrdersIndex')->name('front.user.recent-orders');
+Route::get('/user/returns', 'Front\BladePagesController@getUserReturnsIndex')->name('front.user.returns');
+Route::get('/user/cacellations', 'Front\BladePagesController@getUserCancellationsIndex')->name('front.user.cancellations');

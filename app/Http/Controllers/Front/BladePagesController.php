@@ -60,4 +60,28 @@ class BladePagesController extends Controller
          return view('front.product.checkout');
     }
 
+    public function getUserProfileIndex()
+    {
+      // code...
+      return view('front.user.profile');
+    }
+
+    public function getUserRecentOrdersIndex()
+    {
+      // code...
+      return view('front.user.recent-orders');
+    }
+
+    public function getUserReturnsIndex()
+    {
+      // code...
+      return view('front.user.returns');
+    }
+
+    public function getUserCancellationsIndex()
+    {
+      // code...
+      return view('front.user.cancellations');
+    }
+
 }
