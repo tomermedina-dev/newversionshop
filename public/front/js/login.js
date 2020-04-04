@@ -27,6 +27,7 @@ Vue.component('nv-component-login' , {
             <div class="custom-control custom-checkbox  ">
               <input v-model="password" type="checkbox" class="custom-control-input" id="customCheck1">
               <!---<label class="custom-control-label" for="customCheck1">Remember Me</label>-->
+              <a   href="/forgot"   class="badge text-black"  style="font-size: 1em;cursor:pointer;margin:1%;">Forgot Password?</a>
             </div>
           </div>
 
