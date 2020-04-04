@@ -21,18 +21,7 @@ Vue.component('nv-component-login' , {
          </div>
       </div>
       <div class="container d-flex justify-content-center">
-        <div class="d-flex flex-nowrap">
-          <div class="order-1 p-2">  <button type="button" v-on:click="submitLogin" class="btn nv-btn-txt-white" name="button">Log Me in</button> </div>
-          <div class="order-2 p-2 nv-horizontal-center">
-            <div class="custom-control custom-checkbox  ">
-              <input v-model="password" type="checkbox" class="custom-control-input" id="customCheck1">
-              <!---<label class="custom-control-label" for="customCheck1">Remember Me</label>-->
-              <a   href="/forgot"   class="badge text-black"  style="font-size: 1em;cursor:pointer;margin:1%;">Forgot Password?</a>
-            </div>
-          </div>
-
-        </div>
-
+        <button type="button" v-on:click="submitLogin" class="btn nv-btn-txt-white" name="button">Log Me in</button>
       </div>
     </div>` ,
     methods : {
@@ -44,11 +33,11 @@ Vue.component('nv-component-login' , {
           var formLogin = new FormData();
           formLogin.append('username' , t.username);
           formLogin.append('password' , t.password);
-          axios.post('/users/login' ,formLogin ).then(function(response) {
+          axios.post('/admin/login' ,formLogin ).then(function(response) {
             var response = response.data;
 
             if(response == 1){
-              swalSuccess("User found.");
+              window.location.href = "/admin/home";
             }else {
               swalError(response);
             }

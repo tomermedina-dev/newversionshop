@@ -3,7 +3,7 @@
   <div class="nv-navbar-content">
     <a id="sidebarCollapse" class="nv-toggle-button">
         <i class="fas fa-bars"></i>
-      
+
     </a>
 
     <div class="dropdown">
@@ -13,9 +13,9 @@
         <i class="fas fa-angle-down"></i>
       </div>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Something</a>
-        <a class="dropdown-item" href="#">Something again</a>
-        <a class="dropdown-item" href="#">Another Something</a>
+        <a class="dropdown-item" href="/logout">Logout</a>
+        <!-- <a class="dropdown-item" href="#">Something again</a>
+        <a class="dropdown-item" href="#">Another Something</a> -->
       </div>
     </div>
   </div>

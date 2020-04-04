@@ -27,3 +27,11 @@
 .nv-input-group-custom > .input-group-prepend > .input-group-text{
   width: 115px;
 }
+
+.item-list td input {
+  background: transparent;
+  border: none;
+  align-content: center;
+  text-align: center;
+  font-size: 1.5em;
+}

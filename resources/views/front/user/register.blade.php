@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>New Version Shop - Register Now</title>
-    @include('front.includes.resources-header')
-  </head>
-  <style media="screen">
-    .g-recaptcha > div { margin: 0 auto;}
-        .hidden_recaptcha { visibility: hidden;}
-  </style>
-  <body>
-    @include('front.includes.header')
+@extends('front.layout.main')
 
+@section('content')
+<style media="screen">
+  .g-recaptcha > div { margin: 0 auto;}
+      .hidden_recaptcha { visibility: hidden;}
+</style>
     <div class="d-flex justify-content-center" id="nv-register">
       <div class="container " style="padding:5%;">
         <div class="row ">
@@ -36,8 +28,5 @@
       </div>
     </div>
     <script src='https://www.google.com/recaptcha/api.js'></script>
-  </body>
-
-  @include('front.includes.resources-footer')
-  <script src="{{ asset('front/js/register.js') }}" ></script>
-</html>
+<script src="{{ asset('front/js/register.js') }}" ></script>
+@endsection
