@@ -6,10 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Admin\UserActivation;
+use App\Models\Admin\User;
 class UserActivationController extends Controller
 {
     //
-    public function generateUserActivation($userId)
+    public static function generateUserActivation($userId)
     {
       // code...
       $return = "";
@@ -59,6 +60,20 @@ class UserActivationController extends Controller
         $return = 1 ;
       }else {
         $return = 0;
+      }
+      return $return;
+    }
+    public function forgotPassword(Request $request)
+    {
+      // code...
+      $return = array();
+      $userDetails = User::where('email' , $request->email)->first();
+      if($userDetails){
+        self::generateUserActivation($userDetails->id);
+        return "success";
+
+      }else{
+        $return['error'] = 'Email not found';
       }
       return $return;
     }

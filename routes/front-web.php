@@ -3,11 +3,15 @@ Route::group(['prefix'=> 'users' ,],
   function() {
 // Registration
 Route::post('/register', 'Admin\UserController@creteNewOrEditUser')->name('admin.users.register');
+Route::post('/validate-email', 'Admin\UserController@validateEmail')->name('admin.users.validate.email');
 Route::post('/', 'Admin\UserController@creteNewOrEditUser')->name('admin.users.register');
+Route::post('/forgot-password', 'Admin\UserActivationController@forgotPassword')->name('admin.users.forgot.password');
+Route::post('/login', 'Front\LoginController@validateAccount')->name('front.users.register');
 
 Route::group(['prefix'=>'activation',],
   function() {
-    Route::get('/generate/{userId}', 'Admin\UserActivationController@generateUserActivation')->name('admin.users.activation.generate');
+    Route::get('/generate', 'Admin\UserActivationController@generateSMSCode')->name('admin.users.generate');
+    Route::get('/resend/{userId}', 'Admin\UserActivationController@generateUserActivation')->name('admin.users.activation.generate');
     Route::get('/validate/{userId}/{activationCode}', 'Admin\UserActivationController@validateActivationCode')->name('admin.users.activation.generate');
   });
 
@@ -49,3 +53,25 @@ Route::group(['prefix'=>'wishlist',],
         Route::post('/new', 'Front\WishListController@addItemToWishList')->name('front.users.wishlist.new');
         Route::get('/delete/{cartId}', 'Front\WishListController@deleteItemWishList')->name('front.users.wishlist.delete');
   });
+
+
+Route::group(['prefix'=>'products',],
+  function() {
+    Route::get('/', 'Front\BladePagesController@getProductBladeIndex')->name('front.products.index');
+    Route::get('/details', 'Front\BladePagesController@getProductDetailsIndex')->name('front.products.details');
+    Route::get('/cart', 'Front\BladePagesController@getProductCartIndex')->name('front.products.cart');
+    Route::get('/checkout', 'Front\BladePagesController@getProductCheckoutIndex')->name('front.products.checkout');
+
+  });
+
+
+Route::get('/', 'Front\BladePagesController@getHomeIndex')->name('front.home.index');
+Route::get('/register', 'Front\BladePagesController@getRegistrationIndex')->name('front.register.index');
+Route::get('/login', 'Front\BladePagesController@getLoginIndex')->name('front.login.index');
+Route::get('/validate', 'Front\BladePagesController@getValidateIndex')->name('front.login.index');
+Route::get('/logout', 'Admin\UserController@logout')->name('front.logout  ');
+
+Route::get('/user/profile', 'Front\BladePagesController@getUserProfileIndex')->name('front.user.profile  ');
+Route::get('/user/recent-orders', 'Front\BladePagesController@getUserRecentOrdersIndex')->name('front.user.recent-orders');
+Route::get('/user/returns', 'Front\BladePagesController@getUserReturnsIndex')->name('front.user.returns');
+Route::get('/user/cacellations', 'Front\BladePagesController@getUserCancellationsIndex')->name('front.user.cancellations');

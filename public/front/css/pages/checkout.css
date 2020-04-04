@@ -1,0 +1,179 @@
+.nv-checkout-content{
+    margin-top: 1rem;
+}
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-actions{
+  background-color: #f5f6fa;
+  border-radius: 5px;
+    padding: .7rem;
+    margin-bottom: .7rem;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-products{
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-products .nv-checkout-items{
+    padding: .7rem;
+      background-color: #f5f6fa;
+      border: 0;
+        line-height: 1rem;
+        padding-top: 1.5rem;
+}
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-products .nv-checkout-items .nv-delete-button{
+  position: absolute;
+  left: 0;
+  bottom: -2rem;
+
+}
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-products .nv-checkout-items .nv-delete-button:hover{
+  cursor: pointer;
+}
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-products .nv-checkout-items .nv-delete-button i{
+  font-size: 1.5rem;
+}
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-products .nv-checkout-items .nv-solid-checkbox label i{
+  color: #fbc531;
+}
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-products .nv-checkout-items:first-child{
+      border-bottom: 1px solid #dcdde1;
+      padding: .7rem;
+}
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-products .nv-checkout-items:last-child{
+      padding-bottom: 1.5rem;
+}
+
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-items .nv-thumbnail{
+  position: relative;
+  flex-grow: 1;
+  min-width: 0;
+  margin-right: .5rem;
+}
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-items .nv-thumbnail .nv-img-container{
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-items .nv-thumbnail .nv-img-container img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-items .nv-info-group .nv-name{
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-items .nv-info-group .nv-categories{
+  margin-top: .5rem;
+}
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-items .nv-info-group .nv-categories .nv-category{
+
+  margin-left: 1px;
+}
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-items .nv-brands{
+  margin-top: .5rem;
+}
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-items .nv-brands .nv-brand{
+  font-size: .9rem;
+  line-height: .9rem;
+  padding: .3rem 1rem;
+  margin-right: .4rem;
+  background-color: #fbc531;
+  border-radius: 5px;
+}
+
+.nv-checkout-content .nv-checkout-details .nv-checkout-items .nv-price{
+  font-size: 2rem;
+  line-height: 2rem;
+  color: #fbc531;
+  position: relative;
+}
+
+
+
+
+
+
+.nv-checkout-content .nv-summary-group{
+  margin-right: 5px;
+  margin-left: 5px;
+  border: 0;
+}
+
+.nv-checkout-content .nv-summary-group .card-header,
+.nv-checkout-content .nv-summary-group .card-body{
+  background-color: #f5f6fa;
+}
+
+.nv-checkout-content .nv-summary-group .nv-billing-list{
+margin-bottom: .5rem;
+}
+
+
+.nv-checkout-content .nv-summary-group .nv-billing-list .nv-edit-button,
+.nv-checkout-content .nv-summary-group .nv-billing-list .nv-edit-button:visited,
+.nv-checkout-content .nv-summary-group .nv-billing-list i{
+  color: #fbc531;
+}
+
+
+
+.nv-checkout-content .nv-summary-group .nv-edit-button:hover{
+  text-decoration: none;
+}
+
+.nv-checkout-content .nv-summary-group .nv-summary-header{
+font-size: 1.5rem;
+margin-bottom: 1rem;
+}
+
+.nv-checkout-content .nv-summary-group .card-body .nv-summary-list{
+margin-bottom: .5rem;
+}
+
+.nv-checkout-content .nv-summary-group .card-body .nv-summary-list .nv-total-key{
+font-size: 1.2rem;
+margin-top: 1rem;
+margin-bottom: 1rem;
+}
+
+.nv-checkout-content .nv-summary-group .card-body .nv-summary-list .nv-total-value{
+font-size: 2rem;
+line-height: 2rem;
+text-align: right;
+color:#fbc531;
+margin-top: 1rem;
+}
+
+.nv-checkout-content .nv-summary-group .card-body .nv-summary-list .nv-vat{
+  font-size: .8rem;
+  text-align: right;
+  margin-bottom: 1rem;
+}

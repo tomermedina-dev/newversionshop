@@ -1,6 +1,10 @@
 <?php
-  Route::get('generateQR/{valueToGenerate}', 'Admin\QRGeneratorController@generateQRByValue')->name('admin.qr.generator');
   // Products
+  Route::group(['prefix'=>'qr',],
+      function() {
+        Route::get('/generate/{valueToGenerate}', 'Admin\QRGeneratorController@generateQRByValue')->name('admin.qr.generator');
+        Route::get('/scanner', 'Admin\QRGeneratorController@scannerIndex')->name('admin.qr.scanner');
+  });
   Route::group(['prefix'=>'products',],
       function() {
         Route::group(['prefix'=>'type',],
@@ -44,4 +48,18 @@
    Route::group(['prefix'=>'checklist',],
        function() {
          Route::post('/new', 'Admin\CheckListController@createOrEditCheckList')->name('admin.checklist.new');
+   });
+
+
+   // erron
+   Route::group(['prefix'=>'admin',],
+       function() {
+         // dashboard
+         // parts-and-materials-inventory
+         //vehicle-check-list
+         // booked-services-summary
+         // invoicing
+         Route::get('/page/{pageName}', 'Admin\BladePagesController@getAdminBladeIndex')->name('admin.blade.pages.index');
+         Route::get('/home', 'Admin\BladePagesController@getAdminHomeIndex')->name('admin.blade.home.index');
+
    });
