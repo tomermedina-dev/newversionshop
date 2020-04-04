@@ -1,4 +1,6 @@
+@extends('admin.layout.main')
 
+@section('content')
 
 <link rel="stylesheet" href="{{ asset('admin/css/pages/dashboard.css') }}">
 
@@ -63,4 +65,4 @@
   </div>
 </div>
 
- 
+@endsection
