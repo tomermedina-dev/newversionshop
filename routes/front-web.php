@@ -60,8 +60,13 @@ Route::group(['prefix'=>'products',],
     Route::get('/', 'Front\BladePagesController@redirectToProducts')->name('front.products.index');
     Route::get('/{category}', 'Front\BladePagesController@getProductBladeIndex')->name('front.products.index');
     Route::get('/details', 'Front\BladePagesController@getProductDetailsIndex')->name('front.products.details');
+
     Route::get('/list/{type}' ,'Admin\ProductController@getProductByType')->name('admin.products.all');
     Route::get('/list/search/{value}' ,'Admin\ProductController@getProductBySearch')->name('admin.products.all');
+      
+    Route::get('/cart', 'Front\BladePagesController@getProductCartIndex')->name('front.products.cart');
+    Route::get('/checkout', 'Front\BladePagesController@getProductCheckoutIndex')->name('front.products.checkout');
+
   });
 
 Route::group(['prefix'=>'mail',],
@@ -79,3 +84,8 @@ Route::get('/register', 'Front\BladePagesController@getRegistrationIndex')->name
 Route::get('/login', 'Front\BladePagesController@getLoginIndex')->name('front.login.index');
 Route::get('/forgot', 'Front\BladePagesController@getForgotIndex')->name('front.forgot.index');
 Route::get('/logout', 'Admin\UserController@logout')->name('front.logout  ');
+
+Route::get('/user/profile', 'Front\BladePagesController@getUserProfileIndex')->name('front.user.profile  ');
+Route::get('/user/recent-orders', 'Front\BladePagesController@getUserRecentOrdersIndex')->name('front.user.recent-orders');
+Route::get('/user/returns', 'Front\BladePagesController@getUserReturnsIndex')->name('front.user.returns');
+Route::get('/user/cacellations', 'Front\BladePagesController@getUserCancellationsIndex')->name('front.user.cancellations');
