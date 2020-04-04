@@ -35,4 +35,10 @@ class ProductTypeController extends Controller
       $return =  ProductType::where('id' ,$productTypeId)->update(['status' =>$status]);
       return   $return;
     }
+    public function getAllType()
+    {
+      // code..
+      $type = ProductType::all();
+      return json_encode($type);
+    }
 }
