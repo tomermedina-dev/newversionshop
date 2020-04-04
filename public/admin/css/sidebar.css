@@ -1,0 +1,210 @@
+.nv-sidebar{
+  background-color: #2f3640;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+}
+.nv-sidebar-content{
+
+}
+
+.nv-sidebar-content > .nv-title{
+    display: flex;
+    align-items: center;
+    background-color: #e1b12c;
+    color: #2f3640;
+    font-weight: 200;
+    font-size: 1.6em;
+    height: 7vh;
+    padding-left: .25em;
+}
+
+/* .nv-sidebar-content > .nv-title > .nv-toggle-button{
+    position: absolute;
+    right: -35px;
+}
+
+
+.nv-sidebar-content > .nv-title > .nv-toggle-button:hover{
+    cursor: pointer;
+} */
+
+.nv-sidebar-content > .nv-title > .nv-text{
+  margin-left: .25em;
+  font-size: .8em;
+}
+
+.nv-sidebar-content > .nv-profile{
+  border-bottom: 1px solid #353b48;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  padding-left: .5em;
+
+}
+.nv-sidebar-content > .nv-profile > .nv-profile-content{
+  display: flex;
+}
+
+.nv-sidebar-content > .nv-profile > .nv-profile-content > .nv-left{
+  background-color: #dcdde1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+  width: 3em;
+  border-radius: 1.5em;
+  border: .2em solid #dcdde1;
+  overflow: hidden;
+}
+
+.nv-sidebar-content > .nv-profile > .nv-profile-content > .nv-left > i{
+  font-size: 2.5em;
+  margin-top: .25em;
+  color: #2f3640;
+}
+
+.nv-sidebar-content > .nv-profile > .nv-profile-content > .nv-right{
+  margin-left: .5em;
+}
+
+.nv-sidebar-content > .nv-profile > .nv-profile-content > .nv-right > .nv-upper-text{
+  margin-top: .2em;
+  color: #dcdde1;
+  font-size: 1em;
+  line-height: 1em;
+}
+
+.nv-sidebar-content > .nv-profile > .nv-profile-content > .nv-right > .nv-lower-text{
+  color: #dcdde1;
+  font-size: 2em;
+  line-height: 1em;
+}
+
+
+
+.nv-sidebar-content > .nv-menu{
+  padding-top: 1em;
+}
+
+.nv-sidebar-content > .nv-menu  .nv-main-menu{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: .5em;
+  padding-right: .5em;
+  padding-top: .25em;
+  padding-bottom: .25em;
+  transition: .5s;
+}
+
+.nv-sidebar-content > .nv-menu  .nv-main-menu:hover{
+  background-color: #353b48;
+  cursor: pointer;
+}
+
+.nv-sidebar-content > .nv-menu  .nv-main-menu > .nv-title > i{
+  text-align: center;
+  color: #dcdde1;
+  width: 1.5em;
+}
+
+.nv-sidebar-content > .nv-menu  .nv-main-menu > .nv-title > .nv-text{
+  display: inline-block;
+  color: #dcdde1;
+}
+
+.nv-sidebar-content > .nv-menu  .nv-main-menu > .nv-caret{
+  width: 1.5em;
+  text-align: center;
+}
+
+.nv-sidebar-content > .nv-menu  .nv-main-menu > .nv-caret > i{
+  color: #dcdde1 !important;
+}
+
+
+
+.nv-sidebar-content > .nv-menu  .nv-sub-menu{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: .5em;
+  padding-right: .5em;
+}
+.nv-sidebar-content > .nv-menu  .nv-sub-menu:hover{
+  cursor: pointer;
+}
+.nv-sidebar-content > .nv-menu  .nv-sub-menu > .nv-title{
+  display: flex;
+  align-items: center;
+}
+
+.nv-sidebar-content > .nv-menu  .nv-sub-menu > .nv-title > i{
+  height: 100%;
+  text-align: center;
+  color: #718093;
+  width: 15px;
+  font-size: .5em;
+  padding-left: 11.5px;
+  z-index: 1;
+  transition: .5s;
+}
+
+.nv-sidebar-content > .nv-menu  .nv-sub-menu:hover > .nv-title > i {
+  color: #fbc531;
+}
+
+.nv-sidebar-content > .nv-menu  .nv-sub-menu > .nv-title > .nv-text{
+  display: inline-block;
+  color: #dcdde1;
+  padding-left: 10px;
+  border-left: 1px solid  #718093;
+  padding-top: .25em;
+  padding-bottom: .25em;
+  transition: .5s;
+}
+
+.nv-sidebar-content > .nv-menu  .nv-sub-menu:hover > .nv-title > .nv-text{
+  color: #fbc531;
+}
+
+.nv-sidebar-content > .nv-menu .dropdown-toggle::after {
+    display: none;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar ul li a {
+    display: block;
+}
+
+
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}

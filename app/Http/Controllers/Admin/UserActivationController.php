@@ -6,10 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Admin\UserActivation;
+use App\Models\Admin\User;
 class UserActivationController extends Controller
 {
     //
-    public function generateUserActivation($userId)
+    public static function generateUserActivation($userId)
     {
       // code...
       $return = "";
@@ -62,4 +63,5 @@ class UserActivationController extends Controller
       }
       return $return;
     }
+    
 }

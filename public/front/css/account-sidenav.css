@@ -1,0 +1,42 @@
+.nv-sidenav{
+  border-radius: 5px;
+  border-top: 3px solid #2f3640;
+  padding: 1rem;
+  background-color: #f5f6fa;
+}
+
+.nv-sidenav .nv-badge{
+  display: inline-block;
+  font-size: .8rem;
+  line-height: .8rem;
+  padding: .3rem;
+  background-color: #fbc531;
+  border-radius: 3px;
+  margin-bottom: 16px;
+}
+
+.nv-sidenav .nv-sidenav-lists{
+  list-style: none;
+  padding: 0;
+}
+
+.nv-sidenav .nv-sidenav-lists .nv-items{
+  margin-left: 20px;
+}
+
+.nv-sidenav .nv-sidenav-lists .nv-items a,
+.nv-sidenav .nv-sidenav-lists .nv-items a:visited{
+  color: #2f3640;
+  transition: .2s;
+}
+
+.nv-sidenav .nv-sidenav-lists .nv-items a:hover{
+  color: #fbc531;
+  text-decoration: none;
+}
+
+.nv-sidenav .nv-sidenav-lists .nv-header{
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  margin-bottom: 16px;
+}

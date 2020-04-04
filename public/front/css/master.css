@@ -1,0 +1,299 @@
+*{
+  color: #2f3640;
+  font-family: 'Myriad Pro Condensed';
+}
+/* .nv-font-default{
+  font-family: eDefault;
+}
+.nv-font-count{
+  font-family: eCount;
+}
+.nv-font-heading-bold{
+  font-family: eHeadingBold;
+}
+.nv-font-heading-light{
+  font-family: eHeadingLight;
+} */
+
+/* .nv-font-r {
+font-family: 'Myriad Pro Regular';
+} */
+
+
+.nv-font-c {
+font-family: 'Myriad Pro Condensed';
+}
+
+
+.nv-font-ci {
+font-family: 'Myriad Pro Condensed Italic';
+}
+
+
+.nv-font-l {
+font-family: 'Myriad Pro Light';
+}
+
+
+/* .nv-font-sb {
+font-family: 'Myriad Pro Semibold';
+}
+
+
+.nv-font-sbi {
+font-family: 'Myriad Pro Semibold Italic';
+} */
+
+
+.nv-font-bc {
+font-family: 'Myriad Pro Bold Condensed';
+}
+
+
+/* .nv-font-b {
+font-family: 'Myriad Pro Bold';
+}
+
+
+.nv-font-bi {
+font-family: 'Myriad Pro Bold Italic';
+} */
+
+
+.nv-font-bci {
+font-family: 'Myriad Pro Bold Condensed Italic';
+}
+
+.nv-pagination > .page-item > .page-link{
+      font-family: 'Myriad Pro Bold Condensed';
+      border: 0;
+      border-radius: 5px;
+      padding: .2rem .4rem !important;
+      font-size: 1rem;
+      line-height: 1rem;
+      margin: 1px;
+      color: #2f3640;
+      outline: !important;
+      box-shadow: none !important;
+      border: none !important;
+      transition: .5s;
+}
+
+.nv-pagination > .page-item.active > .page-link{
+  background-color: #dcdde1;
+}
+
+.nv-pagination > .page-item.nv-previous > .page-link{
+  background-color: #2f3640;
+  color: #fff;
+  padding: .2rem .4rem !important;
+  line-height: .7rem;
+  font-size: .7rem;
+  border-radius: .4rem;
+  margin-right: 3px;
+}
+
+.nv-pagination > .page-item.nv-next > .page-link{
+  background-color: #2f3640;
+  color: #fff;
+  padding: .2rem .4rem !important;
+  line-height: .7rem;
+  font-size: .7rem;
+  border-radius: .4rem;
+  margin-left: 3px;
+}
+
+.nv-pagination > .page-item.nv-next > .page-link > i,
+.nv-pagination > .page-item.nv-previous > .page-link > i{
+  color: #fff;
+}
+
+.nv-default-box-shadow{
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
+}
+
+.nv-heart-checkbox > input{
+  display: none;
+}
+
+.nv-heart-checkbox label{
+  margin: .5rem;
+  margin-left: 0;
+  padding: 0;
+}
+
+.nv-heart-checkbox label:hover{
+  cursor: pointer;
+}
+
+
+.nv-heart-checkbox > input:checked + label > i{
+  font-weight: 900 !important;
+}
+
+
+
+
+.nv-stroke-checkbox input:checked + label > .fa-square:before{
+    content: "\f14a";
+}
+.nv-stroke-checkbox input{
+    display: none;
+}
+
+.nv-stroke-checkbox label{
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.nv-stroke-checkbox label:hover{
+    cursor: pointer;
+}
+
+
+.nv-solid-checkbox input:checked + label > .fa-square:before{
+    content: "\f14a";
+}
+
+.nv-solid-checkbox input:checked + label > .fa-square{
+    font-weight: 900;
+}
+
+.nv-solid-checkbox input{
+    display: none;
+}
+
+.nv-solid-checkbox label{
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.nv-solid-checkbox label:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+.nv-product-card{
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 4px solid #2f3640;
+  overflow: hidden;
+}
+
+.nv-product-card .nv-img-container{
+  background-color: #f5f6fa;
+  width: 100%;
+  padding-top: 110%;
+  position: relative;
+}
+
+.nv-product-card .nv-img-container > img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nv-product-card .nv-img-container > .nv-product-actions{
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.nv-product-card .nv-img-container > .nv-product-actions a{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: inline-block;
+  margin: .5rem;
+  margin-left: 0;
+}
+
+
+
+
+
+.nv-product-card .nv-img-container > .nv-product-actions a i,
+.nv-product-card .nv-img-container > .nv-product-actions .nv-heart-checkbox label i{
+  font-size: 1.2rem;
+}
+
+.nv-product-card .nv-img-container > .nv-product-actions a i,
+.nv-product-card .nv-img-container > .nv-product-actions .nv-heart-checkbox label i{
+  transition: .2s;
+}
+
+.nv-product-card .nv-img-container > .nv-product-actions a:hover i,
+.nv-product-card .nv-img-container > .nv-product-actions .nv-heart-checkbox label:hover i{
+  color:#fbc531;
+}
+
+/* .nv-product-card .nv-img-container > .nv-product-actions .nv-heart-checkbox > input:checked + label > i{
+  font-weight: 900 !important;
+} */
+
+
+.nv-btn-mustard{
+  background-color: #fbc531;
+  color: #f5f6fa !important;
+  border-radius: 3px !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.nv-btn-mustard:hover{
+  background-color: #e1b12c;
+}
+
+
+.nv-product-card .card-body{
+  padding: .7rem;
+  background-color: #2f3640;
+}
+
+
+.nv-product-card .card-body .nv-name{
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  color: #fff;
+}
+
+.nv-product-card .card-body .nv-category{
+  font-size: .8rem;
+  line-height: .8rem;
+  color: #fff;
+}
+
+.nv-product-card .card-body .nv-price{
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  color: #fff;
+}
+
+.row{
+  margin: 0;
+}
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7,
+.col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11,
+.col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7,
+.col-xl-8, .col-xl-9, .col-xl-auto {
+    padding-right: 0;
+    padding-left: 0;
+}

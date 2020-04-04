@@ -20,4 +20,9 @@ class QRGeneratorController extends Controller
 
       return view('welcome');
     }
+    public function scannerIndex()
+    {
+      // code...
+      return view('admin.qr.qr-scanner');
+    }
 }

@@ -1,0 +1,89 @@
+.nv-navbar{
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #dcdde1;
+  height: 7vh;
+  z-index: 999;
+}
+
+.nv-navbar .nv-navbar-content{
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: .75em;
+  margin-right: .75em;
+  width: 100%;
+}
+
+.nv-navbar .nv-navbar-content .nv-toggle-button{
+  font-size: 1.5em;
+  color: #2f3640;
+
+}
+
+.nv-navbar .nv-navbar-content .nv-toggle-button:hover{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.nv-navbar .nv-navbar-content .dropdown-toggle::after {
+    display: none;
+}
+
+.nv-navbar .nv-navbar-content .nv-account{
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  outline: 0;
+}
+
+.nv-navbar .nv-navbar-content .nv-account > .nv-name{
+  display: inline-block;
+  margin-left: .5em;
+}
+
+.nv-navbar .nv-navbar-content .nv-account > .fas.fa-user{
+  display: flex;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  font-size: 1.4em;
+  overflow: hidden;
+  border-radius: 25px;
+  border: 2px solid #2f3640;
+  padding-top: 3px;
+  color: #dcdde1;
+  background-color: #2f3640;
+}
+
+.nv-navbar .nv-navbar-content .nv-account > .fas.fa-angle-down{
+  margin-left: .5em;
+}
+
+.nv-navbar > .nv-invisible-padding {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100%;
+    transition: all 0.3s;
+}
+
+.nv-navbar > .nv-invisible-padding.padded {
+    margin-left: -250px;
+}
+
+@media (max-width: 768px) {
+    .nv-navbar > .nv-invisible-padding {
+        margin-left: -250px;
+    }
+    .nv-navbar > .nv-invisible-padding.padded {
+        margin-left: 0;
+    }
+}

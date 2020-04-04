@@ -1,0 +1,91 @@
+<nav class="d-flex  navbar navbar-icon-top navbar-expand-md navbar-light  " style="background-color: #2f3640;">
+<div class="container">
+    <a  class="navbar-brand">
+      <img  width="80px" src="{{ asset('images/logo_transpa.png') }}">
+    </a>
+    <button type="button" class="navbar-toggler bg-light" data-toggle="collapse" data-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- <input type="text" class="form-control input-search-header" id="first_name" placeholder="Search "> -->
+    <div  style="width:100%;">
+      <div class="input-group md-form form-sm form-2 pl-0">
+        <input class="form-control  nv-input-search-header" type="text" placeholder="Search" aria-label="Search">
+        <div class="input-group-append ">
+          <span class="input-group-text nv-input-search-header" >
+            <i class="fas fa-search text-white"aria-hidden="true"></i></span>
+        </div>
+      </div>
+
+      <div class="nv-header-contact-details">
+         <i class="fa fa-envelope text-white"aria-hidden="true"></i>
+         <span  > newversion-support@email.com</span>
+         <i class="fa fa-phone-alt "></i>
+         <span  > +63 123 458</span>
+         <i class="fab fa-facebook-square"></i>
+      </div>
+    </div>
+
+    <div id="nav" class="navbar-collapse collapse w-100 order-3 dual-collapse2" >
+         <ul class="navbar-nav ml-auto white">
+             <li class="nav-item ">
+               <a class="nav-link" href="/home">
+                 <!-- <i class="fa fa-home"></i> -->
+                 <h5>Home</h5>
+                 </a>
+             </li>
+             @if(!session()->has('userId'))
+               <li class="nav-item">
+                 <a class="nav-link active " href="/login">
+                   <!-- <i class="fas fa-user-plus"></i> -->
+                   <h5>Login</h5>
+                   </a>
+               </li>
+             @endif
+             <li class="nav-item ">
+               <a class="nav-link" href="/products">
+                 <!-- <i class="fa fa-cube"></i> -->
+                 <h5>Products</h5>
+                 </a>
+             </li>
+             <li class="nav-item ">
+               <a class="nav-link" href="/services">
+                 <!-- <i class="fa fa-cube"></i> -->
+                 <h5>Services</h5>
+                 </a>
+             </li>
+             <li class="nav-item ">
+               <a class="nav-link" href="/cars">
+                 <!-- <i class="fas fa-car"></i> -->
+                 <h5>Cars</h5>
+                 </a>
+             </li>
+             <li class="nav-item ">
+               <a class="nav-link" href="/about">
+                 <!-- <i class="fas fa-user-plus"></i> -->
+                 <h5>About</h5>
+                 </a>
+             </li>
+             <li class="nav-item ">
+               <a class="nav-link" href="#">
+                 <i class="fa fa-shopping-cart"></i>
+                 <!-- <h5>cart</h5> -->
+                 </a>
+             </li>
+             @if(session()->has('userId'))
+             <li class="nav-item ">
+               <div class="dropdown" >
+                 <div style="margin-top:15px;" class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   <i class="fa fa-user-circle"></i>
+                 </div>
+                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                   <a class="dropdown-item" href="#">View Profile</a>
+                   <a class="dropdown-item" href="/logout">Logout</a>
+                 </div>
+               </div>
+             </li>
+             @endif
+         </ul>
+     </div>
+
+</div>
+</nav>
