@@ -1,3 +1,6 @@
+@extends('admin.layout.main')
+
+@section('content')
 <link rel="stylesheet" href="{{ asset('admin/css/pages/invoicing.css') }}">
 
 <div class="nv-invoice-content">
@@ -165,3 +168,5 @@
     </div>
   </div>
 </div>
+
+@endsection

@@ -69,7 +69,23 @@ class UserController extends Controller
       }
 
     }
+    public function forgotPassword(Request $request)
+    {
+      // code...
+      $return = array();
+      $userDetails = User::where('email' , $request->email)->first();
+      if($userDetails){
+        // Send email
+        // self::generateUserActivation($userDetails->id);
 
+        return 1;
+
+      }else{
+        return 0;
+        $return['error'] = 'Email not found';
+      }
+      // return $return;
+    }
     public function logout()
     {
       // code...

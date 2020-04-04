@@ -33,26 +33,31 @@ class BladePagesController extends Controller
       // code...
       return view('front.pages.home');
     }
-    public function getValidateIndex()
+    public function getForgotIndex()
     {
       // code...
-        return view('front.user.validation');
+        return view('front.user.forgot-password');
     }
-
-    public function getProductBladeIndex()
+    public function redirectToProducts()
     {
       // code...
-         return view('front.product.products');
+       return redirect('/products/all');
+    }
+    public function getProductBladeIndex($categ)
+    {
+      // code...
+
+         return view('front.product.products' , compact('categ'));
     }
     public function getProductDetailsIndex()
     {
       // code...
          return view('front.product.product-details');
     }
-    public function getProductCartIndex()
+	public function getProductCartIndex()
     {
       // code...
-         return view('front.product.cart');
+         return view('front.product.cart.cart');
     }
     public function getProductCheckoutIndex()
     {
@@ -84,4 +89,11 @@ class BladePagesController extends Controller
       return view('front.user.cancellations');
     }
 
+    public function getMailLayoutForgot()
+    {
+      // code...
+      $name = "Tomer Medina";
+      $id = "0000000001";
+      return view('admin.email.mail-forgot-password' , compact('name'  ,'id'));
+    }
 }

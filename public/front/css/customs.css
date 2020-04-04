@@ -165,3 +165,14 @@
   border: 1.5px solid #fbde8e;
 
 }
+.loader-icon{
+	font-size:70px;
+	color:#000;
+	animation: scale 3s ease infinite;
+}
+
+@keyframes scale {
+ 0% {transform: rotateZ(0deg);transform: rotateY(0deg);}
+ 50% {transform: rotateZ(360deg);transform:rotateY(360deg);}
+ 100% {transform: rotateZ(0deg);transform:rotateY(0deg);}
+}
