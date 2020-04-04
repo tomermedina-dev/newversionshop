@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>New Version Shop - Login Now</title>
-    @include('front.includes.resources-header')
-  </head>
-  <style media="screen">
-    .g-recaptcha > div { margin: 0 auto;}
-        .hidden_recaptcha { visibility: hidden;}
-  </style>
-  <body>
-    @include('front.includes.header')
+@extends('front.layout.main')
+
+@section('content')
     <div class="d-flex justify-content-center" >
       <div class="container "  style="padding:5%;">
         <div class="row"  id="nv-login">
@@ -47,14 +36,11 @@
                <br>
 
               <div class="d-flex justify-content-center " style="margin-top:20px;">
-                <nv-component-login></nv-component-login> 
+                <nv-component-login></nv-component-login>
               </div>
           </div>
         </div>
       </div>
     </div>
-
-  </body>
-  @include('front.includes.resources-footer')
-  <script src="{{ asset('front/js/login.js') }}" ></script>
-</html>
+    <script src="{{ asset('front/js/login.js') }}" ></script>
+@endsection
