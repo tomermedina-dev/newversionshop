@@ -142,7 +142,7 @@ font-family: 'Myriad Pro Bold Condensed Italic';
 }
 
 .nv-input-group-custom > input{
-  background-color: #f5f6fa;
+  background-color: whitesmoke;
   color: #2f3640;
   outline: !important;
   box-shadow: none !important;
