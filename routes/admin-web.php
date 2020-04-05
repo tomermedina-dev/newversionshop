@@ -77,3 +77,8 @@
          Route::post('/login', 'Admin\PanelUserController@validateAccount')->name('admin.users.login');
 
    });
+
+
+   Route::get('/pages/job-order', function(){
+     return view('admin.pages.job-order');
+   });
