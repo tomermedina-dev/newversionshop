@@ -82,3 +82,11 @@
    Route::get('/pages/job-order', function(){
      return view('admin.pages.job-order');
    });
+
+   Route::get('/pages/service-warranty', function(){
+     return view('admin.pages.service-warranty');
+   });
+
+   Route::get('/pages/releasing-module', function(){
+     return view('admin.pages.releasing-module');
+   });
