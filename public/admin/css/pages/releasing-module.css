@@ -1,0 +1,16 @@
+.nv-rm-content .nv-header{
+  text-decoration: underline;
+}
+.dropdown-toggle::after {
+    display: none;
+}
+
+.nv-rm-content .nv-table-container > .nv-table > tbody > tr > td > .dropdown i{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 1.3rem;
+  border: 1px solid #2f3640;
+}
