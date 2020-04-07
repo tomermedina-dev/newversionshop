@@ -90,3 +90,7 @@
    Route::get('/pages/releasing-module', function(){
      return view('admin.pages.releasing-module');
    });
+
+   Route::get('/pages/featured-products', function(){
+     return view('admin.pages.featured-products');
+   });
