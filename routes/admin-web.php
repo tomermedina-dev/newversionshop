@@ -94,3 +94,7 @@
    Route::get('/pages/featured-products', function(){
      return view('admin.pages.featured-products');
    });
+
+   Route::get('/pages/promo-and-sales', function(){
+     return view('admin.pages.promo-and-sales');
+   });

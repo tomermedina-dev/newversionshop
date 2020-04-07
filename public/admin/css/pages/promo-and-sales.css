@@ -1,0 +1,37 @@
+
+.nv-ps-content .nv-header{
+  text-decoration: underline;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.nv-ps-content .nv-table-container > .nv-table > tbody > tr > td > .dropdown i{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 1.3rem;
+  border: 1px solid #2f3640;
+}
+
+
+.nv-add-item{
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.nv-input-group-custom > .input-group-prepend > .input-group-text{
+  width: 130px;
+}
+
+.item-list td input {
+  background: transparent;
+  border: none;
+  align-content: center;
+  text-align: center;
+  font-size: 1.5em;
+}
