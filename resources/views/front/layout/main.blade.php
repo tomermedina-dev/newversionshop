@@ -11,6 +11,8 @@
     <div class="container">
       @yield('content')
     </div>
+    @include('front.includes.footer')
   </body>
+
   @include('front.includes.resources-footer')
 </html>
