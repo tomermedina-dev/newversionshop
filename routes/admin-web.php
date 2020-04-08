@@ -77,24 +77,3 @@
          Route::post('/login', 'Admin\PanelUserController@validateAccount')->name('admin.users.login');
 
    });
-
-
-   Route::get('/pages/job-order', function(){
-     return view('admin.pages.job-order');
-   });
-
-   Route::get('/pages/service-warranty', function(){
-     return view('admin.pages.service-warranty');
-   });
-
-   Route::get('/pages/releasing-module', function(){
-     return view('admin.pages.releasing-module');
-   });
-
-   Route::get('/pages/featured-products', function(){
-     return view('admin.pages.featured-products');
-   });
-
-   Route::get('/pages/promo-and-sales', function(){
-     return view('admin.pages.promo-and-sales');
-   });

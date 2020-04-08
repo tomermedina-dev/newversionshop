@@ -1,8 +1,5 @@
 @extends('front.layout.main')
 @section('content')
-
-<div class="container">
-
     <title>New Version Shop - Forgot Password</title>
     <div class="d-flex justify-content-center" >
       <div class="container "  style="padding:5%;">
@@ -43,7 +40,5 @@
         </div>
       </div>
     </div>
-
-  </div>
     <script src="{{ asset('front/js/forgot.js') }}" ></script>
 @endsection

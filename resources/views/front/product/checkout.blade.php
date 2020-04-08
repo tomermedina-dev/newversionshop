@@ -1,7 +1,7 @@
 @extends('front.layout.main')
 
 @section('content')
-<div class="container">
+
 <link rel="stylesheet" href="{{ asset('front/css/pages/checkout.css') }}">
 
 <div class="nv-checkout-content">
@@ -204,6 +204,6 @@
 </div>
 
 
-</div>
+
 
 @endsection
