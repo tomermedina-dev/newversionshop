@@ -2,8 +2,6 @@
 
 @section('content')
 
-<div class="container">
-
 <link rel="stylesheet" href="{{ asset('front/css/pages/orders.css') }}">
   <div class="nv-profile-content">
     <div class="row">
@@ -77,7 +75,7 @@
   </div>
 </div>
 
-</div>
+
 
 
 @endsection

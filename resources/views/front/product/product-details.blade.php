@@ -1,18 +1,20 @@
 @extends('front.layout.main')
 
 @section('content')
-
-<div class="container">
-
+<script src="{{ asset('front\js\customs.js') }}" charset="utf-8"></script>
+<script type="text/javascript">
+  var productId = "{{$productId}}";
+  productId = pad(productId , 10);
+</script>
 <link rel="stylesheet" href="{{ asset('front/css/pages/product-details.css') }}">
+<title>New Version Shop - Product Details</title>
+<div class="nv-details-content" id="nv-product-details" v-cloak>
 
-<div class="nv-details-content">
-
-<div class="nv-product-details row">
+<div class="nv-product-details row" >
   <div class="col-lg-5">
     <div class="nv-gallery ">
-      <div class="nv-selected nv-default-box-shadow mb-2">
-        <img src="{{ asset('images/logo_transpa.png')}}" alt="">
+      <div class="nv-selected nv-default-box-shadow mb-2" id="nv-selected-img-product">
+
       </div>
       <div class="nv-lists d-flex align-items-center">
         <div class="nv-controls">
@@ -20,41 +22,15 @@
         </div>
         <div class="nv-indicators row">
 
-          <div class="col-3">
+          <div v-for="image in imageList" class="col-3">
             <div class="nv-thumbnails">
               <div class="nv-img-container nv-default-box-shadow">
-                <img src="{{ asset('images/logo_transpa.png')}}" alt="">
+                <img v-on:click="setSelectedImage(image.image_name)" :src='getProductImagesPath(image.image_name)'  alt="">
               </div>
 
             </div>
           </div>
 
-          <div class="col-3">
-            <div class="nv-thumbnails">
-              <div class="nv-img-container nv-default-box-shadow">
-                <img src="{{ asset('images/logo_transpa.png')}}" alt="">
-              </div>
-
-            </div>
-          </div>
-
-          <div class="col-3">
-            <div class="nv-thumbnails">
-              <div class="nv-img-container nv-default-box-shadow">
-                <img src="{{ asset('images/logo_transpa.png')}}" alt="">
-              </div>
-
-            </div>
-          </div>
-
-          <div class="col-3">
-            <div class="nv-thumbnails">
-              <div class="nv-img-container nv-default-box-shadow">
-                <img src="{{ asset('images/logo_transpa.png')}}" alt="">
-              </div>
-
-            </div>
-          </div>
 
         </div>
         <div class="nv-controls">
@@ -70,17 +46,15 @@
     <div class="nv-labels">
       <div class="nv-details-header d-flex justify-content-between align-items-start">
         <div class="nv-name nv-font-bc">
-          PRODUCT NAME
+          @{{productDetails.name}}
         </div>
         <div class="nv-brands d-flex align-items-center">
 
           <div class="nv-brand nv-font-bc">
-            BRAND 1
+              @{{productDetails.brand}}
           </div>
 
-          <div class="nv-brand nv-font-bc">
-            BRAND 2
-          </div>
+
 
           <div class="nv-heart-checkbox">
             <input type="checkbox" id="favorite1">
@@ -95,76 +69,74 @@
           Category:
         </div>
         <div class="nv-category">
-          Computer
-        </div>,
-        <div class="nv-category">
-          Laptop
-        </div>,
-        <div class="nv-category">
-          ASUS
+            @{{productDetails.product_categ}}
         </div>
       </div>
 
 
       <div class="nv-price nv-font-bc">
-        P 2,500.00
+        P @{{productDetails.price}}
       </div>
-      <div class="nv-quantity d-flex align-items-center">
-        <div class="nv-label nv-font-bc">
-          QUANTITY
-        </div>
-        <div class="nv-quantity-input-group d-flex align-items-center">
-          <a href="#">
-            <i class="fas fa-minus-square"></i>
-          </a>
-          <div class="nv-actual-quantity nv-font-bc">
-            0
-          </div>
-          <a href="#">
-            <i class="fas fa-plus-square"></i>
-          </a>
-        </div>
-      </div>
+
       <div class="nv-line"></div>
       <div class="nv-product-description">
         <div class="nv-header nv-font-bc">
           PRODUCT DESCRIPTION:
         </div>
         <div class="nv-description">
-            &nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          @{{productDetails.description}}
         </div>
       </div>
-
+      <br>
+      <div class="container">
+        <div class="nv-quantity d-flex align-items-center">
+          <div class="nv-label nv-font-bc">
+            QUANTITY
+          </div>
+          <div class="nv-quantity-input-group d-flex align-items-center">
+            <a href="#" v-on:click="changeQuantity('deduct')">
+              <i class="fas fa-minus-square"></i>
+            </a>
+            <div class="nv-actual-quantity nv-font-bc">
+              @{{quantity}}
+            </div>
+            <a href="#" v-on:click="changeQuantity('add')">
+              <i class="fas fa-plus-square"></i>
+            </a>
+          </div>
+        </div>
+        <button v-on:click="addUpdateToCart('' , productDetails.id ,1)" type="button" style="width:100%;" class="btn btn-lg nv-btn-txt-white nv-font-bc" data-toggle="modal" data-target="#addItemModal">
+          <i class="fas fa-cart-plus text-white"></i>&nbsp;
+          ADD TO CART
+          </button>
+      </div>
     </div>
 
   </div>
-
-
-
 </div>
 
 <div class="nv-specification">
   <div class="nv-header nv-font-bc">
-    Specification of Product Name
+    Specification of  @{{productDetails.name}}
   </div>
   <div class="row">
     <div class="col-lg-3">
       <div class="nv-label">
-        Model
+        Car Brand
       </div>
       <div class="nv-value">
-        Car Model 1
+         @{{productDetails.car_brand}}
       </div>
     </div>
     <div class="col-lg-3">
       <div class="nv-label">
-        Warranty Period
+        Car Model
       </div>
       <div class="nv-value">
-        5 months
+        @{{productDetails.car_model}}
       </div>
     </div>
-    <div class="col-lg-3">
+    <!-- <div class="col-lg-3">
       <div class="nv-label">
         Warranty Type
       </div>
@@ -179,7 +151,7 @@
       <div class="nv-value">
         1234567_PH_0987654
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -309,7 +281,7 @@
 
 </div>
 
-</div>
+
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -334,4 +306,5 @@
     });
 </script>
 
+<script src="{{ asset('front\js\products.details.js') }}" ></script>
 @endsection

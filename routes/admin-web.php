@@ -56,17 +56,28 @@
                Route::post('/new', 'Admin\ProductController@createOrEditProduct')->name('admin.products.new');
                Route::post('/edit', 'Admin\ProductController@createOrEditProduct')->name('admin.products.edit');
                Route::get('/edit/status/{productId}/{status}', 'Admin\ProductController@changeProductStatus')->name('admin.products.status.edit');
-               Route::get('/all' ,'Admin\ProductController@getAllProducts')->name('admin.products.all');
+               Route::get('/all/{status}' ,'Admin\ProductController@getAllProducts')->name('admin.products.all');
                Route::get('/page/{start}/{end}' ,'Admin\ProductController@getPaginatedProducts')->name('admin.products.page');
 
-              Route::get('/image/{productId}', 'Admin\ImageController@getProductImages')->name('admin.products.image');
+               Route::get('/image/{productId}', 'Admin\ImageController@getProductImages')->name('admin.product.image');
+               
+         });
+
+         Route::group(['prefix'=>'car',],
+             function() {
+               Route::post('/new', 'Admin\CarController@createOrEditCar')->name('admin.car.new');
+               Route::post('/edit', 'Admin\CarController@createOrEditCar')->name('admin.car.new');
+               Route::get('/edit/status/{carId}/{status}', 'Admin\CarController@changeCarStatus')->name('admin.products.car.status.edit');
+               Route::get('/all','Admin\CarController@getAllCar')->name('admin.car.all');
+               Route::get('/image/{carId}', 'Admin\ImageController@getCarImages')->name('admin.products.image');
          });
 
          Route::group(['prefix'=>'upload',],
              function() {
-               Route::post('/new/image/{type}', 'Admin\ImageController@uploadImage')->name('admin.checklist.new');
-               Route::post('/delete/image/{type}', 'Admin\ImageController@deletetImage')->name('admin.checklist.new');
+               Route::post('/new/image/{type}', 'Admin\ImageController@uploadImage')->name('admin.image.new');
+               Route::post('/delete/image/{type}', 'Admin\ImageController@deletetImage')->name('admin.image.delete');
          });
+            Route::get('/image/first/{type}/{id}', 'Admin\ImageController@getFirstImage')->name('admin.image.delete');
          // dashboard
          // parts-and-materials-inventory
          //vehicle-check-list
@@ -76,25 +87,4 @@
          Route::get('/home', 'Admin\BladePagesController@getAdminHomeIndex')->name('admin.blade.home.index');
          Route::post('/login', 'Admin\PanelUserController@validateAccount')->name('admin.users.login');
 
-   });
-
-
-   Route::get('/pages/job-order', function(){
-     return view('admin.pages.job-order');
-   });
-
-   Route::get('/pages/service-warranty', function(){
-     return view('admin.pages.service-warranty');
-   });
-
-   Route::get('/pages/releasing-module', function(){
-     return view('admin.pages.releasing-module');
-   });
-
-   Route::get('/pages/featured-products', function(){
-     return view('admin.pages.featured-products');
-   });
-
-   Route::get('/pages/promo-and-sales', function(){
-     return view('admin.pages.promo-and-sales');
    });

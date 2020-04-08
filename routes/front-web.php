@@ -59,8 +59,8 @@ Route::group(['prefix'=>'products',],
   function() {
     Route::get('/', 'Front\BladePagesController@redirectToProducts')->name('front.products.index');
     Route::get('/{category}', 'Front\BladePagesController@getProductBladeIndex')->name('front.products.index');
-    Route::get('/details', 'Front\BladePagesController@getProductDetailsIndex')->name('front.products.details');
-
+    Route::get('/details/{productId}/{productSlug}', 'Front\BladePagesController@getProductDetailsIndex')->name('front.products.details');
+    Route::get('/details/{productId}', 'Admin\ProductController@getProductDetails')->name('admin.product.details');
     Route::get('/list/{type}' ,'Admin\ProductController@getProductByType')->name('admin.products.all');
     Route::get('/list/search/{value}' ,'Admin\ProductController@getProductBySearch')->name('admin.products.all');
 
@@ -89,7 +89,3 @@ Route::get('/user/profile', 'Front\BladePagesController@getUserProfileIndex')->n
 Route::get('/user/recent-orders', 'Front\BladePagesController@getUserRecentOrdersIndex')->name('front.user.recent-orders');
 Route::get('/user/returns', 'Front\BladePagesController@getUserReturnsIndex')->name('front.user.returns');
 Route::get('/user/cacellations', 'Front\BladePagesController@getUserCancellationsIndex')->name('front.user.cancellations');
-
-Route::get('/car-gallery', function(){
-  return view('front.car-gallery');
-});
