@@ -1,7 +1,6 @@
 @extends('front.layout.main')
 
 @section('content')
-<div class="container">
 
 <link rel="stylesheet" href="{{ asset('front/css/pages/user-profile.css') }}">
   <div class="nv-profile-content">
@@ -129,5 +128,5 @@
 
 
 
-</div>
+
 @endsection

@@ -63,7 +63,7 @@ Route::group(['prefix'=>'products',],
 
     Route::get('/list/{type}' ,'Admin\ProductController@getProductByType')->name('admin.products.all');
     Route::get('/list/search/{value}' ,'Admin\ProductController@getProductBySearch')->name('admin.products.all');
-
+      
     Route::get('/cart', 'Front\BladePagesController@getProductCartIndex')->name('front.products.cart');
     Route::get('/checkout', 'Front\BladePagesController@getProductCheckoutIndex')->name('front.products.checkout');
 
@@ -89,7 +89,3 @@ Route::get('/user/profile', 'Front\BladePagesController@getUserProfileIndex')->n
 Route::get('/user/recent-orders', 'Front\BladePagesController@getUserRecentOrdersIndex')->name('front.user.recent-orders');
 Route::get('/user/returns', 'Front\BladePagesController@getUserReturnsIndex')->name('front.user.returns');
 Route::get('/user/cacellations', 'Front\BladePagesController@getUserCancellationsIndex')->name('front.user.cancellations');
-
-Route::get('/car-gallery', function(){
-  return view('front.car-gallery');
-});

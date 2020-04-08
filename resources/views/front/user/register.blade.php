@@ -1,7 +1,6 @@
 @extends('front.layout.main')
 
 @section('content')
-<div class="container">
 <style media="screen">
   .g-recaptcha > div { margin: 0 auto;}
       .hidden_recaptcha { visibility: hidden;}
@@ -30,5 +29,4 @@
     </div>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 <script src="{{ asset('front/js/register.js') }}" ></script>
-</div>
 @endsection

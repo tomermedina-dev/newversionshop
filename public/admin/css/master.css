@@ -95,7 +95,6 @@ font-family: 'Myriad Pro Bold Condensed Italic';
   box-sizing: border-box;
   padding: 1em;
   width: 100%;
-  overflow: auto;
 }
 
 @media (max-width: 768px) {

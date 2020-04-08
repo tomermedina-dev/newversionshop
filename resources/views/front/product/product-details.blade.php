@@ -2,8 +2,6 @@
 
 @section('content')
 
-<div class="container">
-
 <link rel="stylesheet" href="{{ asset('front/css/pages/product-details.css') }}">
 
 <div class="nv-details-content">
@@ -309,7 +307,7 @@
 
 </div>
 
-</div>
+
 
 <script type="text/javascript">
     $(document).ready(function () {
