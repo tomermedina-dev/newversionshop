@@ -59,11 +59,11 @@ Route::group(['prefix'=>'products',],
   function() {
     Route::get('/', 'Front\BladePagesController@redirectToProducts')->name('front.products.index');
     Route::get('/{category}', 'Front\BladePagesController@getProductBladeIndex')->name('front.products.index');
-    Route::get('/details', 'Front\BladePagesController@getProductDetailsIndex')->name('front.products.details');
-
+    Route::get('/details/{productId}/{productSlug}', 'Front\BladePagesController@getProductDetailsIndex')->name('front.products.details');
+    Route::get('/details/{productId}', 'Admin\ProductController@getProductDetails')->name('admin.product.details');
     Route::get('/list/{type}' ,'Admin\ProductController@getProductByType')->name('admin.products.all');
     Route::get('/list/search/{value}' ,'Admin\ProductController@getProductBySearch')->name('admin.products.all');
-      
+
     Route::get('/cart', 'Front\BladePagesController@getProductCartIndex')->name('front.products.cart');
     Route::get('/checkout', 'Front\BladePagesController@getProductCheckoutIndex')->name('front.products.checkout');
 
