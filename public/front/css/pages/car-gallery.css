@@ -1,0 +1,167 @@
+.nv-car-gallery-content .nv-carousel-container{
+  position: relative;
+  padding-top: 56.25%;
+  width: 100%;
+}
+
+.nv-car-gallery-content #nv-carousel{
+  background-color: #f5f6fa;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.nv-car-gallery-content #nv-carousel .carousel-indicators {
+  top: 0;
+  margin-top: 2rem;
+}
+
+.nv-car-gallery-content #nv-carousel .carousel-indicators div{
+  margin: .25rem;
+  border: 0;
+}
+
+.nv-car-gallery-content #nv-carousel .carousel-indicators > div > i{
+  transition: color .5px;
+  color: #fff;
+}
+
+.nv-car-gallery-content #nv-carousel .carousel-indicators div.active > i{
+  color: #fbc531;
+}
+
+.carousel-control-prev, .carousel-control-next{
+  opacity: 1;
+  height: 100%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0) , rgba(0, 0, 0, 0.5));
+  width: 5rem;
+}
+.carousel-control-next{
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0) , rgba(0, 0, 0, 0.5));
+}
+.carousel-control-prev{
+  background-image: linear-gradient(to right,rgba(0, 0, 0, 0.5) , rgba(0, 0, 0, 0));
+}
+
+.carousel-control-prev i, .carousel-control-next i{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fbc531;
+  font-size: 3rem;
+}
+
+
+/* .carousel-control-prev {
+    color: #f5f6fa;
+} */
+
+.carousel-inner{
+  height: 100%;
+}
+
+.carousel-inner .carousel-item{
+  height: 100%;
+  width: 100%;
+  border-bottom: 0;
+}
+
+.nv-car-gallery-content #nv-carousel .carousel-inner .carousel-item img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  background-position: center;
+}
+
+.nv-car-gallery-content .nv-divider{
+  background-color: #2f3640;
+  padding: 1rem;
+}
+
+.nv-car-gallery-content .nv-divider > .nv-label{
+  font-size: 1.5rem;
+}
+
+.nv-car-gallery-content .nv-divider *{
+  color: #f5f6fa;
+}
+
+.nv-car-gallery-content .nv-divider i{
+  font-size: 1.5rem;
+}
+
+.nv-list-container{
+  padding: 1.5rem;
+}
+
+.nv-list-container .row{
+  position: relative;
+}
+
+.nv-list-container .row .nv-inv-border-top,
+.nv-list-container .row .nv-inv-border-left,
+.nv-list-container .row .nv-inv-border-bottom,
+.nv-list-container .row .nv-inv-border-right{
+  position: absolute;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.nv-list-container .row .nv-inv-border-top,
+.nv-list-container .row .nv-inv-border-bottom{
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.nv-list-container .row .nv-inv-border-left,
+.nv-list-container .row .nv-inv-border-right{
+  top: 0;
+  height: 100%;
+  width: 1px;
+}
+
+.nv-list-container .row .nv-inv-border-top{ top: 0; }
+.nv-list-container .row .nv-inv-border-bottom{ bottom: 0; }
+.nv-list-container .row .nv-inv-border-left{ left: 0; }
+.nv-list-container .row .nv-inv-border-right{ right: 0; }
+
+.nv-list-container .card{
+  border-radius: 0;
+  border: 0;
+  border-left: 1px solid #dcdde1;
+  border-bottom: 1px solid #dcdde1;
+}
+
+
+
+.nv-list-container .card .nv-img-container{
+  position: relative;
+  padding-top: 30%;
+  width: 100%;
+}
+
+
+.nv-list-container .card .nv-img-container img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.nv-list-container .card .card-body .nv-brand
+{
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
+.nv-list-container .card .card-body .nv-model,
+.nv-list-container .card .card-body .nv-price-group *,
+.nv-list-container .card .card-body .nv-est-group *{
+  font-size: 2rem;
+  line-height: 2rem;
+}
