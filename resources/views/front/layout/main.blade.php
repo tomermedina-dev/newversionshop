@@ -8,9 +8,11 @@
 
   <body>
     @include('front.includes.header')
-    <div class="container">
+    <!-- <div class="container"> -->
       @yield('content')
-    </div>
+    <!-- </div> -->
+    @include('front.includes.footer')
   </body>
+
   @include('front.includes.resources-footer')
 </html>

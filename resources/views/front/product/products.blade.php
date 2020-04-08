@@ -1,6 +1,9 @@
 @extends('front.layout.main')
 
 @section('content')
+
+<div class="container">
+
 <script type="text/javascript">
   var selectedCategory = '{{$categ}}';
 </script>
@@ -133,6 +136,8 @@
       </ul> -->
     </div>
   </div>
+
+</div>
 
 </div>
 <script src="{{ asset('front\js\customs.js') }}" charset="utf-8"></script>

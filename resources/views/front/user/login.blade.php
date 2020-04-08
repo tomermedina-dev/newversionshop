@@ -1,6 +1,8 @@
 @extends('front.layout.main')
 
 @section('content')
+<div class="container">
+
     <div class="d-flex justify-content-center" >
       <div class="container "  style="padding:5%;">
         <div class="row"  id="nv-login">
@@ -43,4 +45,6 @@
       </div>
     </div>
     <script src="{{ asset('front/js/login.js') }}" ></script>
+
+</div>
 @endsection
