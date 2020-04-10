@@ -62,7 +62,7 @@
                           </div>
                         </li>
                         <li>
-                          <div class="nv-sub-menu">
+                          <div class="nv-sub-menu" v-on:click="loadAdminPage('cars')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">Cars</div>
