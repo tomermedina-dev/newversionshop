@@ -68,7 +68,13 @@ class ProductController extends Controller
     public function getAllProducts()
     {
       // code...
-      $products = DB::select("select * from product_vw where status = '1' order by id");
+      $products = DB::select("select * from product_vw    order by id");
+      return json_encode($products);
+    }
+    public function getAllProductsByStatus($status)
+    {
+      // code...
+      $products = DB::select("select * from product_vw where status = '$status' order by id");
       return json_encode($products);
     }
     public function getProductByType($category)
@@ -95,6 +101,12 @@ class ProductController extends Controller
     {
       // code...
       $products = DB::select("select * from product_vw order by id limit $start , $end");
+      return json_encode($products);
+    }
+    public function getProductDetails($id)
+    {
+      // code...
+      $products = DB::select("select * from product_vw where id = $id")[0];
       return json_encode($products);
     }
 }
