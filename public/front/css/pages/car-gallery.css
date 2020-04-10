@@ -1,7 +1,7 @@
 .nv-car-gallery-content .nv-carousel-container{
   position: relative;
-  padding-top: 56.25%;
   width: 100%;
+  height: 350px;
 }
 
 .nv-car-gallery-content #nv-carousel{

@@ -1,3 +1,5 @@
+$("#nav-login").addClass("active");
+
 Vue.component('nv-component-login' , {
   data : function(){
     return {
@@ -48,7 +50,8 @@ Vue.component('nv-component-login' , {
             var response = response.data;
 
             if(response == 1){
-              swalSuccess("User found.");
+           
+              window.location.href = '/user/profile';
             }else {
               swalError(response);
             }

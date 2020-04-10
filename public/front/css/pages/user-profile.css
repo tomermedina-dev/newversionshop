@@ -142,3 +142,21 @@
   color: #fbc531;
   text-decoration: none;
 }
+.nv-no-border{
+  border: none;
+}
+.nv-personal-profile li {
+  font-size: 1.5em;
+}
+.nv-personal-profile li , .nv-address-book li {
+  font-size: 1.5em;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+  color: black;
+}
+.nav-pills .nav-link {
+  color: black;
+}
+.tab-pane{
+  border: none;
+}

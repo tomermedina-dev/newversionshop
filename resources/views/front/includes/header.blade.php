@@ -28,45 +28,45 @@
     <div id="nav" class="navbar-collapse collapse w-100 order-3 dual-collapse2" >
          <ul class="navbar-nav ml-auto white">
              <li class="nav-item ">
-               <a class="nav-link" href="/home">
+               <a id="nav-home" class="nav-link" href="/home">
                  <!-- <i class="fa fa-home"></i> -->
                  <h5>Home</h5>
                  </a>
              </li>
              @if(!session()->has('userId'))
                <li class="nav-item">
-                 <a class="nav-link active " href="/login">
+                 <a id="nav-login" class="nav-link" href="/login">
                    <!-- <i class="fas fa-user-plus"></i> -->
                    <h5>Login</h5>
                    </a>
                </li>
              @endif
              <li class="nav-item ">
-               <a class="nav-link" href="/products">
+               <a id="nav-products" class="nav-link" href="/products">
                  <!-- <i class="fa fa-cube"></i> -->
                  <h5>Products</h5>
                  </a>
              </li>
              <li class="nav-item ">
-               <a class="nav-link" href="/services">
+               <a id="nav-services" class="nav-link" href="/services">
                  <!-- <i class="fa fa-cube"></i> -->
                  <h5>Services</h5>
                  </a>
              </li>
              <li class="nav-item ">
-               <a class="nav-link" href="/cars">
+               <a id="nav-cars" class="nav-link" href="/cars">
                  <!-- <i class="fas fa-car"></i> -->
                  <h5>Cars</h5>
                  </a>
              </li>
              <li class="nav-item ">
-               <a class="nav-link" href="/about">
+               <a id="nav-about" class="nav-link" href="/about">
                  <!-- <i class="fas fa-user-plus"></i> -->
                  <h5>About</h5>
                  </a>
              </li>
              <li class="nav-item ">
-               <a class="nav-link" href="#">
+               <a id="nav-cart" class="nav-link" href="/cart">
                  <i class="fa fa-shopping-cart"></i>
                  <!-- <h5>cart</h5> -->
                  </a>
@@ -78,7 +78,7 @@
                    <i class="fa fa-user-circle"></i>
                  </div>
                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                   <a class="dropdown-item" href="#">View Profile</a>
+                   <a class="dropdown-item" href="/user/profile">View Profile</a>
                    <a class="dropdown-item" href="/logout">Logout</a>
                  </div>
                </div>

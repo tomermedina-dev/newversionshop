@@ -1,3 +1,4 @@
+$("#nav-products").addClass("active");
 
 Vue.component("nv-component-product-category" ,
 {
@@ -43,23 +44,23 @@ var loadProducts = new Vue({
           }
         } ,
         template : `
-          <div class="nv-product-grid row" v-if="productList.length > 0">
+          <div style="cursor:pointer" class="nv-product-grid row" v-if="productList.length > 0">
             <div v-for='product in productList' class="col-lg-4">
               <div class="card nv-product-card nv-default-box-shadow">
                 <div class="nv-img-container">
                   <div class="nv-product-actions d-flex justify-content-center align-items-center">
-                    <a href="#"><i class="fas fa-cart-plus"></i></a>
+                    <a href="#" v-on:click="addUpdateToCart('' , product.id , 1)"><i class="fas fa-cart-plus"></i></a>
                     <div class="nv-heart-checkbox " >
                       <input type="checkbox" id="favorite1">
                       <label for="favorite1"><i class="far fa-heart"></i></label>
                     </div>
 
                   </div>
-                  <img :src='getProductImagesPath("1585579559168bridal-banner-home.jpg")' >
+                  <img v-on:click="visitProduct(product.id , product.name)" :src='getProductImagesPath(product.product_image)' >
                 </div>
                 <div class="card-body d-flex justify-content-between align-items-center">
                   <div  >
-                    <div class="nv-name nv-font-bc">
+                    <div v-on:click="visitProduct(product.id , product.name)"  class="nv-name nv-font-bc">
                       {{product.name}}
                     </div>
                     <div class="nv-category">
@@ -113,6 +114,12 @@ var loadProducts = new Vue({
           } ,
           numberWithCommas : function(x) {
             return numberWithCommas(x);
+          } ,
+          visitProduct: function(productId , slug) {
+            window.location.href = "/products/details/"+pad(productId,10)+"/"+slug.replace(" " , "-");
+          },
+          addUpdateToCart : function(cartId, productId , quantity){
+            addOrUpdateToCart(cartId, pad(productId ,10) , quantity);
           }
         }
       });

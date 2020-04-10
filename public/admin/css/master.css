@@ -19,7 +19,10 @@
 font-family: 'Myriad Pro Regular';
 } */
 
-
+.custom-control-input:checked~.custom-control-label::before {
+	background-color: #2f3640;
+	border-color: #2f3640;
+}
 .nv-font-c {
 font-family: 'Myriad Pro Condensed';
 }

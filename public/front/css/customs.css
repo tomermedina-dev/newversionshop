@@ -39,6 +39,12 @@
       border-top-right-radius:2.5%;
   }
 } */
+a{
+	cursor: pointer;
+}
+.nv-text-mustard{
+	color: #2f3640;
+}
 .nv-swal-message-holder h5{
 	color: gray;
 }
@@ -95,7 +101,7 @@
 	background-color: whitesmoke;
 	border: none;
 	border-left: 4px solid #fbc531;
-	text-transform: lowercase;
+
 }
 
 .nv-input-custom:focus {
@@ -176,3 +182,4 @@
  50% {transform: rotateZ(360deg);transform:rotateY(360deg);}
  100% {transform: rotateZ(0deg);transform:rotateY(0deg);}
 }
+[v-cloak] { display: none; }

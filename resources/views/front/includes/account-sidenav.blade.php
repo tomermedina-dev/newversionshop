@@ -2,7 +2,7 @@
 
 <div class="nv-sidenav nv-default-box-shadow">
   <div class="nv-greetings">
-    Hello, Darren Carlos
+    Hello, @{{profileDetails.first_name}} @{{profileDetails.last_name}}
   </div>
   <div class="nv-badge nv-font-bc">
     <i class="fas fa-check"></i>&nbsp;&nbsp;&nbsp;Verified Account
@@ -12,8 +12,8 @@
   <ul class="nv-sidenav-lists">
     <li class="nv-header nv-font-bc">MANAGE MY ACCOUNT</li>
     <li class="nv-items"> <a href="#">My Profile</a> </li>
-    <li class="nv-items"> <a href="#">Address Book</a> </li>
-    <li class="nv-items"> <a href="#">My Payment Option</a> </li>
+    <!-- <li class="nv-items"> <a href="#">Address Book</a> </li>
+    <li class="nv-items"> <a href="#">My Payment Option</a> </li> -->
   </ul>
 
   <ul class="nv-sidenav-lists">
