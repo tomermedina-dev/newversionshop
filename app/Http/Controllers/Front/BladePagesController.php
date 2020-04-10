@@ -49,15 +49,15 @@ class BladePagesController extends Controller
 
          return view('front.product.products' , compact('categ'));
     }
-    public function getProductDetailsIndex()
+    public function getProductDetailsIndex($productId , $productSlug)
     {
       // code...
-         return view('front.product.product-details');
+         return view('front.product.product-details' , compact('productId'));
     }
 	public function getProductCartIndex()
     {
       // code...
-         return view('front.product.cart.cart');
+         return view('front.cart.cart');
     }
     public function getProductCheckoutIndex()
     {
@@ -68,7 +68,11 @@ class BladePagesController extends Controller
     public function getUserProfileIndex()
     {
       // code...
-      return view('front.user.profile');
+      if (!session()->has('userId')){
+        return redirect('/');
+      }else{
+        return view('front.user.profile.profile');
+      }
     }
 
     public function getUserRecentOrdersIndex()
