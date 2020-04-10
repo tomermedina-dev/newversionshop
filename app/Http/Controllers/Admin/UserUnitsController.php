@@ -8,7 +8,7 @@ use App\Models\Admin\UserUnit;
 class UserUnitsController extends Controller
 {
     //
-      public function createNewUserUnit($userId , $carBrand , $model ,$vin , $plateNumber)
+      public static function createNewUserUnit($userId , $carBrand , $model ,$vin , $plateNumber)
     {
       // code...
        $credentials = [
