@@ -3,7 +3,13 @@ var cartItems = new Vue({
   el : ".nv-cart-content" ,
   data : {
     cartList : [] ,
-    cartTotals : []
+    cartTotals : [] ,
+    defaultAddress : "" ,
+    currentPage : page ,
+    shippingAddress : "" ,
+    shippingContact : "" ,
+    shippingEmail : "" ,
+    shippingNotes : ""
   },
   methods : {
     loadCartList: function() {
@@ -12,7 +18,7 @@ var cartItems = new Vue({
       get('/cart/list/'+userId).
       then(function(response) {
         t.cartList = response.data;
-
+        getCartCount();
 
       }).catch(function(error) {
         swalWentWrong();
@@ -62,8 +68,64 @@ var cartItems = new Vue({
       }
       updateCartQuantity(pad(cartId,10) , quantity);
       cartItems.loadTotals();
+    } ,
+    loadDefaultAddress : function(userId) {
+      // console.log(getDefaultAddress(userId));
+      const t = this;
+
+      getDefaultAddress(userId);
+
+    } ,
+    sumbitCheckout: function() {
+      var checkErr ;
+      const t = this;
+
+      if(!t.shippingAddress.trim()){
+        swalError("Please enter shipping address.");
+        checkErr = 1;
+      }
+      if(!t.shippingContact.trim()){
+        swalError("Please enter contact number.");
+        checkErr = 1;
+      }
+      if(!t.shippingEmail.trim()){
+        swalError("Please enter email address.");
+        checkErr = 1;
+      }
+      if(checkErr != 1){
+        swalLoading("Placing orders.. Please wait..")
+        var formShippingDetails = new FormData();
+        formShippingDetails.append('user_id' , userId);
+        formShippingDetails.append('address' , t.shippingAddress);
+        formShippingDetails.append('contact' , t.shippingContact);
+        formShippingDetails.append('email' , t.shippingEmail);
+        var shipNotes =  t.shippingNotes.trim();
+        formShippingDetails.append('notes' , !shipNotes ? ' ' : t.shippingNotes );
+        axios.
+        post('/cart/checkout/new' ,formShippingDetails).
+        then(function(response) {
+          // swalSuccess("Orders has been placed.")
+
+          Swal.fire({
+
+            text: "Orders has been placed.",
+            icon: 'success',
+            showCancelButton: false,
+            confirmButtonColor: '#3085d6',
+
+            confirmButtonText: 'OK'
+          }).then((result) => {
+            if (result.value) {
+              window.location.href = '/user/recent-orders';
+            }
+          })
+        }).catch(function(error) {
+          swalWentWrong();
+        }).finally(function(response) {});
+      }
     }
   }
 });
 cartItems.loadCartList();
 cartItems.loadTotals();
+cartItems.loadDefaultAddress(userId);
