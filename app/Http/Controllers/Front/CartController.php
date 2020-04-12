@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Front\Cart;
+use App\Models\Admin\UserAddress;
 class CartController extends Controller
 {
     //
@@ -13,20 +14,12 @@ class CartController extends Controller
     {
       // code...
       $return = "";
-      if(!isset($request->cartId)){
-        $data =[
-          'user_id' => $request->user_id ,
-          'product_id' => $request->product_id ,
-          'quantity' => $request->quantity ,
-        ];
-        $return = Cart::create($data);
-      }else {
-        // code...
-        $data =[
-          'quantity' => $request->quantity
-        ];
-        $return = Cart::where('id' , $request->cartId)->update($data);
-      }
+      $data =[
+        'user_id' => $request->user_id ,
+        'product_id' => $request->product_id ,
+        'quantity' => $request->quantity ,
+      ];
+      $return = Cart::create($data);
       return $return;
     }
     public function deleteItemCart($cartId)
@@ -49,7 +42,16 @@ class CartController extends Controller
       }else {
         return 0;
       }
-
+    }
+    public  static function getCartCount($userId)
+    {
+      // code...
+      $cartCount = DB::select("select items_count from cart_totals_vw	 where user_id = $userId");
+      if($cartCount){
+        return ['items_count' => $cartCount[0]->items_count];
+      }else {
+        return ['items_count' => 0];
+      }
     }
     public function updateCartQuantity($cartId,$quantity)
     {
@@ -57,4 +59,5 @@ class CartController extends Controller
       $cartUpdate = Cart::where('id' , $cartId)->update(['quantity' => $quantity]);
       return json_encode($cartUpdate);
     }
+
 }

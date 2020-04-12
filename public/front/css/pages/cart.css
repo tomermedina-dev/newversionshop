@@ -198,3 +198,11 @@ margin-top: 1rem;
   text-align: right;
   margin-bottom: 1rem;
 }
+.nv-brands .nv-brand{
+  font-size: .9rem;
+  line-height: .9rem;
+  padding: .3rem 1rem;
+  margin-right: .4rem;
+  background-color: #fbc531;
+  border-radius: 5px;
+}

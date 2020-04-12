@@ -1,8 +1,10 @@
 <link rel="stylesheet" href="{{ asset('front/css/account-sidenav.css') }}">
-
+<script type="text/javascript">
+  var userFullName = "{{ session('userName') != null ? session('userName') : ''}}";
+</script>
 <div class="nv-sidenav nv-default-box-shadow">
   <div class="nv-greetings">
-    Hello, @{{profileDetails.first_name}} @{{profileDetails.last_name}}
+
   </div>
   <div class="nv-badge nv-font-bc">
     <i class="fas fa-check"></i>&nbsp;&nbsp;&nbsp;Verified Account
@@ -32,3 +34,5 @@
   </ul>
 
 </div>
+
+ 

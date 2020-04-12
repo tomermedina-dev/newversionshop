@@ -9,7 +9,7 @@ use App\Models\Admin\UserAddress;
 use App\Models\Admin\UserUnit;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Admin\UserUnitsController;
- 
+
 class ProfileController extends Controller
 {
     //
@@ -96,4 +96,5 @@ class ProfileController extends Controller
       // code...
       return UserUnit::where('id' , $unitId)->delete();
     }
+  
 }

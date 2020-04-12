@@ -177,3 +177,12 @@ margin-top: 1rem;
   text-align: right;
   margin-bottom: 1rem;
 }
+
+.nv-input-custom-checkout {
+    background-color: white;
+    border: none;
+    border: 2px solid #fbc531;
+}
+.nv-input-icon-plain-checkout{
+  padding: 10px;
+}

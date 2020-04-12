@@ -67,7 +67,7 @@
              </li>
              <li class="nav-item ">
                <a id="nav-cart" class="nav-link" href="/cart">
-                 <i class="fa fa-shopping-cart"></i>
+                 <i class="fa fa-shopping-cart"><span class="badge badge-pill badge-warning" id="cart-count">0</span></i>
                  <!-- <h5>cart</h5> -->
                  </a>
              </li>

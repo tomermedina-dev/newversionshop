@@ -57,4 +57,14 @@ class UserAddressController extends Controller
      $return = UserAddress::where('user_id' , $userId)->where('id' ,$addressId )->update(['primary_flag' => '1']);
      return $return;
    }
+   public function getDefaultAddress($userId)
+   {
+     // code...
+     $address = UserAddress::where('user_id' , $userId)->first();
+     if($address){
+       return $address;
+     }else {
+       return 0;
+     }
+   }
 }
