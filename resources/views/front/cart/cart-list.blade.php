@@ -15,7 +15,7 @@
           <div class="nv-details">
             <div class="row">
               <div class="col-lg-7 col-md-7">
-                <div class="nv-name nv-font-bc">
+                <div  v-on:click="visitProduct(items.product_id , items.name)" class="pointer nv-name nv-font-bc">
                   @{{items.name}}
                 </div>
                 <div class="nv-categories d-flex">
@@ -26,6 +26,11 @@
                     @{{items.product_categ}}
                   </div>
 
+                </div>
+                <div class="nv-brands d-flex">
+                  <div class="nv-brand nv-font-bc">
+                    @{{items.brand}}
+                  </div>
                 </div>
               </div>
               <div class="col-lg-5 col-md-5">
