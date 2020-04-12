@@ -29,6 +29,8 @@ Route::group(['prefix'=> 'users' ,],
             Route::get('/edit/{userId}/{addressDetails}/{notes}/{addressId}', 'Admin\UserAddressController@createOrEditUserAddress')->name('admin.users.address.edit');
             Route::get('/delete/{addressId}', 'Admin\UserAddressController@deleteUserAddress')->name('admin.users.address.delete');
             Route::get('/default/{userId}/{addressId}', 'Admin\UserAddressController@setDefaultAddress')->name('admin.users.address.set.default');
+            Route::get('/default/{userId}', 'Admin\UserAddressController@getDefaultAddress')->name('admin.users.address.get.default');
+
       });
 
     // Unit
@@ -48,7 +50,13 @@ Route::group(['prefix'=>'cart',],
         Route::get('/list/{userId}', 'Front\CartController@getCartItems')->name('front.users.cart.list');
         Route::get('/update/quantity/{cartId}/{quantity}', 'Front\CartController@updateCartQuantity')->name('front.users.cart.update.quantity');
         Route::get('/totals/{userId}', 'Front\CartController@getCartTotals')->name('front.users.cart.totals');
+        Route::get('/count/{userId}', 'Front\CartController@getCartCount')->name('front.users.cart.count');
 
+        Route::group(['prefix'=>'checkout',],
+          function() {
+            Route::get('/{id}', 'Front\BladePagesController@getCheckoutIndex')->name('front.checkout.index');
+            Route::post('/new', 'Front\CheckoutController@createOrders')->name('front.checkout.news');
+          });
   });
 
 // WishList

@@ -39,6 +39,9 @@
       border-top-right-radius:2.5%;
   }
 } */
+.pointer{
+	cursor: pointer;
+}
 a{
 	cursor: pointer;
 }

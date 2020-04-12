@@ -26,11 +26,11 @@
    });
    Route::group(['prefix'=>'orders',],
        function() {
-         Route::group(['prefix'=>'history',],
-             function() {
-               Route::post('/new', 'Admin\OrderHistoryController@createNewOrderHistory')->name('admin.order.history.new');
-               Route::get('/retrive/all', 'Admin\OrderHistoryController@getAllOrderHistory')->name('admin.order.history.retrive');
-         });
+         // Route::group(['prefix'=>'history',],
+         //     function() {
+         //       Route::post('/new', 'Admin\OrderHistoryController@createNewOrderHistory')->name('admin.order.history.new');
+         //       Route::get('/retrive/all', 'Admin\OrderHistoryController@getAllOrderHistory')->name('admin.order.history.retrive');
+         // });
 
    });
 

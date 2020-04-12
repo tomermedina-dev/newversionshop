@@ -1,6 +1,7 @@
 @extends('front.layout.main')
 
 @section('content')
+<title>New Version - Login</title>
 <div class="container">
 
     <div class="d-flex justify-content-center" >

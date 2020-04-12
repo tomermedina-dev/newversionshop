@@ -287,3 +287,4 @@ var profileDetails = new Vue({
 profileDetails.loadProfileDetails();
 profileDetails.loadAddressDetails();
 profileDetails.loadUnitsDetails();
+setUserFullName();

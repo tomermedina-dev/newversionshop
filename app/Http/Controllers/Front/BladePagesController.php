@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
+use Session;
+use App\Http\Controllers\Front\CartController;
 class BladePagesController extends Controller
 {
     //
@@ -54,16 +57,19 @@ class BladePagesController extends Controller
       // code...
          return view('front.product.product-details' , compact('productId'));
     }
-	public function getProductCartIndex()
+	 public function getProductCartIndex()
     {
       // code...
-         return view('front.cart.cart');
+      $page = 'cart';
+      if (session()->has('userId')){
+        $checkOutUrl = Crypt::encryptString(Session::get('userId'));
+        return view('front.cart.cart' ,compact('checkOutUrl' ,'page'));
+      }else{
+        return view('front.cart.cart');
+      }
+
     }
-    public function getProductCheckoutIndex()
-    {
-      // code...
-         return view('front.product.checkout');
-    }
+
 
     public function getUserProfileIndex()
     {
@@ -92,7 +98,25 @@ class BladePagesController extends Controller
       // code...
       return view('front.user.cancellations');
     }
+    public function getCheckoutIndex($id)
+    {
+      // code...
+      $page = 'checkout';
+      if(!Session::get('userId')){
+        return redirect('/cart');
+      }else{
+        $cartCount = CartController::getCartCount(Session::get('userId'));
+        $cartCount =  $cartCount['items_count'];
+        if($cartCount == 0){
+          return redirect('/cart');
+        }else {
+          // code...
+          return view('front.checkout.checkout' ,compact('page'));
+        }
 
+      }
+
+    }
     public function getMailLayoutForgot()
     {
       // code...

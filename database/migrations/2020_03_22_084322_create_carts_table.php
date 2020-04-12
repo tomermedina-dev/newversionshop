@@ -18,6 +18,7 @@ class CreateCartsTable extends Migration
             $table->string('user_id');
             $table->string('product_id');
             $table->string('quantity');
+            $table->string('discount')->default('0');
             $table->timestamps();
         });
         DB::statement('ALTER TABLE carts CHANGE id id INT(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT');

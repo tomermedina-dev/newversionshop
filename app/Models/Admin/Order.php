@@ -4,15 +4,16 @@ namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
-class OrderHistory extends Model
+class Order extends Model
 {
     //
     public $timestamps = true;
     protected $fillable = [
      'user_id',
-     'product_id',
-     'quantity' ,
-     'notes',
-     'date_ordered'
+     'address',
+     'contact' ,
+     'email',
+     'notes' ,
+     'is_shipped'
    ];
 }
