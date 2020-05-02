@@ -125,13 +125,11 @@ Vue.component("nv-component-add-inventory" ,
           swalSuccess("Successfully saved.")
           inventoryList.loadList()
           $("#addItemModal").modal("hide");
+          arrImages = [];
         }).catch(function (error) {
           swalWentWrong();
         }).finally(function(response) {});
       }
-
-
-
     } ,
     getFieldValue : function() {
       const t = this;
@@ -426,7 +424,7 @@ var inventoryList = new Vue ({
                 swalSuccess("Successfully saved.")
                 inventoryList.loadList()
                 $("#EditItemModal").modal('hide')
-
+                arrImagesEdit = [];
               }).catch(function (error) {
                 swalWentWrong();
               }).finally(function(response) {
@@ -472,52 +470,50 @@ var inventoryList = new Vue ({
 
       $("#EditItemModal").modal();
       // $("#productTypeEdit").val(type_id);
+      $(document).ready(function() {
+          new Dropzone("#dropzoneItemEdit", {
+            url: '/admin/upload/new/image/products',
+            renameFile: function(file) {
+                  var dt = new Date();
+                  var time = dt.getTime();
+                 return time+file.name;
+              },
+              acceptedFiles: ".jpeg,.jpg,.png,.gif",
+              addRemoveLinks: true,
+              maxFiles: 10 ,
+              removedfile: function(file)
+              {
+                  var name = file.upload.filename;
+                  var inx = arrImagesEdit.indexOf('"'+name+'"');
+                  arrImagesEdit.splice(inx, 1);
+                  var form_media = {
+                    filename : name
+                  };
+                  axios.post('/admin/upload/delete/image/products' , form_media).then(
+                    function(response) {
 
+                    }
+                  ).catch(function(error) {
+                    swalWentWrong();
+                  }).finally(function (response) {
+
+                  });
+
+                  var fileRef;
+                  return (fileRef = file.previewElement) != null ?
+                  fileRef.parentNode.removeChild(file.previewElement) : void 0;
+              },
+              success: function(file, response)
+              {
+                  //console.log(response);
+                  arrImagesEdit.push(response);
+
+
+              },
+              init: function() {}
+          });
+      });
     }
   }
 });
 inventoryList.loadList(0,5);
-
-
-
-      Dropzone.options.dropzoneItemEdit= {
-                    url: '/admin/upload/new/image/products',
-                    renameFile: function(file) {
-                          var dt = new Date();
-                          var time = dt.getTime();
-                         return time+file.name;
-                      },
-                      acceptedFiles: ".jpeg,.jpg,.png,.gif",
-                      addRemoveLinks: true,
-                      maxFiles: 10 ,
-                      removedfile: function(file)
-                      {
-                          var name = file.upload.filename;
-                          var inx = arrImagesEdit.indexOf('"'+name+'"');
-                          arrImagesEdit.splice(inx, 1);
-                          var form_media = {
-                            filename : name
-                          };
-                          axios.post('/admin/upload/delete/image/products' , form_media).then(
-                            function(response) {
-
-                            }
-                          ).catch(function(error) {
-                            swalWentWrong();
-                          }).finally(function (response) {
-
-                          });
-
-                          var fileRef;
-                          return (fileRef = file.previewElement) != null ?
-                          fileRef.parentNode.removeChild(file.previewElement) : void 0;
-                      },
-                      success: function(file, response)
-                      {
-                          //console.log(response);
-                          arrImagesEdit.push(response);
-
-
-                      },
-                      init: function() {}
-                  };
