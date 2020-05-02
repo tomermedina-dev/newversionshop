@@ -1,3 +1,4 @@
+
 <li  v-cloak  v-for="items in cartList" class="list-group-item nv-cart-items d-flex  align-items-start">
   <!-- <div class="row"> -->
     <!-- <div class="col-lg-5 d-flex"> -->
@@ -64,7 +65,7 @@
               <div class="nv-actions d-flex justify-content-end align-items-center">
                 <i style="cursor:pointer;" v-on:click="deleteItemCart(items.cart_id)" class="far fa-trash-alt"></i>
                 <div class="nv-heart-checkbox">
-                  <input type="checkbox" id="favorite2">
+                  <input v-on:click="addToWishList(items.product_id)" type="checkbox" id="favorite2">
                   <label for="favorite2"><i class="far fa-heart"></i></label>
                 </div>
               </div>

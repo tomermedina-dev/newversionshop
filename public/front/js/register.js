@@ -100,7 +100,7 @@ Vue.component('nv-component-register', {
     } ,
     submitRegistration : function(){
       swalLoading('Sending registration...');
-      axios.post('/users/register',formRegister)
+      axios.post('/user/register',formRegister)
       .then(function(response){
         window.location.href = "/cart";
       })
@@ -171,7 +171,7 @@ Vue.component('nv-component-register', {
 
         if (this.validateEmailFormat(this.email)) {
               $("#err_email").text("");
-                axios.post("/users/validate-email" , formEmail)
+                axios.post("/user/validate-email" , formEmail)
                   .then(function(response){
                     this.return = response.data ;
                     if (this.return == 1){
@@ -207,7 +207,7 @@ Vue.component('nv-component-register', {
     generateCode : function(){
       if (this.contact){
         swalLoading("Sending verificaion code. Please wait.");
-        axios.get('/users/activation/generate').then(function(response) {
+        axios.get('/user/activation/generate').then(function(response) {
           swalSuccess("Verification code has been sent.");
           generatedCode = response.data;
           $("#nv-btn-sms-code").text("Re-send SMS verificaion code");
