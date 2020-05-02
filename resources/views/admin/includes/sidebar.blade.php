@@ -46,7 +46,7 @@
                     <div href="#inventory-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
                       <div class="nv-title">
                         <i class="fas fa-car-side"></i>
-                        <div class="nv-text nv-font-bc">Inventory</div>
+                        <div class="nv-text nv-font-bc">Inventory and Services</div>
                       </div>
                       <div class="nv-caret">
                         <i class="fas fa-angle-down"></i>
@@ -54,7 +54,7 @@
                     </div>
                     <ul class="collapse list-unstyled" id="inventory-sub-menu">
                         <li>
-                          <div class="nv-sub-menu" v-on:click="loadAdminPage('parts-and-materials-inventory')">
+                          <div class="nv-sub-menu" v-on:click="loadAdminPage('inventory.index')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">Parts and Accessories</div>
@@ -62,10 +62,18 @@
                           </div>
                         </li>
                         <li>
-                          <div class="nv-sub-menu" v-on:click="loadAdminPage('cars')">
+                          <div class="nv-sub-menu" v-on:click="loadAdminPage('car.index')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">Cars</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="nv-sub-menu" v-on:click="loadAdminPage('services.index')">
+                            <div class="nv-title">
+                              <i class="fas fa-circle"></i>
+                              <div class="nv-text nv-font-c">Services</div>
                             </div>
                           </div>
                         </li>
@@ -83,7 +91,7 @@
                     </div>
                     <ul class="collapse list-unstyled" id="orders-sub-menu">
                         <li>
-                          <div class="nv-sub-menu">
+                          <div class="nv-sub-menu" v-on:click="loadAdminPage('orders.index')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">List</div>
@@ -104,7 +112,7 @@
                     </div>
                     <ul class="collapse list-unstyled" id="booked-sub-menu">
                         <li>
-                          <div class="nv-sub-menu">
+                          <div class="nv-sub-menu" v-on:click="loadAdminPage('bookings.index')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">List</div>
@@ -125,10 +133,18 @@
                     </div>
                     <ul class="collapse list-unstyled" id="checklist-sub-menu">
                         <li>
-                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('vehicle-check-list')">
+                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('checklist.index')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
-                              <div class="nv-text nv-font-c">List</div>
+                              <div class="nv-text nv-font-c">New</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('checklist.list')">
+                            <div class="nv-title">
+                              <i class="fas fa-circle"></i>
+                              <div class="nv-text nv-font-c">History</div>
                             </div>
                           </div>
                         </li>
@@ -145,11 +161,44 @@
                       </div>
                     </div>
                     <ul class="collapse list-unstyled" id="jobs-sub-menu">
+                      <li>
+                        <div class="nv-sub-menu"  v-on:click="loadAdminPage('job.monitoring')">
+                          <div class="nv-title">
+                            <i class="fas fa-circle"></i>
+                            <div class="nv-text nv-font-c">Monitoring</div>
+                          </div>
+                        </div>
+                      </li>
                         <li>
-                          <div class="nv-sub-menu">
+                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('job.index')">
+                            <div class="nv-title">
+                              <i class="fas fa-circle"></i>
+                              <div class="nv-text nv-font-c">Create</div>
+                            </div>
+                          </div>
+                        </li>
+                        <!-- <li>
+                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('job.list')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">List</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li> -->
+                        <li>
+                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('job.unassigned')">
+                            <div class="nv-title">
+                              <i class="fas fa-circle"></i>
+                              <div class="nv-text nv-font-c">Unassigned / New</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('job.history')">
+                            <div class="nv-title">
+                              <i class="fas fa-circle"></i>
+                              <div class="nv-text nv-font-c">History</div>
                             </div>
                           </div>
                         </li>
@@ -167,7 +216,7 @@
                     </div>
                     <ul class="collapse list-unstyled" id="invoicing-sub-menu">
                         <li>
-                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('invoicing')">
+                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('invoice.list')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">List</div>
@@ -209,10 +258,10 @@
                     </div>
                     <ul class="collapse list-unstyled" id="releasing-sub-menu">
                         <li>
-                          <div class="nv-sub-menu">
+                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('releasing.list')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
-                              <div class="nv-text nv-font-c">New</div>
+                              <div class="nv-text nv-font-c">Available for Release</div>
                             </div>
                           </div>
                         </li>
@@ -251,7 +300,7 @@
                     </div>
                     <ul class="collapse list-unstyled" id="featured-sub-menu">
                         <li>
-                          <div class="nv-sub-menu">
+                          <div class="nv-sub-menu" v-on:click="loadAdminPage('featured.list')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">List</div>
@@ -272,7 +321,7 @@
                     </div>
                     <ul class="collapse list-unstyled" id="promos-sub-menu">
                         <li>
-                          <div class="nv-sub-menu">
+                          <div class="nv-sub-menu" v-on:click="loadAdminPage('promo.index')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">List</div>
