@@ -1,5 +1,5 @@
 <?php
-Route::group(['prefix'=> 'users' ,],
+Route::group(['prefix'=> 'user' ,],
   function() {
 
     Route::post('/register', 'Admin\UserController@creteNewOrEditUser')->name('admin.users.register');
@@ -37,7 +37,38 @@ Route::group(['prefix'=> 'users' ,],
     Route::group(['prefix'=>'unit',],
       function() {
             Route::get('/new/{userId}/{carBrand}/{model}/{vin}/{plateNumber}', 'Admin\UserUnitsController@createNewUserUnit')->name('admin.users.unit.new');
-      });
+    });
+    Route::group(['prefix'=>'profile',],
+      function() {
+        Route::get('/', 'Front\BladePagesController@getUserProfileIndex')->name('front.user.profile  ');
+        Route::get('/details/{userId}', 'Front\ProfileController@getUserProfileDetails')->name('front.user.profile.details');
+        Route::get('/address/details/{userId}', 'Front\ProfileController@getUserAddressDetails')->name('front.user.address.details');
+        Route::get('/unit/details/{userId}', 'Front\ProfileController@getUserUnitDetails')->name('front.user.address.details');
+
+        Route::post('/details/update', 'Front\ProfileController@updateProfile')->name('front.user.profile.details.update');
+        Route::post('/username/validate', 'Front\ProfileController@validateUsername')->name('front.user.profile.username.validate');
+        Route::post('/old-password/validate', 'Front\ProfileController@validateOldPassword')->name('front.user.profile.password.validate');
+
+        Route::post('/unit/new', 'Front\ProfileController@createNewUserUnit')->name('front.user.profile.unit.new');
+        Route::get('/unit/delete/{unitId}', 'Front\ProfileController@deleteUserUnit')->name('front.user.profile.unit.delete');
+
+    });
+
+
+    Route::get('/orders/recent', 'Front\BladePagesController@getUserRecentOrdersIndex')->name('front.user.recent-orders');
+    Route::get('/orders/recent/list/{userId}', 'Front\ProfileController@getRecentOrdersList')->name('front.user.recent-orders.list');
+
+    Route::get('/returns', 'Front\BladePagesController@getUserReturnsIndex')->name('front.user.returns');
+    Route::get('/cacellations', 'Front\BladePagesController@getUserCancellationsIndex')->name('front.user.cancellations');
+
+    // WishList
+    Route::group(['prefix'=>'wishlist',],
+      function() {
+            Route::get('/', 'Front\BladePagesController@getWishlistIndex')->name('front.wishlist.index');
+            Route::post('/new', 'Front\WishListController@addItemToWishList')->name('front.users.wishlist.new');
+            Route::get('/list/{userId}', 'Front\WishListController@getWishlist')->name('front.wishlist.list');
+            Route::get('/delete/{wishListId}', 'Front\WishListController@deleteItemWishList')->name('front.wishlist.delete');
+    });
 
 });
 
@@ -59,12 +90,7 @@ Route::group(['prefix'=>'cart',],
           });
   });
 
-// WishList
-Route::group(['prefix'=>'wishlist',],
-  function() {
-        Route::post('/new', 'Front\WishListController@addItemToWishList')->name('front.users.wishlist.new');
-        Route::get('/delete/{cartId}', 'Front\WishListController@deleteItemWishList')->name('front.users.wishlist.delete');
-  });
+
 
 
 Route::group(['prefix'=>'products',],
@@ -80,7 +106,20 @@ Route::group(['prefix'=>'products',],
     Route::get('/checkout', 'Front\BladePagesController@getProductCheckoutIndex')->name('front.products.checkout');
 
   });
+Route::group(['prefix'=>'services',],
+    function() {
+      Route::get('/', 'Front\BladePagesController@getServicesIndex')->name('front.service.index');
+      Route::get('/list/{status}','Admin\ServiceController@getAllServicesByStatus')->name('admin.services.all');
+      Route::get('/list/search/{value}' ,'Admin\ServiceController@getServiceBySearch')->name('admin.services.all');
 
+      Route::group(['prefix'=>'booking',],
+          function() {
+            Route::get('/form/{id}/{slug}', 'Front\BladePagesController@getBookingFormIndex')->name('front.booking.form.index');
+            Route::post('/new', 'Admin\BookingController@createNewBooking')->name('front.service.new');
+      });
+
+
+});
 Route::group(['prefix'=>'mail',],
     function() {
       Route::get('/forgot-password/{userId}', 'Admin\EmailController@sendForgotPassword')->name('front.mail.forgot');
@@ -92,32 +131,14 @@ Route::group(['prefix'=>'mail',],
     });
 
 Route::get('/cart', 'Front\BladePagesController@getProductCartIndex')->name('front.cart.index');
+
 Route::get('/', 'Front\BladePagesController@getHomeIndex')->name('front.home.index');
 Route::get('/register', 'Front\BladePagesController@getRegistrationIndex')->name('front.register.index');
 Route::get('/login', 'Front\BladePagesController@getLoginIndex')->name('front.login.index');
 Route::get('/forgot', 'Front\BladePagesController@getForgotIndex')->name('front.forgot.index');
 Route::get('/logout', 'Admin\UserController@logout')->name('front.logout  ');
 
-Route::group(['prefix'=>'user',],
-    function() {
-      Route::get('/profile', 'Front\BladePagesController@getUserProfileIndex')->name('front.user.profile  ');
-      Route::get('/profile/details/{userId}', 'Front\ProfileController@getUserProfileDetails')->name('front.user.profile.details');
-      Route::get('/profile/address/details/{userId}', 'Front\ProfileController@getUserAddressDetails')->name('front.user.address.details');
-      Route::get('/profile/unit/details/{userId}', 'Front\ProfileController@getUserUnitDetails')->name('front.user.address.details');
 
-      Route::post('/profile/details/update', 'Front\ProfileController@updateProfile')->name('front.user.profile.details.update');
-      Route::post('/profile/username/validate', 'Front\ProfileController@validateUsername')->name('front.user.profile.username.validate');
-      Route::post('/profile/old-password/validate', 'Front\ProfileController@validateOldPassword')->name('front.user.profile.password.validate');
-
-      Route::post('/profile/unit/new', 'Front\ProfileController@createNewUserUnit')->name('front.user.profile.unit.new');
-      Route::get('/profile/unit/delete/{unitId}', 'Front\ProfileController@deleteUserUnit')->name('front.user.profile.unit.delete');
-
-
-      Route::get('/recent-orders', 'Front\BladePagesController@getUserRecentOrdersIndex')->name('front.user.recent-orders');
-      Route::get('/returns', 'Front\BladePagesController@getUserReturnsIndex')->name('front.user.returns');
-      Route::get('/cacellations', 'Front\BladePagesController@getUserCancellationsIndex')->name('front.user.cancellations');
-
-    });
 
 Route::get('/cars', function(){
   return view('front.car-gallery');
