@@ -3,7 +3,7 @@
       <div class="col-lg-6 col-md-6 col-sm-7 d-flex align-items-center">
         <div class="nv-thumbnail">
           <div class="nv-img-container">
-            <img :src="getProductImagesPath(items.product_image)" alt="">
+            <img  :src="getProductImagesPath(items.product_image)" alt="">
           </div>
         </div>
         <div class="nv-info-group">
