@@ -147,7 +147,7 @@ getCartCount();
 function getDefaultAddress(userId) {
 
   axios.
-  get('/users/address/default/'+userId).
+  get('/user/address/default/'+userId).
   then(function (response) {
     responseData = response.data;
     if(responseData != 0){
@@ -165,4 +165,59 @@ function setUserFullName() {
   if(userFullName != ''){
     $('.nv-greetings').append('Hello, ' , userFullName);
   }
+}
+
+function addToWishList(userId , productId){
+  if(userId == 0){
+    Swal.fire({
+      html : `<div class='container'>
+                <div class="d-flex justify-content-center">
+                  <div class="nv-dot-dark"  ></div>
+                  <div class="nv-dot-mustard" style="margin-left:-25px;" ></div>
+                </div>
+                <h3> Please login your account to continue. </h3>
+                <div class="">
+                  <div class="nv-line-divider d-flex justify-content-center" ></div>
+                  <div class=" d-flex justify-content-center">
+                    <div class="nv-mustard-divider" style="width:50px; margin-top:-3.5px;"></div>
+                  </div>
+                </div>
+
+                <br>
+                <a href="/login" class="btn btn-lg nv-btn-txt-white" style="width:100%"> Log in now </a>
+                <br>
+                or
+                <br>
+                <a href="/register" class="btn btn-lg nv-btn-txt-white" style="width:100%"> Create an account </a>
+              </div>` ,
+    showConfirmButton : false
+    });
+  }else{
+    var formWishDetails = new FormData();
+    formWishDetails.append('user_id' , userId);
+    formWishDetails.append('product_id' , pad(productId , 10));
+
+
+    swalLoading("Adding to wishlist. Please wait..")
+    axios.
+    post('/user/wishlist/new' , formWishDetails).
+    then(function(response) {
+      swalSuccess("Product has been added to your wishlist.");
+    }).catch(function(error) {
+      swalWentWrong();
+    }).finally(function functionName() {
+
+    });
+
+  }
+}
+
+function getQRImage(value) {
+  axios.
+  get('/admin/qr/generate/'+value).
+  then(function (response) {
+    $("#qr-details-img").html(response.data);
+  }).catch(function(error) {
+    swalWentWrong(error);
+  });
 }
