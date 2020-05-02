@@ -1,0 +1,271 @@
+.nv-services-content .nv-category-list{
+  margin-right: 7.5px;
+  margin-left: 7.5px;
+  border-radius: 5px;
+  overflow: hidden;
+
+}
+.nv-services-content {
+    margin-bottom: 5%;
+}
+.nv-services-content .nv-category-list .list-group-item-action:focus, .list-group-item-action:hover {
+  z-index: 0;
+}
+
+.nv-services-content .nv-category-list .nv-header > i{
+  color: #f5f6fa;
+}
+
+.nv-services-content .nv-category-list .nv-header:hover{
+
+}
+
+.nv-services-content  .nv-category-list  .nv-items{
+  font-family: 'Myriad Pro Bold Condensed';
+  background-color: #f5f6fa;
+  border: 0;
+}
+
+.nv-services-content  .nv-category-list  .nv-items:after{
+  content: ' ';
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background-color:#dcdde1;
+  width: 85%;
+  margin-left: -42.5%;
+  left: 50%;
+}
+
+.nv-services-content  .nv-category-list .nv-items:first-child:after {content: none;}
+.nv-services-content  .nv-category-list .nv-items:last-child:after  {content: none;}
+
+
+.nv-services-content .nv-category-list .nv-header{
+  background-color: #2f3640;
+  color: #f5f6fa;
+}
+
+.nv-services-content #nv-carousel{
+
+  overflow: hidden;
+
+}
+
+.nv-services-content #nv-carousel .carousel-indicators {
+  top: 0;
+  height: auto;
+}
+
+.nv-services-content #nv-carousel .carousel-indicators div{
+  margin: .2rem;
+  border: 0;
+}
+
+.nv-services-content #nv-carousel .carousel-indicators > div > i{
+  transition: color .5px;
+  color: #2f3640;
+}
+
+.nv-services-content #nv-carousel .carousel-indicators div.active > i{
+  color: #fbc531;
+}
+
+.carousel-control-prev, .carousel-control-next{
+  opacity: 1;
+  height: 500px;
+  width: 80px;
+}
+
+.carousel-control-prev i, .carousel-control-next i{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fbc531;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  font-size: 3rem;
+}
+
+
+/* .carousel-control-prev {
+    color: #f5f6fa;
+} */
+
+.carousel-inner{
+  height: 100%;
+}
+
+.carousel-inner .carousel-item{
+  width: 100%;
+  border-bottom: 0;
+}
+
+.nv-services-content #nv-carousel .carousel-inner .carousel-item img{
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+  background-position: center;
+}
+.nv-services-content #nv-carousel .carousel-inner .carousel-item .corousel-details{
+  position: absolute;
+  top: 20px;
+  left: 10%;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 40%;
+  z-index: 9999
+}
+.nv-featured-title{
+  font-size: 4rem;
+  line-height: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #fbc531;
+}
+.nv-featured-description{
+  font-size: 1.2rem;
+  max-height: 400px;
+  overflow: auto;
+}
+.nv-featured-button{
+  box-shadow: 6px 11px 8px -10px #fbc531;
+	background-color:transparent;
+	border-radius:3px;
+	border:1px solid #fbc531;
+	display:inline-block;
+	cursor:pointer;
+	color:#fbc531;
+	font-family:Arial;
+	font-weight:bold;
+	padding:15px 64px;
+	text-decoration:none;
+}
+.nv-featured-button:hover{
+  text-decoration:none;
+  color: white;
+}
+.carousel-item img{
+  max-width:100%;
+  max-height:100%;
+}
+
+.nv-services-content #nv-carousel .carousel-inner .carousel-item .nv-service-info{
+  background-color: #2f3640;
+  padding: .5rem;
+}
+
+.nv-services-content #nv-carousel .carousel-inner .carousel-item .nv-service-info > .nv-price{
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  color: #fff;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.nv-services-content #nv-carousel .carousel-inner .carousel-item .nv-service-info > div{
+    /* flex-grow: 1; */
+}
+
+.nv-services-content #nv-carousel .carousel-inner .carousel-item .nv-service-info > div > .nv-name{
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  color: #fff;
+}
+
+.nv-services-content #nv-carousel .carousel-inner .carousel-item .nv-service-info > div > .nv-description{
+  font-size: 1rem;
+  line-height: 1rem;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nv-search-filter-group{
+  margin-right: 7.5px;
+  margin-left: 7.5px;
+}
+
+.nv-search-filter-group > div{
+  background-color: #f5f6fa;
+  border-radius: 5px;
+  padding: .5rem;
+}
+
+.nv-search-filter-group > .nv-search{
+  flex-grow: 1;
+}
+
+.nv-search-filter-group > .nv-search > .nv-results-label{
+margin-left: 1rem;
+margin-right: 1rem;
+}
+
+.nv-search-filter-group > .nv-search > .input-group{
+  width: 100%;
+  max-width: 300px;
+}
+
+.nv-search-filter-group > .nv-search > .input-group{
+  width: 100%;
+  max-width: 300px;
+}
+
+.nv-search-filter-group > .nv-search > .input-group > .nv-input-default{
+  border: 1px solid #2f3640;
+  box-shadow: none !important;
+}
+
+.nv-search-filter-group > .nv-search > .input-group > .input-group-append > button{
+  background-color: #2f3640;
+  box-shadow: none !important;
+}
+
+.nv-search-filter-group > .nv-search > .input-group > .input-group-append > button > i{
+  border: 1px solid #2f3640;
+  color: #fff;
+  transition: .2s;
+}
+
+.nv-search-filter-group > .nv-search > .input-group > .input-group-append > button:hover > i{
+  color: #fbc531;
+}
+
+.nv-search-filter-group > .nv-filter{
+  margin-left: .3rem;
+  width: 54px;
+}
+
+.nv-search-filter-group > .nv-filter > button{
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  outline: 0;
+}
+
+.nv-search-filter-group > .nv-filter > button > i{
+  transition: .2s;
+}
+
+.nv-search-filter-group > .nv-filter > button:hover > i{
+  color: #fbc531;
+}
+
+.nv-search-filter-group > .nv-search > .input-group-append > button{
+  background-color: #2f3640;
+}
+.nv-service-details {
+  font-size: 1.2em;
+}
+.row .col-lg-6 {
+  padding: 10px;
+}
+.nv-input-custom {
+  font-size: 1.5em !important;
+}
+.nv-schedule-btn{
+  font-size: 1.5em;
+}
+/*  */
