@@ -20,7 +20,8 @@
 
       <tr v-for="item in carList" class="item-list">
         <td   scope="col">
-           <p v-if='item.car_image == null'>Image doesn't exists.</p>
+            
+           <img class="border"  v-if='item.car_image == null' src="{{ asset('images/no-image-available.png') }}">
            <img v-else style="width:200px;"  :src='getCarImagesPath(item.car_image)'   />
         </td>
         <td   scope="col"> @{{pad(item.id,10)}}</td>
