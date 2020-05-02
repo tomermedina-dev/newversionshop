@@ -1,0 +1,103 @@
+@extends('admin.layout.main')
+
+@section('content')
+
+<link rel="stylesheet" href="{{ asset('admin/css/pages/booked-services-summary.css') }}">
+<script type="text/javascript">
+  var joID = "{{$joDetails->job_order_id}}";
+  var totals = numberWithCommas("{{$joTotals->totals}}") ;
+</script>
+<style media="screen">
+  svg {
+    width: 250px;
+    height: 175px;
+  }
+  .nv-generator-container{
+    position: relative !important ;
+    left: 0px !important;
+    margin: none !important;
+
+  }
+</style>
+<div class="nv-bss-content" id='nv-jo-list-details'>
+
+  <div class="row">
+    <div class="col-lg-9 col-md-9">
+      <h3 class="nv-header nv-font-bc">
+        JOB ORDERS DETAILS
+      </h3>
+      <h5>Job Order ID : {{str_pad( $joDetails->job_order_id , 10, '0', STR_PAD_LEFT)  }}</h5>
+      <h5>Client Name  : {{$joDetails->client_name}}</h5>
+      <h5 v-cloak v-if="assignedEmployee">Assigned Employee : @{{assignedEmployee.first_name}} @{{assignedEmployee.last_name}}</h5>
+      <div class="">
+        <h5>Total Amount : ₱ @{{totalAmount}} </h5>
+        <h5>Started At : N/A</h5>
+        <h5>Ended At : N/A</h5>
+      </div>
+
+      <div v-if="!assignedEmployee" class="shadow-lg p-3 mb-2 bg-white rounded">
+        <h4>Assign to Employee</h4>
+        <div class="form-group">
+          <label for=""> Please select employee</label>
+          <select    v-model="employeeId"   class="custom-select" id="employee-list">
+            <option  v-for="employee in employeeList"  :value="pad(employee.id)"   >@{{employee.first_name}}   @{{employee.last_name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for=""> Notes</label>
+          <input v-model="notes" type="text" class="form-control">
+        </div>
+        <button v-on:click="setAssign" type="button"  class="mt-2 btn btn-md nv-btn-txt-dark nv-font-bc">
+          <i class="fas fa-save"></i> SAVE
+        </button>
+      </div>
+
+    </div>
+    <div class="col-lg-3 col-md-9">
+      <div class="input-group mb-3">
+        <input id="search-jo-history" onkeyup="tableSearch('search-jo-history' , 'table-jo-history-list')" type="text" class="form-control nv-input-default nv-font-c" placeholder="Search By..." aria-label="Search By..." >
+        <div class="input-group-append ">
+          <span class="input-group-text nv-input-default">
+            <i class="fas fa-search"aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+      <div  v-if="assignedEmployee" id="qr-details-img">
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="nv-table-container mb-3">
+    <table class="nv-table table table-striped ">
+      <thead>
+        <tr>
+          <td class="nv-font-bc" scope="col">Job Order Item ID</td>
+          <td class="nv-font-bc" scope="col">Service / Labor</td>
+          <td class="nv-font-bc" scope="col">Service Description</td>
+          <td class="nv-font-bc" scope="col">Service Fee</td>
+          <td class="nv-font-bc" scope="col">Product / Part</td>
+          <td class="nv-font-bc" scope="col">Product Description</td>
+          <td class="nv-font-bc" scope="col">Quantity</td>
+          <td class="nv-font-bc" scope="col">Unit Price</td>
+        </tr>
+      </thead>
+      <tbody id="table-jo-history-list">
+        <tr v-for="jo in jobOrderList">
+          <td class="nv-font-bc" scope="col"> @{{pad(jo.id)}} </td>
+          <td class="nv-font-bc" scope="col">@{{jo.service_name}}</td>
+          <td class="nv-font-bc" scope="col">@{{jo.service_description}}</td>
+          <td class="nv-font-bc" scope="col">@{{jo.service_fee}}</td>
+          <td class="nv-font-bc" scope="col">@{{jo.product_name}}</td>
+          <td class="nv-font-bc" scope="col">@{{jo.product_description}}</td>
+          <td class="nv-font-bc" scope="col">@{{jo.quantity}}</td>
+          <td class="nv-font-bc"  scope="col">@{{jo.unit_price}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+<script src="{{ asset('admin\js\job.order.details.js') }}" ></script>
+@endsection
