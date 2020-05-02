@@ -15,18 +15,21 @@ class CreateCheckListsTable extends Migration
     {
         Schema::create('check_lists', function (Blueprint $table) {
             $table->id();
-            $table->string('client_id');
-            $table->string('client_name');
-            $table->string('order_number');
-            $table->string('order_received');
-            $table->string('order_dt_time');
-            $table->string('order_dt_promised');
-            $table->string('order_actual_dt');
-            $table->string('odometer_reading');
-            $table->string('fuel_level');
-            $table->string('make_model');
-            $table->string('personal_items');
-            $table->string('checkbox_items');
+            $table->string('client_id')->nullable();
+            $table->string('client_name')->nullable();
+            $table->string('order_number')->nullable();
+            $table->string('contact')->nullable();
+            $table->string('order_received')->nullable();
+            $table->string('order_dt_time')->nullable();
+            $table->string('order_dt_promised')->nullable();
+            $table->string('order_actual_dt')->nullable();
+            $table->string('notes')->nullable();
+            $table->longText('type')->nullable();
+            $table->string('odometer_reading')->nullable();
+            $table->string('fuel_level')->nullable();
+            $table->string('make_model')->nullable();
+            $table->string('personal_items')->nullable();
+            $table->string('checkbox_items')->nullable();
             $table->timestamps();
         });
         DB::statement('ALTER TABLE check_lists CHANGE id id INT(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT');

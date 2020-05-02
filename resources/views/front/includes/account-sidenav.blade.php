@@ -1,7 +1,4 @@
 <link rel="stylesheet" href="{{ asset('front/css/account-sidenav.css') }}">
-<script type="text/javascript">
-  var userFullName = "{{ session('userName') != null ? session('userName') : ''}}";
-</script>
 <div class="nv-sidenav nv-default-box-shadow">
   <div class="nv-greetings">
 
@@ -13,26 +10,27 @@
 
   <ul class="nv-sidenav-lists">
     <li class="nv-header nv-font-bc">MANAGE MY ACCOUNT</li>
-    <li class="nv-items"> <a href="#">My Profile</a> </li>
+    <li class="nv-items"> <a href="/user/profile">My Profile</a> </li>
     <!-- <li class="nv-items"> <a href="#">Address Book</a> </li>
     <li class="nv-items"> <a href="#">My Payment Option</a> </li> -->
   </ul>
 
   <ul class="nv-sidenav-lists">
-    <li class="nv-header nv-font-bc">MY ORDERS</li>
-    <li class="nv-items"> <a href="#">Recent Orders</a> </li>
-    <li class="nv-items"> <a href="#">My Returns</a> </li>
-    <li class="nv-items"> <a href="#">My Cancellations</a> </li>
+    <li class="nv-header nv-font-bc">ORDERS</li>
+    <li class="nv-items"> <a href="/user/orders/recent">Recent Orders</a> </li>
+    <!-- <li class="nv-items"> <a href="#">My Returns</a> </li>
+    <li class="nv-items"> <a href="#">My Cancellations</a> </li> -->
   </ul>
 
   <ul class="nv-sidenav-lists">
-    <li class="nv-header nv-font-bc">MY REVIEWS</li>
+    <li class="nv-header nv-font-bc">
+      REVIEWS
+      <li class="nv-items"> <a href="/user/wishlist">List</a> </li>
+    </li>
   </ul>
 
   <ul class="nv-sidenav-lists">
-    <li class="nv-header nv-font-bc">MY FAVORITES</li>
+    <li class="nv-header nv-font-bc">WISHLIST</li>
   </ul>
 
 </div>
-
- 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Front\WishList;
+use DB;
 class WishListController extends Controller
 {
     //
@@ -24,4 +25,11 @@ class WishListController extends Controller
       // code...
       return WishList::where('id' , $wishListId)->delete();
     }
+    public function getWishlist($userId)
+    {
+      // code...
+      $wishlist = DB::select("select * from 	wishlist_vw where user_id = $userId");
+      return json_encode($wishlist);
+    }
+     
 }

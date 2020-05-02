@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('brand')->nullable();
             $table->string('car_brand')->nullable();
             $table->string('car_model')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->string('price')->nullable();
             $table->string('quantity')->nullable();
             $table->string('status');

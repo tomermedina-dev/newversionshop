@@ -122,8 +122,6 @@ top: -10px;
 .nv-input-search-header{
   background-color: #41474f;
   border: none;
-
-  text-transform: lowercase;
 }
 .nv-input-search-header:focus{
   background-color: whitesmoke;
@@ -139,7 +137,7 @@ top: -10px;
   font-size: 1em;
   padding-left: 10px;
 }
-.nv-header-contact-details i , span{
+.nv-header-contact-details i , .nv-header-contact-details span{
   color: white;
 
 }

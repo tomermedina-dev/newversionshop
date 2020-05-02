@@ -18,7 +18,8 @@ class CheckoutController extends Controller
         'address' => $request->address ,
         'contact' => $request->contact ,
         'email' => $request->email ,
-        'notes' => $request->notes
+        'notes' => $request->notes ,
+        'delivery_method' => $request->delivery_method
       ];
 
       $order = Order::create($data);

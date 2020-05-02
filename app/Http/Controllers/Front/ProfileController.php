@@ -9,14 +9,16 @@ use App\Models\Admin\UserAddress;
 use App\Models\Admin\UserUnit;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Admin\UserUnitsController;
-
+use App\Models\Admin\Order ;
+use App\Models\Admin\OrderItem ;
 class ProfileController extends Controller
 {
     //
     public function getUserProfileDetails($userId)
     {
       // code...
-      $userDetails = User::where('id' , $userId)->first();
+      $userDetails = User::where('id' , $userId)->select('id' ,'first_name' ,
+       'last_name' , 'username' ,'contact_num' ,'email' , 'status')->first();
       return json_encode($userDetails);
     }
     public function getUserAddressDetails($userId)
@@ -96,5 +98,11 @@ class ProfileController extends Controller
       // code...
       return UserUnit::where('id' , $unitId)->delete();
     }
-  
+    public function getRecentOrdersList($userId)
+    {
+      // code...
+      $orders = Order::where('user_id' , $userId)->where('is_shipped' , 'N');
+      return $userId;
+    }
+
 }

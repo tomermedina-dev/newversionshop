@@ -11,4 +11,8 @@
 <script src="{{ asset('sweetalert\js\sweetalert2.all.min.js') }}" ></script>
 <script src="{{ asset('sweetalert\js\swal-alerts.js') }}" ></script>
 <script src="{{ asset('jquery\js\jquery.min.js') }}" charset="utf-8"></script>
+<script type="text/javascript">
+  var userId = "{{ session('userId') != null ? session('userId') : 0}}";
+  var userFullName = "{{ session('userName') != null ? session('userName') : ''}}";
+</script>
 <script src="{{ asset('front\js\customs.js') }}" charset="utf-8"></script>

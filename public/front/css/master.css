@@ -18,7 +18,9 @@
 /* .nv-font-r {
 font-family: 'Myriad Pro Regular';
 } */
-
+.pointer{
+	cursor: pointer;
+}
 
 .nv-font-c {
 font-family: 'Myriad Pro Condensed';

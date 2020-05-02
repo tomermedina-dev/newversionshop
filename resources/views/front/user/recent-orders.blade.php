@@ -1,6 +1,7 @@
 @extends('front.layout.main')
 
 @section('content')
+<title>New Version Shop - Recent Orders</title>
 <div class="container">
 <link rel="stylesheet" href="{{ asset('front/css/pages/orders.css') }}">
   <div class="nv-profile-content">

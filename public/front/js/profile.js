@@ -179,7 +179,7 @@ var profileDetails = new Vue({
 
           if (this.validateEmailFormat(t.email)) {
                 $("#err_email").text("");
-                  axios.post("/users/validate-email" , formEmail)
+                  axios.post("/user/validate-email" , formEmail)
                     .then(function(response){
                       this.return = response.data ;
                       if (this.return == 1){

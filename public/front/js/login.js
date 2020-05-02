@@ -46,11 +46,11 @@ Vue.component('nv-component-login' , {
           var formLogin = new FormData();
           formLogin.append('username' , t.username);
           formLogin.append('password' , t.password);
-          axios.post('/users/login' ,formLogin ).then(function(response) {
+          axios.post('/user/login' ,formLogin ).then(function(response) {
             var response = response.data;
 
             if(response == 1){
-           
+
               window.location.href = '/user/profile';
             }else {
               swalError(response);

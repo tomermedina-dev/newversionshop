@@ -9,7 +9,9 @@ var cartItems = new Vue({
     shippingAddress : "" ,
     shippingContact : "" ,
     shippingEmail : "" ,
-    shippingNotes : ""
+    shippingNotes : "" ,
+    deliveryMethod : "Pick-Up" ,
+    popDeliveryMethod : this.deliveryMethod
   },
   methods : {
     loadCartList: function() {
@@ -38,6 +40,9 @@ var cartItems = new Vue({
 
       });
     } ,
+    addToWishList : function  (productId) {
+      addToWishList(userId , productId);
+    },
     getProductImagesPath: function(img){
       return window.location.origin + "/uploads/images/products/"+img;
     } ,
@@ -76,10 +81,9 @@ var cartItems = new Vue({
       getDefaultAddress(userId);
 
     } ,
-    sumbitCheckout: function() {
-      var checkErr ;
+    reviewCheckOut: function() {
       const t = this;
-
+      var checkErr ;
       if(!t.shippingAddress.trim()){
         swalError("Please enter shipping address.");
         checkErr = 1;
@@ -93,14 +97,108 @@ var cartItems = new Vue({
         checkErr = 1;
       }
       if(checkErr != 1){
+      Swal.fire({
+        html: `
+        <div class="nv-checkout-content nv-cart-content">
+        <div class="card nv-summary-group nv-default-box-shadow">
+          <div class="card-header">
+            <div class="nv-summary-header nv-font-bc">
+              Customer Details
+            </div>
+            <!-- <div class="">
+              LOCATION
+            </div> -->
+            <div class="nv-billing-list form-group">
+              <label for="address" class="float-left">Delivery Method</label>
+              <br><br>
+              <div class="input-group-prepend">
+                <span class=" nv-input-icon-plain-checkout" style="padding-right:8px;"><i class="fas fa-truck-loading"></i></span>
+                <input disabled    type="text" class="form-control nv-input-custom-checkout" id="pop-delivery-method"  >
+              </div>
+            </div>
+            <div class="nv-billing-list form-group">
+              <!-- <label for="address">Address</label> -->
+              <div class="input-group-prepend">
+                <span class=" nv-input-icon-plain-checkout" style="padding-right:14px;"><i class="fas fa-map-marker-alt"></i></span>
+                <input disabled    type="text" class="form-control nv-input-custom-checkout" id="pop-address"  >
+              </div>
+            </div>
+
+
+            <div class="nv-billing-list form-group">
+              <!-- <label for="contact">Address</label> -->
+              <div class="input-group-prepend">
+                <span class=" nv-input-icon-plain-checkout"   ><i class="fas fa-phone-alt"></i></span>
+                <input disabled   type="text" class="form-control nv-input-custom-checkout" id="pop-contact"  >
+              </div>
+            </div>
+
+            <div class="nv-billing-list form-group">
+              <!-- <label for="email">Email Address</label> -->
+              <div class="input-group-prepend">
+                <span class=" nv-input-icon-plain-checkout"   ><i class="fas fa-envelope"></i></span>
+                <input disabled   type="text" class="form-control nv-input-custom-checkout" id="pop-email" placeholder="Enter your email address">
+              </div>
+            </div>
+            <div class="nv-billing-list form-group">
+              <label class="float-left" for="address">Note / Other details</label>
+              <br><br>
+              <div class="input-group-prepend" id="container-pop-notes">
+                <span class=" nv-input-icon-plain-checkout" style="padding-right:14px;"  ><i class="fas fa-clipboard"></i></span>
+                <input disabled  type="text" class="form-control nv-input-custom-checkout" id="pop-notes" placeholder="Enter notes or other details">
+              </div>
+            </div>
+          </div>
+          <div class="card-body float-left" >
+            <div class="nv-summary-header nv-font-bc  float-left">
+              ORDER SUMMARY
+            </div>
+            <br><br>
+            <div class="nv-summary-list d-flex justify-content-between align-items-center">
+              <div class="nv-total-key nv-font-bc">Total</div>
+
+              <div class="float-left">
+                <div class="nv-total-value nv-font-bc float-lef" id="pop-total">₱ 0.00</div>
+                <div class="nv-vat">VAT Included, where applicable</div>
+              </div>
+            </div>
+            <button onclick="sumbitCheckout()" class="btn nv-btn-mustard nv-font-bc" type="button" name="button">PLACE ORDER NOW</button>
+            <br>  <br>
+            <button onclick="swal.close()" class="btn btn-lg nv-btn-txt-white nv-font-bc" type="button" name="button">CANCEL</button>
+
+          </div>
+        </div>
+        </div>`,
+        showCancelButton: false,
+        showConfirmButton : false
+      });
+      }
+      $("#pop-total").html("₱ " + numberWithCommas(t.cartTotals.total_amount));
+      $("#pop-delivery-method").val(t.deliveryMethod);
+      $("#pop-address").val(t.shippingAddress);
+      $("#pop-contact").val(t.shippingContact);
+      $("#pop-email").val(t.shippingEmail);
+      $("#pop-notes").val(t.shippingNotes);
+      var shipNotes =  t.shippingNotes.trim();
+      if(!shipNotes){
+        $("#container-pop-notes").append("<p style='padding:2%'> None </p>");
+        $("#pop-notes").hide();
+      }
+    } ,
+    sumbitCheckout: function() {
+
+      const t = this;
+
         swalLoading("Placing orders.. Please wait..")
         var formShippingDetails = new FormData();
         formShippingDetails.append('user_id' , userId);
         formShippingDetails.append('address' , t.shippingAddress);
         formShippingDetails.append('contact' , t.shippingContact);
         formShippingDetails.append('email' , t.shippingEmail);
+        formShippingDetails.append('delivery_method' , t.deliveryMethod);
         var shipNotes =  t.shippingNotes.trim();
         formShippingDetails.append('notes' , !shipNotes ? ' ' : t.shippingNotes );
+
         axios.
         post('/cart/checkout/new' ,formShippingDetails).
         then(function(response) {
@@ -112,20 +210,24 @@ var cartItems = new Vue({
             icon: 'success',
             showCancelButton: false,
             confirmButtonColor: '#3085d6',
-
+            allowEscapeKey : false ,
+            allowOutsideClick : false ,
             confirmButtonText: 'OK'
           }).then((result) => {
             if (result.value) {
-              window.location.href = '/user/recent-orders';
+              window.location.href = '/user/orders/recent';
             }
           })
         }).catch(function(error) {
           swalWentWrong();
         }).finally(function(response) {});
-      }
+
     }
   }
 });
 cartItems.loadCartList();
 cartItems.loadTotals();
 cartItems.loadDefaultAddress(userId);
+function sumbitCheckout() {
+  cartItems.sumbitCheckout();
+}

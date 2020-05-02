@@ -52,8 +52,7 @@ class ProductController extends Controller
         if(isset($request->images)){
           $img_arr = explode(",",$request->images);
           foreach($img_arr as $imgs) {
-            $img  =   Image::create(['type'=>'product' , 'ref_id' => str_pad( $return->id, 10, '0', STR_PAD_LEFT)  , 'image_name' =>str_replace('"', "", $imgs) ]);
-
+            $img  =   Image::create(['type'=>'product' , 'ref_id' => str_pad( $request->productId, 10, '0', STR_PAD_LEFT)  , 'image_name' =>str_replace('"', "", $imgs) ]);
           }
         }
       }

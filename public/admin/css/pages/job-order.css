@@ -3,7 +3,7 @@
 }
 .nv-jo-content .nv-table > tbody > tr > td > input{
   background-color: rgba(0, 0, 0, 0);
-  border: 1px solid rgba(0, 0, 0, 0);
+  border: 1px solid lightgray;
   border-radius: 5px;
   outline:0;
   line-height: 1rem;

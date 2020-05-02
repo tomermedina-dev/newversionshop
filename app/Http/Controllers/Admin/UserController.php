@@ -25,7 +25,7 @@ class UserController extends Controller
           'password' =>  Hash::make($request->password),
           'contact_num' => $request-> contact,
           'email' => $request->email ,
-          'status' => '0'
+          'status' => '1'
         ];
         $return = User::create($credentials);
         $userId = str_pad( $return->id, 10, '0', STR_PAD_LEFT) ;

@@ -14,6 +14,8 @@ class Order extends Model
      'contact' ,
      'email',
      'notes' ,
-     'is_shipped'
+     'is_claimed' ,
+     'delivery_method' ,
+     'is_delivered'
    ];
 }

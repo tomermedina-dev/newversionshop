@@ -20,6 +20,9 @@ class CheckList extends Model
      'fuel_level' ,
      'make_model' ,
      'personal_items' ,
-     'checkbox_items'
+     'checkbox_items' ,
+     'contact' ,
+     'type' ,
+     'notes'
    ];
 }
