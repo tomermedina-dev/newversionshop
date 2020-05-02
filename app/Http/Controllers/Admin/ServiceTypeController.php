@@ -35,4 +35,9 @@ class ServiceTypeController extends Controller
       $return =  ServiceType::where('id' ,$serviceTypeId)->update(['status' =>$status]);
       return   $return;
     }
+    public function getAllType()
+    {
+      // code...
+      return json_encode(ServiceType::all());
+    }
 }

@@ -5,12 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Service;
+use App\Models\Admin\Image;
+use DB ;
 class ServiceController extends Controller
 {
     //
     public function createOrEditService(Request $request)
     {
       // code...
+
       $return = "";
       if(!isset($request->serviceId)){
         $data = [
@@ -18,19 +21,23 @@ class ServiceController extends Controller
           'name' => $request->name ,
           'description' => $request->description ,
           'price' => $request->price ,
-          'duration' => $request->duration ,
           'status' =>   '1'
         ];
         $return = Service::create($data);
+        $img  =  Image::create(['type'=>'service' , 'ref_id' => str_pad( $return->id, 10, '0', STR_PAD_LEFT)  , 'image_name' =>str_replace('"', "", $request->images) ]);
+
       }else{
         $data = [
           'type_id' => $request->type_id ,
           'name' => $request->name ,
           'description' => $request->description ,
-          'price' => $request->price ,
-          'duration' => $request->duration
+          'price' => $request->price
         ];
         $return = Service::where('id' , $request->serviceId)->update($data);
+        if(isset($request->images)){
+          $img  =  Image::create(['type'=>'service' , 'ref_id' => str_pad( $request->serviceId , 10, '0', STR_PAD_LEFT)  , 'image_name' =>str_replace('"', "", $request->images) ]);
+        }
+
       }
       return $return;
     }
@@ -40,5 +47,21 @@ class ServiceController extends Controller
       // code...
       $return =  Service::where('id' ,$serviceId)->update(['status' =>$status]);
       return   $return;
+    }
+    public function getAllServices()
+    {
+      // code...
+      return json_encode(DB::select('select * from services_vw '));
+    }
+    public function getAllServicesByStatus($status)
+    {
+      // code...
+        return json_encode(DB::select("select * from services_vw where status = '$status' "));
+    }
+    public function getServiceBySearch($value)
+    {
+      // code...
+      $service = DB::select("select * from services_vw where status = '1' and name like '%$value%' order by id");
+      return json_encode($service);
     }
 }

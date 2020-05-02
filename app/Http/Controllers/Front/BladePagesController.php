@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 use Session;
 use App\Http\Controllers\Front\CartController;
+use App\Models\Admin\Service;
 class BladePagesController extends Controller
 {
     //
@@ -117,6 +118,26 @@ class BladePagesController extends Controller
       }
 
     }
+    public function getWishlistIndex()
+    {
+      // code...
+      return view('front.user.profile.profile-WishList');
+    }
+    public function getServicesIndex()
+    {
+      // code...
+      return view('front.services.services');
+    }
+    public function getBookingFormIndex($id , $slug)
+    {
+      // code...
+      if (!session()->has('userId')){
+        return redirect('/');
+      }else{
+        $serviceDetails = Service::where('id' , $id)->first();
+        return view('front.services.booking-form' ,compact('serviceDetails'));
+      }
+    }
     public function getMailLayoutForgot()
     {
       // code...
@@ -124,4 +145,5 @@ class BladePagesController extends Controller
       $id = "0000000001";
       return view('admin.email.mail-forgot-password' , compact('name'  ,'id'));
     }
+
 }
