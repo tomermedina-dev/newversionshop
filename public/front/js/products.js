@@ -50,8 +50,8 @@ var loadProducts = new Vue({
                 <div class="nv-img-container">
                   <div class="nv-product-actions d-flex justify-content-center align-items-center">
                     <a href="#" v-on:click="addUpdateToCart('' , product.id , 1)"><i class="fas fa-cart-plus"></i></a>
-                    <div class="nv-heart-checkbox " >
-                      <input type="checkbox" id="favorite1">
+                    <div  class="nv-heart-checkbox " >
+                      <input v-on:click="addToWishList(product.id)" type="checkbox" id="favorite1">
                       <label for="favorite1"><i class="far fa-heart"></i></label>
                     </div>
 
@@ -120,6 +120,9 @@ var loadProducts = new Vue({
           },
           addUpdateToCart : function(cartId, productId , quantity){
             addOrUpdateToCart(cartId, pad(productId ,10) , quantity);
+          } ,
+          addToWishList : function  (productId) {
+            addToWishList(userId , productId);
           }
         }
       });

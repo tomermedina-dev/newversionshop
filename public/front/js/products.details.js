@@ -64,6 +64,9 @@ var productDetails = new Vue({
       }else{
         this.quantity ++;
       }
+    } ,
+    addToWishList : function  (productId) {
+      addToWishList(userId , productId);
     }
   }
 });

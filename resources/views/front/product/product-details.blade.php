@@ -58,7 +58,7 @@
 
 
             <div class="nv-heart-checkbox">
-              <input type="checkbox" id="favorite1">
+              <input v-on:click="addToWishList(productDetails.id)" type="checkbox" id="favorite1">
               <label for="favorite1"><i class="far fa-heart"></i></label>
             </div>
 
