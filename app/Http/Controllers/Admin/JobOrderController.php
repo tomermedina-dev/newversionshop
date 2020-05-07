@@ -11,6 +11,7 @@ use App\Models\Admin\Product;
 use App\Models\Admin\Service;
 use App\Models\Admin\JobOrderAssignment;
 use DB ;
+use App\Models\Admin\JobEvaluation;
 class JobOrderController extends Controller
 {
     //
@@ -130,10 +131,34 @@ class JobOrderController extends Controller
       }
       return json_encode($jobAssignment);
     }
-    public function getJobsinMonitoring()
+    public function getAssignmentList($filter)
     {
       // code...
-      $jobAssignment = DB::select("select * from job_order_assigment_vw where status = '0' and end is null ");
+      if($filter == 'monitoring'){
+        $jobAssignment = DB::select("select * from job_order_assigment_vw where status = '0' and end is null ");
+      }
+      if($filter == 'completed'){
+        $jobAssignment = DB::select("select * from job_order_assigment_vw where end is not null and is_approved = '0'and is_invoiced = '0' and status = '0' ");
+      }
+      if($filter == 'history'){
+        $jobAssignment = DB::select("select * from job_order_assigment_vw ");
+      }
+      if($filter == 'release'){
+        $jobAssignment = DB::select("select * from job_order_assigment_vw where is_invoiced = '1' ");
+      }
       return json_encode($jobAssignment);
+    }
+    public function evaluateJob(Request $request)
+    {
+      // code...
+      $details = [
+        'job_order_id' => $request->job_order_id,
+        'evaluation_notes' => $request->evaluation_notes ,
+        'employee_id' => $request->employee_id
+      ];
+      $evaluate = JobEvaluation::create($details);
+      JobOrder::where('id' , $request->job_order_id)->update(['status' =>'1' , 'is_released' => '1']);
+      JobOrderAssignment::where('job_order_id'  , $request->job_order_id)->update(['status' => '1' , 'is_approved' => '1' ]);
+      return json_encode($evaluate);
     }
 }
