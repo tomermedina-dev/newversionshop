@@ -7,7 +7,7 @@ var jobOrderHistory = new Vue ({
     loadJobOrders : function(){
       const t  = this;
       axios.
-      get('/admin/job/list/all').
+      get('/admin/job/assignment/list/history').
       then(function (response) {
         t.jobOrderList = response.data;
       }).catch(function(error) {
@@ -23,5 +23,3 @@ var jobOrderHistory = new Vue ({
     this.loadJobOrders();
   }
 });
-
- 

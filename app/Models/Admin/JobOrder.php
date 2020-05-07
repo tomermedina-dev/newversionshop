@@ -13,6 +13,9 @@ class JobOrder extends Model
      'client_name',
      'checklist_id' ,
      'notes' ,
-     'status'
+     'status' ,
+     'is_invoiced' ,
+     'is_released' ,
+     'is_warranty_expired'
    ];
 }

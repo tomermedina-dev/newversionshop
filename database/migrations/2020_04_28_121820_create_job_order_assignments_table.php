@@ -21,6 +21,7 @@ class CreateJobOrderAssignmentsTable extends Migration
             $table->string('end')->nullable();
             $table->string('status');
             $table->longText('notes')->nullable();
+            $table->string('is_approved')->default('0');
             $table->timestamps();
         });
         DB::statement('ALTER TABLE job_order_assignments CHANGE id id INT(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT');

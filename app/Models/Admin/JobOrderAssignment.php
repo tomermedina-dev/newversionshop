@@ -14,6 +14,7 @@ class JobOrderAssignment extends Model
      'start' ,
      'end' ,
      'status',
-     'notes'
+     'notes',
+     'is_approved'
    ];
 }

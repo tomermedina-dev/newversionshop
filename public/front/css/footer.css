@@ -1,6 +1,12 @@
 .nv-footer{
   background-color: #353b48;
   padding-top: 2rem;
+  clear: both;
+   position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-top: 7%;
 }
 
 .nv-footer *{

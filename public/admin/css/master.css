@@ -361,3 +361,8 @@ box-shadow: !important;
   width: 3rem;
   display: none;
 }
+/* Dropdown Override */
+.dropdown-menu {
+  height: 85px !important;
+  overflow: auto !important;
+}

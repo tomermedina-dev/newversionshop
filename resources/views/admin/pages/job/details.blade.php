@@ -31,12 +31,12 @@
       <h5 v-cloak v-if="assignedEmployee">Assigned Employee : @{{assignedEmployee.first_name}} @{{assignedEmployee.last_name}}</h5>
       <div class="">
         <h5>Total Amount : ₱ @{{totalAmount}} </h5>
-        <h5>Started At : N/A</h5>
-        <h5>Ended At : N/A</h5>
+        <h5>Started At : @{{start}}</h5>
+        <h5>Ended At : @{{end}}</h5>
       </div>
 
       <div v-if="!assignedEmployee" class="shadow-lg p-3 mb-2 bg-white rounded">
-        <h4>Assign to Employee</h4>
+        <h2>Assign to Employee</h2>
         <div class="form-group">
           <label for=""> Please select employee</label>
           <select    v-model="employeeId"   class="custom-select" id="employee-list">
@@ -49,6 +49,17 @@
         </div>
         <button v-on:click="setAssign" type="button"  class="mt-2 btn btn-md nv-btn-txt-dark nv-font-bc">
           <i class="fas fa-save"></i> SAVE
+        </button>
+      </div>
+
+      <div v-if="assignedEmployee.is_invoiced == '1'"  class="shadow-lg p-3 mb-2 bg-white rounded">
+        <h2>Approve and Evaluate Assignee</h2>
+        <div class="form-group">
+          <label for="">Evaluation Comments</label>
+          <input v-model="evaluation_notes" type="text" class="form-control">
+        </div>
+        <button v-on:click="submitEvaluation" type="button"  class="mt-2 btn btn-md nv-btn-txt-dark nv-font-bc">
+          <i class="fas fa-save"></i> SUBMIT
         </button>
       </div>
 

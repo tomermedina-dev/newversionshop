@@ -13,7 +13,7 @@
     </div>
     <div class="col-lg-3 col-md-9">
       <div class="input-group mb-3">
-        <input type="text" class="form-control nv-input-default nv-font-c" placeholder="Search ..." aria-label="Search By..." >
+        <input id="search-jo-monitoring" onkeyup="tableSearch('search-jo-monitoring' , 'table-jo-monitoring-list')" type="text" class="form-control nv-input-default nv-font-c" placeholder="Search ..." aria-label="Search By..." >
         <div class="input-group-append ">
           <span class="input-group-text nv-input-default">
             <i class="fas fa-search"aria-hidden="true"></i>
@@ -28,6 +28,7 @@
       <thead>
         <tr>
           <td class="nv-font-bc" scope="col">Job ID</td>
+          <td class="nv-font-bc" scope="col">Make & Model</td>
           <td class="nv-font-bc" scope="col">Client Name</td>
           <td class="nv-font-bc" scope="col">Assigned Employee</td>
           <td class="nv-font-bc" scope="col">Time Started</td>
@@ -35,10 +36,13 @@
           <td></td>
         </tr>
       </thead>
-      <tbody id="labor-list"  >
+      <tbody id="table-jo-monitoring-list"  >
         <tr v-for="jo in jobList">
           <td class="nv-font-bc" scope="col">
            @{{jo.job_order_id}}
+          </td>
+          <td class="nv-font-bc" scope="col">
+           @{{jo.make_model}}
           </td>
           <td class="nv-font-bc" scope="col">
            @{{jo.client_name}}

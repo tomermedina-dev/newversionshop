@@ -32,6 +32,7 @@
       <thead>
         <tr>
           <td class="nv-font-bc" scope="col">Job Order ID</td>
+          <td class="nv-font-bc" scope="col">Make & Model</td>
           <td class="nv-font-bc" scope="col">Client Name</td>
           <td class="nv-font-bc" scope="col">Job Order Date</td>
           <td class="nv-font-bc" scope="col">Notes</td>
@@ -41,6 +42,9 @@
       <tbody id="table-jo-history-list">
         <tr v-for="jo in jobOrderList">
           <td class="nv-font-bc" scope="col"> @{{pad(jo.job_order_id)}} </td>
+          <td class="nv-font-bc" scope="col">
+           @{{jo.make_model}}
+          </td>
           <td class="nv-font-bc" scope="col">@{{jo.client_name}}</td>
           <td class="nv-font-bc" scope="col">@{{jo.job_order_date}}</td>
           <td class="nv-font-bc" scope="col">@{{jo.job_order_notes}}</td>
@@ -50,7 +54,8 @@
                 <i class="fas fa-ellipsis-h"></i>
               </div>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <a class="dropdown-item" :href="'/admin/job/details/' + pad(jo.job_order_id)">View Details</a>
+                <a class="dropdown-item"  :href="'/admin/job/details/' + jo.job_order_id" target="_blank" >View Job Details</a>
+                <a class="dropdown-item"  :href="'/admin/checklist/details/' + pad(jo.checklist_id)" target="_blank" >View Checklist Details</a>
               </div>
             </div>
           </td>

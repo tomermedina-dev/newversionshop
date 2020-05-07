@@ -32,7 +32,7 @@
               <span class="input-group-text nv-font-c">
                 CLIENT NAME</span>
             </div>
-            <input v-model="name" type="text" class="form-control" v >
+            <input v-model="name" type="text" class="form-control"   >
           </div>
         </div>
 

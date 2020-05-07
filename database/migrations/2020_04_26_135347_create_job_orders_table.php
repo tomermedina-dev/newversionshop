@@ -20,6 +20,9 @@ class CreateJobOrdersTable extends Migration
             $table->string('checklist_id')->nullable();
             $table->longText('notes')->nullable();
             $table->string('status')->default('0');
+            $table->string('is_invoiced')->default('0');
+            $table->string('is_released')->default('0');
+            $table->string('is_warranty_expired')->default('0');
             $table->timestamps();
         });
           DB::statement('ALTER TABLE job_orders CHANGE id id INT(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT');

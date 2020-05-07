@@ -65,13 +65,13 @@
                  <h5>About</h5>
                  </a>
              </li>
+             @if(session()->has('userId'))
              <li class="nav-item ">
                <a id="nav-cart" class="nav-link" href="/cart">
                  <i class="fa fa-shopping-cart"><span class="badge badge-pill badge-warning" id="cart-count">0</span></i>
                  <!-- <h5>cart</h5> -->
                  </a>
-             </li>
-             @if(session()->has('userId'))
+             </li>             
              <li class="nav-item ">
                <div class="dropdown" >
                  <div style="margin-top:15px;" class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

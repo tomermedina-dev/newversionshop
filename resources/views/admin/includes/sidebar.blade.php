@@ -14,7 +14,7 @@
                 </div>
                 <div class="nv-right">
                   <div class="nv-upper-text nv-font-c">Welcome!</div>
-                  <div class="nv-lower-text nv-font-bc">Darren Carlos</div>
+                  <div class="nv-lower-text nv-font-bc">Admin</div>
                 </div>
               </div>
             </div>
@@ -169,6 +169,14 @@
                           </div>
                         </div>
                       </li>
+                      <li>
+                        <div class="nv-sub-menu"  v-on:click="loadAdminPage('job.completed')">
+                          <div class="nv-title">
+                            <i class="fas fa-circle"></i>
+                            <div class="nv-text nv-font-c">Completed & For Invoicing</div>
+                          </div>
+                        </div>
+                      </li>
                         <li>
                           <div class="nv-sub-menu"  v-on:click="loadAdminPage('job.index')">
                             <div class="nv-title">
@@ -216,31 +224,10 @@
                     </div>
                     <ul class="collapse list-unstyled" id="invoicing-sub-menu">
                         <li>
-                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('invoice.list')">
+                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('invoice.history')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
-                              <div class="nv-text nv-font-c">List</div>
-                            </div>
-                          </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="active">
-                    <div href="#vehicle-storage-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
-                      <div class="nv-title">
-                        <i class="fas fa-warehouse"></i>
-                        <div class="nv-text nv-font-bc">Vehicle Storage Mgmt.</div>
-                      </div>
-                      <div class="nv-caret">
-                        <i class="fas fa-angle-down"></i>
-                      </div>
-                    </div>
-                    <ul class="collapse list-unstyled" id="vehicle-storage-sub-menu">
-                        <li>
-                          <div class="nv-sub-menu">
-                            <div class="nv-title">
-                              <i class="fas fa-circle"></i>
-                              <div class="nv-text nv-font-c">List</div>
+                              <div class="nv-text nv-font-c">History</div>
                             </div>
                           </div>
                         </li>
@@ -278,6 +265,27 @@
                       </div>
                     </div>
                     <ul class="collapse list-unstyled" id="warranty-sub-menu">
+                        <li>
+                          <div class="nv-sub-menu">
+                            <div class="nv-title">
+                              <i class="fas fa-circle"></i>
+                              <div class="nv-text nv-font-c">List</div>
+                            </div>
+                          </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <div href="#vehicle-storage-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
+                      <div class="nv-title">
+                        <i class="fas fa-warehouse"></i>
+                        <div class="nv-text nv-font-bc">Vehicle Storage Mgmt.</div>
+                      </div>
+                      <div class="nv-caret">
+                        <i class="fas fa-angle-down"></i>
+                      </div>
+                    </div>
+                    <ul class="collapse list-unstyled" id="vehicle-storage-sub-menu">
                         <li>
                           <div class="nv-sub-menu">
                             <div class="nv-title">

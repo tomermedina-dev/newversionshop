@@ -6,7 +6,11 @@ var jobOrderHistory = new Vue ({
     notes : '' ,
     employeeList : [] ,
     assignedEmployee : [] ,
-    totalAmount : totals
+    totalAmount : totals ,
+    evaluation_notes : '' ,
+    is_approved : 0 ,
+    start : '' ,
+    end : ''
   } ,
   methods : {
     computeTotal : function (amount) {
@@ -55,6 +59,26 @@ var jobOrderHistory = new Vue ({
       }
 
     },
+    submitEvaluation : function() {
+      swalLoading("Saving.. Please wait..");
+      const t  = this;
+      var assignmentDetails = new FormData();
+      if(!t.evaluation_notes){
+        swalWarning("Please enter evaluation comments first.")
+      }else{
+        assignmentDetails.append('job_order_id' , t.pad(joID));
+        assignmentDetails.append('employee_id' , t.assignedEmployee.employee_id);
+          assignmentDetails.append('evaluation_notes' , t.evaluation_notes);
+        axios.
+        post('/admin/job/assignment/evaluate' ,assignmentDetails).
+        then(function(response) {
+          swalSuccess("Job has been approved and evaluated.");
+          window.setTimeout(window.location.href = '/admin/job/details/'+t.pad(joID), 2500);
+        }).catch(function(error) {
+          swalWentWrong(error);
+        });
+      }
+    },
     getAssignedEmployee : function() {
       const t  = this;
       axios.
@@ -63,7 +87,8 @@ var jobOrderHistory = new Vue ({
         t.assignedEmployee = response.data;
         var qrValue = window.location.hostname + "-qr-job-"+ t.pad(t.assignedEmployee.id)+'-'+t.assignedEmployee.job_order_id+'-'+t.assignedEmployee.employee_id;
         getQRImage(qrValue);
-
+        t.start = t.assignedEmployee.start;
+        t.end = t.assignedEmployee.end;
         // getQRImage('assignid_'t.assignedEmployee.id+'joid_'+t.assignedEmployee.job_order_id+'empid_'+t.assignedEmployee.employee_id);
       }).catch(function(error) {
         swalWentWrong(error);
