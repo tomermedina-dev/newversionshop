@@ -37,6 +37,16 @@ class BladePagesController extends Controller
       // code...
       return view('front.pages.home');
     }
+    public function getCarIndex()
+    {
+      // code...
+      return view('front.pages.car-gallery');
+    }
+    public function getAboutIndex()
+    {
+      // code...
+      return view('front.pages.about');
+    }
     public function getForgotIndex()
     {
       // code...
