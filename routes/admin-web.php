@@ -79,7 +79,7 @@
                Route::post('/new', 'Admin\CheckListController@createOrEditCheckList')->name('admin.checklist.new');
                Route::get('/new/{id}', 'Admin\CheckListController@getChecklistIndex')->name('admin.checklist.index');
                Route::get('/list/all', 'Admin\CheckListController@getChecklistAll')->name('admin.checklist.list');
-               Route::get('/details/{checklistId}', 'Admin\CheckListController@getChecklistDetailsIndex')->name('admin.checklist.details.index');           
+               Route::get('/details/{checklistId}', 'Admin\CheckListController@getChecklistDetailsIndex')->name('admin.checklist.details.index');
          });
          Route::group(['prefix'=>'job',],
              function() {
@@ -91,15 +91,23 @@
                Route::group(['prefix'=>'assignment',],
                    function() {
                      Route::post('/new', 'Admin\JobOrderController@assignJob')->name('admin.assignment.new');
+                     Route::post('/evaluate', 'Admin\JobOrderController@evaluateJob')->name('admin.assignment.evaluate');
                      Route::get('/{joId}', 'Admin\JobOrderController@getAssignedEmployee')->name('admin.job.assigned');
-                     Route::get('/list/monitoring', 'Admin\JobOrderController@getJobsinMonitoring')->name('admin.job.monitoring');
+                     Route::get('/list/{filter}', 'Admin\JobOrderController@getAssignmentList')->name('admin.job.assignment.list');
+
                });
+         });
+         Route::group(['prefix'=>'invoice',],
+             function() {
+               Route::get('/new/{id}', 'Admin\InvoiceController@getInvoiceIndex')->name('admin.invoice.index');
+               Route::post('/new', 'Admin\InvoiceController@createInvoice')->name('admin.invoice.new');
+               Route::get('/list/all', 'Admin\InvoiceController@getAllInvoiceList')->name('admin.invoice.list');
+               Route::get('/details/{invoiceId}', 'Admin\InvoiceController@getInvoiceDetails')->name('admin.invoice.list');
          });
 
          Route::group(['prefix'=>'employee',],
              function() {
                Route::get('/list/{status}', 'Admin\EmployeeController@getEmployeeByStatus')->name('admin.employee.list');
-
          });
          // dashboard
          // parts-and-materials-inventory

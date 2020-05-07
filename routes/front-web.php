@@ -133,13 +133,9 @@ Route::group(['prefix'=>'mail',],
 Route::get('/cart', 'Front\BladePagesController@getProductCartIndex')->name('front.cart.index');
 
 Route::get('/', 'Front\BladePagesController@getHomeIndex')->name('front.home.index');
+Route::get('/about', 'Front\BladePagesController@getAboutIndex')->name('front.home.index');
+Route::get('/cars', 'Front\BladePagesController@getCarIndex')->name('front.home.index');
 Route::get('/register', 'Front\BladePagesController@getRegistrationIndex')->name('front.register.index');
 Route::get('/login', 'Front\BladePagesController@getLoginIndex')->name('front.login.index');
 Route::get('/forgot', 'Front\BladePagesController@getForgotIndex')->name('front.forgot.index');
 Route::get('/logout', 'Admin\UserController@logout')->name('front.logout  ');
-
-
-
-Route::get('/cars', function(){
-  return view('front.car-gallery');
-});
