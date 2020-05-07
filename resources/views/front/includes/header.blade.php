@@ -28,7 +28,7 @@
     <div id="nav" class="navbar-collapse collapse w-100 order-3 dual-collapse2" >
          <ul class="navbar-nav ml-auto white">
              <li class="nav-item ">
-               <a id="nav-home" class="nav-link" href="/home">
+               <a id="nav-home" class="nav-link" href="/">
                  <!-- <i class="fa fa-home"></i> -->
                  <h5>Home</h5>
                  </a>
@@ -71,7 +71,7 @@
                  <i class="fa fa-shopping-cart"><span class="badge badge-pill badge-warning" id="cart-count">0</span></i>
                  <!-- <h5>cart</h5> -->
                  </a>
-             </li>             
+             </li>
              <li class="nav-item ">
                <div class="dropdown" >
                  <div style="margin-top:15px;" class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
