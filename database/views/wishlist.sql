@@ -1,4 +1,4 @@
 create view wishlist_vw as
-    SELECT A.id as 'wishlist_id' , a.user_id , a.product_id  , B.*
-  FROM wish_lists A LEFT JOIN product_vw B
-  ON A.product_id = B.id;
+    SELECT a.id as 'wishlist_id' , a.user_id , a.product_id  , b.*
+  FROM wish_lists a LEFT JOIN product_vw b
+  ON a.product_id = b.id;

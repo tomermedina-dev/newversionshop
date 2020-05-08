@@ -86,6 +86,7 @@
 
 .nv-sidebar-content > .nv-menu{
   padding-top: 1em;
+  overflow: scroll;
 }
 
 .nv-sidebar-content > .nv-menu  .nv-main-menu{
@@ -207,4 +208,10 @@
     #sidebarCollapse span {
         display: none;
     }
+}
+@media screen and  (max-height: 600px) {
+     .nv-sidebar-content > .nv-menu{
+       overflow: scroll;
+       height: 400px;
+     }
 }
