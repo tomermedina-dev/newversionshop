@@ -1,7 +1,7 @@
 <div class="container" >
   <br>
   <div class="d-flex justify-content-center">
-    <img style="float:right;" width="150px" src="{{ asset('images/logo_transpa.png') }}" />
+    <img style="float:right;" width="150px" height="150px" src="{{ asset('images/logo_transpa.png') }}" />
   </div>
   <br>
   <h1 class="text-white">Welcome to <br>New Version Shop</h1>
