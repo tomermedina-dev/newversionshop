@@ -2,6 +2,9 @@
   // Products
    Route::group(['prefix'=>'admin',],
        function() {
+         Route::get('/login', function(){
+            return redirect('/admin/page/login');
+         });
          Route::group(['prefix'=>'qr',],
              function() {
                Route::get('/generate/{valueToGenerate}', 'Admin\QRGeneratorController@generateQRByValue')->name('admin.qr.generator');
@@ -109,6 +112,10 @@
              function() {
                Route::get('/list/{status}', 'Admin\EmployeeController@getEmployeeByStatus')->name('admin.employee.list');
          });
+         Route::group(['prefix'=>'slot',],
+             function() {
+               Route::get('/list/{status}', 'Admin\ShopFloorSlotController@getSlotByStatus')->name('admin.slot.list');
+         });
          // dashboard
          // parts-and-materials-inventory
          //vehicle-check-list
@@ -126,22 +133,22 @@
    });
 
 
-   Route::get('/page/job-order', function(){
-     return view('admin.pages.job-order');
-   });
-
-   Route::get('/pages/service-warranty', function(){
-     return view('admin.pages.service-warranty');
-   });
-
-   Route::get('/pages/releasing-module', function(){
-     return view('admin.pages.releasing-module');
-   });
-
-   Route::get('/pages/featured-products', function(){
-     return view('admin.pages.featured-products');
-   });
-
-   Route::get('/pages/promo-and-sales', function(){
-     return view('admin.pages.promo-and-sales');
-   });
+   // Route::get('/page/job-order', function(){
+   //   return view('admin.pages.job-order');
+   // });
+   //
+   // Route::get('/pages/service-warranty', function(){
+   //   return view('admin.pages.service-warranty');
+   // });
+   //
+   // Route::get('/pages/releasing-module', function(){
+   //   return view('admin.pages.releasing-module');
+   // });
+   //
+   // Route::get('/pages/featured-products', function(){
+   //   return view('admin.pages.featured-products');
+   // });
+   //
+   // Route::get('/pages/promo-and-sales', function(){
+   //   return view('admin.pages.promo-and-sales');
+   // });

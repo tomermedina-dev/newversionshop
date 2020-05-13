@@ -54,9 +54,13 @@ Route::group(['prefix'=> 'user' ,],
 
     });
 
+    Route::group(['prefix'=>'orders',],
+      function() {
+        Route::get('/recent', 'Front\RecentOrdersController@getUserRecentOrdersIndex')->name('front.user.recent-orders');
+        Route::get('/history', 'Front\RecentOrdersController@getUserOrderHistory')->name('front.user.order.history');
+        Route::get('/recent/list/{userId}', 'Front\ProfileController@getRecentOrdersList')->name('front.user.recent-orders.list');
 
-    Route::get('/orders/recent', 'Front\BladePagesController@getUserRecentOrdersIndex')->name('front.user.recent-orders');
-    Route::get('/orders/recent/list/{userId}', 'Front\ProfileController@getRecentOrdersList')->name('front.user.recent-orders.list');
+    });
 
     Route::get('/returns', 'Front\BladePagesController@getUserReturnsIndex')->name('front.user.returns');
     Route::get('/cacellations', 'Front\BladePagesController@getUserCancellationsIndex')->name('front.user.cancellations');
@@ -87,11 +91,16 @@ Route::group(['prefix'=>'cart',],
           function() {
             Route::get('/{id}', 'Front\BladePagesController@getCheckoutIndex')->name('front.checkout.index');
             Route::post('/new', 'Front\CheckoutController@createOrders')->name('front.checkout.news');
+
           });
   });
 
-
-
+Route::group(['prefix'=>'order',],
+      function() {
+        Route::get('/list/{orderId}', 'Admin\OrderController@getOrderItems')->name('front.order.items');
+        Route::get('/total/{orderId}', 'Admin\OrderController@getOrderTotals')->name('front.order.totels');
+        Route::get('/confirmed/{orderId}', 'Front\CheckoutController@getConfirmedOrderIndex')->name('front.checkout.confirmed');
+      });
 
 Route::group(['prefix'=>'products',],
   function() {
@@ -118,7 +127,7 @@ Route::group(['prefix'=>'services',],
             Route::post('/new', 'Admin\BookingController@createNewBooking')->name('front.service.new');
       });
 
-
+      Route::get('/confirmed/{serviceId}', 'Front\CheckoutController@getConfirmedServiceIndex')->name('front.checkout.confirmed');
 });
 Route::group(['prefix'=>'mail',],
     function() {
