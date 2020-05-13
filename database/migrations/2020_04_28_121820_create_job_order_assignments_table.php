@@ -17,6 +17,7 @@ class CreateJobOrderAssignmentsTable extends Migration
             $table->id();
             $table->string('job_order_id');
             $table->string('employee_id');
+            $table->string('slot_id');
             $table->string('start')->nullable();
             $table->string('end')->nullable();
             $table->string('status');

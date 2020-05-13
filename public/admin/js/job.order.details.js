@@ -3,8 +3,10 @@ var jobOrderHistory = new Vue ({
   data : {
     jobOrderList : [] ,
     employeeId  : '' ,
+    slotId : '' ,
     notes : '' ,
     employeeList : [] ,
+    slotList : [] ,
     assignedEmployee : [] ,
     totalAmount : totals ,
     evaluation_notes : '' ,
@@ -38,15 +40,30 @@ var jobOrderHistory = new Vue ({
       });
 
     }  ,
+    getSlots : function(){
+      const t  = this;
+      axios.
+      get('/admin/slot/list/1').
+      then(function (response) {
+        t.slotList = response.data;
+      }).catch(function(error) {
+        swalWentWrong(error);
+      });
+
+    } ,
     setAssign : function() {
       swalLoading("Saving.. Please wait..");
       const t  = this;
       var assignmentDetails = new FormData();
       if(!t.employeeId){
         swalWarning("Please select employee first.")
-      }else{
+      }else if(!t.slotId){
+        swalWarning("Please select floor slot first.")
+      }
+      else{
         assignmentDetails.append('job_order_id' , t.pad(joID));
         assignmentDetails.append('employee_id' , t.employeeId);
+        assignmentDetails.append('slot_id' , t.slotId);
         assignmentDetails.append('notes' , t.notes);
         axios.
         post('/admin/job/assignment/new' ,assignmentDetails).
@@ -95,13 +112,13 @@ var jobOrderHistory = new Vue ({
       });
     },
     pad : function(value) {
-      return pad(value , 10);
+      return pad(parseInt(value) , 10);
     }
   } ,
   mounted (){
     this.loadJobOrderItems();
     this.getEmployees();
     this.getAssignedEmployee();
-
+    this.getSlots();
   }
 });
