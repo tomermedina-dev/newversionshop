@@ -69,11 +69,12 @@ var bookingForm = new
           err = 1;
         }
         if(err != 1 ) {
+          swalLoading("Submitting booking.. Please wait.. ")
           t.getFieldValue();
           axios.
           post('/services/booking/new',bookingDetails).
           then(function(response) {
-
+            window.location.href = "/services/confirmed/"+pad(response.data.id , 10);
           }).catch(function(error) {
             swalWentWrong();
           });

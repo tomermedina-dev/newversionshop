@@ -1,0 +1,10 @@
+.nv-shipping-details p{
+  margin: 0;
+}
+.nv-order-message p{
+  font-size: 1.5em;
+  margin: 0;
+}
+.nv-confirmed-content{
+  margin-top: 5%;
+}
