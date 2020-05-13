@@ -9,7 +9,7 @@
     <div class="dropdown">
       <div class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-user"></i>
-        <div class="nv-name nv-font-bc">Darren</div>
+        <div class="nv-name nv-font-bc">Admin</div>
         <i class="fas fa-angle-down"></i>
       </div>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
