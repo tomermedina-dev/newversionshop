@@ -64,7 +64,7 @@
 
           </div>
         </div>
-        <div class="nv-ratings d-flex align-items-center mb-2" data-ratings="1.75"></div>
+        <!-- <div class="nv-ratings d-flex align-items-center mb-2" data-ratings="1.75"></div> -->
         <div class="nv-categories d-flex">
           <div class="nv-label nv-font-bc">
             Category:
@@ -76,7 +76,7 @@
 
 
         <div class="nv-price nv-font-bc">
-          P @{{productDetails.price}}
+          ₱ @{{productDetails.price}}
         </div>
 
         <div class="nv-line"></div>
