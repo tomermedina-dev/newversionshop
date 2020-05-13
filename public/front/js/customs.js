@@ -45,7 +45,12 @@ function noResultMessage() {
 
 
 function addOrUpdateToCart (cartId, productId , quantity) {
-
+  // var url ="";
+  // if(!quantity){
+  //   url = 'products'
+  // }else{
+  //
+  // }
   if(userId == 0){
     Swal.fire({
       html : `<div class='container'>
