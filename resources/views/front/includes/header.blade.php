@@ -1,7 +1,7 @@
 <nav class="d-flex  navbar navbar-icon-top navbar-expand-md navbar-light  " style="background-color: #2f3640;">
 <div class="container">
     <a  class="navbar-brand">
-      <img  width="80px" src="{{ asset('images/logo_transpa.png') }}">
+      <img  width="80px" height="80px" src="{{ asset('images/logo_transpa.png') }}">
     </a>
     <button type="button" class="navbar-toggler bg-light" data-toggle="collapse" data-target="#nav">
       <span class="navbar-toggler-icon"></span>

@@ -34,6 +34,7 @@
         <tr>
           <td class="nv-font-bc" scope="col">Job ID</td>
           <td class="nv-font-bc" scope="col">Make & Model</td>
+          <td class="nv-font-bc" scope="col">Floor Slot</td>
           <td class="nv-font-bc" scope="col">Client Name</td>
           <td class="nv-font-bc" scope="col">Assigned Employee</td>
           <td class="nv-font-bc" scope="col">Time Started</td>
@@ -48,6 +49,9 @@
           </td>
           <td class="nv-font-bc" scope="col">
            @{{jo.make_model}}
+          </td>
+          <td class="nv-font-bc" scope="col">
+           @{{jo.slot_name}}
           </td>
           <td class="nv-font-bc" scope="col">
            @{{jo.client_name}}

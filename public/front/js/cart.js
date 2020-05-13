@@ -203,21 +203,22 @@ var cartItems = new Vue({
         post('/cart/checkout/new' ,formShippingDetails).
         then(function(response) {
           // swalSuccess("Orders has been placed.")
-
-          Swal.fire({
-
-            text: "Orders has been placed.",
-            icon: 'success',
-            showCancelButton: false,
-            confirmButtonColor: '#3085d6',
-            allowEscapeKey : false ,
-            allowOutsideClick : false ,
-            confirmButtonText: 'OK'
-          }).then((result) => {
-            if (result.value) {
-              window.location.href = '/user/orders/recent';
-            }
-          })
+         
+          window.location.href = "/order/confirmed/"+pad(response.data.id, 10);
+          // Swal.fire({
+          //
+          //   text: "Orders has been placed.",
+          //   icon: 'success',
+          //   showCancelButton: false,
+          //   confirmButtonColor: '#3085d6',
+          //   allowEscapeKey : false ,
+          //   allowOutsideClick : false ,
+          //   confirmButtonText: 'OK'
+          // }).then((result) => {
+          //   if (result.value) {
+          //     // window.location.href = '/user/orders/recent';
+          //   }
+          // })
         }).catch(function(error) {
           swalWentWrong();
         }).finally(function(response) {});

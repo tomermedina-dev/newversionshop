@@ -114,6 +114,7 @@ class JobOrderController extends Controller
       $details = [
         'job_order_id' => $request->job_order_id,
         'employee_id' => $request->employee_id,
+        'slot_id' => $request->slot_id,
         'notes' => $request->notes ,
         'status' => '0'
       ];

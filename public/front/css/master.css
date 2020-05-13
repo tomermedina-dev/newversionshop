@@ -250,7 +250,7 @@ font-family: 'Myriad Pro Bold Condensed Italic';
 } */
 
 
-.nv-btn-mustard{
+/* .nv-btn-mustard{
   background-color: #fbc531;
   color: #f5f6fa !important;
   border-radius: 3px !important;
@@ -262,7 +262,7 @@ font-family: 'Myriad Pro Bold Condensed Italic';
 
 .nv-btn-mustard:hover{
   background-color: #e1b12c;
-}
+} */
 
 
 .nv-product-card .card-body{
@@ -289,6 +289,40 @@ font-family: 'Myriad Pro Bold Condensed Italic';
   color: #fff;
 }
 
+
+.nv-table-container{
+    border-radius: 5px;
+    overflow-x: auto;
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.5);
+}
+
+.nv-table{
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.nv-table thead{
+  background-color: #fbc531;
+
+}
+
+.nv-table td{
+  text-align: center;
+  border: 0;
+}
+
+.nv-table tbody tr {
+    background-color: #dcdde1;
+}
+
+.nv-table tbody tr:nth-of-type(odd) {
+    background-color: #f5f6fa;
+}
+
+
 .row{
   margin: 0;
 }
@@ -308,3 +342,144 @@ font-family: 'Myriad Pro Bold Condensed Italic';
   height: 16px;
   background-image: url('data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==');
 }
+.pointer{
+	cursor: pointer;
+}
+a{
+	cursor: pointer;
+}
+.nv-text-mustard{
+	color: #2f3640;
+}
+.nv-swal-message-holder h5{
+	color: gray;
+}
+.nv-btn-txt-mustard {
+	background-color: #2f3640;
+	color: #fbc531;
+}
+
+.nv-btn-txt-mustard:hover {
+	color: white;
+	background-color: #41474f;
+}
+
+.nv-btn-txt-white {
+	background-color: #2f3640;
+	color: white;
+}
+
+.nv-btn-txt-white:hover {
+	background-color: #41474f;
+	color: #fbc531;
+}
+
+.nv-btn-mustard {
+	background-color: #fbc531;
+	color: #41474f;
+}
+
+.nv-btn-mustard:hover {
+	background-color: #fbc531;
+	color: white;
+}
+
+.nv-top-left-radius{
+  border-top-left-radius:2.5%;
+}
+.nv-bottom-left-radius{
+  border-bottom-left-radius:2.5%;
+}
+
+.nv-bottom-right-radius{
+  border-bottom-right-radius:2.5%;
+}
+.nv-top-right-radius{
+  border-top-right-radius:2.5%;
+}
+.nv-input-custom {
+	background-color: whitesmoke;
+	border: none;
+	border-left: 4px solid #fbc531;
+
+}
+
+.nv-input-custom:focus {
+	background-color: whitesmoke;
+	border: none;
+	border-left: 4px solid #fbc531;
+	color: none;
+	outline: ;
+	box-shadow: none;
+}
+
+.nv-input-custom::placeholder {
+	opacity: 0.3;
+}
+
+.nv-text-mustard {
+	color: #fbc531;
+}
+
+
+.nv-bg-mustard{
+  background-color: #fbc531;
+}
+.nv-bg-dark{
+  background-color: #2f3640;
+  color: white;
+}
+
+.nv-dot-dark {
+  height: 50px;
+  width: 50px;
+  background-color: #2f3640;
+  border-radius: 50%;
+  display: inline-block;
+}
+.nv-dot-mustard {
+  height: 50px;
+  width: 50px;
+  background-color: #fbc531;
+  border-radius: 50%;
+  display: inline-block;
+}
+.nv-mustard-divider{
+  border-bottom:#fbc531 7px solid;border-radius:5px;
+
+}
+.nv-line-divider{
+    border-bottom:lightgrey 1px solid;
+}
+.nv-input-icon-plain{
+  padding:2px;background-color:white;border:none;
+}
+
+.nv-horizontal-center {
+  float:none;
+  margin:0 auto;
+}
+
+.nv-login-form label{
+  margin-left:35px;
+}
+.nv-login-form .fa {
+  font-size: 1.8em;
+  padding-right: 10px;
+}
+.nv-login-form input{
+  border: 1.5px solid #fbde8e;
+
+}
+.loader-icon{
+	font-size:70px;
+	color:#000;
+	animation: scale 3s ease infinite;
+}
+
+@keyframes scale {
+ 0% {transform: rotateZ(0deg);transform: rotateY(0deg);}
+ 50% {transform: rotateZ(360deg);transform:rotateY(360deg);}
+ 100% {transform: rotateZ(0deg);transform:rotateY(0deg);}
+}
+[v-cloak] { display: none; }

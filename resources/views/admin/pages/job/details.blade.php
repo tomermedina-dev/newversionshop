@@ -44,6 +44,12 @@
           </select>
         </div>
         <div class="form-group">
+          <label for=""> Please select floor slot</label>
+          <select    v-model="slotId"   class="custom-select" id="slot-list">
+            <option  v-for="slot in slotList"  :value="pad(slot.id)"   >@{{slot.slot_name}}   </option>
+          </select>
+        </div>
+        <div class="form-group">
           <label for=""> Notes</label>
           <input v-model="notes" type="text" class="form-control">
         </div>

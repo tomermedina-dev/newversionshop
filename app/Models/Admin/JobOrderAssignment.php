@@ -11,6 +11,7 @@ class JobOrderAssignment extends Model
     protected $fillable = [
      'job_order_id',
      'employee_id',
+     'slot_id' , 
      'start' ,
      'end' ,
      'status',

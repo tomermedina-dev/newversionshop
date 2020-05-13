@@ -6,11 +6,10 @@
     <title>New Version Shop - Admin Login</title>
     @include('front.includes.resources-header')
   </head>
-
   <body>
       <div class="container">
         <div class="d-flex justify-content-center" >
-      <div class="container "  style="padding:5%;">
+      <div class="container "  style="padding:5%;margin-top:15%;">
         <div class="row"  id="nv-login">
           <div  class="nv-container-left col-sm-5 container shadow-lg p-3 mb-5 nv-bg-dark" style="padding:2%;">
               @include('front.user.details')
