@@ -17,20 +17,21 @@
 
   <ul class="nv-sidenav-lists">
     <li class="nv-header nv-font-bc">ORDERS</li>
-    <li class="nv-items"> <a href="/user/orders/recent">Recent Orders</a> </li>
+    <li class="nv-items"> <a href="/user/orders/history">History</a> </li>
+    <!-- <li class="nv-items"> <a href="/user/orders/recent">Recent Orders</a> </li> -->
     <!-- <li class="nv-items"> <a href="#">My Returns</a> </li>
     <li class="nv-items"> <a href="#">My Cancellations</a> </li> -->
   </ul>
 
   <ul class="nv-sidenav-lists">
     <li class="nv-header nv-font-bc">
-      REVIEWS
+      WISHLIST
       <li class="nv-items"> <a href="/user/wishlist">List</a> </li>
     </li>
   </ul>
 
-  <ul class="nv-sidenav-lists">
+  <!-- <ul class="nv-sidenav-lists">
     <li class="nv-header nv-font-bc">WISHLIST</li>
-  </ul>
+  </ul> -->
 
 </div>
