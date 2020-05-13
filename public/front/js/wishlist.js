@@ -22,7 +22,7 @@ var wishlistItems = new Vue({
       get('/user/wishlist/delete/'+pad(wishListId)).
       then(function(response) {
         wishlistItems.loadWishlist();
-        swalSuccess("Product has beem removed.")
+        swalSuccess("Product has been removed.")
       }).catch(function(error) {
         swalWentWrong();
       }).finally(function(response) {});
