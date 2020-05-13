@@ -131,7 +131,7 @@ class BladePagesController extends Controller
     public function getWishlistIndex()
     {
       // code...
-      return view('front.user.profile.profile-WishList');
+      return view('front.user.profile.profile-wishList');
     }
     public function getServicesIndex()
     {
