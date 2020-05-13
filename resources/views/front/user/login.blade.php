@@ -48,4 +48,9 @@
     <script src="{{ asset('front/js/login.js') }}" ></script>
 
 </div>
+<style media="screen">
+  .nv-footer {
+    margin-top: 0 !important;
+  }
+</style>
 @endsection
