@@ -483,3 +483,9 @@ a{
  100% {transform: rotateZ(0deg);transform:rotateY(0deg);}
 }
 [v-cloak] { display: none; }
+
+/* SWAL Overrides  */
+.swal2-validation-message{
+  font-size : .80em !important;
+  justify-content: left !important;
+}

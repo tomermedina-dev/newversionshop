@@ -226,3 +226,30 @@ function getQRImage(value) {
     swalWentWrong(error);
   });
 }
+function getCurrentDate(){
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+
+  today = mm + '/' + dd + '/' + yyyy;
+  return today;
+}
+function getDateDiff(d1 , d2) {
+  const date1 = new Date(d1);
+  const date2 = new Date(d2);
+  const diffTime = Math.abs(date2 - date1);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  return diffDays;
+}
+function isFutureDate(date){
+  var givenDate = date.toString();
+  var currentDate = new Date();
+  givenDate = new Date(givenDate);
+
+  if(givenDate > currentDate){
+    return true;
+  }else{
+    return false;
+  }
+}

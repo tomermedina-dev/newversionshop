@@ -61,6 +61,12 @@ Route::group(['prefix'=> 'user' ,],
         Route::get('/recent/list/{userId}', 'Front\ProfileController@getRecentOrdersList')->name('front.user.recent-orders.list');
 
     });
+    Route::group(['prefix'=>'services',],
+      function() {
+        Route::get('/history', 'Front\ServicesHistoryController@getUserServicesHistory')->name('front.user.services.history');
+        Route::get('/history/list/{userId}', 'Front\ServicesHistoryController@getServiceHistory')->name('front.user.services.list');
+
+    });
 
     Route::get('/returns', 'Front\BladePagesController@getUserReturnsIndex')->name('front.user.returns');
     Route::get('/cacellations', 'Front\BladePagesController@getUserCancellationsIndex')->name('front.user.cancellations');
@@ -73,6 +79,7 @@ Route::group(['prefix'=> 'user' ,],
             Route::get('/list/{userId}', 'Front\WishListController@getWishlist')->name('front.wishlist.list');
             Route::get('/delete/{wishListId}', 'Front\WishListController@deleteItemWishList')->name('front.wishlist.delete');
     });
+
 
 });
 
@@ -100,7 +107,10 @@ Route::group(['prefix'=>'order',],
         Route::get('/list/{orderId}', 'Admin\OrderController@getOrderItems')->name('front.order.items');
         Route::get('/total/{orderId}', 'Admin\OrderController@getOrderTotals')->name('front.order.totels');
         Route::get('/confirmed/{orderId}', 'Front\CheckoutController@getConfirmedOrderIndex')->name('front.checkout.confirmed');
-      });
+});
+
+
+
 
 Route::group(['prefix'=>'products',],
   function() {
@@ -125,6 +135,7 @@ Route::group(['prefix'=>'services',],
           function() {
             Route::get('/form/{id}/{slug}', 'Front\BladePagesController@getBookingFormIndex')->name('front.booking.form.index');
             Route::post('/new', 'Admin\BookingController@createNewBooking')->name('front.service.new');
+            Route::post('/change/date', 'Admin\BookingController@changeDateRequest')->name('front.service.change.date');
       });
 
       Route::get('/confirmed/{serviceId}', 'Front\CheckoutController@getConfirmedServiceIndex')->name('front.checkout.confirmed');

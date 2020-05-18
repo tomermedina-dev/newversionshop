@@ -17,6 +17,9 @@ var jobMonitoring = new Vue({
     viewQR : function(assignmentId , jobId , employeeId) {
       var value = window.location.hostname + "-qr-job-"+pad(assignmentId ,10)+"-"+jobId+"-"+employeeId;
       window.open('/admin/qr/generate/'+value);
+    } ,
+    pad : function (value) {
+      return pad(value , 10);
     }
   } ,
   mounted () {

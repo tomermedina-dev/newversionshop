@@ -85,7 +85,7 @@
         </div>
       </div>
     </div>
-    @include('front.includes.suggested-products')
+    <!-- front.includes.suggested-products -->
   </div>
 
 </div>
@@ -100,6 +100,11 @@
     });
   });
 </script>
+<style media="screen">
+  .nv-footer {
+    margin-top: 12.3% !important;
+  }
+</style>
 <script src="{{ asset('front\js\customs.js') }}" charset="utf-8"></script>
 <script src="{{ asset('front\js\cart.js') }}" ></script>
 @endsection

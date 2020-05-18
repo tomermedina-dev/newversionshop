@@ -20,9 +20,9 @@
 
       <tr v-for="item in carList" class="item-list">
         <td   scope="col">
-            
-           <img class="border"  v-if='item.car_image == null' src="{{ asset('images/no-image-available.png') }}">
-           <img v-else style="width:200px;"  :src='getCarImagesPath(item.car_image)'   />
+
+           <img style="width:200px;height:200px;"  class="border"  v-if='item.car_image == null' src="{{ asset('images/no-image-available.png') }}">
+           <img v-else style="width:200px;height:200px;"  :src='getCarImagesPath(item.car_image)'   />
         </td>
         <td   scope="col"> @{{pad(item.id,10)}}</td>
         <td   scope="col"> @{{item.car_manufacturer}}</td>

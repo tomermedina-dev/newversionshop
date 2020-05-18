@@ -30,6 +30,12 @@
     </li>
   </ul>
 
+  <ul class="nv-sidenav-lists">
+    <li class="nv-header nv-font-bc">
+      SERVICES
+      <li class="nv-items"> <a href="/user/services/history">History</a> </li>
+    </li>
+  </ul>
   <!-- <ul class="nv-sidenav-lists">
     <li class="nv-header nv-font-bc">WISHLIST</li>
   </ul> -->
