@@ -21,6 +21,7 @@ var productDetails = new Vue({
       get("/products/details/"+productId)
       .then(function(response) {
         t.productDetails = response.data;
+
       }).catch(function(error) {
         swalWentWrong();
       }).finally(function(response) {
@@ -68,8 +69,20 @@ var productDetails = new Vue({
     addToWishList : function  (productId) {
       addToWishList(userId , productId);
     }
+  } ,
+  mounted (){
+    this.loadDetails();
+    this.loadImages();
   }
 });
 
-productDetails.loadDetails();
-productDetails.loadImages();
+new Vue({
+  el : ".nv-related-products" ,
+  data : {
+
+  },
+  methods : {
+
+  } 
+
+})
