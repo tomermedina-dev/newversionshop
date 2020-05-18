@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\ShopFloorSlots;
+use DB ;
 class ShopFloorSlotController extends Controller
 {
     //
@@ -12,6 +13,15 @@ class ShopFloorSlotController extends Controller
     {
       // code...
       $slot = ShopFloorSlots::where('status' , $status)->get();
+      $slot = DB::select("select * from vehicle_slot_vw where status ='$status'");
       return json_encode($slot);
+    }
+    public function updateSlot(Request $request)
+    {
+      // code...
+      $update = ShopFloorSlots::where('id' , $request->id)->update([
+        'slot_name'=>$request->slot_name , 'description'=>$request->description , 'color_code'=>$request->color_code
+      ]);
+      return json_encode($update);
     }
 }
