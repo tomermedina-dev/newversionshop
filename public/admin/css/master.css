@@ -366,3 +366,7 @@ box-shadow: !important;
   height: 85px !important;
   overflow: auto !important;
 }
+
+.pointer{
+	cursor: pointer;
+}

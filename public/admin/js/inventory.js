@@ -242,6 +242,9 @@ var inventoryList = new Vue ({
         swalWentWrong();
       }).finally(function(response) { });
     } ,
+    getProductImagesPath: function(img){
+      return window.location.origin + "/uploads/images/products/"+img;
+    },
     editItem : function (id , type_id ,product_categ , name , brand,car_brand,car_model,description,quantity ,price) {
 
       if ($("#EditItemModal").get(0)){

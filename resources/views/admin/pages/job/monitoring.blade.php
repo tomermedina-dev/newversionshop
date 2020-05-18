@@ -68,9 +68,9 @@
                 <i class="fas fa-ellipsis-h"></i>
               </div>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                <a class="dropdown-item" v-on:click="viewQR(jo.id , jo.job_order_id , jo.employee_id)" >View QR</a>
+                <a class="dropdown-item" v-on:click="viewQR(jo.id , jo.job_order_id , jo.employee_id)" >View QR </a>
                 <a class="dropdown-item"  :href="'/admin/job/details/' + jo.job_order_id" target="_blank" >View Job Details</a>
-                <a class="dropdown-item"  :href="'/admin/checklist/details/' + jo.job_order_id" target="_blank" >View Checklist Details</a>
+                <a class="dropdown-item"  :href="'/admin/checklist/details/' + pad(jo.checklist_id)" target="_blank" >View Checklist Details</a>
               </div>
             </div>
           </td>

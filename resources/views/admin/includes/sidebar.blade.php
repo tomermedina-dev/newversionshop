@@ -119,6 +119,7 @@
                             </div>
                           </div>
                         </li>
+
                     </ul>
                 </li>
                 <li class="active">
@@ -287,7 +288,7 @@
                     </div>
                     <ul class="collapse list-unstyled" id="vehicle-storage-sub-menu">
                         <li>
-                          <div class="nv-sub-menu">
+                          <div class="nv-sub-menu" v-on:click="loadAdminPage('vehicle.index')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">List</div>
