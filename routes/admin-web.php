@@ -49,6 +49,7 @@
               Route::group(['prefix'=>'booking',],
                   function() {
                     Route::get('/all/new', 'Admin\BookingController@getAllNewBookings')->name('front.bookings.new');
+                    Route::get('/request-change-date/{schedId}/{response}', 'Admin\BookingController@setRequestChangeDateResponse')->name('front.bookings.change.date');
               });
          });
 
@@ -115,6 +116,7 @@
          Route::group(['prefix'=>'slot',],
              function() {
                Route::get('/list/{status}', 'Admin\ShopFloorSlotController@getSlotByStatus')->name('admin.slot.list');
+               Route::post('/update', 'Admin\ShopFloorSlotController@updateSlot')->name('admin.slot.update');
          });
          // dashboard
          // parts-and-materials-inventory
