@@ -4,6 +4,7 @@
 
       <thead>
         <tr>
+          <td>Item Image</td>
           <td class="nv-font-bc" scope="col">Product Id</td>
           <td class="nv-font-bc" scope="col">Type</td>
           <td class="nv-font-bc" scope="col">Name</td>
@@ -21,6 +22,10 @@
       <tbody id="table-inventory-list">
 
       <tr v-for="item in inventoryList" class="item-list">
+        <td   scope="col">
+           <img class="border"  style="width:200px;height:200px;"  v-if='item.product_image == null' src="{{ asset('images/no-image-available.png') }}">
+           <img v-else style="width:200px;height:200px;"  :src='getProductImagesPath(item.car_image)'   />
+        </td>
         <td   scope="col"> @{{pad(item.id,10)}}</td>
         <td   scope="col"> @{{item.product_categ}}</td>
         <td   scope="col">@{{item.name}}</td>
