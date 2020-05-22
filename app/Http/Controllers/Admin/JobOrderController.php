@@ -10,6 +10,7 @@ use App\Models\Admin\JobOrderItem;
 use App\Models\Admin\Product;
 use App\Models\Admin\Service;
 use App\Models\Admin\JobOrderAssignment;
+use App\Models\Admin\ServiceWarranty;
 use DB ;
 use App\Models\Admin\JobEvaluation;
 class JobOrderController extends Controller
@@ -145,8 +146,20 @@ class JobOrderController extends Controller
         $jobAssignment = DB::select("select * from job_order_assigment_vw ");
       }
       if($filter == 'release'){
-        $jobAssignment = DB::select("select * from job_order_assigment_vw where is_invoiced = '1' ");
+        $jobAssignment = DB::select("select * from job_order_assigment_vw where is_invoiced = '1' and is_released != '1' ");
       }
+      return json_encode($jobAssignment);
+    }
+    public function getEmployeeAssignedJobs($filter , $id)
+    {
+      // code...
+      if($filter == 'monitoring'){
+          $jobAssignment = DB::select("select * from job_order_assigment_vw where status = '0' and end is null and employee_id = '$id' ");
+      }
+      if($filter == 'history'){
+          $jobAssignment = DB::select("select * from job_order_assigment_vw where end is not null and  employee_id = '$id' ");
+      }
+
       return json_encode($jobAssignment);
     }
     public function evaluateJob(Request $request)
@@ -160,6 +173,19 @@ class JobOrderController extends Controller
       $evaluate = JobEvaluation::create($details);
       JobOrder::where('id' , $request->job_order_id)->update(['status' =>'1' , 'is_released' => '1']);
       JobOrderAssignment::where('job_order_id'  , $request->job_order_id)->update(['status' => '1' , 'is_approved' => '1' ]);
+      $warranty=[
+          'job_order_id' => $request->job_order_id,
+          'warranty_start' => $request->warranty_start,
+          'warranty_end' => $request->warranty_end,
+          'status' => '0'
+      ];
+      ServiceWarranty::create($warranty);
       return json_encode($evaluate);
+    }
+    public function getJobWarranty($joID)
+    {
+      // code...
+      $warranty = ServiceWarranty::where("job_order_id" , $joID)->first();
+      return json_encode($warranty);
     }
 }

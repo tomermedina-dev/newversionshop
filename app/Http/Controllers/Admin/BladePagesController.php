@@ -11,7 +11,7 @@ class BladePagesController extends Controller
     public function getAdminBladeIndex($pageName)
     {
       // code...
-      if (session('role') != 'admin' || !session()->has('role')){
+      if (session('role') == 'client' && !session()->has('role')){
         if($pageName != 'login'){
           return redirect('/admin/page/login');
         }else {

@@ -4,9 +4,13 @@
 <div class="container">
 <style media="screen">
   .g-recaptcha > div { margin: 0 auto;}
-      .hidden_recaptcha { visibility: hidden;}
+  .hidden_recaptcha { visibility: hidden;}
+  .col-sm-6{
+    padding: 3px;
+  }
 </style>
-    <div class="d-flex justify-content-center" id="nv-register">
+<title>New Version - Register</title>
+  <div class="d-flex justify-content-center" id="nv-register">
       <div class="container " style="padding:5%;">
         <div class="row ">
           <div class="nv-container-left  container col-sm-5 shadow-lg p-3 mb-5 nv-bg-dark" style="padding:2%;">

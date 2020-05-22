@@ -15,7 +15,7 @@
               @include('front.user.details')
               <br>
               <div class="d-flex justify-content-center">
-                <a href="/register" class="btn nv-btn-mustard" name="button"> Go to employee registration page</a>
+                <a href="/admin/employee/register" class="btn nv-btn-mustard" name="button"> Go to employee registration page</a>
               </div>
 
               <!-- <div class="d-flex justify-content-center">

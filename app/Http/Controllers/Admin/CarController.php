@@ -64,4 +64,10 @@ class CarController extends Controller
       $car = DB::select("select * from car_vw");
       return json_encode($car);
     }
+    public function getAllCarsByStatus($status)
+    {
+      // code...
+      $car = DB::select("select * from car_vw where status ='$status' ");
+      return json_encode($car);
+    }
 }

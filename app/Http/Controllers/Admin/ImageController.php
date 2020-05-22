@@ -45,4 +45,10 @@ class ImageController extends Controller
       $images = Image::where('type' , 'product')->where('ref_id' ,$productId )->get();
       return json_encode($images);
     }
+    public function getCarImages($carId)
+    {
+      // code...
+      $images = Image::where('type' , 'car')->where('ref_id' ,$carId )->get();
+      return json_encode($images);
+    }
 }
