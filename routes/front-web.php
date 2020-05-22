@@ -140,6 +140,12 @@ Route::group(['prefix'=>'services',],
 
       Route::get('/confirmed/{serviceId}', 'Front\CheckoutController@getConfirmedServiceIndex')->name('front.checkout.confirmed');
 });
+Route::group(['prefix'=>'cars',],
+    function() {
+      Route::get('/', 'Front\BladePagesController@getCarIndex')->name('front.home.index');
+       Route::get('/all/{status}','Admin\CarController@getAllCarsByStatus')->name('admin.car.all');
+});
+
 Route::group(['prefix'=>'mail',],
     function() {
       Route::get('/forgot-password/{userId}', 'Admin\EmailController@sendForgotPassword')->name('front.mail.forgot');
@@ -148,13 +154,12 @@ Route::group(['prefix'=>'mail',],
             Route::get('/forgot-password', 'Front\BladePagesController@getMailLayoutForgot')->name('front.mail.layout.forgot');
 
           });
-    });
+});
 
 Route::get('/cart', 'Front\BladePagesController@getProductCartIndex')->name('front.cart.index');
 
 Route::get('/', 'Front\BladePagesController@getHomeIndex')->name('front.home.index');
 Route::get('/about', 'Front\BladePagesController@getAboutIndex')->name('front.home.index');
-Route::get('/cars', 'Front\BladePagesController@getCarIndex')->name('front.home.index');
 Route::get('/register', 'Front\BladePagesController@getRegistrationIndex')->name('front.register.index');
 Route::get('/login', 'Front\BladePagesController@getLoginIndex')->name('front.login.index');
 Route::get('/forgot', 'Front\BladePagesController@getForgotIndex')->name('front.forgot.index');
