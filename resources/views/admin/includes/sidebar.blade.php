@@ -267,10 +267,10 @@
                     </div>
                     <ul class="collapse list-unstyled" id="warranty-sub-menu">
                         <li>
-                          <div class="nv-sub-menu">
+                          <div class="nv-sub-menu" v-on:click="loadAdminPage('warranty.list')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
-                              <div class="nv-text nv-font-c">List</div>
+                              <div class="nv-text nv-font-c">Active List</div>
                             </div>
                           </div>
                         </li>
@@ -355,6 +355,35 @@
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">List</div>
+                            </div>
+                          </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <div href="#employee-portal-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
+                      <div class="nv-title">
+                        <i class="far fa-address-card"></i>
+                        <div class="nv-text nv-font-bc">Employee Portal</div>
+                      </div>
+                      <div class="nv-caret">
+                        <i class="fas fa-angle-down"></i>
+                      </div>
+                    </div>
+                    <ul class="collapse list-unstyled" id="employee-portal-sub-menu">
+                        <li>
+                          <div class="nv-sub-menu" v-on:click="loadAdminPage('employee.assigned')">
+                            <div class="nv-title">
+                              <i class="fas fa-circle"></i>
+                              <div class="nv-text nv-font-c">Current Assigned Jobs</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="nv-sub-menu" v-on:click="loadAdminPage('employee.history')">
+                            <div class="nv-title">
+                              <i class="fas fa-circle"></i>
+                              <div class="nv-text nv-font-c">Jobs History</div>
                             </div>
                           </div>
                         </li>

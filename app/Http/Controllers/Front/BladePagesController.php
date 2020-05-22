@@ -40,7 +40,7 @@ class BladePagesController extends Controller
     public function getCarIndex()
     {
       // code...
-      return view('front.pages.car-gallery');
+      return view('front.cars.index');
     }
     public function getAboutIndex()
     {

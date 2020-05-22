@@ -362,10 +362,10 @@ box-shadow: !important;
   display: none;
 }
 /* Dropdown Override */
-.dropdown-menu {
+/* .dropdown-menu {
   height: 85px !important;
   overflow: auto !important;
-}
+} */
 
 .pointer{
 	cursor: pointer;

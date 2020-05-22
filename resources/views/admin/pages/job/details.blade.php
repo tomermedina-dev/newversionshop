@@ -3,6 +3,7 @@
 @section('content')
 
 <link rel="stylesheet" href="{{ asset('admin/css/pages/booked-services-summary.css') }}">
+<link rel="stylesheet" href="{{ asset('front/css/datepicker.css') }}">
 <script type="text/javascript">
   var joID = "{{$joDetails->job_order_id}}";
   var totals = numberWithCommas("{{$joTotals->totals}}") ;
@@ -34,6 +35,10 @@
         <h5>Started At : @{{start}}</h5>
         <h5>Ended At : @{{end}}</h5>
       </div>
+      <div v-if="warrantyDetails.length != 0" v-cloak>
+        <h5>Warranty Start Date :   @{{warrantyDetails.warranty_start}} </h5>
+        <h5>Warranty End Date :  @{{warrantyDetails.warranty_end}} </h5>
+      </div>
 
       <div v-if="!assignedEmployee" class="shadow-lg p-3 mb-2 bg-white rounded">
         <h2>Assign to Employee</h2>
@@ -58,11 +63,17 @@
         </button>
       </div>
 
-      <div v-if="assignedEmployee.is_invoiced == '1'"  class="shadow-lg p-3 mb-2 bg-white rounded">
+      <div v-cloak v-if="assignedEmployee.is_invoiced == '1' && assignedEmployee.is_released != '1'"  class="shadow-lg p-3 mb-2 bg-white rounded">
         <h2>Approve and Evaluate Assignee</h2>
         <div class="form-group">
           <label for="">Evaluation Comments</label>
           <input v-model="evaluation_notes" type="text" class="form-control">
+        </div>
+        <div class="dropdown-divider"></div>
+        <h2>Set Service Warranty end date</h2>
+        <div class="form-group">
+          <label>Warranty End Date</label>
+          <input v-on:focus="showCalendarPicker()" v-model="warrantyDate" data-date-format="mm/dd/yyyy"  class="nv-input-custom form-control datepicker" id="warranty_date" type="text" >
         </div>
         <button v-on:click="submitEvaluation" type="button"  class="mt-2 btn btn-md nv-btn-txt-dark nv-font-bc">
           <i class="fas fa-save"></i> SUBMIT
@@ -116,5 +127,7 @@
     </table>
   </div>
 </div>
+<script src="{{ asset('front\js\customs.js') }}" charset="utf-8"></script>
+
 <script src="{{ asset('admin\js\job.order.details.js') }}" ></script>
 @endsection

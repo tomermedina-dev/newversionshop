@@ -3,7 +3,7 @@
 @section('content')
 <title>New Version Shop - Services</title>
 <link rel="stylesheet" href="{{ asset('front/css/pages/services.css') }}">
-<div class=" ">
+<div class="container">
   <div class="nv-services-content">
     <!-- <div id="nv-carousel" class="carousel slide mb-3 nv-default-box-shadow" data-ride="carousel"> -->
     <div id="nv-carousel" class="carousel slide mb-3  " >

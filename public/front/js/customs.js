@@ -1,3 +1,11 @@
+function available(date) {
+   var current_date = new Date();
+    if (date<current_date) {
+       return [false,"",""];
+    }else{
+       return [true, "",""];
+    }
+ }
 function isNumber(evt) {
     var sp_val = $("#service_price").val();
     evt = (evt) ? evt : window.event;

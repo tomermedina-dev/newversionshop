@@ -37,7 +37,7 @@ Vue.component('nv-component-login' , {
             var response = response.data;
 
             if(response == 1){
-              window.location.href = "/admin/home";
+              window.location.href = "/admin/page/dashboard";
             }else {
               swalError(response);
             }

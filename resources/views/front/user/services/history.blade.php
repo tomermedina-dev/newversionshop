@@ -45,7 +45,7 @@
                             <p><b>Notes</b> : {{$service->notes}}</p>
                             <p><b>Service Date</b> : {{$service->service_date_new}}</p>
                             <p><b>Time</b> : {{$service->service_time_new}}</p>
-                            <p v-if="getDateDiff('{{{$service->service_date_new}}}') != 0"><b>Remaining Days before the service : </b>  @{{getDateDiff('{{{$service->service_date_new}}}')}}</p>
+                            <p v-cloak v-if="getDateDiff('{{{$service->service_date_new}}}') != 0"><b>Remaining Days before the service : </b>  @{{getDateDiff('{{{$service->service_date_new}}}')}}</p>
                             @php
                               $bookingsSchedule = App\Http\Controllers\Front\ServicesHistoryController::getRequestBookingScheds($service->id);
                             @endphp
@@ -75,7 +75,7 @@
                             <br>
 
                             @if(json_encode($bookingsSchedule) == '[]')
-                            <button v-if="getDateDiff('{{{$service->service_date_new}}}') >= 2"  v-on:click="changeSchedule('{{$service->id}}')"    type="button" class="float-left btn nv-btn-txt-white nv-font-bc" >
+                            <button v-cloak v-if="getDateDiff('{{{$service->service_date_new}}}') >= 2"  v-on:click="changeSchedule('{{$service->id}}')"    type="button" class="float-left btn nv-btn-txt-white nv-font-bc" >
                               Request re-schedule
                             </button>
                             @endif

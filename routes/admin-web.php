@@ -5,6 +5,7 @@
          Route::get('/login', function(){
             return redirect('/admin/page/login');
          });
+
          Route::group(['prefix'=>'qr',],
              function() {
                Route::get('/generate/{valueToGenerate}', 'Admin\QRGeneratorController@generateQRByValue')->name('admin.qr.generator');
@@ -92,12 +93,21 @@
                Route::get('/list/{filter}', 'Admin\JobOrderController@getJobOrders')->name('admin.job.list');
                Route::get('/list/items/{id}', 'Admin\JobOrderController@getJobOrderItems')->name('admin.job.list');
                Route::get('/details/{jobId}', 'Admin\JobOrderController@getJobOrderDetailsIndex')->name('admin.job.details.index');
+
+               Route::group(['prefix'=>'warranty',],
+                   function() {
+                      Route::get('/{jobId}', 'Admin\JobOrderController@getJobWarranty')->name('admin.job.details.warranty');
+                      Route::get('/list/{status}', 'Admin\WarrantyController@getWarrantyListByStatus')->name('admin.job.warranty.list');
+                      Route::post('/void', 'Admin\WarrantyController@voidWarranty')->name('admin.job.warranty.void');
+
+               });
                Route::group(['prefix'=>'assignment',],
                    function() {
                      Route::post('/new', 'Admin\JobOrderController@assignJob')->name('admin.assignment.new');
                      Route::post('/evaluate', 'Admin\JobOrderController@evaluateJob')->name('admin.assignment.evaluate');
                      Route::get('/{joId}', 'Admin\JobOrderController@getAssignedEmployee')->name('admin.job.assigned');
                      Route::get('/list/{filter}', 'Admin\JobOrderController@getAssignmentList')->name('admin.job.assignment.list');
+                     Route::get('/list/{filter}/{userId}', 'Admin\JobOrderController@getEmployeeAssignedJobs')->name('admin.job.assignment.list');
 
                });
          });
@@ -111,6 +121,8 @@
 
          Route::group(['prefix'=>'employee',],
              function() {
+               Route::get('/register', 'Admin\EmployeeController@getRegisterIndex')->name('admin.employee.register');
+               Route::post('/register', 'Admin\EmployeeController@registerEmployee')->name('admin.employee.new');
                Route::get('/list/{status}', 'Admin\EmployeeController@getEmployeeByStatus')->name('admin.employee.list');
          });
          Route::group(['prefix'=>'slot',],
@@ -133,24 +145,3 @@
                Route::get('/checklist', 'Admin\PDFController@generateChecklistPDF')->name('admin.pdf.checklist');
          });
    });
-
-
-   // Route::get('/page/job-order', function(){
-   //   return view('admin.pages.job-order');
-   // });
-   //
-   // Route::get('/pages/service-warranty', function(){
-   //   return view('admin.pages.service-warranty');
-   // });
-   //
-   // Route::get('/pages/releasing-module', function(){
-   //   return view('admin.pages.releasing-module');
-   // });
-   //
-   // Route::get('/pages/featured-products', function(){
-   //   return view('admin.pages.featured-products');
-   // });
-   //
-   // Route::get('/pages/promo-and-sales', function(){
-   //   return view('admin.pages.promo-and-sales');
-   // });

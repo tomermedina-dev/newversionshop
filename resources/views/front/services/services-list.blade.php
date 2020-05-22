@@ -6,7 +6,7 @@
         <div class="card-header">
           <div class="row">
             <div class="col-sm-6 ">
-              <h3 class=" nv-font-bc text-white">  @{{service.name}} </h3>
+              <h4  class=" nv-font-bc text-white">  @{{service.name}} </h4>
             </div>
             <div class="col-sm-6 ">
               <h5 class="text-white float-right">   @{{service.service_categ}}  </h5>

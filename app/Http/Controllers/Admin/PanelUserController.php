@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Configuration;
 use App\Models\Admin\PanelUser;
 use Session;
+use App\Models\Admin\UserEmployee;
+use Illuminate\Support\Facades\Hash;
 class PanelUserController extends Controller
 {
     //
@@ -14,7 +16,7 @@ class PanelUserController extends Controller
     {
       // code.
       $isAdmin = Configuration::where('key' , 'ADMIN_USERNAME')->where('value' ,$request->username )->first();
-       
+
       if($isAdmin){
         $isAdminPass = Configuration::where('key' , 'ADMIN_PASSWORD')->where('value' ,$request->password )->first();
         if($isAdminPass){
@@ -25,7 +27,7 @@ class PanelUserController extends Controller
           return "Invalid admin password";
         }
       }else{
-        $userDetails = PanelUser::where('username' , $request->username)->first();
+        $userDetails = UserEmployee::where('username' , $request->username)->first();
 
         if($userDetails){
           if (Hash::check($request->password, $userDetails->password)){
