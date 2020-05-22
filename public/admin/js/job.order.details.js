@@ -12,7 +12,9 @@ var jobOrderHistory = new Vue ({
     evaluation_notes : '' ,
     is_approved : 0 ,
     start : '' ,
-    end : ''
+    end : '' ,
+    warrantyDate : '' ,
+    warrantyDetails : []
   } ,
   methods : {
     computeTotal : function (amount) {
@@ -24,6 +26,17 @@ var jobOrderHistory = new Vue ({
       get('/admin/job/list/items/'+this.pad(joID)).
       then(function (response) {
         t.jobOrderList = response.data;
+      }).catch(function(error) {
+        swalWentWrong(error);
+      });
+
+    },
+    getJobWarranty : function(){
+      const t  = this;
+      axios.
+      get('/admin/job/warranty/'+this.pad(joID)).
+      then(function (response) {
+        t.warrantyDetails = response.data;
       }).catch(function(error) {
         swalWentWrong(error);
       });
@@ -85,7 +98,9 @@ var jobOrderHistory = new Vue ({
       }else{
         assignmentDetails.append('job_order_id' , t.pad(joID));
         assignmentDetails.append('employee_id' , t.assignedEmployee.employee_id);
-          assignmentDetails.append('evaluation_notes' , t.evaluation_notes);
+        assignmentDetails.append('evaluation_notes' , t.evaluation_notes);
+        assignmentDetails.append('warranty_start' ,getCurrentDate());
+        assignmentDetails.append('warranty_end' , $("#warranty_date").val());
         axios.
         post('/admin/job/assignment/evaluate' ,assignmentDetails).
         then(function(response) {
@@ -113,6 +128,9 @@ var jobOrderHistory = new Vue ({
     },
     pad : function(value) {
       return pad(parseInt(value) , 10);
+    } ,
+    showCalendarPicker : function () {
+      $('#warranty_date').datepicker("show" , { beforeShowDay: available });
     }
   } ,
   mounted (){
@@ -120,5 +138,6 @@ var jobOrderHistory = new Vue ({
     this.getEmployees();
     this.getAssignedEmployee();
     this.getSlots();
+    this.getJobWarranty();
   }
 });
