@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ asset('admin/css/pages/dashboard.css') }}">
 
 <div class="nv-dashboard-content">
-  <h1 class="nv-header nv-font-bc">
+  <h1 class="nv-header nv-font-bc " style="display:none;">
   Dashboard
   </h1>
 
