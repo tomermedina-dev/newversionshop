@@ -77,7 +77,7 @@ new Vue({
        // if (this.code != generatedCode){
        //   return "Invalid SMS code.";
        // }
-       if(this.code_email != generateCodeEmail){
+       if(this.email_code != generateCodeEmail){
          return "Invalid Email verificaion code.";
        }
        if (!this.address){
