@@ -11,7 +11,7 @@ class ConfigController extends Controller
   public static function setCaptchaConfig()
   {
     if(env('APP_ENV') == 'live'){
-      return '6LeucJ0UAAAAABwS_ucAQsf4i2YqEYWhXr4pFVBg' ;
+      return '6Ld8PvsUAAAAAKzhfKjyaXlgl5MZODovuVjmVxpR' ;
     }else{
       return '6LdF3JoUAAAAAEPm-cs3kzNgfzSdrg5Cfu4MQVpK' ;
     }
