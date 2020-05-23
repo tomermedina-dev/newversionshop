@@ -155,5 +155,11 @@ class BladePagesController extends Controller
       $id = "0000000001";
       return view('admin.email.mail-forgot-password' , compact('name'  ,'id'));
     }
+    public function getEmailCodeLayout()
+    {
+      // code...
+      $code = "1234598";
+      return view('admin.email.validation' , compact('code'));
+    }
 
 }
