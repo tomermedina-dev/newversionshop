@@ -20,9 +20,9 @@ class ConfigController extends Controller
   {
     // code...
     if(env('APP_ENV') == 'live'){
-      return 'admin@occasionpros.com' ;
+      return 'newversi@aquarius.zoom.ph' ;
     }else{
-      return 'tomercatahanmedina@gmail.com' ;
+      return 'dev.tomer.c.medina@gmail.com' ;
     }
   }
 }

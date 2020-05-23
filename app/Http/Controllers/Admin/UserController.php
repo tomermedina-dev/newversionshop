@@ -86,6 +86,16 @@ class UserController extends Controller
       }
       // return $return;
     }
+    public function validateUsername(Request $request)
+    {
+      // code...
+      $user = User::where('username' , $request->username)->first();
+      if($user){
+        return 1;
+      }else{
+        return 0;
+      }
+    }
     public function logout()
     {
       // code...

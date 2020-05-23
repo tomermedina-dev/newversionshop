@@ -4,6 +4,7 @@ Route::group(['prefix'=> 'user' ,],
 
     Route::post('/register', 'Admin\UserController@creteNewOrEditUser')->name('admin.users.register');
     Route::post('/validate-email', 'Admin\UserController@validateEmail')->name('admin.users.validate.email');
+    Route::post('/validate-username', 'Admin\UserController@validateUsername')->name('admin.users.validate.username');
     Route::post('/', 'Admin\UserController@creteNewOrEditUser')->name('admin.users.register');
     Route::post('/forgot-password', 'Admin\UserController@forgotPassword')->name('admin.users.forgot.password');
     Route::post('/login', 'Front\LoginController@validateAccount')->name('front.users.register');
@@ -149,9 +150,12 @@ Route::group(['prefix'=>'cars',],
 Route::group(['prefix'=>'mail',],
     function() {
       Route::get('/forgot-password/{userId}', 'Admin\EmailController@sendForgotPassword')->name('front.mail.forgot');
+      Route::get('/validation/{email}', 'Admin\EmailController@sendValidationCode')->name('front.mail.layout.forgot');
+
       Route::group(['prefix'=>'layout',],
           function() {
             Route::get('/forgot-password', 'Front\BladePagesController@getMailLayoutForgot')->name('front.mail.layout.forgot');
+            Route::get('/validation', 'Front\BladePagesController@getEmailCodeLayout')->name('front.mail.layout.forgot');
 
           });
 });
