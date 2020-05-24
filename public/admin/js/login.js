@@ -5,7 +5,8 @@ Vue.component('nv-component-login' , {
       password : ""
     }
   } ,
-  template : `<div class="container nv-login-form " style="width:70%;">
+  template : `
+  <div class="container nv-login-form " style="width:70%;">
       <label for="username"  >Username</label>
       <div class="form-group">
         <div class="input-group-prepend">
