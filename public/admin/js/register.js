@@ -25,7 +25,7 @@ new Vue({
       swalLoading('Sending registration...');
       axios.post('/admin/employee/register',formRegister)
       .then(function(response){
-        window.location.href = "/admin/page/home";
+        window.location.href = "/admin/dashboard/home";
       })
       .catch(function (error) {
         swalWentWrong();

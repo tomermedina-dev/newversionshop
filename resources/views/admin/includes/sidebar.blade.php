@@ -33,7 +33,7 @@
                     </div>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li >
-                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('dashboard')" >
+                          <div class="nv-sub-menu"  onclick="window.location.href ='/admin/dashboard/home';" >
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <a class="nv-text nv-font-c">Index</a>
@@ -360,6 +360,7 @@
                         </li>
                     </ul>
                 </li>
+                @if( session('role') != 'admin' )
                 <li class="active">
                     <div href="#employee-portal-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
                       <div class="nv-title">
@@ -389,6 +390,7 @@
                         </li>
                     </ul>
                 </li>
+                @endif
             </ul>
         </nav>
 </div>
