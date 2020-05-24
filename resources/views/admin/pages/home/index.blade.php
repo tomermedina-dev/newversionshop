@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link rel="stylesheet" href="{{ asset('admin/css/pages/dashboard.css') }}">
+<link rel="stylesheet"  href="{{ asset('admin/css/pages/dashboard.css') }}">
 <div class="container">
 
   <div class="nv-dashboard-content">
