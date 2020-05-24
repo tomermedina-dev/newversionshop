@@ -1,4 +1,4 @@
-var baseURL = '/admin/orders/';
+var baseURL = '/admin/orders';
 var orderItems = new Vue({
   el : "#nv-orders-list" ,
   data : {
@@ -179,7 +179,10 @@ var orderItems = new Vue({
 
         $("#itemListModal").modal();
 
-    }
+    } ,
+    exportTableToExcel : function () {
+     exportJSONtoExcel(this.orderList , 'orders')
+   }
   }
 });
 

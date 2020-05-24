@@ -20,3 +20,4 @@
   var userFullName = "{{ session('userName') != null ? session('userName') : ''}}";
 </script>
 <script src="{{ asset('front\js\customs.js') }}" charset="utf-8"></script>
+<script src="{{ asset('admin\js\xlsx.full.min.js') }}" charset="utf-8"></script>
