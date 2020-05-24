@@ -50,6 +50,7 @@
               Route::group(['prefix'=>'booking',],
                   function() {
                     Route::get('/all/new', 'Admin\BookingController@getAllNewBookings')->name('front.bookings.new');
+                    Route::get('/all/new/data-only', 'Admin\BookingController@getAllNewBookingsDataOnly')->name('front.bookings.new');
                     Route::get('/request-change-date/{schedId}/{response}', 'Admin\BookingController@setRequestChangeDateResponse')->name('front.bookings.change.date');
               });
          });
@@ -143,5 +144,12 @@
              function() {
                Route::get('/invoice', 'Admin\PDFController@generateInvoicePDF')->name('admin.pdf.invoice');
                Route::get('/checklist', 'Admin\PDFController@generateChecklistPDF')->name('admin.pdf.checklist');
+         });
+
+         Route::group(['prefix'=>'dashboard',],
+             function() {
+               Route::get('/home', 'Admin\HomeDashboardController@getHomeIndex')->name('admin.home.index');
+               Route::get('/home/count/{filter}', 'Admin\HomeDashboardController@getCounts')->name('admin.home.counts');
+
          });
    });
