@@ -261,3 +261,10 @@ function isFutureDate(date){
     return false;
   }
 }
+
+function exportJSONtoExcel(data , filename) {
+  var data = XLSX.utils.json_to_sheet(data);
+  var wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, data, filename);
+  XLSX.writeFile(wb, filename+'-'+getCurrentDate()+'.xlsx');
+}

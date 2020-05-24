@@ -58,6 +58,12 @@ class BookingController extends Controller
 
       return json_encode($bookingHistory);
     }
+    public function getAllNewBookingsDataOnly()
+    {
+      // code...
+        $booking = DB::select("select * from bookings_vw where status = 0 order by created_at desc");
+        return json_encode($booking);
+    }
     public function changeDateRequest(Request $request)
     {
       // code...

@@ -17,6 +17,9 @@ var jobOrderHistory = new Vue ({
     } ,
     pad : function(value) {
       return pad(value , 10);
+    } ,
+    exportTableToExcel : function() {
+      exportJSONtoExcel(this.jobOrderList , 'job-orders-history')
     }
   } ,
   mounted (){

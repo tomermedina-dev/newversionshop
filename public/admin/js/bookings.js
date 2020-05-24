@@ -11,7 +11,7 @@ var bookedServices = new Vue({
       axios.
       get('/admin/services/booking/all/new').then(function(response) {
         t.bookedServicesList = response.data;
-        console.log(t.bookedServicesList);
+
       }).catch(function(error) {
         swalWentWrong();
       });
@@ -35,7 +35,18 @@ var bookedServices = new Vue({
       }).catch(function (error) {
         swalWentWrong(error);
       })
-    }
+    } ,
+    exportTableToExcel : function () {
+      var data = [];
+      axios.
+      get('/admin/services/booking/all/new/data-only').then(function(response) {
+        data = response.data;
+        exportJSONtoExcel(data , 'booked-services')
+      }).catch(function(error) {
+        swalWentWrong();
+      });
+
+   }
   } ,
   mounted (){
     this.loadBookedServices();
