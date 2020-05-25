@@ -25,83 +25,7 @@
     </div>
 
     <div class="col-lg-9">
-      <div id="nv-carousel" class="carousel slide mb-3 nv-default-box-shadow" data-ride="carousel">
-        <ol class="carousel-indicators d-flex justify-content-center">
-          <div data-target="#nv-carousel" data-slide-to="0" class="active">
-            <i class="fas fa-circle"></i>
-          </div>
-          <div data-target="#nv-carousel" data-slide-to="1">
-            <i class="fas fa-circle"></i>
-          </div>
-          <div data-target="#nv-carousel" data-slide-to="2">
-            <i class="fas fa-circle"></i>
-          </div>
-          <!-- <li data-target="#nv-carousel" data-slide-to="0" class="active"><i class="fas fa-circle"></i></li>
-          <li data-target="#nv-carousel" data-slide-to="1"><i class="fas fa-circle"></i></li>
-          <li data-target="#nv-carousel" data-slide-to="2"><i class="fas fa-circle"></i></li> -->
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="{{ asset('images/logo_transpa.png')}}" >
-            <div class="row nv-product-info">
-              <div class="col-lg-8">
-                <div class="nv-name nv-font-bc">
-                  Product 1
-                </div>
-                <div class="nv-description nv-font">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </div>
-              </div>
-              <div class="col-lg-4 nv-price nv-price nv-font-bc">
-                P 250.00
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('images/logo_transpa.png')}}" >
-            <div class="row nv-product-info">
-              <div class="col-lg-8">
-                <div class="nv-name nv-font-bc">
-                  Product 2
-                </div>
-                <div class="nv-description nv-font">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </div>
-              </div>
-              <div class="col-lg-4 nv-price nv-price nv-font-bc">
-                P 250.00
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('images/logo_transpa.png')}}" >
-            <div class="row nv-product-info">
-              <div class="col-lg-8">
-                <div class="nv-name nv-font-bc">
-                  Product 2
-                </div>
-                <div class="nv-description nv-font">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </div>
-              </div>
-              <div class="col-lg-4 nv-price nv-price nv-font-bc">
-                P 250.00
-              </div>
-            </div>
-          </div>
-          <!-- <div class="carousel-item">
-            <img class="d-block w-100" src="{{ asset('images/logo_transpa.png')}}" alt="First slide">
-          </div> -->
-        </div>
-        <a class="carousel-control-prev" href="#nv-carousel" role="button" data-slide="prev">
-          <i class="fas fa-angle-left"></i>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#nv-carousel" role="button" data-slide="next">
-          <i class="fas fa-angle-right"></i>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+      @include('front.product.featured')
       <div class="nv-search-filter-group d-flex mb-3 ">
         <div class="nv-search d-flex justify-content-between align-items-center nv-default-box-shadow">
           <div class="nv-results-label">
@@ -140,6 +64,11 @@
 </div>
 
 </div>
+
 <script src="{{ asset('front\js\customs.js') }}" charset="utf-8"></script>
 <script src="{{ asset('front\js\products.js') }}" ></script>
+<script type="text/javascript">
+  var featuredType = 'products';
+</script>
+<script src="{{ asset('front\js\featured.js') }}" ></script>
 @endsection

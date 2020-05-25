@@ -301,7 +301,7 @@
                     <div href="#featured-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
                       <div class="nv-title">
                         <i class="fas fa-star"></i>
-                        <div class="nv-text nv-font-bc">Featured Product Mgmt.</div>
+                        <div class="nv-text nv-font-bc">Featured </div>
                       </div>
                       <div class="nv-caret">
                         <i class="fas fa-angle-down"></i>

@@ -1,6 +1,18 @@
-<div v-cloak class="container" id="nv-service-list">
+<div  class="bg-dark nv-featured-bottom d-flex flex-row" >
+  <div class="nv-label nv-font-bc" style="font-size: 1.5rem;color:#f5f6fa;">
+    List of Services
+  </div>
+  <div  class="input-group md-form form-sm form-2 w-25" style="left:60%;display:none;">
+    <input v-model="searchValue"  style="z-index:9999;height:35px;font-size:1.5em;" class="form-control nv-input-search-header" type="text" placeholder="Search" aria-label="Search">
+    <div v-on:click="searchService" class="input-group-append pointer " style="height:35px;">
+      <span style="z-index:9999;" class="input-group-text nv-input-search-header">
+        <i class="fas fa-search text-white" aria-hidden="true"></i></span>
+    </div>
+  </div>
+</div>
+<div v-cloak class="container mt-2" id="nv-service-list">
   <div style="cursor:pointer" class="nv-service-grid row" v-if="serviceList.length > 0">
-    <div v-for='service in serviceList' class="col-lg-4">
+    <div v-for='service in serviceList' class="col-lg-6">
       <div class="card nv-service-card nv-default-box-shadow">
 
         <div class="card-header">
@@ -14,8 +26,8 @@
           </div>
         </div>
         <div class="nv-service-img-container">
-          <img  v-if='service.service_image == null'   src="{{ asset('images/no-image-available.png') }}">
-          <img  v-else   :src='getServiceImagesPath(service.service_image)'   />
+          <img    v-if='service.service_image == null'   src="{{ asset('images/no-image-available.png') }}">
+          <img height="350px" v-else   :src='getServiceImagesPath(service.service_image)'   />
         </div>
         <div class="card-body ">
           <div class="nv-service-description ">
