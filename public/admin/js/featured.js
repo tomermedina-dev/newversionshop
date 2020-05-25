@@ -70,6 +70,7 @@ new Vue({
           t.title = '';
           t.description = '';
           t.type = "Products";
+          featuredImage = '';
           $("#addItemModal").modal('hide');
             t.loadFeatured();
         }).catch(function(error) {
