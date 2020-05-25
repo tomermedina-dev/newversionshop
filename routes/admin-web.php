@@ -150,6 +150,13 @@
              function() {
                Route::get('/home', 'Admin\HomeDashboardController@getHomeIndex')->name('admin.home.index');
                Route::get('/home/count/{filter}', 'Admin\HomeDashboardController@getCounts')->name('admin.home.counts');
-
+         });
+         Route::group(['prefix'=>'featured',],
+             function() {
+               Route::post('/new', 'Admin\FeaturedController@create')->name('admin.featured.new');
+               Route::get('/list', 'Admin\FeaturedController@getAllFeatured')->name('admin.featured.list');
+               Route::get('/list/{type}', 'Admin\FeaturedController@getAllFeaturedByType')->name('admin.featured.list.type');
+               Route::get('/edit/status/{featuredId}/{status}', 'Admin\FeaturedController@changeFeaturedStatus')->name('admin.featured.status.edit');
+               Route::get('/delete/{featuredId}', 'Admin\FeaturedController@deleteFeatured')->name('admin.featured.status.edit');
          });
    });

@@ -1,6 +1,6 @@
 $("#nav-services").addClass("active");
 var serviceList = new Vue({
-  el : ".nv-services-content"  ,
+  el : "#nv-service-list"  ,
   data : {
     serviceList : [] ,
     searchValue : ''
