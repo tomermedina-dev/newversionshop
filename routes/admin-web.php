@@ -118,6 +118,11 @@
                Route::post('/new', 'Admin\InvoiceController@createInvoice')->name('admin.invoice.new');
                Route::get('/list/all', 'Admin\InvoiceController@getAllInvoiceList')->name('admin.invoice.list');
                Route::get('/details/{invoiceId}', 'Admin\InvoiceController@getInvoiceDetails')->name('admin.invoice.list');
+               Route::group(['prefix'=>'payment',],
+                   function() {
+                     Route::post('/set', 'Admin\InvoiceController@setPayment')->name('admin.invoice.set.payment');
+               });
+
          });
 
          Route::group(['prefix'=>'employee',],

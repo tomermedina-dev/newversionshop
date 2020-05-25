@@ -16,6 +16,26 @@ var invoiceHistory = new Vue({
     } ,
     pad : function (value) {
       return pad(value , 10);
+    } ,
+    setPayment : function (invoiceId , jobId , remarks) {
+      var amount = remarks == 'full' ? '' : '';
+      var data = {
+        'invoice_id' : invoiceId ,
+        'amount' : amount ,
+        'remarks' : remarks ,
+        'notes' : ' ' ,
+        'jobId' : jobId
+      };
+      const t = this;
+      swalLoading("Please wait..")
+      axios.
+      post('/admin/invoice/payment/set' , data).
+      then(function (response) {
+        swalSuccess("Payment has been saved.");
+        t.loadJobList();
+      }).catch(function(error) {
+        swalWentWrong(error);
+      });
     }
   } ,
   mounted () {

@@ -29,6 +29,7 @@
           <td class="nv-font-bc" scope="col">Invoice ID</td>
           <td class="nv-font-bc" scope="col">Job Order ID</td>
           <td class="nv-font-bc" scope="col">Client Name</td>
+          <td class="nv-font-bc" scope="col">Payment Status</td>
           <td></td>
         </tr>
       </thead>
@@ -43,7 +44,12 @@
           <td class="nv-font-bc" scope="col">
            @{{jo.client_name}}
           </td>
-
+          <td class="nv-font-bc" scope="col">
+            <span v-if="jo.total_paid == jo.totals">
+              Fully Paid
+            </span>
+            <span v-else>Unpaid</span>
+          </td>
           <td class="nv-font-bc" scope="col" class="info">
             <div class="dropdown" >
               <div class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,6 +58,7 @@
               <div style="z-index:9999" class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
                 <a class="dropdown-item"  :href="'/admin/job/details/' + jo.job_order_id" target="_blank" >View Job Details</a>
                 <a class="dropdown-item"  :href="'/admin/invoice/details/' + pad(jo.id)" target="_blank" >View Invoice Details</a>
+                <a v-if="jo.total_paid != jo.totals" class="dropdown-item pointer"  v-on:click="setPayment( pad(jo.id) , pad(jo.job_order_id) ,'full')" target="_blank" >Set Invoice to Fully Paid</a>
               </div>
             </div>
           </td>
