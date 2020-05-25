@@ -9,6 +9,7 @@ use App\Models\Admin\User;
 use App\Http\Controllers\Admin\UserAddressController;
 use App\Models\Admin\Invoice;
 use App\Models\Admin\JobOrder;
+use App\Models\Admin\InvoicePayment;
 class InvoiceController extends Controller
 {
     //
@@ -40,7 +41,7 @@ class InvoiceController extends Controller
     public function getAllInvoiceList()
     {
       // code...
-      return json_encode(Invoice::all());
+      return json_encode(DB::select("select * from invoices_vw  "));
     }
     public function getInvoiceDetails($invoiceId)
     {
@@ -48,5 +49,18 @@ class InvoiceController extends Controller
       $invoiceDetails = Invoice::where('id' , $invoiceId)->first();
       $joTotals = DB::select("SELECT * FROM job_order_totals_vw where job_id= '$invoiceDetails->job_order_id'")[0];
       return view('admin.pages.invoice.details' , compact( 'invoiceDetails' , 'joTotals'));
+    }
+    public function setPayment(Request $request)
+    {
+      // code...
+      $joTotals = DB::select("SELECT * FROM job_order_totals_vw where job_id= '$request->jobId'")[0];
+      $data =[
+        'invoice_id' => $request->invoice_id,
+        'amount' => $request->remarks == 'full' ? $joTotals->totals : $request->amount,
+        'remarks' => $request->remarks ,
+        'notes' => $request->notes
+      ];
+
+      return json_encode(InvoicePayment::create($data));
     }
 }
