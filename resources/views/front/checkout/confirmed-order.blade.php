@@ -24,7 +24,8 @@
       <p><span class="nv-font-bc">Shipping Address : </span>  {{$orderDetails->address}}</p>
       <p><span class="nv-font-bc">Notes / Other details : </span>  {{$orderDetails->notes}} </p>
     </div>
-    <br>
+    <a :href="'https://nv.ipayapp.me/?amnt=' + orderTotal.total_amount + '&pid=' + '{{{str_pad( $orderDetails->id , 10, '0', STR_PAD_LEFT)  }}}' "   class="btn btn-lg btn-warning w-25 mb-2"> Send Payment now! </a>
+
     <div class="nv-table-container mb-3">
       <table class="nv-table table table-striped ">
         <thead>
