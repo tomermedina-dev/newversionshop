@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\CheckList;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use PDF;
 class PDFController extends Controller
 {
@@ -33,5 +34,13 @@ class PDFController extends Controller
         return PDF::loadView('admin.pdf.check_list_history', ['checklists' => $checklists])
             ->setPaper('legal', 'portrait')
             ->download('CHECKLIST HISTORY ' . Carbon::now()->toDateString() . '.pdf');
+    }
+
+    public function generateInvoiceHistoryPDF() {
+        $invoices = DB::select("select * from invoices_vw");
+
+        return PDF::loadView('admin.pdf.invoices_history', ['invoices' => $invoices])
+            ->setPaper('legal', 'portrait')
+            ->download('INVOICE HISTORY ' . Carbon::now()->toDateString() . '.pdf');
     }
 }
