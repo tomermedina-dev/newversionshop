@@ -150,7 +150,9 @@
              function() {
                Route::get('/invoice', 'Admin\PDFController@generateInvoicePDF')->name('admin.pdf.invoice');
                Route::get('/checklist', 'Admin\PDFController@generateChecklistPDF')->name('admin.pdf.checklist');
-         });
+             Route::get('/checklist_history', 'Admin\PDFController@generateChecklistHistoryPDF')->name('admin.pdf.checklist_history');
+
+             });
 
          Route::group(['prefix'=>'dashboard',],
              function() {

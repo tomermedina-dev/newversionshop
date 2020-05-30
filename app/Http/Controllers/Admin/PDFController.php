@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\CheckList;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use PDF;
 class PDFController extends Controller
@@ -23,5 +25,13 @@ class PDFController extends Controller
       $data = ['invoice_number' =>'123456789'];
       $pdf = PDF::loadView('admin.pdf.checklist', ['data'=>$data]);
       return $pdf->download('checklist.pdf');
+    }
+
+    public function generateChecklistHistoryPDF() {
+        $checklists = CheckList::all();
+//str_pad( $checklist->id, 10, '0', STR_PAD_LEFT)
+        return PDF::loadView('admin.pdf.check_list_history', ['checklists' => $checklists])
+            ->setPaper('legal', 'portrait')
+            ->download('CHECKLIST HISTORY ' . Carbon::now()->toDateString() . '.pdf');
     }
 }
