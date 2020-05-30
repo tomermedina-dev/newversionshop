@@ -31,7 +31,7 @@
               <br>
               <br>
               <div class="d-flex justify-content-center ">
-                  <h1>Log In - Development</h1>
+                  <h1>Log In</h1>
               </div>
 
                <div class="">
