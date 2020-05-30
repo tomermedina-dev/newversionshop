@@ -1,7 +1,12 @@
 <?php
 Route::group(['prefix'=> 'user' ,],
   function() {
+    Route::group(['prefix'=>'accounts',],
+      function() {
+        Route::get('/forgot-password/{email}/{id?}', 'Admin\UserController@resetPasswordIndex')->where('id', '.*');
+        Route::post('/reset', 'Admin\UserController@resetPassword');
 
+      });
     Route::post('/register', 'Admin\UserController@creteNewOrEditUser')->name('admin.users.register');
     Route::post('/validate-email', 'Admin\UserController@validateEmail')->name('admin.users.validate.email');
     Route::post('/validate-username', 'Admin\UserController@validateUsername')->name('admin.users.validate.username');
@@ -166,5 +171,6 @@ Route::get('/', 'Front\BladePagesController@getHomeIndex')->name('front.home.ind
 Route::get('/about', 'Front\BladePagesController@getAboutIndex')->name('front.home.index');
 Route::get('/register', 'Front\BladePagesController@getRegistrationIndex')->name('front.register.index');
 Route::get('/login', 'Front\BladePagesController@getLoginIndex')->name('front.login.index');
+Route::get('/signin', 'Front\BladePagesController@getLoginIndex')->name('front.login.index');
 Route::get('/forgot', 'Front\BladePagesController@getForgotIndex')->name('front.forgot.index');
 Route::get('/logout', 'Admin\UserController@logout')->name('front.logout  ');

@@ -36,20 +36,23 @@
             <label for="address">Delivery Method</label>
             <div class="input-group-prepend">
               <span class=" nv-input-icon-plain-checkout" style="padding-right:8px;"><i class="fas fa-truck-loading"></i></span>
-              <select v-model="deliveryMethod" class="form-control nv-input-custom-checkout" id="delivery-method">
-                <option  value="Pick-Up" >Pick-Up</option>
+              <select @change="changeDeliveryMethod()" v-model="deliveryMethod" class="form-control nv-input-custom-checkout" id="delivery-method">
                 <option value="Shipping" >Shipping</option>
+                <option  value="Pick-Up" >Pick-Up</option>
               </select>
             </div>
           </div>
-          <div class="nv-billing-list form-group">
+          <div class="nv-billing-list form-group shipping-location">
             <!-- <label for="address">Address</label> -->
             <div class="input-group-prepend">
               <span class=" nv-input-icon-plain-checkout" style="padding-right:14px;"><i class="fas fa-map-marker-alt"></i></span>
               <input v-model="shippingAddress"  type="text" class="form-control nv-input-custom-checkout" id="address" placeholder="Enter your address">
             </div>
           </div>
-
+          <div class="pickup-location" style="display:none">
+            <span>Pick-Up location</span>
+            <p style="font-size:1.5em;" id="default-pickup-location"></p>
+          </div>
 
           <div class="nv-billing-list form-group">
             <!-- <label for="contact">Address</label> -->
