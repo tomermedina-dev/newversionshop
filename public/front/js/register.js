@@ -22,6 +22,17 @@ new Vue({
      email_code : ""
    } ,
    methods : {
+     showPassword : function() {
+       var x = document.getElementById("password");
+       var y = document.getElementById("confirm_password");
+       if (x.type === "password") {
+         x.type = "text";
+         y.type = "text";
+       } else {
+         x.type = "password";
+         y.type = "password";
+       }
+     } ,
      register : function(){
        if (this.validateFields()){
          swalWarning(this.validateFields());
@@ -32,10 +43,10 @@ new Vue({
 
      } ,
      submitRegistration : function(){
-       swalLoading('Sending registration...');
+       swalLoading('Saving registration...');
        axios.post('/user/register',formRegister)
        .then(function(response){
-         window.location.href = "/cart";
+         window.location.href = "/user/profile";
        })
        .catch(function (error) {
          swalWentWrong();
