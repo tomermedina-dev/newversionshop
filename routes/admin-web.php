@@ -86,6 +86,7 @@
                Route::get('/new/{id}', 'Admin\CheckListController@getChecklistIndex')->name('admin.checklist.index');
                Route::get('/list/all', 'Admin\CheckListController@getChecklistAll')->name('admin.checklist.list');
                Route::get('/details/{checklistId}', 'Admin\CheckListController@getChecklistDetailsIndex')->name('admin.checklist.details.index');
+               Route::get('/details/{checklistId}/print', 'Admin\CheckListController@printChecklistDetails')->name('admin.checklist.details.print');
          });
          Route::group(['prefix'=>'job',],
              function() {
