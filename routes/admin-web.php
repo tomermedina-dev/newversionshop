@@ -152,6 +152,7 @@
                Route::get('/checklist', 'Admin\PDFController@generateChecklistPDF')->name('admin.pdf.checklist');
                  Route::get('/checklist_history', 'Admin\PDFController@generateChecklistHistoryPDF')->name('admin.pdf.checklist_history');
                  Route::get('/invoices_history', 'Admin\PDFController@generateInvoiceHistoryPDF')->name('admin.pdf.invoice_history');
+                 Route::get('/invoice_details/{invoiceId}', 'Admin\PDFController@generateInvoiceDetails')->name('admin.pdf.invoice_details');
 
              });
 
