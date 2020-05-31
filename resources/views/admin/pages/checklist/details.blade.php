@@ -195,9 +195,9 @@
       </div>
     </div>
     <br>
-    <button type="button"  class="btn btn-lg nv-btn-txt-dark nv-font-bc">
+    <a href="{{ route('admin.checklist.details.print' , ['checklistId' => $details->id]) }}" type="button"  class="btn btn-lg nv-btn-txt-dark nv-font-bc">
       <i class="fas fa-print"></i>&nbsp;PRINT
-    </button>
+    </a>
 
   </div>
 </div>

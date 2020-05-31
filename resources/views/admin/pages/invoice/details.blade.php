@@ -139,9 +139,9 @@
   </div>
 
   <div class="">
-    <button type="button"  class="btn btn-md nv-btn-txt-dark nv-font-bc">
+    <a href="{{ route('admin.pdf.invoice_details', ['invoiceId' => $invoiceDetails->id]) }}" type="button"  class="btn btn-md nv-btn-txt-dark nv-font-bc">
       <i class="fas fa-print"></i>&nbsp;PRINT
-    </button>
+    </a>
     <br><br>
 
   </div>

@@ -5,11 +5,23 @@
 <div class="nv-jo-content" id="nv-history-list">
 
   <div class="row">
-    <div class="col-lg-9 col-md-9">
+    <div class="col-lg-6 col-md-6">
       <h3 class="nv-header nv-font-bc">
         Invoice History
       </h3>
     </div>
+
+      <div class="col-lg-3 col-md-3 justify-content-end">
+          <div class="container">
+              <div class="row justify-content-end">
+                  <a href="{{ route('admin.pdf.invoice_history') }}" type="button"  class="btn btn-lg nv-btn-txt-dark nv-font-bc">
+                      <i class="fas fa-print"></i>&nbsp;PRINT
+                  </a>
+              </div>
+          </div>
+
+      </div>
+
     <div class="col-lg-3 col-md-9">
       <div class="input-group mb-3">
         <input type="text" class="form-control nv-input-default nv-font-c" placeholder="Search ..." aria-label="Search By..." >
