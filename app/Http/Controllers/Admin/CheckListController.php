@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Barryvdh\DomPDF\Facade as PDF;
+
 use Illuminate\Http\Request;
 use App\Models\Admin\CheckList;
 use DB ;
@@ -49,5 +51,13 @@ class CheckListController extends Controller
       // code...
       $details = CheckList::where('id' , $checklistId)->first();
       return view('admin.pages.checklist.details' , compact('details'));
+    }
+
+    public function printChecklistDetails($checklistId) {
+        $details = CheckList::where('id' , $checklistId)->first();
+
+        return PDF::loadView('admin.pages.checklist.print.details', ['details' => $details])
+            ->setPaper('legal', 'portrait')
+            ->download('VEHICLE CHECK LIST DETAILS ' . str_pad( $details->id, 10, '0', STR_PAD_LEFT) . '.pdf');
     }
 }
