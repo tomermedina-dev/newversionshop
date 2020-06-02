@@ -1,61 +1,79 @@
-Vue.component('nv-component-forgot' , {
-  data : function () {
-    return {
-      email : ""
-    }
+new Vue({
+  el : "#nv-forgot" ,
+  data : {
+    newPassword : '' ,
+    newconfirmPassword : '' ,
+    validationCode: ''
   } ,
-  template : `<div>
-    <div class="form-group">
-      <div class="input-group-prepend">
-         <input v-model="email" type="text" class="left form-control nv-input-custom" id="username" placeholder="Enter your contact number">
-       </div>
-    </div>
-    <div class="container d-flex justify-content-center">
-      <div class="d-flex flex-nowrap">
-        <div class="order-1 p-2">
-          <button  v-on:click="submitForgot" type="button" class="btn nv-btn-txt-white btn-submit-forgot" name="button">Submit</button>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Enter your email</label>
-      <div class="input-group-prepend">
-         <input v-model="email" type="text" class="left form-control nv-input-custom" id="username" placeholder="Enter your contact number">
-       </div>
-    </div>
-    <div class="form-group">
-      <label>Enter verification code</label>
-      <div class="input-group-prepend">
-         <input v-model="email" type="text" class="left form-control nv-input-custom" id="username" placeholder="Enter your contact number">
-       </div>
-    </div>
-  </div>` ,
   methods : {
-    submitForgot : function() {
-      const  t = this;
-      if(t.email){
-          if (validateEmailFormat(t.email)) {
-            swalLoading("Validating email.. Please wait");
-            var formForgot = new FormData();
-            formForgot.append('email' , t.email);
-            axios.post("/users/forgot-password" ,formForgot).then(function(response) {
-              var data = response.data ;
+    submitReset : function () {
+      const t = this;
+      var err;
 
-              if (data == 1){
-                swalSuccess("Success")
-              }else {
-                swalError("Email not found.")
-              }
-            }).catch(function (error) {}).finally(function (response) {
+      if(!t.newPassword || !t.newconfirmPassword || !t.validationCode){
+        swalError("Please populate all fields.");
+        err = 1;
+      }
+      if(t.newPassword != t.newconfirmPassword){
+        swalError("Password is not the same.");
+        err = 1;
+      }
+      if(!t.validatePassword()){
+        swalError("Please enter atleast 6 character password.");
+        err = 1;
+      }
+      if(!err){
+        var data = {
+          'password' : t.newPassword ,
+          'code' : t.validationCode
+        };
+        swalLoading("Sending password reset.. Please wait..")
+        axios.post('/user/accounts/reset' , data).
+        then(function(response) {
+          if(response.data == '0'){
+            swalError("Invalid validation code.");
+          }else{
+
+            Swal.fire({
+              showConfirmButton : false ,
+              allowEscapeKey : false,
+              allowOutsideClick : false ,
+              html : `<div class='container'>
+                        <div class="d-flex justify-content-center">
+                            <i class="far fa-check-circle" style="font-size:5em;"></i>
+                        </div>
+                        <h1>Your password has been changed.</h1>
+
+                        <a onclick="/signin" class="btn btn-lg nv-btn-txt-white w-100 text-white" >Sign in now </a>
+
+                      </div>` ,
 
             });
-          }else{
-            swalError("Please enter valid email format.");
           }
-      }else {
-        swalError("Please enter email address");
+        }).catch(function(error) {
+          swalWentWrong(error);
+        });
       }
-    }
+
+    } ,
+    showPassword : function() {
+      var x = document.getElementById("password");
+      var y = document.getElementById("confirm_password");
+      if (x.type === "password") {
+        x.type = "text";
+        y.type = "text";
+      } else {
+        x.type = "password";
+        y.type = "password";
+      }
+    } ,
+    validatePassword : function(){
+        if (this.newPassword.length < 6){
+          swalError("Please enter atleast 6 character password.");
+          return false;
+        }
+        return true;
+    } ,
+
   }
 });
-new Vue({el : "#nv-forgot"})

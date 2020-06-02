@@ -37,7 +37,7 @@
                <li class="nav-item">
                  <a id="nav-login" class="nav-link" href="/login">
                    <!-- <i class="fas fa-user-plus"></i> -->
-                   <h5>Login</h5>
+                   <h5>Sign in</h5>
                    </a>
                </li>
              @endif

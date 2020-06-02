@@ -56,7 +56,6 @@ class PDFController extends Controller
             ->setPaper('legal', 'portrait')
             ->download('INVOICE DETAILS ' . str_pad( $invoiceId, 10, '0', STR_PAD_LEFT) . '.pdf');
     }
-
     public function generateCheckListModule($bookingId) {
         $details  = DB::select("select * from bookings_vw where id = '$bookingId'")[0];
 

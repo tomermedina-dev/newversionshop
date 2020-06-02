@@ -9,6 +9,7 @@ use App\Models\Admin\User;
 use App\Http\Controllers\Admin\UserAddressController;
 use App\Http\Controllers\Admin\UserActivationController;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Admin\EmailController;
 use Session;
 class UserController extends Controller
 {
@@ -77,8 +78,10 @@ class UserController extends Controller
       if($userDetails){
         // Send email
         // self::generateUserActivation($userDetails->id);
-
-        return 1;
+        $code = EmailController::sendForgotPassword($request->email);
+        Session::put('forgotEmail' ,$request->email);
+        Session::put('forgotCode' ,$code);
+        return Hash::make($code);
 
       }else{
         return 0;
@@ -94,6 +97,38 @@ class UserController extends Controller
         return 1;
       }else{
         return 0;
+      }
+    }
+    public function resetPasswordIndex($email , $code)
+    {
+      // code...
+      $status = '';
+      $userDetails = User::where('email' ,$email)->first();
+      if($userDetails){
+        if (Hash::check(Session::get('forgotCode'), $code)){
+          $status='valid';
+        }else{
+          return redirect('/');
+        }
+      }
+      if($status == 'valid'){
+        return view('front.user.forgot-password');
+      }
+    }
+    public function resetPassword(Request $request)
+    {
+      // code...
+
+      if(Session::get('forgotCode') == $request->code){
+        $update =  User::where('email' ,Session::get('forgotEmail'))->update(['password'=>Hash::make($request->password)]);
+        session()->forget('userId');
+        session()->forget('role');
+        session()->forget('forgotEmail');
+        session()->forget('forgotCode');
+        session()->flush();
+        return $update;
+      }else{
+        return '0';
       }
     }
     public function logout()

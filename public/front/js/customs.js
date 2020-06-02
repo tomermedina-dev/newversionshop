@@ -21,7 +21,6 @@ function isNumber(evt) {
 
 function validateEmailFormat(email) {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  console.log(email);
   return re.test(email);
 }
 
@@ -267,4 +266,17 @@ function exportJSONtoExcel(data , filename) {
   var wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, data, filename);
   XLSX.writeFile(wb, filename+'-'+getCurrentDate()+'.xlsx');
+}
+
+function getDefaultPickUpAddress(id) {
+
+  axios.
+  get('/admin/address/default/pickup').
+  then(function (response) {
+    responseData = response.data;
+    $("#"+id).val(response.data.value);
+  }).catch(function(error) {
+    swalWentWrong();
+  });
+
 }

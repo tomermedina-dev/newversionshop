@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Admin\Configuration;
 class ConfigController extends Controller
 {
     //
@@ -24,5 +24,11 @@ class ConfigController extends Controller
     }else{
       return 'dev.tomer.c.medina@gmail.com' ;
     }
+  }
+  public function getDefaultPickup()
+  {
+    // code...
+    $address = Configuration::where('key' , 'DEFAULT_PICKUP_LOCATION')->first();
+    return json_encode($address);
   }
 }
