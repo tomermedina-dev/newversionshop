@@ -16,6 +16,7 @@
   var notes = "{{$details->notes}}";
   var order_dt_time = "{{$details->created_at}}" ;
   var client_id =  "{{$details->user_id}}" ;
+  var id = {{$details->id}};
 </script>
 <div class="nv-vcm-content" id="nv-vcm-content">
   <h3 class="nv-header nv-font-bc">
@@ -217,11 +218,11 @@
     <button v-on:click="submitChecklist" type="button"  class="btn btn-lg nv-btn-txt-dark nv-font-bc">
       <i class="fas fa-save"></i>&nbsp;SAVE
     </button>
-    <button type="button"  class="btn btn-lg nv-btn-txt-dark nv-font-bc">
+    <a type="button" href="{{ route('admin.pdf.checklist_module', ['bookingId' => $details->id]) }}" class="btn btn-lg nv-btn-txt-dark nv-font-bc">
       <i class="fas fa-print"></i>&nbsp;PRINT
-    </button>
+    </a>
     <br><br>
-    <button type="button"  class="btn btn-lg nv-btn-txt-dark nv-font-bc">
+    <button type="button" v-on:click="saveAndPrint"  class="btn btn-lg nv-btn-txt-dark nv-font-bc">
       <i class="fas fa-save"></i>&nbsp;<i class="fas fa-print"></i>&nbsp;SAVE AND PRINT
     </button>
   </div>
