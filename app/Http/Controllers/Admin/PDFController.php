@@ -56,4 +56,13 @@ class PDFController extends Controller
             ->setPaper('legal', 'portrait')
             ->download('INVOICE DETAILS ' . str_pad( $invoiceId, 10, '0', STR_PAD_LEFT) . '.pdf');
     }
+    public function generateCheckListModule($bookingId) {
+        $details  = DB::select("select * from bookings_vw where id = '$bookingId'")[0];
+
+        //return  \GuzzleHttp\json_encode($details);
+
+        return PDF::loadView('admin.pdf.checklist_module', ['details' => $details])
+            ->setPaper('legal', 'portrait')
+            ->download('VEHICLE CHECK LIST MODULE ' . str_pad( $details->id, 10, '0', STR_PAD_LEFT) . '.pdf');
+    }
 }

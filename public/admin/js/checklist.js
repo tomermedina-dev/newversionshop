@@ -65,8 +65,13 @@ var checklist = new Vue({
       }else {
            t.checkbox_items.push(value);
       }
+    },
+    saveAndPrint : function () {
+        //Insert saving here
+
+        window.location.replace("/admin/pdf/checklist/new/" + window.id) //Call this after a successful save.
     }
 
   }
 }) ;
- 
+
