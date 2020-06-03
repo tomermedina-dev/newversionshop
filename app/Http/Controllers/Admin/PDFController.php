@@ -74,4 +74,13 @@ class PDFController extends Controller
             ->setPaper('legal', 'portrait')
             ->download('JOB MONITORING ' . Carbon::now()->toDateString() . '.pdf');
     }
+
+    public function generateJobHistory() {
+        $jobAssignment = DB::select("select * from job_order_assigment_vw ");
+
+//        return $jobAssignment;
+        return PDF::loadView('admin.pdf.job_history', ['jobAssignments' => $jobAssignment])
+            ->setPaper('legal', 'portrait')
+            ->download('JOB ORDERS HISTORY ' . Carbon::now()->toDateString() . '.pdf');
+    }
 }
