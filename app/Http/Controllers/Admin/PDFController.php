@@ -65,4 +65,13 @@ class PDFController extends Controller
             ->setPaper('legal', 'portrait')
             ->download('VEHICLE CHECK LIST ' . str_pad( $details->id, 10, '0', STR_PAD_LEFT) . '.pdf');
     }
+
+    public function generateJobMonitoring() {
+        $jobAssignment = DB::select("select * from job_order_assigment_vw where status = '0' and end is null ");
+
+//        return $jobAssignment;
+        return PDF::loadView('admin.pdf.monitoring', ['jobAssignments' => $jobAssignment])
+            ->setPaper('legal', 'portrait')
+            ->download('JOB MONITORING ' . Carbon::now()->toDateString() . '.pdf');
+    }
 }
