@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\BookingSchedule;
 use App\Models\Admin\CheckList;
 use App\Models\Admin\Invoice;
 use App\Models\Admin\JobOrderItem;
@@ -80,6 +81,24 @@ class PDFController extends Controller
 
 //        return $jobAssignment;
         return PDF::loadView('admin.pdf.job_history', ['jobAssignments' => $jobAssignment])
+            ->setPaper('legal', 'portrait')
+            ->download('JOB ORDERS HISTORY ' . Carbon::now()->toDateString() . '.pdf');
+    }
+
+    public function generateBookedServices() {
+        $bookingHistory = array();
+        $bookingData = array();
+        $booking = DB::select("select * from bookings_vw where status = 0 order by created_at desc");
+        foreach ($booking as $key=>$value  ) {
+            $bookingData['bookingData'] = $value;
+            $bookingId = str_pad($value->id, 10, '0', STR_PAD_LEFT);
+            $sched = BookingSchedule::where('booking_id' ,$bookingId )->where('is_approve' , '0')->where('is_request' ,'1')->get();
+            $bookingData['schedules'] = json_encode($sched) ;
+            array_push($bookingHistory,$bookingData);
+        }
+
+        //return json_encode($bookingHistory);
+        return PDF::loadView('admin.pdf.booking_services', ['bookingHistories' => json_decode(json_encode($bookingHistory))])
             ->setPaper('legal', 'portrait')
             ->download('JOB ORDERS HISTORY ' . Carbon::now()->toDateString() . '.pdf');
     }
