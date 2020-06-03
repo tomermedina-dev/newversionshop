@@ -22,7 +22,7 @@ Vue.component('nv-component-login' , {
          </div>
       </div>
       <div class="container d-flex justify-content-center">
-        <button type="button" v-on:click="submitLogin" class="btn nv-btn-txt-white" name="button">Log Me in</button>
+        <button type="button" v-on:click="submitLogin" class="btn nv-btn-txt-white" name="button">Log in</button>
       </div>
     </div>` ,
     methods : {

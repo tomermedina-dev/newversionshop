@@ -1,63 +1,105 @@
 $("#nav-login").addClass("active");
 
-Vue.component('nv-component-login' , {
-  data : function(){
-    return {
-      username : "" ,
-      password : ""
-    }
+var login = new Vue({
+  el:"#nv-login" ,
+  data : {
+    username : "" ,
+    password : ""
   } ,
-  template : `<div class="container nv-login-form " style="width:85%;">
-      <label for="username"  >Username</label>
-      <div class="form-group">
-        <div class="input-group-prepend">
-           <span class="input-group-text nv-input-icon-plain"   ><i class="left fa fa-user-circle text-black"aria-hidden="true"></i></span>
-           <input v-model="username" type="text" class="left form-control nv-input-custom" id="username" placeholder="Enter your username">
-         </div>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <div class="input-group-prepend">
-           <span class="input-group-text nv-input-icon-plain"   ><i class="left fa fa-lock text-black"aria-hidden="true"></i></span>
-          <input v-model="password" type="password" class="form-control nv-input-custom" id="password" placeholder="Enter your password">
-         </div>
-      </div>
-      <div >
-         <button type="button" v-on:click="submitLogin" class="btn btn-md nv-btn-txt-white w-100 float-left" name="button">Log Me in</button>
-          <div class="nv-horizontal-center float-left" style="display:none;">
-            <div class="custom-control custom-checkbox  ">
-              <input v-model="password" type="checkbox" class="custom-control-input" id="customCheck1">
-              <!---<label class="custom-control-label" for="customCheck1">Remember Me</label>-->
-              <a   href="/forgot"   class="badge text-black"  style="font-size: 1em;cursor:pointer;margin:1%;">Forgot Password?</a>
-            </div>
-        </div>
+  methods : {
+    submitLogin : function(){
+      const t = this ;
+      if(!t.username.trim() || !t.password.trim()){
+        swalError("Please enter your username and password")
+      }else{
+        var formLogin = new FormData();
+        formLogin.append('username' , t.username);
+        formLogin.append('password' , t.password);
+        axios.post('/user/login' ,formLogin ).then(function(response) {
+          var response = response.data;
 
-      </div>
-    </div>` ,
-    methods : {
-      submitLogin : function(){
-        const t = this ;
-        if(!t.username.trim() || !t.password.trim()){
-          swalError("Please enter your username and password")
-        }else{
-          var formLogin = new FormData();
-          formLogin.append('username' , t.username);
-          formLogin.append('password' , t.password);
-          axios.post('/user/login' ,formLogin ).then(function(response) {
-            var response = response.data;
+          if(response == 1){
 
-            if(response == 1){
+            window.location.href = '/user/profile';
+          }else {
+            swalError(response);
+          }
+        }).catch(function (error) {
+          swalWentWrong();
+        }).finally(function(response){});
+      }
+    } ,
+    showPassword : function() {
+      var x = document.getElementById("password");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    } ,
+    forgotPasswordPop : function() {
+      Swal.fire({
+        showConfirmButton : false ,
+        showCloseButton: true,
+        allowEscapeKey : false,
+        allowOutsideClick : false ,
+        html : `<div class='container'>
+                  <div class="d-flex justify-content-center">
+                    <div class="nv-dot-dark"  ></div>
+                    <div class="nv-dot-mustard" style="margin-left:-25px;" ></div>
+                  </div>
+                  <h3> <i> Forgot Password </i> </h3>
+                  <div class="">
+                    <div class="nv-line-divider d-flex justify-content-center" ></div>
+                    <div class=" d-flex justify-content-center">
+                      <div class="nv-mustard-divider" style="width:50px; margin-top:-3.5px;"></div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="float-left">Enter your registered email address</label>
+                    <input    class="nv-input-custom form-control " id="email_forgot" type="text" >
+                  </div>
 
-              window.location.href = '/user/profile';
-            }else {
-              swalError(response);
+                  <a onclick="login.submitForgot()" class="btn btn-sm nv-btn-txt-white w-100 text-white" >SUBMIT </a>
+                  <br>
+                  <div class="nv-error-msg">
+                  </div>
+                </div>` ,
+
+      });
+    } ,
+    submitForgot : function() {
+      var email = $("#email_forgot").val();
+      if(!email.trim()){
+        $(".nv-error-msg").append('<br><div class="swal2-validation-message" id="swal2-validation-message" style="display: flex;">Please enter your email address.</div>');
+      }else {
+        $(".nv-error-msg").empty();
+
+        if (this.validateEmailFormat(email)) {
+          $(".nv-error-msg").append('<br><div class="swal2-validation-message" id="swal2-validation-message" style="display: flex;">Validating email. Please wait..</div>');
+          var data = {
+            'email':email
+          };
+          axios.post('/user/forgot-password' , data).
+          then(function(response) {
+
+            $(".nv-error-msg").empty();
+            if(response.data == 0){
+                $(".nv-error-msg").append(`<br><div class="swal2-validation-message" id="swal2-validation-message" style="display: flex;">Email address doesn't exists. </div>`);
+            }else{
+              // swalSuccess("We sent the reset link to your email : " + email);
+              window.location.href="/user/accounts/forgot-password/" +email+'/'+ response.data;
             }
-          }).catch(function (error) {
-            swalWentWrong();
-          }).finally(function(response){});
+          }).catch(function(error) {
+            swalWentWrong(error);
+          });
+        }else {
+          $(".nv-error-msg").append('<br><div class="swal2-validation-message" id="swal2-validation-message" style="display: flex;">Please enter valid email address.</div>');
         }
       }
+    },
+    validateEmailFormat : function(email){
+      return validateEmailFormat(email);
     }
-
-} );
-new Vue({el:"#nv-login"});
+  }
+});

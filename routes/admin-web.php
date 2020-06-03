@@ -169,4 +169,9 @@
                Route::get('/edit/status/{featuredId}/{status}', 'Admin\FeaturedController@changeFeaturedStatus')->name('admin.featured.status.edit');
                Route::get('/delete/{featuredId}', 'Admin\FeaturedController@deleteFeatured')->name('admin.featured.status.edit');
          });
+         Route::group(['prefix'=>'address',],
+             function() {
+               Route::get('/default/pickup', 'Admin\ConfigController@getDefaultPickup')->name('admin.address.default.pickup');
+               Route::get('/home/count/{filter}', 'Admin\HomeDashboardController@getCounts')->name('admin.home.counts');
+         });
    });

@@ -10,10 +10,27 @@ var cartItems = new Vue({
     shippingContact : "" ,
     shippingEmail : "" ,
     shippingNotes : "" ,
-    deliveryMethod : "Pick-Up" ,
+    deliveryMethod : "Shipping" ,
     popDeliveryMethod : this.deliveryMethod
   },
   methods : {
+    changeDeliveryMethod : function () {
+      if(this.deliveryMethod == 'Shipping'){
+        $('.shipping-location').show();
+        $('.pickup-location').hide();
+      }else {
+        $('.shipping-location').hide();
+        $('.pickup-location').show();
+        axios.
+        get('/admin/address/default/pickup').
+        then(function (response) {
+          responseData = response.data;
+          $("#default-pickup-location").text(response.data.value);
+        }).catch(function(error) {
+          swalWentWrong();
+        });
+      }
+    },
     loadCartList: function() {
       const t = this;
       axios.
@@ -84,18 +101,22 @@ var cartItems = new Vue({
     reviewCheckOut: function() {
       const t = this;
       var checkErr ;
-      if(!t.shippingAddress.trim()){
-        swalError("Please enter shipping address.");
+      if(!t.shippingEmail.trim()){
+        swalError("Please enter email address.");
         checkErr = 1;
       }
       if(!t.shippingContact.trim()){
         swalError("Please enter contact number.");
         checkErr = 1;
       }
-      if(!t.shippingEmail.trim()){
-        swalError("Please enter email address.");
-        checkErr = 1;
+      if(this.deliveryMethod == 'Shipping'){
+        if(!t.shippingAddress.trim()){
+          swalError("Please enter shipping address.");
+          checkErr = 1;
+        }
       }
+
+
       if(checkErr != 1){
       Swal.fire({
         html: `
@@ -116,7 +137,7 @@ var cartItems = new Vue({
                 <input disabled    type="text" class="form-control nv-input-custom-checkout" id="pop-delivery-method"  >
               </div>
             </div>
-            <div class="nv-billing-list form-group">
+            <div class="nv-billing-list form-group shipping-location-pop">
               <!-- <label for="address">Address</label> -->
               <div class="input-group-prepend">
                 <span class=" nv-input-icon-plain-checkout" style="padding-right:14px;"><i class="fas fa-map-marker-alt"></i></span>
@@ -162,9 +183,9 @@ var cartItems = new Vue({
                 <div class="nv-vat">VAT Included, where applicable</div>
               </div>
             </div>
-            <button onclick="sumbitCheckout()" class="btn nv-btn-mustard nv-font-bc" type="button" name="button">PLACE ORDER NOW</button>
-            <br>  <br>
-            <button onclick="swal.close()" class="btn btn-lg nv-btn-txt-white nv-font-bc" type="button" name="button">CANCEL</button>
+            <button onclick="sumbitCheckout()" class="w-75 btn nv-btn-mustard nv-font-bc float-left" type="button" name="button">PLACE ORDER NOW</button>
+
+            <button onclick="swal.close()" class="w-25 btn  nv-btn-txt-white nv-font-bc float-right" type="button" name="button">CANCEL</button>
 
           </div>
         </div>
@@ -183,6 +204,9 @@ var cartItems = new Vue({
       if(!shipNotes){
         $("#container-pop-notes").append("<p style='padding:2%'> None </p>");
         $("#pop-notes").hide();
+      }
+      if(this.deliveryMethod != 'Shipping'){
+        $('.shipping-location-pop').hide();
       }
     } ,
     sumbitCheckout: function() {
@@ -203,7 +227,7 @@ var cartItems = new Vue({
         post('/cart/checkout/new' ,formShippingDetails).
         then(function(response) {
           // swalSuccess("Orders has been placed.")
-         
+
           window.location.href = "/order/confirmed/"+pad(response.data.id, 10);
           // Swal.fire({
           //
@@ -223,12 +247,42 @@ var cartItems = new Vue({
           swalWentWrong();
         }).finally(function(response) {});
 
-    }
+    } ,
+    setUserDetails : function() {
+      const t = this;
+      axios.
+      get('/user/profile/details/'+userId).
+      then(function (response) {
+        var responseData = response.data;
+        t.shippingContact = responseData.contact_num;
+        t.shippingEmail = responseData.email;
+      }).catch(function(error) {
+        console.log(error);
+        swalWentWrong();
+      });
+
+      axios.
+      get('/user/address/default/'+userId).
+      then(function (response) {
+        responseData = response.data;
+        if(responseData != 0){
+          t.shippingAddress = response.data.address_details;
+        }
+
+      }).catch(function(error) {
+        swalWentWrong();
+      });
+    } ,
+
+  } ,
+  mounted (){
+    this.loadCartList();
+    this.loadTotals();
+    this.loadDefaultAddress(userId);
+    this.setUserDetails();
   }
 });
-cartItems.loadCartList();
-cartItems.loadTotals();
-cartItems.loadDefaultAddress(userId);
+
 function sumbitCheckout() {
   cartItems.sumbitCheckout();
 }
