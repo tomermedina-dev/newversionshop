@@ -44,7 +44,7 @@ new Vue({
                         </div>
                         <h1>Your password has been changed.</h1>
 
-                        <a onclick="/signin" class="btn btn-lg nv-btn-txt-white w-100 text-white" >Sign in now </a>
+                        <a href="/signin" class="btn btn-lg nv-btn-txt-white w-100 text-white" >Sign in now </a>
 
                       </div>` ,
 

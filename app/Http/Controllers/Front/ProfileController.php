@@ -61,6 +61,10 @@ class ProfileController extends Controller
           'notes' => $request->notes,
         ];
         $return = UserAddress::where('user_id' ,$request->id )->update($credentials);
+        if($return == 0){
+          $credentials['user_id'] = $request->id ;
+          $return = UserAddress::create($credentials);
+        }
         return $return;
       }
       $return = User::where('id' ,$request->id )->update($credentials);
