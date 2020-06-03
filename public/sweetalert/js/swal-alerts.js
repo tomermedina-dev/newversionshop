@@ -1,5 +1,7 @@
 function swalWentWrong(error) {
-  console.log(error);
+  if(error){
+    console.log(error);
+  }
   Swal.fire({
     icon: 'error',
     title: 'Oops... Something went wrong.',

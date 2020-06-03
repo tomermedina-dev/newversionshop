@@ -14,19 +14,19 @@
     <div class="modal-body">
       <div class="form-group">
         <label>Brand</label>
-        <input  v-model="brand" type="text" class="form-control nv-input-custom" id="address" placeholder="Enter Car Brand"  >
+        <input  v-model="brand" type="text" class="form-control nv-input-custom" id="car-brand" placeholder="Enter Car Brand"  >
       </div>
       <div class="form-group">
         <label>Model</label>
-        <input  v-model="model" type="text" class="form-control nv-input-custom" id="address" placeholder="Enter Car Model"  >
+        <input  v-model="model" type="text" class="form-control nv-input-custom" id="car-model" placeholder="Enter Car Model"  >
       </div>
       <div class="form-group">
         <label>VIN</label>
-        <input  v-model="vin" type="text" class="form-control nv-input-custom" id="address" placeholder="Enter VIN"  >
+        <input  v-model="vin" type="text" class="form-control nv-input-custom" id="car-vin" placeholder="Enter VIN"  >
       </div>
       <div class="form-group">
         <label>Plate Number</label>
-        <input  v-model="plateNumber" type="text" class="form-control nv-input-custom" id="address" placeholder="Enter Plate Number"  >
+        <input  v-model="plateNumber" type="text" class="form-control nv-input-custom" id="car-plate" placeholder="Enter Plate Number"  >
       </div>
 
       <button  v-on:click="createNewUnit"    type="button" class="float-right btn nv-btn-txt-white nv-font-bc" >
