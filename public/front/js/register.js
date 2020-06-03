@@ -30,12 +30,12 @@ new Vue({
    } ,
    methods : {
      next : function () {
-       // if (this.validateFields()){
-       //   swalWarning(this.validateFields());
-       // }else{
+       if (this.validateFields()){
+         swalWarning(this.validateFields());
+       }else{
          $(".page-1").hide();
          setTimeout( $(".page-2").show(), 3000);
-       // }
+       }
      } ,
      previous : function () {
        $(".page-2").hide();
