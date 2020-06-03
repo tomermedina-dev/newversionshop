@@ -63,6 +63,6 @@ class PDFController extends Controller
 
         return PDF::loadView('admin.pdf.checklist_module', ['details' => $details])
             ->setPaper('legal', 'portrait')
-            ->download('VEHICLE CHECK LIST MODULE ' . str_pad( $details->id, 10, '0', STR_PAD_LEFT) . '.pdf');
+            ->download('VEHICLE CHECK LIST ' . str_pad( $details->id, 10, '0', STR_PAD_LEFT) . '.pdf');
     }
 }
