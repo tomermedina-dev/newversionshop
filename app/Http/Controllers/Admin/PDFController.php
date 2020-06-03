@@ -100,6 +100,6 @@ class PDFController extends Controller
         //return json_encode($bookingHistory);
         return PDF::loadView('admin.pdf.booking_services', ['bookingHistories' => json_decode(json_encode($bookingHistory))])
             ->setPaper('legal', 'portrait')
-            ->download('JOB ORDERS HISTORY ' . Carbon::now()->toDateString() . '.pdf');
+            ->download('BOOKED SERVICES ' . Carbon::now()->toDateString() . '.pdf');
     }
 }

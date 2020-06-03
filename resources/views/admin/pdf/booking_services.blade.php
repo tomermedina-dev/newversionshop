@@ -31,7 +31,7 @@
 <html>
 <div class="container">
     <h4 class="nv-header nv-font-bc">
-        BOOKING SERVICES
+        BOOKED SERVICES
     </h4>
 
     <table class="nv-table table  ">
