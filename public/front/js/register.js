@@ -6,6 +6,8 @@ var generateCodeEmail;
 var registerEmailErr = "";
 var registerPassErr = "";
 var registerUsernameErr = "";
+var validationFor = '';
+ var chkr = 0 ;
 new Vue({
    el: '#nv-register' ,
    data :{
@@ -19,9 +21,26 @@ new Vue({
      address : "" ,
      terms  : "" ,
      code : "" ,
-     email_code : ""
+     email_code : "" ,
+     confirm_email : "" ,
+     carBrand : "",
+     carModel : "" ,
+     carVin : "" ,
+     carPlate : ""
    } ,
    methods : {
+     next : function () {
+       // if (this.validateFields()){
+       //   swalWarning(this.validateFields());
+       // }else{
+         $(".page-1").hide();
+         setTimeout( $(".page-2").show(), 3000);
+       // }
+     } ,
+     previous : function () {
+       $(".page-2").hide();
+       setTimeout( $(".page-1").show(), 3000);
+     },
      showPassword : function() {
        var x = document.getElementById("password");
        var y = document.getElementById("confirm_password");
@@ -34,13 +53,18 @@ new Vue({
        }
      } ,
      register : function(){
-       if (this.validateFields()){
-         swalWarning(this.validateFields());
-       }else{
-         this.getFields();
-         this.submitRegistration();
+       if(validationFor != ''){
+         if (this.validateFields()){
+           swalWarning(this.validateFields());
+         }else if(this.validateFieldsFinal()){
+           swalWarning(this.validateFieldsFinal());
+         }else{
+           this.getFields();
+           this.submitRegistration();
+         }
+       }else {
+         swalError("Please select validation method.")
        }
-
      } ,
      submitRegistration : function(){
        swalLoading('Saving registration...');
@@ -62,6 +86,12 @@ new Vue({
        formRegister.append('email' , t.email);
        formRegister.append('contact' , t.contact);
        formRegister.append('address' , t.address);
+       if(this.carModel || this.carBrand || this.carModel || this.carVin){
+         formRegister.append('carModel' , t.carModel);
+         formRegister.append('carBrand' , t.carBrand);
+         formRegister.append('carPlate' , t.carPlate);
+         formRegister.append('carVin' , t.carVin);
+       }
      },
      validateFields : function() {
        if (!this.first_name){
@@ -73,33 +103,24 @@ new Vue({
        if (!this.username){
          return "Please enter your username.";
        }
+       if(!this.email)
+       if (!this.confirm_email){
+         return "Please enter email address.";
+       }
+       if (this.confirm_email != this.email){
+         return "Email address is not the same.";
+       }
+       if (!this.contact){
+         return "Please enter your contact number.";
+       }
        if (!this.password){
          return "Please enter your password.";
        }
        if(this.password != this.confirm_password || !this.confirm_password){
         return "Those password didn't match.";
        }
-       if (!this.contact){
-         return "Please enter your contact number.";
-       }
-       if (!this.code){
-         return "Please enter verification code.";
-       }
-       // if (this.code != generatedCode){
-       //   return "Invalid SMS code.";
-       // }
-       if(this.email_code != generateCodeEmail){
-         return "Invalid Email verificaion code.";
-       }
-       if (!this.address){
-         return "Please enter your address.";
-       }
-       if (!this.terms){
-          return "You must first accept the terms and condition.";
-       }
-       if(!captcha_val){
-         return "Please verify that you are not a robot.";
-       }
+
+
        if (registerEmailErr == 1){
         return "That email address is already in use , please use a different email address.";
        }
@@ -115,6 +136,64 @@ new Vue({
        if(registerUsernameErr == 2){
          return "Username must be 6 characters or more.";
        }
+
+
+
+     },
+     validateFieldsFinal : function () {
+       var unitValMsg = "Please populate all unit details fields or leave all fields blank.";
+
+       if(this.carBrand.trim() && this.carModel.trim() && this.carVin.trim() && this.carPlate.trim()){
+         chkr = 2;
+       }
+       if(!this.carBrand.trim() && !this.carModel.trim() && !this.carVin.trim() && !this.carPlate.trim()){
+         chkr = 2;
+       }
+
+       if(chkr == 0 ){
+         if(!this.carVin.trim()){
+           return unitValMsg ;
+         }
+         if(!this.carBrand.trim() ){
+           return unitValMsg ;
+         }
+         if(!this.carModel.trim()){
+           return unitValMsg ;
+         }
+         if(!this.carPlate.trim()){
+           return unitValMsg ;
+         }
+       }
+
+       chkr = 0;
+
+
+       if(validationFor == 'sms'){
+         if (!this.code){
+           return "Please enter verification code.";
+         }
+         if (this.code != generatedCode){
+           return "Invalid SMS code.";
+         }
+       }else {
+         if(!this.email_code){
+           return "Please enter email verificaion code.";
+         }
+         if(this.email_code != generateCodeEmail){
+           return "Invalid Email verificaion code.";
+         }
+       }
+
+
+
+       if (!this.terms){
+          return "You must first accept the terms and condition.";
+       }
+       if(!captcha_val){
+         return "Please verify that you are not a robot.";
+       }
+
+
      } ,
      validateEmail : function(){
        //alert(this.register_email);
@@ -148,7 +227,6 @@ new Vue({
      validateUsername : function () {
        var formEmail = new FormData();
        formEmail.append('username' , this.username);
-       console.log(this.username.length);
          if (this.username.length >= 6 ) {
                $("#err_username").text("");
                  axios.post("/user/validate-username" , formEmail)
@@ -185,13 +263,17 @@ new Vue({
          }
      },
      generateCode : function(){
+       validationFor = 'sms';
        if (this.contact){
          swalLoading("Sending verificaion code. Please wait.");
          axios.get('/user/activation/generate').then(function(response) {
            swalSuccess("Verification code has been sent.");
            generatedCode = response.data;
+           $("#nv-verify").hide();
            $("#nv-btn-sms-code").text("Re-send SMS verificaion code");
-           $("#code").show();
+           $(".nv-sms-code").show();
+           $(".nv-confirm").show();
+           $("#nv-btn-signup").css('display' , 'inline-grid');
          }).catch(function(error) {
              swalWentWrong();
          }).finally(function (response) {});;
@@ -200,13 +282,17 @@ new Vue({
        }
      } ,
      generateEmailCode : function() {
+       validationFor = 'email';
        if (this.email){
          swalLoading("Sending verificaion code. Please wait.");
          axios.get('/mail/validation/'+this.email).then(function(response) {
            swalSuccess("Verification code has been sent to your email.");
            generateCodeEmail = response.data;
+           $("#nv-verify").hide();
            $("#nv-btn-email-code").text("Re-send Email verificaion code");
-           $("#code_email").show();
+           $(".nv-email-code").show();
+           $(".nv-confirm").show();
+            $("#nv-btn-signup").css('display' , 'inline-grid');
          }).catch(function(error) {
              swalWentWrong();
          }).finally(function (response) {});;
