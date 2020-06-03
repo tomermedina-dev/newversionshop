@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\UserAddressController;
 use App\Http\Controllers\Admin\UserActivationController;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Admin\EmailController;
+use App\Http\Controllers\Admin\UserUnitsController;
 use Session;
 class UserController extends Controller
 {
@@ -30,7 +31,18 @@ class UserController extends Controller
         ];
         $return = User::create($credentials);
         $userId = str_pad( $return->id, 10, '0', STR_PAD_LEFT) ;
-        UserAddressController::createAddress( $userId, $request->address);
+        if(isset($request->carModel)){
+          // $unitDetails = [
+          //   'user_id' => $userId ,
+          //   'car_brand' => $request->carBrand ,
+          //   'model' => $request->carModel ,
+          //   'vin' =>   $request->carVin ,
+          //   'plate_number' => $request->carVin
+          // ];
+          UserUnitsController::createNewUserUnit($userId , $request->carBrand , $request->carModel  ,$request->carVin , $request->carPlate);
+        }
+
+        // UserAddressController::createAddress( $userId, $request->address);
         UserActivationController::generateUserActivation($userId);
         Session::put('userId' , $userId);
         Session::put('role' , 'client');

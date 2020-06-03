@@ -37,7 +37,7 @@ var profileDetails = new Vue({
 
           currentUsername = t.username;
         }).catch(function(error) {
-          swalWentWrong();
+          swalWentWrong(error);
         }).finally(function () {
 
         });
@@ -48,10 +48,13 @@ var profileDetails = new Vue({
         get('/user/profile/address/details/'+userId).
         then(function (response) {
           t.addressDetails = response.data;
-          t.address = t.addressDetails[0].address_details ;
-          t.notes = t.addressDetails[0].notes;
+          if(t.addressDetails.length > 0){
+            t.address = t.addressDetails[0].address_details ;
+            t.notes = t.addressDetails[0].notes;
+          }
+
         }).catch(function(error) {
-          swalWentWrong();
+          swalWentWrong(error);
         }).finally(function () {
 
         });
@@ -63,7 +66,7 @@ var profileDetails = new Vue({
         then(function (response) {
           t.unitDetails = response.data;
         }).catch(function(error) {
-          swalWentWrong();
+          swalWentWrong(error);
         }).finally(function () {
 
         });
@@ -163,7 +166,7 @@ var profileDetails = new Vue({
               errUsername = "";
             }
           }).catch(function(error) {
-            swalWentWrong();
+            swalWentWrong(error);
           }).finally(function(response){})
         }
 
@@ -217,7 +220,7 @@ var profileDetails = new Vue({
             t.submitChanges();
           }
         }).catch(function(error) {
-          swalWentWrong();
+          swalWentWrong(error);
         }).finally(function () {});
 
       } ,
@@ -229,7 +232,7 @@ var profileDetails = new Vue({
           swalSuccess("Changes has been saved.")
           profileDetails.loadProfileDetails();
         }).catch(function (error) {
-          swalWentWrong();
+          swalWentWrong(error);
         }).finally(function () {});
         formUpdate = new FormData();
         $("#editProfileDetails").modal('hide');
@@ -253,7 +256,7 @@ var profileDetails = new Vue({
             profileDetails.loadUnitsDetails();
             $("#addProfileUnits").modal('hide');
           }).catch(function(error) {
-            swalWentWrong();
+            swalWentWrong(error);
           }).finally(function(response) {
           });
         }
@@ -276,7 +279,7 @@ var profileDetails = new Vue({
                 profileDetails.loadUnitsDetails();
 
               }).catch(function(error) {
-                swalWentWrong();
+                swalWentWrong(error);
               }).finally(function(response) {
               });
             }
