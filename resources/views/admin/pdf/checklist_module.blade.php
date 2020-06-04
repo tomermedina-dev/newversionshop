@@ -31,7 +31,7 @@
 <html>
 <div class="container">
     <h4 class="nv-header nv-font-bc">
-        VEHICLE CHECK LIST MODULE
+        VEHICLE CHECK LIST
     </h4>
 {{--    <h6>Checklist ID: #  {{  str_pad( $details->id, 10, '0', STR_PAD_LEFT)  }} </h6>--}}
 

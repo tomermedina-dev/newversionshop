@@ -9,12 +9,23 @@
 <div class="nv-bss-content" id='nv-jo-list-history'>
 
   <div class="row">
-    <div class="col-lg-7 col-md-9">
+    <div class="col-lg-5 col-md-3">
       <h3 class="nv-header nv-font-bc">
         JOB ORDERS HISTORY
       </h3>
     </div>
-    <div class="col-lg-5 col-md-9">
+
+      <div class="col-lg-2 col-md-3 justify-content-end">
+          <div class="container">
+              <div class="row justify-content-end">
+                  <a href="{{ route('admin.pdf.job_history') }}" type="button"  class="btn nv-btn-txt-dark nv-font-bc">
+                      <i class="fas fa-print"></i>&nbsp;PRINT
+                  </a>
+              </div>
+          </div>
+      </div>
+
+    <div class="col-lg-5 col-md-6">
       <div class="input-group mb-3">
         <button v-on:click="exportTableToExcel" type="button"  class="btn btn-sm nv-btn-txt-dark float-left mr-2">
           <i class="fas fa-file-excel"></i> Export to Excel
