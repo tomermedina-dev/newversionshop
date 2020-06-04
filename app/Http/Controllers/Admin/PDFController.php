@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\BookingSchedule;
 use App\Models\Admin\CheckList;
 use App\Models\Admin\Invoice;
 use App\Models\Admin\JobOrderItem;
@@ -55,5 +56,50 @@ class PDFController extends Controller
         return PDF::loadView('admin.pdf.invoice_details', ['invoiceDetails' => $invoiceDetails, 'joTotals' => $joTotals, 'jobItems' => $jobItems])
             ->setPaper('legal', 'portrait')
             ->download('INVOICE DETAILS ' . str_pad( $invoiceId, 10, '0', STR_PAD_LEFT) . '.pdf');
+    }
+    public function generateCheckListModule($bookingId) {
+        $details  = DB::select("select * from bookings_vw where id = '$bookingId'")[0];
+
+        //return  \GuzzleHttp\json_encode($details);
+
+        return PDF::loadView('admin.pdf.checklist_module', ['details' => $details])
+            ->setPaper('legal', 'portrait')
+            ->download('VEHICLE CHECK LIST ' . str_pad( $details->id, 10, '0', STR_PAD_LEFT) . '.pdf');
+    }
+
+    public function generateJobMonitoring() {
+        $jobAssignment = DB::select("select * from job_order_assigment_vw where status = '0' and end is null ");
+
+//        return $jobAssignment;
+        return PDF::loadView('admin.pdf.monitoring', ['jobAssignments' => $jobAssignment])
+            ->setPaper('legal', 'portrait')
+            ->download('JOB MONITORING ' . Carbon::now()->toDateString() . '.pdf');
+    }
+
+    public function generateJobHistory() {
+        $jobAssignment = DB::select("select * from job_order_assigment_vw ");
+
+//        return $jobAssignment;
+        return PDF::loadView('admin.pdf.job_history', ['jobAssignments' => $jobAssignment])
+            ->setPaper('legal', 'portrait')
+            ->download('JOB ORDERS HISTORY ' . Carbon::now()->toDateString() . '.pdf');
+    }
+
+    public function generateBookedServices() {
+        $bookingHistory = array();
+        $bookingData = array();
+        $booking = DB::select("select * from bookings_vw where status = 0 order by created_at desc");
+        foreach ($booking as $key=>$value  ) {
+            $bookingData['bookingData'] = $value;
+            $bookingId = str_pad($value->id, 10, '0', STR_PAD_LEFT);
+            $sched = BookingSchedule::where('booking_id' ,$bookingId )->where('is_approve' , '0')->where('is_request' ,'1')->get();
+            $bookingData['schedules'] = json_encode($sched) ;
+            array_push($bookingHistory,$bookingData);
+        }
+
+        //return json_encode($bookingHistory);
+        return PDF::loadView('admin.pdf.booking_services', ['bookingHistories' => json_decode(json_encode($bookingHistory))])
+            ->setPaper('legal', 'portrait')
+            ->download('BOOKED SERVICES ' . Carbon::now()->toDateString() . '.pdf');
     }
 }
