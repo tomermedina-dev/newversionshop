@@ -144,7 +144,10 @@ var cartItems = new Vue({
                 <input disabled    type="text" class="form-control nv-input-custom-checkout" id="pop-address"  >
               </div>
             </div>
-
+            <div class="pop-default-pickup-location" style="display:none">
+              <span>Pick-Up location</span>
+              <p style="font-size:1.5em;" id="pop-default-pickup-location"></p>
+            </div>
 
             <div class="nv-billing-list form-group">
               <!-- <label for="contact">Address</label> -->
@@ -207,6 +210,9 @@ var cartItems = new Vue({
       }
       if(this.deliveryMethod != 'Shipping'){
         $('.shipping-location-pop').hide();
+      }else {
+        $('.pop-default-pickup-location').show();
+        $("#pop-default-pickup-location").text($("#default-pickup-location").text());
       }
     } ,
     sumbitCheckout: function() {
@@ -216,7 +222,11 @@ var cartItems = new Vue({
         swalLoading("Placing orders.. Please wait..")
         var formShippingDetails = new FormData();
         formShippingDetails.append('user_id' , userId);
-        formShippingDetails.append('address' , t.shippingAddress);
+        if(this.deliveryMethod == 'Shipping'){
+          formShippingDetails.append('address' , t.shippingAddress);
+        }else {
+          formShippingDetails.append('address' , $("#default-pickup-location").text());
+        }
         formShippingDetails.append('contact' , t.shippingContact);
         formShippingDetails.append('email' , t.shippingEmail);
         formShippingDetails.append('delivery_method' , t.deliveryMethod);

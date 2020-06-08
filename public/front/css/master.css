@@ -306,9 +306,10 @@ font-family: 'Myriad Pro Bold Condensed Italic';
 
 .nv-table thead{
   background-color: #fbc531;
-
 }
-
+.nv-table thead tr td {
+  color: black !important;
+}
 .nv-table td{
   text-align: center;
   border: 0;
@@ -488,4 +489,12 @@ a{
 .swal2-validation-message{
   font-size : .80em !important;
   justify-content: left !important;
+}
+
+/* Dropdown Overrides */
+.dropdown-toggle::after{
+  content: none;
+}
+.dropdown-menu{
+  transform: translate3d(-144px, -56px, 0px) !important;
 }

@@ -160,5 +160,31 @@ class BladePagesController extends Controller
       $code = "1234598";
       return view('admin.email.validation' , compact('code'));
     }
+    public function getConfirmedBookingLayout()
+    {
+      // code...
+      $client_name = "Tomer Medina";
+      $service_code = '0000000006';
+      $email = 'tomercatahanmedina@gmail.com';
+      $contact = '093585894571';
+      $address = ' Services Notes' ;
+      $notes = 'Services Notes';
+      $model = 'Model 1';
+      $date = '06/30/2020';
+      $time = ' 01:00 PM';
+      return view('admin.email.confirmed-booking'  , compact('client_name' , 'service_code' , 'email' , 'contact' , 'address' , 'notes' , 'model' , 'date' , 'time'));
+    }
+    public function getConfirmedOrderLayout()
+    {
+      // code...
+      $client_name = "Tomer Medina";
+      $order_number = '0000000006';
+      $email = 'tomercatahanmedina@gmail.com';
+      $contact = '093585894571';
+      $address = ' Address' ;
+      $notes = 'Services Notes';
+      $delivery_method = 'Pick-Up';
+      return view('admin.email.confirmed-order'  , compact('client_name' , 'order_number' , 'email' , 'contact' , 'address' , 'delivery_method' ,'notes'  ));
+    }
 
 }

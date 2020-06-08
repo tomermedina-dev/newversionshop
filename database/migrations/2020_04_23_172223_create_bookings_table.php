@@ -29,6 +29,7 @@ class CreateBookingsTable extends Migration
             $table->string('service_time_new')->nullable();
             $table->longText('notes')->nullable();
             $table->string('status');
+            $table->longText('reject_reason')->nullable();
             $table->timestamps();
         });
         DB::statement('ALTER TABLE bookings CHANGE id id INT(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT');

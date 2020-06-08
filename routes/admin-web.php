@@ -49,9 +49,10 @@
 
               Route::group(['prefix'=>'booking',],
                   function() {
-                    Route::get('/all/new', 'Admin\BookingController@getAllNewBookings')->name('front.bookings.new');
+                    Route::get('/all/{status}', 'Admin\BookingController@getAllBookingsStatus')->name('front.bookings.new');
                     Route::get('/all/new/data-only', 'Admin\BookingController@getAllNewBookingsDataOnly')->name('front.bookings.new');
                     Route::get('/request-change-date/{schedId}/{response}', 'Admin\BookingController@setRequestChangeDateResponse')->name('front.bookings.change.date');
+                    Route::post('/edit/status', 'Admin\BookingController@changeBookingStatus')->name('front.bookings.change.date');
               });
          });
 
@@ -154,6 +155,9 @@
                  Route::get('/invoices_history', 'Admin\PDFController@generateInvoiceHistoryPDF')->name('admin.pdf.invoice_history');
                  Route::get('/invoice_details/{invoiceId}', 'Admin\PDFController@generateInvoiceDetails')->name('admin.pdf.invoice_details');
                  Route::get('/checklist/new/{bookingId}', 'Admin\PDFController@generateCheckListModule')->name('admin.pdf.checklist_module');
+                 Route::get('/job_monitoring', 'Admin\PDFController@generateJobMonitoring')->name('admin.pdf.monitoring');
+                 Route::get('/job_history', 'Admin\PDFController@generateJobHistory')->name('admin.pdf.job_history');
+                 Route::get('/booked_services', 'Admin\PDFController@generateBookedServices')->name('admin.pdf.booked_services');
              });
 
          Route::group(['prefix'=>'dashboard',],

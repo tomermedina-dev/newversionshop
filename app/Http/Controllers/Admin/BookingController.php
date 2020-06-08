@@ -42,12 +42,18 @@ class BookingController extends Controller
       $bookingSchedule = BookingSchedule::create($schedule);
       return json_encode($booking);
     }
-    public function getAllNewBookings()
+    public function getAllBookingsStatus($status)
     {
       // code...
+      if($status =='new'){
+        $status = '0';
+      }
+      if($status =='rejected'){
+        $status = 'X';
+      }
       $bookingHistory = array();
       $bookingData = array();
-      $booking = DB::select("select * from bookings_vw where status = 0 order by created_at desc");
+      $booking = DB::select("select * from bookings_vw where status = '$status' order by created_at desc");
       foreach ($booking as $key=>$value  ) {
         $bookingData['bookingData'] = $value;
         $bookingId = str_pad($value->id, 10, '0', STR_PAD_LEFT);
@@ -87,5 +93,12 @@ class BookingController extends Controller
         Booking::where('id' , $schedId)->update(['service_date_new' => $bookingSched->booking_date , 'service_time_new' => $bookingSched->booking_time]);
       }
       return $update;
+    }
+    public function changeBookingStatus(Request $request)
+    {
+      // code...
+      if($request->status == 'X'){
+          return Booking::where('id' , $request->serviceId)->update(['status'=> 'X' , 'reject_reason'=>$request->reason]);
+      }
     }
 }
