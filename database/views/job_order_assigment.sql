@@ -1,6 +1,6 @@
 drop view if exists job_order_assigment_vw;
 create view job_order_assigment_vw as
-  Select  d.slot_name  , b.first_name , b.last_name , c.client_name ,c.make_model , c.job_order_date , c.notes as job_order_notes ,c.checklist_id ,
+  Select  d.slot_name  , b.first_name , b.last_name , c.client_name ,c.client_id ,c.make_model , c.job_order_date , c.notes as job_order_notes ,c.checklist_id ,
   c.is_invoiced, c.is_released , c.is_warranty_expired ,
    a.*
   FROM job_order_assignments a

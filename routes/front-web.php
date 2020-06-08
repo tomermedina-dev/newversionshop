@@ -69,9 +69,23 @@ Route::group(['prefix'=> 'user' ,],
     });
     Route::group(['prefix'=>'services',],
       function() {
+        Route::get('/pending', 'Front\ServicesHistoryController@getUserServicesPendingIndex')->name('front.user.services.pending');
+        Route::get('/rejected', 'Front\ServicesHistoryController@getUserServicesRejectedIndex')->name('front.user.services.rejected');
         Route::get('/history', 'Front\ServicesHistoryController@getUserServicesHistory')->name('front.user.services.history');
+        Route::get('/completed', 'Front\ServicesHistoryController@getUserServicesCompletedHistoryIndex')->name('front.user.services.completed.index');
         Route::get('/history/list/{userId}', 'Front\ServicesHistoryController@getServiceHistory')->name('front.user.services.list');
 
+        Route::group(['prefix'=>'jobs',],
+          function() {
+            Route::get('/', 'Front\ServicesHistoryController@getUserJobMonitoring')->name('front.user.services.warranty.index');
+            Route::get('/list/{filter}/{userId}', 'Front\ServicesHistoryController@getUserJobMonitoringList')->name('front.user.services.monitoring.list');
+            Route::get('/details/{jobId}', 'Front\ServicesHistoryController@getUserJobMonitoringDetails')->name('front.user.services.monitoring.details');
+        });
+        Route::group(['prefix'=>'warranty',],
+          function() {
+            Route::get('/', 'Front\ServicesHistoryController@getWarrantyIndex')->name('front.user.services.warranty.list');
+          Route::get('/list/{status}/{id}', 'Front\ServicesHistoryController@getWarrantyListByStatus')->name('front.user.services.warranty.list');
+        });
     });
 
     Route::get('/returns', 'Front\BladePagesController@getUserReturnsIndex')->name('front.user.returns');
@@ -85,6 +99,7 @@ Route::group(['prefix'=> 'user' ,],
             Route::get('/list/{userId}', 'Front\WishListController@getWishlist')->name('front.wishlist.list');
             Route::get('/delete/{wishListId}', 'Front\WishListController@deleteItemWishList')->name('front.wishlist.delete');
     });
+
 
 
 });
@@ -149,7 +164,11 @@ Route::group(['prefix'=>'services',],
 Route::group(['prefix'=>'cars',],
     function() {
       Route::get('/', 'Front\BladePagesController@getCarIndex')->name('front.home.index');
-       Route::get('/all/{status}','Admin\CarController@getAllCarsByStatus')->name('admin.car.all');
+      Route::get('/all/{status}','Admin\CarController@getAllCarsByStatus')->name('admin.car.all');
+});
+Route::group(['prefix'=>'gallery',],
+    function() {
+      Route::get('/', 'Front\BladePagesController@getCarIndex')->name('front.home.index');
 });
 
 Route::group(['prefix'=>'mail',],
@@ -161,7 +180,8 @@ Route::group(['prefix'=>'mail',],
           function() {
             Route::get('/forgot-password', 'Front\BladePagesController@getMailLayoutForgot')->name('front.mail.layout.forgot');
             Route::get('/validation', 'Front\BladePagesController@getEmailCodeLayout')->name('front.mail.layout.forgot');
-
+            Route::get('/confirmed-booking', 'Front\BladePagesController@getConfirmedBookingLayout')->name('front.mail.layout.confirmed.booking');
+            Route::get('/confirmed-order', 'Front\BladePagesController@getConfirmedOrderLayout')->name('front.mail.layout.confirmed.order');
           });
 });
 

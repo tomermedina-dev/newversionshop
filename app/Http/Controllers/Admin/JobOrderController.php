@@ -92,7 +92,7 @@ class JobOrderController extends Controller
         $jobs = DB::select("SELECT * FROM job_order_vw where job_order_status = '0' order by job_order_date DESC");
       }
       if($filter == 'unassigned'){
-        $jobs = DB::select("SELECT * FROM job_order_vw where job_order_status = '0' and job_monitoring_id is null order by job_order_date DESC");
+        $jobs = DB::select("SELECT * FROM job_order_vw where job_order_status = '0' and (job_monitoring_id is NULL or job_monitoring_id = '') order by job_order_date DESC");
       }
       return json_encode($jobs);
     }

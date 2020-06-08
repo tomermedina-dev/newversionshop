@@ -54,8 +54,9 @@
                 <i class="fas fa-ellipsis-h"></i>
               </div>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <a class="dropdown-item"  :href="'/admin/job/details/' + pad(jo.job_order_id)">Assign Worker and Set slot</a>
                 <a class="dropdown-item"  :href="'/admin/job/details/' + pad(jo.job_order_id)">View Job Details</a>
-                    <a class="dropdown-item"  :href="'/admin/checklist/details/' + pad(jo.checklist_id)" target="_blank" >View Checklist Details</a>
+                <a class="dropdown-item"  :href="'/admin/checklist/details/' + pad(jo.checklist_id)" target="_blank" >View Checklist Details</a>
               </div>
             </div>
           </td>
