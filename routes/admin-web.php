@@ -52,7 +52,7 @@
                     Route::get('/all/{status}', 'Admin\BookingController@getAllBookingsStatus')->name('front.bookings.new');
                     Route::get('/all/new/data-only', 'Admin\BookingController@getAllNewBookingsDataOnly')->name('front.bookings.new');
                     Route::get('/request-change-date/{schedId}/{response}', 'Admin\BookingController@setRequestChangeDateResponse')->name('front.bookings.change.date');
-                    Route::post('/edit/status', 'Admin\BookingController@changeBookingStatus')->name('front.bookings.change.date');
+                    Route::post('/edit/status', 'Admin\BookingController@changeBookingStatus')->name('front.bookings.change.status');
               });
          });
 
