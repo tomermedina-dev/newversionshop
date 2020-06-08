@@ -32,8 +32,10 @@
       <h5 v-cloak v-if="assignedEmployee">Assigned Employee : @{{assignedEmployee.first_name}} @{{assignedEmployee.last_name}}</h5>
       <div class="">
         <h5>Total Amount : ₱ @{{totalAmount}} </h5>
-        <h5>Started At : @{{start}}</h5>
-        <h5>Ended At : @{{end}}</h5>
+        <div v-if="start">
+          <h5>Started At : @{{start}}</h5>
+          <h5>Ended At : @{{end}}</h5>
+        </div>
       </div>
       <div v-if="warrantyDetails.length != 0" v-cloak>
         <h5>Warranty Start Date :   @{{warrantyDetails.warranty_start}} </h5>

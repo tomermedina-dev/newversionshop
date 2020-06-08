@@ -54,9 +54,9 @@
                  </a>
              </li>
              <li class="nav-item ">
-               <a id="nav-cars" class="nav-link" href="/cars">
+               <a id="nav-cars" class="nav-link" href="/gallery">
                  <!-- <i class="fas fa-car"></i> -->
-                 <h5>Cars</h5>
+                 <h5>Gallery</h5>
                  </a>
              </li>
              <li class="nav-item ">

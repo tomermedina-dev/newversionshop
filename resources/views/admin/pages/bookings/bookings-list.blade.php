@@ -9,7 +9,7 @@
         <td class="nv-font-bc" scope="col">Date of Service</td>
         <td class="nv-font-bc" scope="col">Time</td>
         <td class="nv-font-bc" scope="col">Notes</td>
-        <td class="nv-font-bc" scope="col"></td>
+        <td class="nv-font-bc nv-option-td" scope="col"></td>
       </tr>
     </thead>
     <tbody  v-for="(booking , index) in bookedServicesList">
@@ -22,19 +22,19 @@
           <td class="nv-font-bc" scope="col">@{{booking.bookingData.service_date_new}}</td>
           <td class="nv-font-bc" scope="col">@{{booking.bookingData.service_time_new}}</td>
           <td class="nv-font-bc" scope="col">@{{booking.bookingData.notes}}</td>
-          <td class="nv-font-bc" scope="col" class="info">
+          <td class="nv-font-bc" scope="col" class="info" id="nv-option-td">
             <div class="dropdown">
               <div class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-ellipsis-h"></i>
               </div>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <a class="dropdown-item" :href="'/admin/checklist/new/' + pad(booking.bookingData.id)">Proceed to Checklist</a>
-                <a class="dropdown-item" href="#">Reject</a>
+                <a class="dropdown-item" v-on:click="rejectBooking(booking.bookingData.id)">Reject</a>
               </div>
             </div>
           </td>
       </tr>
-      <tr v-if="booking.schedules  != '[]'" >
+      <tr v-if="booking.schedules  != '[]'" class="nv-schedule-request">
         <td colspan="7">
           <div class="card p-2">
             <div  v-for="sched in JSON.parse(booking.schedules)">

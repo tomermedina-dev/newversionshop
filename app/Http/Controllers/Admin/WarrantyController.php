@@ -15,6 +15,9 @@ class WarrantyController extends Controller
       if($status == 'active'){
         $warrantList = DB::select("select * from service_warranty_vw where warranty_status = '0' and is_voided = '0'");
       }
+      if($status == 'history'){
+        $warrantList = DB::select("select * from service_warranty_vw ");
+      }
       return json_encode($warrantList);
     }
     public function voidWarranty(Request $request)

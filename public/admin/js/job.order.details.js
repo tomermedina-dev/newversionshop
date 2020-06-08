@@ -56,7 +56,7 @@ var jobOrderHistory = new Vue ({
     getSlots : function(){
       const t  = this;
       axios.
-      get('/admin/slot/list/1').
+      get('/admin/slot/list/2').
       then(function (response) {
         t.slotList = response.data;
       }).catch(function(error) {

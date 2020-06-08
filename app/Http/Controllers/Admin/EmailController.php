@@ -39,4 +39,30 @@ class EmailController extends Controller
        });
        return $code;
     }
+    public  static function sendConfirmedOrder($info)
+    {
+      // code...
+      $mail =  $info['email'] ;
+
+      $data = array('client_name'=>$info['client_name'] , 'order_number' => $info['order_number'] , 'email' => $info['email'] , 'contact' => $info['contact'], 'address'=> $info['address'] ,
+       'notes'=> $info['notes'] , 'delivery_method'=> $info['delivery_method'] , 'total' => $info['total']);
+      $mail = Mail::send('admin.email.confirmed-order', $data, function($message) use ($mail)  {
+          $message->to($mail, ' ')->subject
+             ('New Version Shop | Order Confirmation');
+          $message->from(ConfigController::setEmailSenderConfig(),'New Version Shop');
+       });
+    }
+    public  static function sendConfirmedService($info)
+    {
+      // code...
+      $mail =  $info['email'] ;
+
+      $data = array('client_name'=>$info['client_name'] , 'service_code' => $info['service_code'] , 'email' => $info['email'] , 'contact' => $info['contact'], 'address'=> $info['address'] ,
+       'notes'=> $info['notes'] , 'model'=> $info['model'] , 'date'=> $info['date'] , 'time'=> $info['time'] , 'price' => $info['price']);
+      $mail = Mail::send('admin.email.confirmed-booking', $data, function($message) use ($mail)  {
+          $message->to($mail, ' ')->subject
+             ('New Version Shop | Booking Confirmation');
+          $message->from(ConfigController::setEmailSenderConfig(),'New Version Shop');
+       });
+    }
 }
