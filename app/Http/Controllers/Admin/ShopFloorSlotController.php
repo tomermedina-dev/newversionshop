@@ -12,8 +12,13 @@ class ShopFloorSlotController extends Controller
     public function getSlotByStatus($status)
     {
       // code...
-      $slot = ShopFloorSlots::where('status' , $status)->get();
-      $slot = DB::select("select * from vehicle_slot_vw where status ='$status'");
+      if($status == '2'){
+          $slot = DB::select("select * from vehicle_slot_available_vw where status ='1'");
+      }else {
+        // code...
+        $slot = DB::select("select * from vehicle_slot_vw where status ='$status'");
+      }
+
       return json_encode($slot);
     }
     public function updateSlot(Request $request)

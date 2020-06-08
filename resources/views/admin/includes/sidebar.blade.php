@@ -115,11 +115,18 @@
                           <div class="nv-sub-menu" v-on:click="loadAdminPage('bookings.index')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
-                              <div class="nv-text nv-font-c">List</div>
+                              <div class="nv-text nv-font-c">New</div>
                             </div>
                           </div>
                         </li>
-
+                        <li>
+                          <div class="nv-sub-menu" v-on:click="loadAdminPage('bookings.rejected')">
+                            <div class="nv-title">
+                              <i class="fas fa-circle"></i>
+                              <div class="nv-text nv-font-c">Rejected</div>
+                            </div>
+                          </div>
+                        </li>
                     </ul>
                 </li>
                 <li class="active">
@@ -271,6 +278,14 @@
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">Active List</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="nv-sub-menu" v-on:click="loadAdminPage('warranty.history')">
+                            <div class="nv-title">
+                              <i class="fas fa-circle"></i>
+                              <div class="nv-text nv-font-c">History</div>
                             </div>
                           </div>
                         </li>

@@ -21,7 +21,12 @@
       <p> <span class="nv-font-bc">Email Address : </span> {{$orderDetails->email}} </p>
       <p> <span class="nv-font-bc">Contact Number : </span> {{$orderDetails->contact}}  </p>
       <p><span class="nv-font-bc">Delivery Method :</span>  {{$orderDetails->delivery_method}}  </p>
-      <p><span class="nv-font-bc">Shipping Address : </span>  {{$orderDetails->address}}</p>
+      @if($orderDetails->delivery_method == 'Pick-Up')
+        <p><span class="nv-font-bc">Pick-up Address : </span>  {{$orderDetails->address}}</p>
+      @else
+       <p><span class="nv-font-bc">Shipping Address : </span>  {{$orderDetails->address}}</p>
+      @endif
+
       <p><span class="nv-font-bc">Notes / Other details : </span>  {{$orderDetails->notes}} </p>
     </div>
     <a :href="'https://nv.ipayapp.me/?amnt=' + orderTotal.total_amount + '&pid=' + '{{{str_pad( $orderDetails->id , 10, '0', STR_PAD_LEFT)  }}}' "   class="btn btn-lg btn-warning w-25 mb-2"> Send Payment now! </a>

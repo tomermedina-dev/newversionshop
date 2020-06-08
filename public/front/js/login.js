@@ -12,6 +12,7 @@ var login = new Vue({
       if(!t.username.trim() || !t.password.trim()){
         swalError("Please enter your username and password")
       }else{
+        swalLoading("Logging in.. Please wait..")
         var formLogin = new FormData();
         formLogin.append('username' , t.username);
         formLogin.append('password' , t.password);
