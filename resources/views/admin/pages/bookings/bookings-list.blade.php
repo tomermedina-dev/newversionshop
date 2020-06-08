@@ -29,7 +29,7 @@
               </div>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <a class="dropdown-item" :href="'/admin/checklist/new/' + pad(booking.bookingData.id)">Proceed to Checklist</a>
-                <a class="dropdown-item" v-on:click="rejectBooking(booking.bookingData.id)">Reject</a>
+                <a class="dropdown-item pointer" v-on:click="rejectBooking(booking.bookingData.id)">Reject</a>
               </div>
             </div>
           </td>
