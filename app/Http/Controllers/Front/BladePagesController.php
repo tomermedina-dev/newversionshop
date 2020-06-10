@@ -172,7 +172,23 @@ class BladePagesController extends Controller
       $model = 'Model 1';
       $date = '06/30/2020';
       $time = ' 01:00 PM';
-      return view('admin.email.confirmed-booking'  , compact('client_name' , 'service_code' , 'email' , 'contact' , 'address' , 'notes' , 'model' , 'date' , 'time'));
+        $price = '1000';
+      return view('admin.email.confirmed-booking'  , compact('client_name' , 'service_code' , 'email' , 'contact' , 'address' , 'notes' , 'model' , 'date' , 'time' , 'price'));
+    }
+    public function getRejectedBookingLayout()
+    {
+      // code...
+      $client_name = "Tomer Medina";
+      $service_code = '0000000006';
+      $email = 'tomercatahanmedina@gmail.com';
+      $contact = '093585894571';
+      $address = ' Services Notes' ;
+      $notes = 'Services Notes';
+      $model = 'Model 1';
+      $date = '06/30/2020';
+      $time = ' 01:00 PM';
+        $price = '1000';
+      return view('admin.email.rejected-booking'  , compact('client_name' , 'service_code' , 'email' , 'contact' , 'address' , 'notes' , 'model' , 'date' , 'time' , 'price'));
     }
     public function getConfirmedOrderLayout()
     {
@@ -184,7 +200,8 @@ class BladePagesController extends Controller
       $address = ' Address' ;
       $notes = 'Services Notes';
       $delivery_method = 'Pick-Up';
-      return view('admin.email.confirmed-order'  , compact('client_name' , 'order_number' , 'email' , 'contact' , 'address' , 'delivery_method' ,'notes'  ));
+
+      return view('admin.email.confirmed-order'  , compact('client_name' , 'order_number' , 'email' , 'contact' , 'address' , 'delivery_method' ,'notes' ,   ));
     }
 
 }

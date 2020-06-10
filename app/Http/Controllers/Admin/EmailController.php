@@ -65,4 +65,17 @@ class EmailController extends Controller
           $message->from(ConfigController::setEmailSenderConfig(),'New Version Shop');
        });
     }
+    public  static function sendRejectedService($info)
+    {
+      // code...
+      $mail =  $info['email'] ;
+
+      $data = array('client_name'=>$info['client_name'] , 'service_code' => $info['service_code'] , 'email' => $info['email'] , 'contact' => $info['contact'], 'address'=> $info['address'] ,
+       'notes'=> $info['notes'] , 'model'=> $info['model'] , 'date'=> $info['date'] , 'time'=> $info['time'] , 'price' => $info['price']);
+      $mail = Mail::send('admin.email.rejected-booking', $data, function($message) use ($mail)  {
+          $message->to($mail, ' ')->subject
+             ('New Version Shop | Booking Rejected');
+          $message->from(ConfigController::setEmailSenderConfig(),'New Version Shop');
+       });
+    }
 }

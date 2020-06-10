@@ -83,6 +83,7 @@ var bookedServices = new Vue({
           'reason' : reason ,
           'serviceId' : serviceId
         };
+        swalLoading("Please wait..");
         axios.post("/admin/services/booking/edit/status" , data).
         then(function(response) {
           swalSuccess("Booking has been rejected.");
