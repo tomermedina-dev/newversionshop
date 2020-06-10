@@ -138,6 +138,12 @@
                Route::get('/list/{status}', 'Admin\ShopFloorSlotController@getSlotByStatus')->name('admin.slot.list');
                Route::post('/update', 'Admin\ShopFloorSlotController@updateSlot')->name('admin.slot.update');
          });
+         Route::group(['prefix'=>'purchasing',],
+             function() {
+               Route::post('/new', 'Admin\PurchasingController@createNewPO')->name('admin.po.new');
+               Route::get('/list', 'Admin\PurchasingController@getPO')->name('admin.po.list');
+               Route::get('/details/{id}', 'Admin\PurchasingController@getPODetailsIndex')->name('admin.po.details');
+         });
          // dashboard
          // parts-and-materials-inventory
          //vehicle-check-list

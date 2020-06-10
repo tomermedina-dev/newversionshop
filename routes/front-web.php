@@ -182,6 +182,7 @@ Route::group(['prefix'=>'mail',],
             Route::get('/validation', 'Front\BladePagesController@getEmailCodeLayout')->name('front.mail.layout.forgot');
             Route::get('/confirmed-booking', 'Front\BladePagesController@getConfirmedBookingLayout')->name('front.mail.layout.confirmed.booking');
             Route::get('/confirmed-order', 'Front\BladePagesController@getConfirmedOrderLayout')->name('front.mail.layout.confirmed.order');
+            Route::get('/rejected-booking', 'Front\BladePagesController@getRejectedBookingLayout')->name('front.mail.layout.rejected.order');
           });
 });
 
