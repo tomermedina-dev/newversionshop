@@ -385,6 +385,15 @@
                         </li>
                     </ul>
                 </li>
+                <li class="active" v-on:click="loadAdminPage('configuration.index')">
+                    <div data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
+                      <div class="nv-title">
+                        <i class="fas fa-cogs"></i>
+                        <div class="nv-text nv-font-bc">Configuration</div>
+                      </div>
+
+                    </div>
+                </li>
                 @endif
                 @if( session('role') != 'admin' )
                 <li class="active">
