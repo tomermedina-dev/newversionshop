@@ -20,7 +20,7 @@
             </div>
 
             <ul class="list-unstyled components nv-menu">
-
+              @if( session('role') == 'admin' )
                 <li class="active">
                     <div href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
                       <div class="nv-title">
@@ -36,7 +36,7 @@
                           <div class="nv-sub-menu"  onclick="window.location.href ='/admin/dashboard/home';" >
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
-                              <a class="nv-text nv-font-c">Index</a>
+                              <a class="nv-text nv-font-c">Home</a>
                             </div>
                           </div>
                         </li>
@@ -366,7 +366,17 @@
                     </div>
                     <ul class="collapse list-unstyled" id="purchase-sub-menu">
                         <li>
-                          <div class="nv-sub-menu">
+                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('purchasing.new')">
+                            <div class="nv-title">
+                              <i class="fas fa-circle"></i>
+                              <div class="nv-text nv-font-c">New</div>
+                            </div>
+                          </div>
+                        </li>
+                    </ul>
+                    <ul class="collapse list-unstyled" id="purchase-sub-menu">
+                        <li>
+                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('promo.index')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">List</div>
@@ -375,6 +385,16 @@
                         </li>
                     </ul>
                 </li>
+                <li class="active" v-on:click="loadAdminPage('configuration.index')">
+                    <div data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
+                      <div class="nv-title">
+                        <i class="fas fa-cogs"></i>
+                        <div class="nv-text nv-font-bc">Configuration</div>
+                      </div>
+
+                    </div>
+                </li>
+                @endif
                 @if( session('role') != 'admin' )
                 <li class="active">
                     <div href="#employee-portal-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
