@@ -201,7 +201,7 @@ class BladePagesController extends Controller
       $notes = 'Services Notes';
       $delivery_method = 'Pick-Up';
 
-      return view('admin.email.confirmed-order'  , compact('client_name' , 'order_number' , 'email' , 'contact' , 'address' , 'delivery_method' ,'notes' ,   ));
+      return view('admin.email.confirmed-order'  , compact('client_name' , 'order_number' , 'email' , 'contact' , 'address' , 'delivery_method' ,'notes'    ));
     }
 
 }
