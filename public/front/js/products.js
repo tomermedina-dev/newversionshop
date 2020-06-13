@@ -67,8 +67,19 @@ var loadProducts = new Vue({
                       {{product.product_categ}}
                     </div>
                   </div>
-                  <div class="nv-price nv-font-bc">
-                    ₱  {{numberWithCommas(product.price)}}
+                  <div class="text-right" v-if="product.promo">
+                    <div class="nv-price nv-font-bc">
+                      ₱  {{numberWithCommas(product.price)}}
+                    </div>
+
+                    <small class="text-white">
+                      <del class="text-white">₱  {{numberWithCommas(product.old_price)}} </del> - {{product.promo.replace('.' , '')}}%
+                    </small>
+                  </div>
+                  <div v-else>
+                    <div class="nv-price nv-font-bc">
+                      ₱  {{numberWithCommas(product.price)}}
+                    </div>
                   </div>
                 </div>
               </div>

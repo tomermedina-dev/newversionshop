@@ -75,7 +75,7 @@
             <div class="nv-summary-list d-flex justify-content-between align-items-center">
               <div class="nv-total-key nv-font-bc">Total</div>
               <div class="">
-                <div class="nv-total-value nv-font-bc">₱ @{{cartTotals == 0 ? 0 : numberWithCommas(cartTotals.total_amount)}}</div>
+                <div  v-cloak  class="nv-total-value nv-font-bc">₱ @{{cartTotals == 0 ? 0 : numberWithCommas(cartTotals.total_amount)}}</div>
                 <div class="nv-vat">VAT Included, where applicable</div>
               </div>
             </div>
