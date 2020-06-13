@@ -9,6 +9,7 @@ use App\Models\Admin\Invoice;
 use App\Models\Admin\JobOrderItem;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use PDF;
 class PDFController extends Controller
@@ -48,6 +49,8 @@ class PDFController extends Controller
     }
 
     public function generateInvoiceDetails($invoiceId) {
+        $invoiceId = Crypt::decrypt($invoiceId);
+
         $invoiceDetails = Invoice::where('id' , $invoiceId)->first();
         $joTotals = DB::select("SELECT * FROM job_order_totals_vw where job_id= '$invoiceDetails->job_order_id'")[0];
 

@@ -139,7 +139,7 @@
   </div>
 
   <div class="">
-    <a href="{{ route('admin.pdf.invoice_details', ['invoiceId' => $invoiceDetails->id]) }}" type="button"  class="btn btn-md nv-btn-txt-dark nv-font-bc">
+    <a href="{{ route('admin.pdf.invoice_details', ['invoiceId' => \Illuminate\Support\Facades\Crypt::encrypt($invoiceDetails->id)]) }}" type="button"  class="btn btn-md nv-btn-txt-dark nv-font-bc">
       <i class="fas fa-print"></i>&nbsp;PRINT
     </a>
     <br><br>

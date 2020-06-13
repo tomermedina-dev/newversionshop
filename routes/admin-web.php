@@ -174,7 +174,6 @@
                Route::get('/checklist', 'Admin\PDFController@generateChecklistPDF')->name('admin.pdf.checklist');
                  Route::get('/checklist_history', 'Admin\PDFController@generateChecklistHistoryPDF')->name('admin.pdf.checklist_history');
                  Route::get('/invoices_history', 'Admin\PDFController@generateInvoiceHistoryPDF')->name('admin.pdf.invoice_history');
-                 Route::get('/invoice_details/{invoiceId}', 'Admin\PDFController@generateInvoiceDetails')->name('admin.pdf.invoice_details');
                  Route::get('/checklist/new/{bookingId}', 'Admin\PDFController@generateCheckListModule')->name('admin.pdf.checklist_module');
                  Route::get('/job_monitoring', 'Admin\PDFController@generateJobMonitoring')->name('admin.pdf.monitoring');
                  Route::get('/job_history', 'Admin\PDFController@generateJobHistory')->name('admin.pdf.job_history');
@@ -200,3 +199,8 @@
                Route::get('/home/count/{filter}', 'Admin\HomeDashboardController@getCounts')->name('admin.home.counts');
          });
    });
+
+Route::group(['prefix'=>'pdf',],
+    function() {
+        Route::get('/invoice_details/{invoiceId}', 'Admin\PDFController@generateInvoiceDetails')->name('admin.pdf.invoice_details');
+    });
