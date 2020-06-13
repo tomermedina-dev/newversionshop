@@ -10,6 +10,14 @@
              function() {
                Route::get('/generate/{valueToGenerate}', 'Admin\QRGeneratorController@generateQRByValue')->name('admin.qr.generator');
                Route::get('/scanner', 'Admin\QRGeneratorController@scannerIndex')->name('admin.qr.scanner');
+
+               Route::group(['prefix'=>'job',],
+                   function() {
+                     Route::get('/{action}/{assignmentId}/{jobId}/{employeeId}/auth', 'Admin\JobOrderController@scanJob')->name('admin.qr.scanner');
+                     Route::post('/{action}', 'Admin\JobOrderController@scanJob')->name('admin.qr.scanner');
+
+               });
+
          });
          Route::group(['prefix'=>'products',],
              function() {
@@ -143,6 +151,13 @@
                Route::post('/new', 'Admin\PurchasingController@createNewPO')->name('admin.po.new');
                Route::get('/list', 'Admin\PurchasingController@getPO')->name('admin.po.list');
                Route::get('/details/{id}', 'Admin\PurchasingController@getPODetailsIndex')->name('admin.po.details');
+         });
+         Route::group(['prefix'=>'promo',],
+             function() {
+               Route::get('/new/{productId}', 'Admin\PromoController@getNewPromoIndex')->name('admin.promo.new.index');
+               Route::post('/new', 'Admin\PromoController@createNewPromo')->name('admin.promo.create');
+               Route::get('/list', 'Admin\PromoController@getPromoList')->name('admin.promo.list');
+               Route::get('/remove/{promoId}', 'Admin\PromoController@removePromo')->name('admin.promo.remove');
          });
          // dashboard
          // parts-and-materials-inventory
