@@ -102,7 +102,8 @@ class BookingController extends Controller
         $mail = array('client_name'=> $serviceDetails->first_name . ' ' . $serviceDetails->last_name, 'service_code' => $serviceDetails->id , 'email' => $serviceDetails->email , 'contact' =>$serviceDetails->contact, 'address'=> $serviceDetails->address,
          'notes'=> $serviceDetails->notes , 'model'=> $serviceDetails->model , 'date'=> $serviceDetails->service_date_new , 'time'=>  $serviceDetails->service_time_new , 'price' => $serviceDetails->price);
          EmailController::sendRejectedService($mail);
-          return Booking::where('id' , $request->serviceId)->update(['status'=> 'X' , 'reject_reason'=>$request->reason]);
+
+         return Booking::where('id' , $request->serviceId)->update(['status'=> 'X' , 'reject_reason'=>$request->reason]);
       }
     }
 }

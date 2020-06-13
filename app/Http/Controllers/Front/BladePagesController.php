@@ -172,6 +172,7 @@ class BladePagesController extends Controller
       $model = 'Model 1';
       $date = '06/30/2020';
       $time = ' 01:00 PM';
+
         $price = '1000';
       return view('admin.email.confirmed-booking'  , compact('client_name' , 'service_code' , 'email' , 'contact' , 'address' , 'notes' , 'model' , 'date' , 'time' , 'price'));
     }
@@ -187,8 +188,9 @@ class BladePagesController extends Controller
       $model = 'Model 1';
       $date = '06/30/2020';
       $time = ' 01:00 PM';
-        $price = '1000';
+      $price = '1000';
       return view('admin.email.rejected-booking'  , compact('client_name' , 'service_code' , 'email' , 'contact' , 'address' , 'notes' , 'model' , 'date' , 'time' , 'price'));
+
     }
     public function getConfirmedOrderLayout()
     {
