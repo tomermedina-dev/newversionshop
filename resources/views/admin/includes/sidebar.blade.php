@@ -337,7 +337,7 @@
                     <div href="#promos-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
                       <div class="nv-title">
                         <i class="fas fa-percentage"></i>
-                        <div class="nv-text nv-font-bc">Promo and Sales Product</div>
+                        <div class="nv-text nv-font-bc">Sale Products</div>
                       </div>
                       <div class="nv-caret">
                         <i class="fas fa-angle-down"></i>
@@ -345,7 +345,7 @@
                     </div>
                     <ul class="collapse list-unstyled" id="promos-sub-menu">
                         <li>
-                          <div class="nv-sub-menu" v-on:click="loadAdminPage('promo.index')">
+                          <div class="nv-sub-menu" v-on:click="loadAdminPage('promo.list')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">List</div>
