@@ -47,7 +47,9 @@
               <i class="fas fa-ellipsis-h"></i>
             </div>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <a class="dropdown-item" v-on:click="editItem(item.id,item.type_id ,item.product_categ , item.name , item.brand,item.car_brand,item.car_model,item.description,item.quantity ,item.price )" href="#">Edit</a>
+              <a class="dropdown-item pointer" v-on:click="editItem(item.id,item.type_id ,item.product_categ , item.name , item.brand,item.car_brand,item.car_model,item.description,item.quantity ,item.price )" href="#">Edit</a>
+              <a class="dropdown-item pointer" :href="'/admin/promo/new/' + pad(item.id  , 10)" target="_blank"  >Set Promo</a>
+
               <!-- <a class="dropdown-item" v-on:click="deleteItem(item.id)" href="#">Delete</a> -->
             </div>
           </div>

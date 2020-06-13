@@ -35,8 +35,17 @@
                 </div>
               </div>
               <div class="col-lg-5 col-md-5">
-                <div class="nv-price nv-font-bc d-lg-flex d-md-flex justify-content-end">
-                  ₱@{{numberWithCommas(items.price)}}
+                <div v-if="items.promo" >
+                  <div   class="nv-price nv-font-bc d-lg-flex d-md-flex justify-content-end">
+                    ₱@{{numberWithCommas(items.price)}}
+                  </div>
+                  <small class="float-right">
+                    <del>  ₱ @{{items.old_price}} </del> &emsp;- @{{items.promo.replace('.' , '')}}%
+                  </small>
+                </div>
+
+                <div v-else  class="nv-price nv-font-bc d-lg-flex d-md-flex justify-content-end" >
+                    ₱@{{numberWithCommas(items.price)}}
                 </div>
               </div>
             </div>

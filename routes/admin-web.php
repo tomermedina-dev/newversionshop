@@ -10,6 +10,14 @@
              function() {
                Route::get('/generate/{valueToGenerate}', 'Admin\QRGeneratorController@generateQRByValue')->name('admin.qr.generator');
                Route::get('/scanner', 'Admin\QRGeneratorController@scannerIndex')->name('admin.qr.scanner');
+
+               Route::group(['prefix'=>'job',],
+                   function() {
+                     Route::get('/{action}/{assignmentId}/{jobId}/{employeeId}/auth', 'Admin\JobOrderController@scanJob')->name('admin.qr.scanner');
+                     Route::post('/{action}', 'Admin\JobOrderController@scanJob')->name('admin.qr.scanner');
+
+               });
+
          });
          Route::group(['prefix'=>'products',],
              function() {
@@ -52,7 +60,7 @@
                     Route::get('/all/{status}', 'Admin\BookingController@getAllBookingsStatus')->name('front.bookings.new');
                     Route::get('/all/new/data-only', 'Admin\BookingController@getAllNewBookingsDataOnly')->name('front.bookings.new');
                     Route::get('/request-change-date/{schedId}/{response}', 'Admin\BookingController@setRequestChangeDateResponse')->name('front.bookings.change.date');
-                    Route::post('/edit/status', 'Admin\BookingController@changeBookingStatus')->name('front.bookings.change.date');
+                    Route::post('/edit/status', 'Admin\BookingController@changeBookingStatus')->name('front.bookings.change.status');
               });
          });
 
@@ -137,6 +145,19 @@
              function() {
                Route::get('/list/{status}', 'Admin\ShopFloorSlotController@getSlotByStatus')->name('admin.slot.list');
                Route::post('/update', 'Admin\ShopFloorSlotController@updateSlot')->name('admin.slot.update');
+         });
+         Route::group(['prefix'=>'purchasing',],
+             function() {
+               Route::post('/new', 'Admin\PurchasingController@createNewPO')->name('admin.po.new');
+               Route::get('/list', 'Admin\PurchasingController@getPO')->name('admin.po.list');
+               Route::get('/details/{id}', 'Admin\PurchasingController@getPODetailsIndex')->name('admin.po.details');
+         });
+         Route::group(['prefix'=>'promo',],
+             function() {
+               Route::get('/new/{productId}', 'Admin\PromoController@getNewPromoIndex')->name('admin.promo.new.index');
+               Route::post('/new', 'Admin\PromoController@createNewPromo')->name('admin.promo.create');
+               Route::get('/list', 'Admin\PromoController@getPromoList')->name('admin.promo.list');
+               Route::get('/remove/{promoId}', 'Admin\PromoController@removePromo')->name('admin.promo.remove');
          });
          // dashboard
          // parts-and-materials-inventory
