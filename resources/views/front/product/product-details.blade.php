@@ -74,10 +74,21 @@
           </div>
         </div>
 
+        <div v-if="productDetails.promo">
+          <div class="nv-price nv-font-bc">
+            ₱ @{{productDetails.price}}
+            <small style="font-size: 30%;">
+              <del>  ₱ @{{productDetails.old_price}} </del> &emsp;- @{{productDetails.promo.replace('.' , '')}}%
+            </small>
+          </div>
 
-        <div class="nv-price nv-font-bc">
-          ₱ @{{productDetails.price}}
         </div>
+        <div v-else >
+          <div class="nv-price nv-font-bc">
+            ₱ @{{productDetails.price}}
+          </div>
+        </div>
+
 
         <div class="nv-line"></div>
         <div class="nv-product-description">
