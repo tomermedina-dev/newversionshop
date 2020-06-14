@@ -49,9 +49,10 @@ class CheckoutController extends Controller
     {
       // code...
       $orderDetails = DB::select("select * from orders_vw where id = '$orderId'")[0];
+      $orderItems = DB::select("select * from order_items_vw where order_id = '$orderId'");
       $total = DB::select("select total_amount from order_totals_vw where order_id = '$orderId'")[0];
       $mail = array('client_name'=>$orderDetails->first_name . ' ' . $orderDetails->last_name , 'order_number' =>  $orderId , 'email' =>  $orderDetails->email , 'contact' =>  $orderDetails->contact, 'address'=> $orderDetails->address ,
-       'notes'=>  $orderDetails->notes, 'delivery_method'=>  $orderDetails->delivery_method , 'total' => $total->total_amount);
+       'notes'=>  $orderDetails->notes, 'delivery_method'=>  $orderDetails->delivery_method , 'total' => $total->total_amount , 'items' =>$orderItems);
 
       EmailController::sendConfirmedOrder($mail);
       return view('front.checkout.confirmed-order' , compact('orderDetails'));
@@ -61,7 +62,8 @@ class CheckoutController extends Controller
       // code...
       $serviceDetails = DB::select("select * from bookings_vw where id = '$serviceId'")[0];
       $mail = array('client_name'=> $serviceDetails->first_name . ' ' . $serviceDetails->last_name, 'service_code' => $serviceDetails->id , 'email' => $serviceDetails->email , 'contact' =>$serviceDetails->contact, 'address'=> $serviceDetails->address,
-       'notes'=> $serviceDetails->notes , 'model'=> $serviceDetails->model , 'date'=> $serviceDetails->service_date_new , 'time'=>  $serviceDetails->service_time_new , 'price' => $serviceDetails->price);
+       'notes'=> $serviceDetails->notes , 'model'=> $serviceDetails->model , 'date'=> $serviceDetails->service_date_new ,
+       'time'=>  $serviceDetails->service_time_new , 'price' => $serviceDetails->price , 'service_title' => $serviceDetails->service_title , 'description' => $serviceDetails->description);
        EmailController::sendConfirmedService($mail);
       return view('front.checkout.confirmed-service' , compact('serviceDetails'));
     }
