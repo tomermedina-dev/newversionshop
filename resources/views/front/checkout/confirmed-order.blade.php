@@ -46,7 +46,7 @@
           <tr v-for="items in orderList">
             <td>
               <div class="nv-img-container">
-                <img  :src="getProductImagesPath(items.product_image)" alt="">
+                <img  :src="getProductImagesPath(items.product_image)" width="250px" alt="">
               </div>
             </td>
             <td class="nv-font-bc" scope="col">@{{items.name}}</td>
