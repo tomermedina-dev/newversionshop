@@ -303,6 +303,10 @@
 
                                       <div class="nv-shipping-details">
                                           <b><p>Please see your service confirmation details below.</p></b>
+                                          <div class="nv-service-details">
+                                            <h2 class="nv-font-bc">{{$service_title}}</h2>
+                                            <p>{{$description}}</p>
+                                          </div>
                                           <p> Email Address : {{$email}} </p>
                                           <p> Contact Number :  {{$contact}} </p>
                                           <p> Address :  {{$address}} </p>
