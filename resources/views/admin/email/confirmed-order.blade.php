@@ -128,6 +128,27 @@
 				max-height: none !important;
 			}
 		}
+
+    table.customTable {
+      width: 100%;
+      background-color: #FFFFFF;
+      border-collapse: collapse;
+      border-width: 1px;
+      border-color: #2F3640;
+      border-style: solid;
+      color: #000000;
+    }
+
+    table.customTable td, table.customTable th {
+      border-width: 1px;
+      border-color: #2F3640;
+      border-style: solid;
+      padding: 5px;
+    }
+
+    table.customTable thead {
+      background-color: #FFC107;
+    }
 	</style>
 </head>
 
@@ -308,6 +329,35 @@
                                           <p> Delivery Method : {{$delivery_method}} </p>
                                           <p> Shipping  / Pick-Up Address :  {{$address}} </p>
                                           <p> Notes / Other details : {{$notes}} </p>
+                                      </div>
+                                      <br>
+                                      <div class="nv-table-container mb-3">
+                                        <table class="customTable">
+                                          <thead>
+                                            <tr>
+                                              <td></td>
+                                              <td class="nv-font-bc" scope="col">Item</td>
+                                              <td class="nv-font-bc" scope="col">Price</td>
+                                              <td class="nv-font-bc" scope="col">Quantity</td>
+                                              <td class="nv-font-bc" scope="col">Total</td>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                          @foreach($items as $item)
+                                            <tr >
+                                              <td>
+                                                <div class="nv-img-container">
+                                                  <img  src="http://newversion.co/uploads/images/products/" width="250px" alt="Item Image">
+                                                </div>
+                                              </td>
+                                              <td class="nv-font-bc" scope="col">{{$item->name}}</td>
+                                              <td class="nv-font-bc" scope="col">₱{{$item->price}}</td>
+                                              <td class="nv-font-bc" scope="col">{{$item->quantity}}</td>
+                                              <td class="nv-font-bc" scope="col">₱{{$item->price * $item->quantity}}</td>
+                                            </tr>
+                                          @endforeach
+                                          </tbody>
+                                        </table>
                                       </div>
                                       <br>
                                       <h2 class="nv-font-bc" v-cloak>Total Amount : ₱ {{$total}}</h2>
