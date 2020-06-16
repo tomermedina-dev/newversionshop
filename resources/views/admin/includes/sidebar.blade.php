@@ -185,14 +185,14 @@
                           </div>
                         </div>
                       </li>
-                        <li>
+                        <!-- <li >
                           <div class="nv-sub-menu"  v-on:click="loadAdminPage('job.index')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">Create</div>
                             </div>
                           </div>
-                        </li>
+                        </li> -->
                         <!-- <li>
                           <div class="nv-sub-menu"  v-on:click="loadAdminPage('job.list')">
                             <div class="nv-title">
