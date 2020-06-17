@@ -79,7 +79,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" style="display:none">
     <div class="col-lg-4">
       <div class="input-group nv-input-group-custom mb-2">
         <div class="input-group-prepend">
