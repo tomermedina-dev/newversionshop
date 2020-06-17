@@ -30,6 +30,7 @@ class CheckListController extends Controller
           'make_model' => $request->make_model ,
           'personal_items' => $request->personal_items ,
           'checkbox_items' => $request->checkbox_items ,
+          'client_type' => $request->client_type
         ];
         $return = CheckList::create($data);
         return $return;
@@ -40,10 +41,10 @@ class CheckListController extends Controller
       $details  = DB::select("select * from bookings_vw where id = '$bookingId'")[0];
       return view('admin.pages.checklist.new' , compact('details'));
     }
-    public function getChecklistAll()
+    public function getChecklistAll($type)
     {
       // code...
-      $checklist = CheckList::all();
+      $checklist = CheckList::where('client_type' ,$type )->get();
       return json_encode($checklist);
     }
     public function getChecklistDetailsIndex($checklistId)

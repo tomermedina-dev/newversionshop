@@ -23,6 +23,7 @@ class CheckList extends Model
      'checkbox_items' ,
      'contact' ,
      'type' ,
-     'notes'
+     'notes' ,
+     'client_type'
    ];
 }
