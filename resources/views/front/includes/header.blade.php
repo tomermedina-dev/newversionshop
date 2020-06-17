@@ -18,10 +18,10 @@
 
       <div class="nv-header-contact-details">
          <i class="fa fa-envelope text-white"aria-hidden="true"></i>
-         <span  > newversion-support@email.com</span>
+         <span  > info@newversion.co</span>
          <i class="fa fa-phone-alt "></i>
-         <span  > +63 123 458</span>
-         <i class="fab fa-facebook-square"></i>
+         <span  > +632 514 7773</span>
+         <i class="fab fa-facebook-square" style="display:none"></i>
       </div>
     </div>
 
