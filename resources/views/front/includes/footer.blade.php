@@ -9,7 +9,7 @@
             <li class="nv-items">New Version Inc.</li>
             <li class="nv-items">92 Marcos Highway, Cainta, Rizal</li>
             <li class="nv-items">1800, Philppines</li>
-            <li class="nv-items">+632 514 7773</li>
+            <li class="nv-items">+63 961 285 1587</li>
             <li class="nv-items">info@newversion.co</li>
           </ul>
         </div>
