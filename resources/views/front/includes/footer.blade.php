@@ -6,14 +6,14 @@
         <div class="text-center text-sm-left text-md-left text-lg-left text-xl-left">
           <ul class="nv-lists">
             <li class="nv-header nv-font-bc">CONTACT US</li>
-            <li class="nv-items">New Version Shop</li>
-            <li class="nv-items">Bagna, Malolos, Bulacan</li>
-            <li class="nv-items">3000, Philppines</li>
-            <li class="nv-items">(02)7918765</li>
-            <li class="nv-items">nvshop@globe.com.ph</li>
+            <li class="nv-items">New Version Inc.</li>
+            <li class="nv-items">92 Marcos Highway, Cainta, Rizal</li>
+            <li class="nv-items">1800, Philppines</li>
+            <li class="nv-items">+632 514 7773</li>
+            <li class="nv-items">info@newversion.co</li>
           </ul>
         </div>
-        <div class="text-center text-sm-left text-md-left text-lg-left text-xl-left">
+        <div class="text-center text-sm-left text-md-left text-lg-left text-xl-left" style="display:none;">
           <ul class="nv-lists">
             <li class="nv-header nv-font-bc">SHIPPING INFO</li>
             <li class="nv-items">Auto Parts</li>
@@ -22,7 +22,7 @@
             <li class="nv-items">Repair</li>
           </ul>
         </div>
-        <div class="text-center text-sm-left text-md-left text-lg-left text-xl-left">
+        <div class="text-center text-sm-left text-md-left text-lg-left text-xl-left" style="display:none !important;">
           <ul class="nv-lists">
             <li class="nv-header nv-font-bc">LINKS</li>
             <li class="nv-items d-flex align-items-center"><i class="fab fa-facebook-square"></i>&nbsp;&nbsp;&nbsp;Facebook</li>
@@ -45,7 +45,7 @@
               </div>
             </div>
         </div>
-        <div class="nv-nav d-flex ">
+        <div class="nv-nav d-flex " style="display:none !important;">
           <div class="nv-items">
             Home
           </div>
