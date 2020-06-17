@@ -75,9 +75,12 @@ clear: both;
            <span data-toggle="collapse"   role="button" aria-expanded="false"
              class="pointer badge badge-pill badge-dark" name="button">View Job Order</span>
          </a>
-         <a  :href="'/admin/checklist/details/' + pad(slot.checklist_id)"></a>
+         <a  :href="'/admin/checklist/details/' + pad(slot.checklist_id)">
           <span data-toggle="collapse"   role="button" aria-expanded="false"
              class="pointer badge badge-pill badge-dark" name="button">View Checklist</span>
+
+          </a>
+          <a v-on:click="moveSlot(slot.job_order_id)"><span data-toggle="collapse" role="button" aria-expanded="false" name="button" class="pointer badge badge-pill badge-dark">Move Slot</span></a>
           <div class="dropdown-divider"></div>
        </div>
        <br>

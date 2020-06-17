@@ -114,6 +114,65 @@ var vehicleSlot = new Vue({
         });
       }
 
+    } ,
+    moveSlot : function (jobOrderId) {
+      jobOrderId = pad(jobOrderId , 10);
+      Swal.fire({
+        showConfirmButton: false,
+        allowEscapeKey : false ,
+        allowOutsideClick : false ,
+        showCloseButton : true ,
+        html: `
+        <style>
+         .datepicker.dropdown-menu{
+           z-index:9999999 !important;
+         }
+       </style>
+        <div class="p-2">
+           <h3 class="nv-font-bc">Move Slot </h3>
+           <h4 class="float-left" >Job Order ID : `+jobOrderId+` </h4>
+           <br>
+           <br>
+           <div class="form-group text-left">
+             <label > Please select floor slot</label>
+             <select  class="custom-select"  id="slot-list"></select>
+           </div>
+          <button  onclick="vehicleSlot.submitMoveSlot( `+jobOrderId+` )"    type="button" class="float-left btn nv-btn-txt-white nv-font-bc" >
+            Submit changes
+          </button>
+          <br>
+          <div class="nv-error-msg">
+          </div>
+        </div>
+        `
+      });
+      axios.
+      get('/admin/slot/list/2').
+      then(function (response) {
+        var slotList =  response.data;
+        for (var i = 0; i < slotList.length; i++) {
+          // console.log();
+          $("#slot-list").append("<option value="+pad(slotList[i].id,10)+">"+slotList[i].slot_name+"</option>");
+        }
+      }).catch(function(error) {
+        swalWentWrong(error);
+      });
+    } ,
+    submitMoveSlot : function (jobOrderId) {
+      const t = this;
+      var slotId = pad($("#slot-list").val() , 10);
+
+      var data = {
+        'job_order_id' : jobOrderId ,
+        'slot_id' : slotId
+      };
+      axios.post('/admin/job/slot/new' , data).
+      then(function (response) {
+        t.loadSlots();
+        swalSuccess("Slot has been changed.");
+      }).catch(function (error) {
+
+      });
     }
   } ,
   mounted (){
