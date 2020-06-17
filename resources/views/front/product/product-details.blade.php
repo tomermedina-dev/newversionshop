@@ -5,6 +5,7 @@
 <script type="text/javascript">
   var productId = "{{$productId}}";
   productId = pad(productId , 10);
+  var productCateg = "{{$productDetails->product_categ}}";
 </script>
 <link rel="stylesheet" href="{{ asset('front/css/pages/product-details.css') }}">
 <title>New Version Shop - Product Details</title>
@@ -199,4 +200,6 @@
 </script>
 
 <script src="{{ asset('front\js\products.details.js') }}" ></script>
+
+
 @endsection

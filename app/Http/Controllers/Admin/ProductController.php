@@ -108,4 +108,11 @@ class ProductController extends Controller
       $products = DB::select("select * from product_vw where id = $id")[0];
       return json_encode($products);
     }
+
+    public function getRelatedProducts($category)
+    {
+      // code...
+      $products = DB::select("select * from product_vw where product_categ = '$category' LIMIT 4");
+      return json_encode($products);
+    }
 }

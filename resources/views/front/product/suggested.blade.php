@@ -2,117 +2,47 @@
   You might also like
 </div>
 
-<div class="row">
-  <div class="col-lg-3">
+<div class="row" id="nv-related-product">
+  <div  style="cursor:pointer"  v-for='product in relatedList' class="col-lg-3">
     <div class="card nv-product-card nv-default-box-shadow">
       <div class="nv-img-container">
         <div class="nv-product-actions d-flex justify-content-center align-items-center">
-          <a href="#"><i class="fas fa-cart-plus"></i></a>
-          <div class="nv-heart-checkbox">
-            <input type="checkbox" id="favorite2">
-            <label for="favorite2"><i class="far fa-heart"></i></label>
+          <a href="#" v-on:click="addUpdateToCart('' , product.id , 1)"><i class="fas fa-cart-plus"></i></a>
+          <div  class="nv-heart-checkbox " >
+            <input v-on:click="addToWishList(product.id)" type="checkbox" id="favorite1">
+            <label for="favorite1"><i class="far fa-heart"></i></label>
           </div>
 
         </div>
-        <img src="" >
+        <img v-on:click="visitProduct(product.id , product.name)" :src='getProductImagesPath(product.product_image)' >
       </div>
       <div class="card-body d-flex justify-content-between align-items-center">
-        <div class="">
-          <div class="nv-name nv-font-bc">
-            Product 1
+        <div  >
+          <div v-on:click="visitProduct(product.id , product.name)"  class="nv-name nv-font-bc">
+            @{{product.name}}
           </div>
           <div class="nv-category">
-            Category 1
+            @{{product.product_categ}}
           </div>
         </div>
-        <div class="nv-price nv-font-bc">
-          P 250.00
+        <div class="text-right" v-if="product.promo">
+          <div class="nv-price nv-font-bc">
+            ₱  @{{numberWithCommas(product.price)}}
+          </div>
+
+          <small class="text-white">
+            <del class="text-white">₱ @{{numberWithCommas(product.old_price)}} </del> - @{{product.promo.replace('.' , '')}} %
+          </small>
+        </div>
+        <div v-else>
+          <div class="nv-price nv-font-bc">
+            ₱  @{{numberWithCommas(product.price)}}
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-3">
-    <div class="card nv-product-card nv-default-box-shadow">
-      <div class="nv-img-container">
-        <div class="nv-product-actions d-flex justify-content-center align-items-center">
-          <a href="#"><i class="fas fa-cart-plus"></i></a>
-          <div class="nv-heart-checkbox">
-            <input type="checkbox" id="favorite3">
-            <label for="favorite3"><i class="far fa-heart"></i></label>
-          </div>
 
-        </div>
-        <img src="" >
-      </div>
-      <div class="card-body d-flex justify-content-between align-items-center">
-        <div class="">
-          <div class="nv-name nv-font-bc">
-            Product 1
-          </div>
-          <div class="nv-category">
-            Category 1
-          </div>
-        </div>
-        <div class="nv-price nv-font-bc">
-          P 250.00
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3">
-    <div class="card nv-product-card nv-default-box-shadow">
-      <div class="nv-img-container">
-        <div class="nv-product-actions d-flex justify-content-center align-items-center">
-          <a href="#"><i class="fas fa-cart-plus"></i></a>
-          <div class="nv-heart-checkbox">
-            <input type="checkbox" id="favorite4">
-            <label for="favorite4"><i class="far fa-heart"></i></label>
-          </div>
-
-        </div>
-        <img src="" >
-      </div>
-      <div class="card-body d-flex justify-content-between align-items-center">
-        <div class="">
-          <div class="nv-name nv-font-bc">
-            Product 1
-          </div>
-          <div class="nv-category">
-            Category 1
-          </div>
-        </div>
-        <div class="nv-price nv-font-bc">
-          P 250.00
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3">
-    <div class="card nv-product-card nv-default-box-shadow">
-      <div class="nv-img-container">
-        <div class="nv-product-actions d-flex justify-content-center align-items-center">
-          <a href="#"><i class="fas fa-cart-plus"></i></a>
-          <div class="nv-heart-checkbox">
-            <input type="checkbox" id="favorite5">
-            <label for="favorite5"><i class="far fa-heart"></i></label>
-          </div>
-
-        </div>
-        <img src="" >
-      </div>
-      <div class="card-body d-flex justify-content-between align-items-center">
-        <div class="">
-          <div class="nv-name nv-font-bc">
-            Product 1
-          </div>
-          <div class="nv-category">
-            Category 1
-          </div>
-        </div>
-        <div class="nv-price nv-font-bc">
-          P 250.00
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
+
+<script src="{{ asset('front\js\products.related.js') }}" ></script>
