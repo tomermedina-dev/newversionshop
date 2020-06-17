@@ -49,11 +49,18 @@ var checklist = new Vue({
 
     } ,
     submitChecklist : function () {
+      const t = this;
       this.getFieldValue();
       axios.
       post(baseURL +'/new' ,checklistDetails).then(function () {
         swalSuccess("Checklist has been saved.");
-        window.setTimeout(window.location.href='/admin/page/checklist.list', 2500);
+        var url = '';
+        if( t.client_type == 'Walk-In'){
+          url = 'checklist.list-walkin';
+        }else {
+          url = "checklist.list-bookings";
+        }
+        window.setTimeout(window.location.href='/admin/page/'+url, 2500);
       }).catch(function(error) {
         swalWentWrong();
       });

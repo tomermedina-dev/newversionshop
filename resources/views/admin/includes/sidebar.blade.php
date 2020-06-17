@@ -144,7 +144,7 @@
                           <div class="nv-sub-menu"  v-on:click="loadAdminPage('checklist.walkin')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
-                              <div class="nv-text nv-font-c">Walk-In</div>
+                              <div class="nv-text nv-font-c">New Walk-In</div>
                             </div>
                           </div>
                         </li>
