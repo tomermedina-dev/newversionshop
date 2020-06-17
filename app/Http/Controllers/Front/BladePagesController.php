@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Crypt;
 use Session;
 use App\Http\Controllers\Front\CartController;
 use App\Models\Admin\Service;
+use DB;
 class BladePagesController extends Controller
 {
     //
@@ -66,7 +67,8 @@ class BladePagesController extends Controller
     public function getProductDetailsIndex($productId , $productSlug)
     {
       // code...
-         return view('front.product.product-details' , compact('productId'));
+      $productDetails = DB::select("select * from product_vw where id = $productId")[0];
+      return view('front.product.product-details' , compact('productId' , 'productDetails'));
     }
 	 public function getProductCartIndex()
     {

@@ -141,18 +141,26 @@
                     </div>
                     <ul class="collapse list-unstyled" id="checklist-sub-menu">
                         <li>
-                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('checklist.index')">
+                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('checklist.walkin')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
-                              <div class="nv-text nv-font-c">New</div>
+                              <div class="nv-text nv-font-c">Walk-In</div>
                             </div>
                           </div>
                         </li>
                         <li>
-                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('checklist.list')">
+                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('checklist.list-bookings')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
-                              <div class="nv-text nv-font-c">History</div>
+                              <div class="nv-text nv-font-c">History - Bookings</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('checklist.list-walkin')">
+                            <div class="nv-title">
+                              <i class="fas fa-circle"></i>
+                              <div class="nv-text nv-font-c">History - Walk-In</div>
                             </div>
                           </div>
                         </li>
@@ -376,7 +384,7 @@
                     </ul>
                     <ul class="collapse list-unstyled" id="purchase-sub-menu">
                         <li>
-                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('promo.index')">
+                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('purchasing.list')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">List</div>

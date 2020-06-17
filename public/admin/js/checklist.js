@@ -23,7 +23,8 @@ var checklist = new Vue({
     personal_items : "" ,
     type : "" ,
     client_id : client_id ,
-    checkbox_items : []
+    checkbox_items : [] ,
+    client_type : client_type
   } ,
   methods : {
     getFieldValue : function() {
@@ -43,6 +44,7 @@ var checklist = new Vue({
       checklistDetails.append('checkbox_items' , t.checkbox_items);
       checklistDetails.append('notes' , t.notes);
       checklistDetails.append('type' , t.type);
+      checklistDetails.append('client_type' , t.client_type);
       checkbox_items = [];
 
     } ,
@@ -74,4 +76,3 @@ var checklist = new Vue({
 
   }
 }) ;
-

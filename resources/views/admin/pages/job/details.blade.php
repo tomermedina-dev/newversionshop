@@ -98,8 +98,10 @@
     </div>
 
   </div>
-
-  <div class="nv-table-container mb-3">
+  <div  >
+    <a  style="display:none;" id="nv-job-action-btn" v-on:click="submitJobAction()" class="mt-2 btn btn-md nv-btn-txt-dark nv-font-bc"></a>
+  </div>
+  <div class="nv-table-container mb-3 mt-2">
     <table class="nv-table table table-striped ">
       <thead>
         <tr>

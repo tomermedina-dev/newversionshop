@@ -13,8 +13,8 @@
 
                Route::group(['prefix'=>'job',],
                    function() {
-                     Route::get('/{action}/{assignmentId}/{jobId}/{employeeId}/auth', 'Admin\JobOrderController@scanJob')->name('admin.qr.scanner');
-                     Route::post('/{action}', 'Admin\JobOrderController@scanJob')->name('admin.qr.scanner');
+                     Route::get('/{action}/{assignmentId}/{jobId}/{employeeId}', 'Admin\JobOrderController@scanJob')->name('admin.qr.scanner');
+                     Route::post('/scan', 'Admin\JobOrderController@postScanJob')->name('admin.qr.scanner');
 
                });
 
@@ -93,7 +93,7 @@
              function() {
                Route::post('/new', 'Admin\CheckListController@createOrEditCheckList')->name('admin.checklist.new');
                Route::get('/new/{id}', 'Admin\CheckListController@getChecklistIndex')->name('admin.checklist.index');
-               Route::get('/list/all', 'Admin\CheckListController@getChecklistAll')->name('admin.checklist.list');
+               Route::get('/list/all/{type}', 'Admin\CheckListController@getChecklistAll')->name('admin.checklist.list');
                Route::get('/details/{checklistId}', 'Admin\CheckListController@getChecklistDetailsIndex')->name('admin.checklist.details.index');
                Route::get('/details/{checklistId}/print', 'Admin\CheckListController@printChecklistDetails')->name('admin.checklist.details.print');
          });
@@ -104,6 +104,8 @@
                Route::get('/list/{filter}', 'Admin\JobOrderController@getJobOrders')->name('admin.job.list');
                Route::get('/list/items/{id}', 'Admin\JobOrderController@getJobOrderItems')->name('admin.job.list');
                Route::get('/details/{jobId}', 'Admin\JobOrderController@getJobOrderDetailsIndex')->name('admin.job.details.index');
+
+               Route::post('/slot/new', 'Admin\JobOrderController@setNewSlot')->name('admin.job.details.index');
 
                Route::group(['prefix'=>'warranty',],
                    function() {

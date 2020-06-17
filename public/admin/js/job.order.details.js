@@ -1,3 +1,5 @@
+var jobAction = '';
+var jobActionData = {};
 var jobOrderHistory = new Vue ({
   el : "#nv-jo-list-details" ,
   data : {
@@ -117,8 +119,32 @@ var jobOrderHistory = new Vue ({
       get('/admin/job/assignment/'+t.pad(joID)).
       then(function (response) {
         t.assignedEmployee = response.data;
-        var qrValue = window.location.hostname + "-qr-job-"+ t.pad(t.assignedEmployee.id)+'-'+t.assignedEmployee.job_order_id+'-'+t.assignedEmployee.employee_id;
-        getQRImage(qrValue);
+        var temp ;
+        if(!t.assignedEmployee.start || !t.assignedEmployee.end){
+          if(t.assignedEmployee.start){
+            temp = 'end';
+            $("#nv-job-action-btn").text("Click End Job");
+
+          }else {
+            temp = 'start';
+            $("#nv-job-action-btn").text("Click Start Job");
+          }
+          $("#nv-job-action-btn").show();
+        }
+
+        jobAction = temp;
+
+        jobActionData ={
+          'action' :jobAction ,
+          'assignmentId' :  t.pad(t.assignedEmployee.id) ,
+          'jobId' : t.assignedEmployee.job_order_id,
+          'employeeId' : t.assignedEmployee.employee_id
+        };
+        var qrValue = window.location.hostname + "-admin-qr-job-"+temp+"-"+ t.pad(t.assignedEmployee.id)+'-'+t.assignedEmployee.job_order_id+'-'+t.assignedEmployee.employee_id;
+
+        if(!t.assignedEmployee.end){
+          getQRImage(qrValue);
+        }
         t.start = t.assignedEmployee.start;
         t.end = t.assignedEmployee.end;
         // getQRImage('assignid_'t.assignedEmployee.id+'joid_'+t.assignedEmployee.job_order_id+'empid_'+t.assignedEmployee.employee_id);
@@ -131,6 +157,16 @@ var jobOrderHistory = new Vue ({
     } ,
     showCalendarPicker : function () {
       $('#warranty_date').datepicker("show" , { beforeShowDay: available });
+    } ,
+    submitJobAction : function () {
+      swalLoading("Setting job time " + jobAction+ ".. Please wait..")
+      axios.post('/admin/qr/job/scan' , jobActionData).
+      then(function (response) {
+        swalSuccess("Job time " + jobAction+ " has bee saved.")
+        window.setTimeout(window.location.href='', 2500);
+      }).catch(function (error) {
+        swalWentWrong(error);
+      });
     }
   } ,
   mounted (){
