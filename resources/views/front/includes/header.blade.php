@@ -20,7 +20,7 @@
          <i class="fa fa-envelope text-white"aria-hidden="true"></i>
          <span  > info@newversion.co</span>
          <i class="fa fa-phone-alt "></i>
-         <span  > +632 514 7773</span>
+         <span  > +63 961 285 1587</span>
          <i class="fab fa-facebook-square" style="display:none"></i>
       </div>
     </div>
