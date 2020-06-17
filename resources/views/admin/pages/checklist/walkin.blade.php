@@ -10,14 +10,13 @@
   }
 </style>
 <script type="text/javascript">
-  var name = "{{$details->first_name}} {{$details->last_name}}";
-  var contact = "{{$details->contact}}";
-  var serviceId = pad("{{$details->id}}" , 10);
-  var notes = "{{$details->notes}}";
-  var order_dt_time = "{{$details->created_at}}" ;
-  var client_id =  "{{$details->user_id}}" ;
-  var id = "{{$details->id}}";
-  var client_type = 'Booking';
+  var name = " ";
+  var contact = " ";
+  var serviceId = 000000000;
+  var notes = "";
+  var order_dt_time = getCurrentDate() ;
+  var client_id =  "000000000" ;
+  var client_type = 'Walk-In';
 </script>
 <div class="nv-vcm-content" id="nv-vcm-content">
   <h3 class="nv-header nv-font-bc">
@@ -44,7 +43,7 @@
               <span class="input-group-text nv-font-c">
                 ORDER NO.</span>
             </div>
-            <input v-model="serviceId" type="text" class="form-control" value="{{$details->id}}">
+            <input v-model="serviceId" type="text" class="form-control"  >
           </div>
         </div>
 
@@ -74,7 +73,7 @@
               <span class="input-group-text nv-font-c">
                 ORDER DATE & TIME</span>
             </div>
-            <input v-model="order_dt_time" type="text" class="form-control">
+            <input v-model="order_dt_time" id="order_dt_time" type="text" class="form-control">
           </div>
         </div>
 
@@ -84,7 +83,7 @@
               <span class="input-group-text nv-font-c">
                 DATE PROMISED</span>
             </div>
-            <input v-model="date_promised" type="text" class="form-control">
+            <input v-model="date_promised" id="date_promised" type="text" class="form-control">
           </div>
         </div>
 
@@ -106,7 +105,7 @@
 
             <div class="card-body" >
               <div class="form-group">
-                <textarea v-model="notes" placeholder="Enter additional notes"  id="exampleFormControlTextarea1" cols="54" rows="11"></textarea>
+                <textarea v-model="notes" placeholder="Enter additional notes"  id="exampleFormControlTextarea1" cols="50" rows="11"></textarea>
               </div>
             </div>
           </div>
@@ -219,14 +218,13 @@
     <button v-on:click="submitChecklist" type="button"  class="btn btn-lg nv-btn-txt-dark nv-font-bc">
       <i class="fas fa-save"></i>&nbsp;SAVE
     </button>
-    <a type="button" href="{{ route('admin.pdf.checklist_module', ['bookingId' => $details->id]) }}" class="btn btn-lg nv-btn-txt-dark nv-font-bc">
-      <i class="fas fa-print"></i>&nbsp;PRINT
-    </a>
-    <br><br>
-    <button type="button" v-on:click="saveAndPrint"  class="btn btn-lg nv-btn-txt-dark nv-font-bc">
-      <i class="fas fa-save"></i>&nbsp;<i class="fas fa-print"></i>&nbsp;SAVE AND PRINT
-    </button>
+
+
   </div>
 </div>
 <script src="{{ asset('admin\js\checklist.js') }}" ></script>
+<script type="text/javascript">
+  $("#order_dt_time").val(getCurrentDate());
+  $("#date_promised").val(getCurrentDate());
+</script>
 @endsection

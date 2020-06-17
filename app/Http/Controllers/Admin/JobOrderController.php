@@ -13,6 +13,7 @@ use App\Models\Admin\JobOrderAssignment;
 use App\Models\Admin\ServiceWarranty;
 use DB ;
 use App\Models\Admin\JobEvaluation;
+use App\Models\Admin\ShopFloorSlots;
 class JobOrderController extends Controller
 {
     //
@@ -187,5 +188,32 @@ class JobOrderController extends Controller
       // code...
       $warranty = ServiceWarranty::where("job_order_id" , $joID)->first();
       return json_encode($warranty);
+    }
+    public function scanJob($action , $assignmentId , $jobId , $employeeId)
+    {
+      // code...
+      $current_time = \Carbon\Carbon::now();
+      if($action == 'start') {
+        $start =  json_encode(JobOrderAssignment::where('id' ,$assignmentId)->where('job_order_id' , $jobId)->where('employee_id' ,$employeeId )->update(['start' => $current_time]));
+        return "Job has been started";
+      }else {
+        $end =  json_encode(JobOrderAssignment::where('id' ,$assignmentId)->where('job_order_id' , $jobId)->where('employee_id' ,$employeeId )->update(['end' => $current_time]));
+        return "Job has been ended.";
+      }
+    }
+    public function postScanJob(Request $request)
+    {
+      // code...
+      $current_time = \Carbon\Carbon::now();
+      if($request->action == 'start') {
+        return json_encode(JobOrderAssignment::where('id' ,$request->assignmentId)->where('job_order_id' , $request->jobId)->where('employee_id' ,$request->employeeId )->update(['start' => $current_time]));
+      }else {
+        return json_encode(JobOrderAssignment::where('id' ,$request->assignmentId)->where('job_order_id' , $request->jobId)->where('employee_id' ,$request->employeeId )->update(['end' => $current_time]));
+      }
+    }
+    public function setNewSlot(Request $request)
+    {
+      // code...
+      return json_encode(JobOrderAssignment::where('job_order_id', $request->job_order_id)->update(['slot_id' => $request->slot_id]));
     }
 }

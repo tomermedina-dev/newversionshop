@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-lg-6 col-md-6">
       <h3 class="nv-header nv-font-bc">
-        CHECKLIST HISTORY
+        CHECKLIST HISTORY - Bookings
       </h3>
     </div>
 
@@ -69,5 +69,5 @@
     </table>
   </div>
 </div>
-<script src="{{ asset('admin\js\checklist.history.js') }}" ></script>
+<script src="{{ asset('admin\js\checklist.history.bookings.js') }}" ></script>
 @endsection
