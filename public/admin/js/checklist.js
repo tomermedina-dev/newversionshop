@@ -51,6 +51,7 @@ var checklist = new Vue({
     submitChecklist : function () {
       const t = this;
       this.getFieldValue();
+      swalLoading("Saving checklist.. Please wait..")
       axios.
       post(baseURL +'/new' ,checklistDetails).then(function () {
         swalSuccess("Checklist has been saved.");
