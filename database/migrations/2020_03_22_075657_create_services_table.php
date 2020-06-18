@@ -19,6 +19,7 @@ class CreateServicesTable extends Migration
             $table->string('name')->nullable();
             $table->longText('description')->nullable();
             $table->string('price');
+            $table->string('booking_price');
             $table->string('status');
             $table->timestamps();
         });

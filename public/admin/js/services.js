@@ -12,6 +12,7 @@ Vue.component('nv-component-add-service' ,
       type : "" ,
       description : "" ,
       price : "" ,
+      booking_price : "" ,
       typeList :[]
     }
   } ,
@@ -35,6 +36,13 @@ Vue.component('nv-component-add-service' ,
                 <i class="fas fa-tools"></i>&nbsp;&nbsp;NAME</span>
              </div>
              <input v-model="name" type="text" class="form-control">
+          </div>
+          <div class="input-group nv-input-group-custom mb-2">
+             <div class="input-group-prepend">
+                <span class="input-group-text nv-font-c">
+                <i class="fas fa-tools"></i>&nbsp;&nbsp;Booking Price</span>
+             </div>
+             <input onkeypress="return isNumber(event)" v-model="booking_price" type="text" class="form-control">
           </div>
         </div>
 
@@ -134,6 +142,7 @@ Vue.component('nv-component-add-service' ,
       formItems.append('name'  , t.name);
       formItems.append('description' , t.description);
       formItems.append('price' , t.price);
+      formItems.append('booking_price' , t.booking_price);
       formItems.append('images' , serviceImage);
     }
   }
@@ -181,7 +190,7 @@ var serviceList = new Vue({
     getServiceImagesPath: function(img){
       return window.location.origin + "/uploads/images/services/"+img;
     } ,
-    editService : function (id, service_image_id , service_image , service_categ , name , description , price ) {
+    editService : function (id, service_image_id , service_image , service_categ , name , description , price , booking_price ) {
         const t = this;
         if ($("#editServiceModal").get(0)){
           $("#nv-service-edit").empty();
@@ -198,7 +207,8 @@ var serviceList = new Vue({
             price : price,
             typeList :[] ,
             image : service_image ,
-            image_id : service_image_id
+            image_id : service_image_id ,
+            booking_price : booking_price
           }
         } ,
         template : `<div class="modal fade nv-modal" id="editServiceModal" tabindex="-1" role="dialog" aria-labelledby="editServiceModalLabel" aria-hidden="true">
@@ -234,6 +244,13 @@ var serviceList = new Vue({
                           <i class="fas fa-tools"></i>&nbsp;&nbsp;NAME</span>
                        </div>
                        <input v-model="name" type="text" class="form-control">
+                    </div>
+                    <div class="input-group nv-input-group-custom mb-2">
+                       <div class="input-group-prepend">
+                          <span class="input-group-text nv-font-c">
+                          <i class="fas fa-tools"></i>&nbsp;&nbsp;Booking Price</span>
+                       </div>
+                       <input onkeypress="return isNumber(event)" v-model="booking_price" type="text" class="form-control">
                     </div>
                   </div>
 
@@ -353,6 +370,7 @@ var serviceList = new Vue({
             formItems.append('name'  , t.name);
             formItems.append('description' , t.description);
             formItems.append('price' , t.price);
+            formItems.append('booking_price' , t.booking_price);
             if(!t.image){
               formItems.append('images' , serviceImage);
             }

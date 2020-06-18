@@ -21,6 +21,7 @@ class ServiceController extends Controller
           'name' => $request->name ,
           'description' => $request->description ,
           'price' => $request->price ,
+          'booking_price' => $request->booking_price ,
           'status' =>   '1'
         ];
         $return = Service::create($data);
@@ -31,6 +32,7 @@ class ServiceController extends Controller
           'type_id' => $request->type_id ,
           'name' => $request->name ,
           'description' => $request->description ,
+          'booking_price' => $request->booking_price ,
           'price' => $request->price
         ];
         $return = Service::where('id' , $request->serviceId)->update($data);
