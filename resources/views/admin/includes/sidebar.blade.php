@@ -20,7 +20,7 @@
             </div>
 
             <ul class="list-unstyled components nv-menu">
-              @if( session('role') == 'admin' )
+              @if( session('isAdmin') == 'true' )
                 <li class="active">
                     <div href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
                       <div class="nv-title">
@@ -403,7 +403,7 @@
                     </div>
                 </li>
                 @endif
-                @if( session('role') != 'admin' )
+                @if( session('isAdmin') == 'false' )
                 <li class="active">
                     <div href="#employee-portal-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
                       <div class="nv-title">

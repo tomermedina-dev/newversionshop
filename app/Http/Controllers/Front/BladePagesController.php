@@ -47,6 +47,7 @@ class BladePagesController extends Controller
     public function getAboutIndex()
     {
       // code...
+      return redirect('/products/all');
       return view('front.pages.about');
     }
     public function getForgotIndex()
@@ -174,9 +175,11 @@ class BladePagesController extends Controller
       $notes = 'Services Notes';
       $model = 'Model 1';
       $date = '06/30/2020';
+      $service_title = 'Model 1';
       $time = ' 01:00 PM';
-        $price = '1000';
-      return view('admin.email.confirmed-booking'  , compact('client_name' , 'service_code' , 'email' , 'contact' , 'address' , 'notes' , 'model' , 'date' , 'time' , 'price'));
+      $price = '1000';
+      $description = 'Description';
+      return view('admin.email.confirmed-booking'  , compact('client_name' , 'service_code' , 'email' , 'contact' , 'address' , 'notes' , 'model' , 'date' , 'time' , 'price' , 'service_title' , 'description'));
     }
     public function getRejectedBookingLayout()
     {
@@ -188,10 +191,11 @@ class BladePagesController extends Controller
       $address = ' Services Notes' ;
       $notes = 'Services Notes';
       $model = 'Model 1';
+        $service_title = 'Model 1';
       $date = '06/30/2020';
       $time = ' 01:00 PM';
         $price = '1000';
-      return view('admin.email.rejected-booking'  , compact('client_name' , 'service_code' , 'email' , 'contact' , 'address' , 'notes' , 'model' , 'date' , 'time' , 'price'));
+      return view('admin.email.rejected-booking'  , compact('client_name' , 'service_code' , 'email' , 'contact' , 'address' , 'notes' , 'model' , 'date' , 'time' , 'price' , 'service_title'));
     }
     public function getConfirmedOrderLayout()
     {

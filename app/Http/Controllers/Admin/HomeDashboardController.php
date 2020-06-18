@@ -41,6 +41,9 @@ class HomeDashboardController extends Controller
       $cars = self::getCounts('cars');
       $completed = self::getCounts('completed');
       $products = self::getCounts('products');
+      if (session('role') == 'employee'){
+        return redirect('/admin/page/employee.assigned');
+      }
       return view('admin.pages.home.index' , compact('orderDay' , 'bookedDay' , 'inProgress' , 'cars' , 'completed' , 'products'));
     }
 }

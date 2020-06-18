@@ -2,10 +2,19 @@
   // Products
    Route::group(['prefix'=>'admin',],
        function() {
-         Route::get('/login', function(){
-            return redirect('/admin/page/login');
+         Route::get('', function(){
+            return redirect('/admin/login');
          });
-
+         
+         Route::get('/login', 'Admin\BladePagesController@getLoginIndex')->name('admin.home.index');
+         Route::group(['prefix'=>'' ,'middleware' => 'adminAuth'],function() {
+            Route::get('/page/{pageName}', 'Admin\BladePagesController@getAdminBladeIndex')->name('admin.blade.pages.index');
+         });
+         Route::group(['prefix'=>'dashboard', 'middleware' => 'adminAuth'],
+             function() {
+               Route::get('/home', 'Admin\HomeDashboardController@getHomeIndex')->name('admin.home.index');
+               Route::get('/home/count/{filter}', 'Admin\HomeDashboardController@getCounts')->name('admin.home.counts');
+         });
          Route::group(['prefix'=>'qr',],
              function() {
                Route::get('/generate/{valueToGenerate}', 'Admin\QRGeneratorController@generateQRByValue')->name('admin.qr.generator');
@@ -166,7 +175,8 @@
          //vehicle-check-list
          // booked-services-summary
          // invoicing
-         Route::get('/page/{pageName}', 'Admin\BladePagesController@getAdminBladeIndex')->name('admin.blade.pages.index');
+
+
          Route::get('/home', 'Admin\BladePagesController@getAdminHomeIndex')->name('admin.blade.home.index');
          Route::post('/login', 'Admin\PanelUserController@validateAccount')->name('admin.users.login');
 
@@ -183,11 +193,7 @@
                  Route::get('/booked_services', 'Admin\PDFController@generateBookedServices')->name('admin.pdf.booked_services');
              });
 
-         Route::group(['prefix'=>'dashboard',],
-             function() {
-               Route::get('/home', 'Admin\HomeDashboardController@getHomeIndex')->name('admin.home.index');
-               Route::get('/home/count/{filter}', 'Admin\HomeDashboardController@getCounts')->name('admin.home.counts');
-         });
+
          Route::group(['prefix'=>'featured',],
              function() {
                Route::post('/new', 'Admin\FeaturedController@create')->name('admin.featured.new');
