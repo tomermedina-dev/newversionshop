@@ -1,3 +1,11 @@
+<style media="screen">
+  .nv-service-img {
+    max-width: 100%;
+    max-height: 75%;
+    display: block; /* remove extra space below image */
+    object-fit: cover;
+  }
+</style>
 <div  class="bg-dark nv-featured-bottom d-flex flex-row" >
   <div class="nv-label nv-font-bc" style="font-size: 1.5rem;color:#f5f6fa;">
     List of Services
@@ -27,7 +35,7 @@
         </div>
         <div class="nv-service-img-container">
           <img    v-if='service.service_image == null'   src="{{ asset('images/no-image-available.png') }}">
-          <img height="350px" v-else   :src='getServiceImagesPath(service.service_image)'   />
+          <img class="nv-service-img"   v-else   :src='getServiceImagesPath(service.service_image)'   />
         </div>
         <div class="card-body ">
           <div class="nv-service-description ">
