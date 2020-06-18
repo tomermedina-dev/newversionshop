@@ -43,7 +43,7 @@
               @{{service.description}}
             </p>
              <div class="nv-service-price">
-               <h1>Starting at   ₱ <span class="nv-services-amount">@{{numberWithCommas(service.price)}} </span> </h1>
+               <h1>Starting at   ₱ <span class="nv-services-amount">@{{numberWithCommas(service.booking_price)}} </span> </h1>
              </div>
           </div>
           <div class="container">

@@ -6,9 +6,9 @@
         <td class="nv-font-bc" scope="col">Service Image</td>
         <td class="nv-font-bc" scope="col">Service Type</td>
         <td class="nv-font-bc" scope="col">Service Title</td>
-
         <td class="nv-font-bc" scope="col">Description</td>
         <td class="nv-font-bc" scope="col">Price</td>
+        <td class="nv-font-bc" scope="col">Booking Price</td>
         <td class="nv-font-bc" scope="col">Status</td>
         <td class="nv-font-bc" scope="col"></td>
       </tr>
@@ -24,7 +24,7 @@
         <td class="nv-font-bc" scope="col">@{{items.name}}</td>
         <td class="nv-font-bc" scope="col">@{{items.description}}</td>
         <td class="nv-font-bc" scope="col">@{{items.price}}</td>
-
+        <td class="nv-font-bc" scope="col">@{{items.booking_price}}</td>
         <td>
           <div class="custom-control custom-switch">
             <input v-on:click="changeStatus(items.status , pad(items.id) )" type="checkbox" class="custom-control-input" :checked="items.status == 1 ? 'checked' : '' " :id="'customSwitch_' + items.id">
@@ -37,7 +37,7 @@
               <i class="fas fa-ellipsis-h"></i>
             </div>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <a class="dropdown-item" v-on:click="editService(pad(items.id),items.service_image_id , items.service_image , items.type_id , items.name , items.description , items.price)"  >Edit</a>
+              <a class="dropdown-item" v-on:click="editService(pad(items.id),items.service_image_id , items.service_image , items.type_id , items.name , items.description , items.price , items.booking_price)"  >Edit</a>
             </div>
           </div>
         </td>
