@@ -53,7 +53,7 @@ var checklist = new Vue({
       this.getFieldValue();
       swalLoading("Saving checklist.. Please wait..")
       axios.
-      post(baseURL +'/new' ,checklistDetails).then(function () {
+      post(baseURL +'/new' ,checklistDetails).then(function (response) {
         swalSuccess("Checklist has been saved.");
         var url = '';
         if( t.client_type == 'Walk-In'){
@@ -61,7 +61,8 @@ var checklist = new Vue({
         }else {
           url = "checklist.list-bookings";
         }
-        window.setTimeout(window.location.href='/admin/page/'+url, 2500);
+       window.setTimeout(window.location.href='/admin/page/'+url, 2500);
+
       }).catch(function(error) {
         swalWentWrong();
       });
@@ -78,8 +79,28 @@ var checklist = new Vue({
     },
     saveAndPrint : function () {
         //Insert saving here
+        const t = this;
+        this.getFieldValue();
+        swalLoading("Saving checklist.. Please wait..")
+        axios.
+        post(baseURL +'/new' ,checklistDetails).then(function (response) {
+          swalSuccess("Checklist has been saved.");
+          window.open("/admin/pdf/checklist/new/" + response.data.id) //Call this after a successful save.
 
-        window.location.replace("/admin/pdf/checklist/new/" + window.id) //Call this after a successful save.
+        }).catch(function(error) {
+          swalWentWrong();
+        }).finally(function () {
+          var url = '';
+          if( t.client_type == 'Walk-In'){
+            url = 'checklist.list-walkin';
+          }else {
+            url = "checklist.list-bookings";
+          }
+          window.setTimeout(window.location.href='/admin/page/'+url, 2500);
+          checklistDetails = new FormData();
+        });
+
+
     }
 
   }

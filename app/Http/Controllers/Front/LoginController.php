@@ -20,6 +20,9 @@ class LoginController extends Controller
       if($userDetails){
         if (Hash::check($request->password, $userDetails->password)){
             // The passwords match...
+            session()->forget('userId');
+            session()->forget('role');
+            session()->flush();
             Session::put('userId' , str_pad( $userDetails->id, 10, '0', STR_PAD_LEFT));
             Session::put('userName' , $userDetails->first_name . ' ' . $userDetails->last_name);
             Session::put('role' , 'client');

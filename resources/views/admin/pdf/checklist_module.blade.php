@@ -39,7 +39,7 @@
         <tbody>
             <tr>
                 <td class="bg_yellow" style="width: 77px">CLIENT NAME</td>
-                <td class="bg_grey" style="width: 220px">{{$details->first_name}} {{$details->last_name}}</td>
+                <td class="bg_grey" style="width: 220px">{{$details->client_name}} </td>
                 <td class="bg_yellow" style="width: 77px">ORDER NO</td>
                 <td class="bg_grey" style="width: 220px">{{ str_pad( $details->id, 10, '0', STR_PAD_LEFT) }}</td>
             </tr>

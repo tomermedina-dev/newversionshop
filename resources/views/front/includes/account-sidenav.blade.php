@@ -16,18 +16,20 @@
   </ul>
 
   <ul class="nv-sidenav-lists">
-    <li class="nv-header nv-font-bc">ORDERS</li>
-    <li class="nv-items"> <a href="/user/orders/history">History</a> </li>
+    <li class="nv-header nv-font-bc"> <a class="text-dark nv-header nv-font-bc pointer" style="text-decoration:none;" href="/user/orders/history">ORDERS</a> </li>
+    <!-- <li class="nv-items"> <a href="/user/orders/history">History</a> </li> -->
     <!-- <li class="nv-items"> <a href="/user/orders/recent">Recent Orders</a> </li> -->
     <!-- <li class="nv-items"> <a href="#">My Returns</a> </li>
     <li class="nv-items"> <a href="#">My Cancellations</a> </li> -->
   </ul>
 
   <ul class="nv-sidenav-lists">
-    <li class="nv-header nv-font-bc">
+    <!-- <li class="nv-header nv-font-bc">
       WISHLIST
       <li class="nv-items"> <a href="/user/wishlist">List</a> </li>
-    </li>
+    </li> -->
+    <li class="nv-header nv-font-bc"> <a class="text-dark nv-header nv-font-bc pointer" style="text-decoration:none;" href="/user/wishlist">WISHLIST</a> </li>
+
   </ul>
 
   <ul class="nv-sidenav-lists">

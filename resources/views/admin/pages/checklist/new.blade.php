@@ -216,16 +216,16 @@
       </div>
     </div>
     <br>
-    <button v-on:click="submitChecklist" type="button"  class="btn btn-lg nv-btn-txt-dark nv-font-bc">
+    <a v-on:click="submitChecklist"    class="btn btn-lg nv-btn-txt-dark nv-font-bc">
       <i class="fas fa-save"></i>&nbsp;SAVE
-    </button>
-    <a type="button" href="{{ route('admin.pdf.checklist_module', ['bookingId' => $details->id]) }}" class="btn btn-lg nv-btn-txt-dark nv-font-bc">
-      <i class="fas fa-print"></i>&nbsp;PRINT
     </a>
-    <br><br>
-    <button type="button" v-on:click="saveAndPrint"  class="btn btn-lg nv-btn-txt-dark nv-font-bc">
+    <!-- <a type="button" href="{{ route('admin.pdf.checklist_module', ['bookingId' => $details->id]) }}" class="btn btn-lg nv-btn-txt-dark nv-font-bc">
+      <i class="fas fa-print"></i>&nbsp;PRINT
+    </a> -->
+
+    <a  v-on:click="saveAndPrint"  class="ml-2  btn btn-lg nv-btn-txt-dark nv-font-bc">
       <i class="fas fa-save"></i>&nbsp;<i class="fas fa-print"></i>&nbsp;SAVE AND PRINT
-    </button>
+    </a>
   </div>
 </div>
 <script src="{{ asset('admin\js\checklist.js') }}" ></script>

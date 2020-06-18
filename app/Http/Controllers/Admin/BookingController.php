@@ -46,14 +46,17 @@ class BookingController extends Controller
     {
       // code...
       if($status =='new'){
-        $status = '0';
+        $sql= "select * from bookings_vw where status = '0' order by created_at desc";
       }
       if($status =='rejected'){
-        $status = 'X';
+        $sql = "select * from bookings_vw where status = 'X' order by created_at desc";
+      }
+      if($status =='new-confirmed'){
+        $sql = "select * from bookings_vw where status = '1' or status ='0' order by created_at desc";
       }
       $bookingHistory = array();
       $bookingData = array();
-      $booking = DB::select("select * from bookings_vw where status = '$status' order by created_at desc");
+      $booking = DB::select($sql);
       foreach ($booking as $key=>$value  ) {
         $bookingData['bookingData'] = $value;
         $bookingId = str_pad($value->id, 10, '0', STR_PAD_LEFT);
@@ -103,6 +106,13 @@ class BookingController extends Controller
          'notes'=> $serviceDetails->notes , 'model'=> $serviceDetails->model , 'date'=> $serviceDetails->service_date_new , 'time'=>  $serviceDetails->service_time_new , 'price' => $serviceDetails->price);
          EmailController::sendRejectedService($mail);
           return Booking::where('id' , $request->serviceId)->update(['status'=> 'X' , 'reject_reason'=>$request->reason]);
+      }
+      if($request->status == '1'){
+        $serviceDetails = DB::select("select * from bookings_vw where id = '$request->serviceId'")[0];
+        $mail = array('client_name'=> $serviceDetails->first_name . ' ' . $serviceDetails->last_name, 'service_code' => $serviceDetails->id , 'email' => $serviceDetails->email , 'contact' =>$serviceDetails->contact, 'address'=> $serviceDetails->address,
+         'notes'=> $serviceDetails->notes , 'model'=> $serviceDetails->model , 'date'=> $serviceDetails->service_date_new , 'time'=>  $serviceDetails->service_time_new , 'price' => $serviceDetails->price);
+          EmailController::sendAcceptedService($mail);
+          return Booking::where('id' , $request->serviceId)->update(['status'=> '1']);
       }
     }
 }
