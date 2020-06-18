@@ -9,7 +9,7 @@ var bookedServices = new Vue({
     loadBookedServices : function(){
       const t = this;
       axios.
-      get('/admin/services/booking/all/new').then(function(response) {
+      get('/admin/services/booking/all/new-confirmed').then(function(response) {
         t.bookedServicesList = response.data;
 
       }).catch(function(error) {
@@ -95,6 +95,28 @@ var bookedServices = new Vue({
         $(".nv-error-msg").append('<br><div class="swal2-validation-message" id="swal2-validation-message" style="display: flex;">Please enter reason.</div>');
 
       }
+   } ,
+   changeStatus : function (status , id) {
+     const t = this;
+     var setStatus ;
+     if (status == 0){
+       setStatus = 1;
+     }else{
+       setStatus = 0 ;
+     }
+     var data = {
+       'status' : setStatus ,
+       'serviceId' : pad(id , 10)
+     };
+     swalLoading("Please wait..")
+     axios.
+     post("/admin/services/booking/edit/status" , data)
+     .then(function(response) {
+       swalSuccess("Booking has been confirmed.")
+         t.loadBookedServices();
+     }).catch(function(error) {
+       swalWentWrong();
+     }).finally(function(response) { });
    }
   } ,
   mounted (){

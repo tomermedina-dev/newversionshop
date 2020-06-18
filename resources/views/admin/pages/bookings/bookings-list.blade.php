@@ -9,6 +9,7 @@
         <td class="nv-font-bc" scope="col">Date of Service</td>
         <td class="nv-font-bc" scope="col">Time</td>
         <td class="nv-font-bc" scope="col">Notes</td>
+        <td class="nv-font-bc" scope="col">Status</td>
         <td class="nv-font-bc nv-option-td" scope="col"></td>
       </tr>
     </thead>
@@ -22,6 +23,12 @@
           <td class="nv-font-bc" scope="col">@{{booking.bookingData.service_date_new}}</td>
           <td class="nv-font-bc" scope="col">@{{booking.bookingData.service_time_new}}</td>
           <td class="nv-font-bc" scope="col">@{{booking.bookingData.notes}}</td>
+          <td>
+            <div class="custom-control custom-switch">
+              <input  :disabled="booking.bookingData.status == 1" v-on:click="changeStatus(booking.bookingData.status , pad(booking.bookingData.id,10) )" type="checkbox" class="custom-control-input" :checked="booking.bookingData.status == 1 ? 'checked' : '' " :id="'customSwitch_' + booking.bookingData.id">
+              <label class="custom-control-label" :for="'customSwitch_' + booking.bookingData.id"></label>
+            </div>
+          </td>
           <td class="nv-font-bc" scope="col" class="info" id="nv-option-td">
             <div class="dropdown">
               <div class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
