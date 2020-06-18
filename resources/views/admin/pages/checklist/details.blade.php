@@ -107,7 +107,7 @@
 
             <div class="card-body" >
               <div class="form-group">
-                <textarea  disabled  placeholder="Enter additional notes"  id="exampleFormControlTextarea1" >
+                <textarea  disabled    id="exampleFormControlTextarea1" >
                   {{$details->notes}}
                 </textarea>
               </div>

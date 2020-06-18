@@ -51,7 +51,7 @@
                       <label for="password">Password</label>
                       <div class="input-group-prepend">
                          <span class="input-group-text nv-input-icon-plain"   ><i class="left fa fa-lock text-black"aria-hidden="true"></i></span>
-                        <input v-model="password" type="password" class="form-control nv-input-custom" id="password" placeholder="Enter your password">
+                        <input  v-on:keyup.enter="submitLogin" v-model="password" type="password" class="form-control nv-input-custom" id="password" placeholder="Enter your password">
                        </div>
                     </div>
                     <div class="custom-control custom-checkbox ">

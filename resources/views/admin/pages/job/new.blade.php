@@ -29,7 +29,7 @@
           <td class="nv-font-bc" scope="col">
             Amount
             <br>
-            <small>(Service Fee + (Part * Quantity))</small>
+            <small style="display:none;">(Service Fee + (Part * Quantity))</small>
           </td>
           <td></td>
         </tr>

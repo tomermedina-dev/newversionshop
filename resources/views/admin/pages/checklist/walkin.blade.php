@@ -215,10 +215,13 @@
       </div>
     </div>
     <br>
-    <button v-on:click="submitChecklist" type="button"  class="btn btn-lg nv-btn-txt-dark nv-font-bc">
+    <a v-on:click="submitChecklist" class="btn btn-lg nv-btn-txt-dark nv-font-bc">
       <i class="fas fa-save"></i>&nbsp;SAVE
     </button>
 
+    <a   v-on:click="saveAndPrint"  class="ml-2 btn btn-lg nv-btn-txt-dark nv-font-bc">
+      <i class="fas fa-save"></i>&nbsp;<i class="fas fa-print"></i>&nbsp;SAVE AND PRINT
+    </a>
 
   </div>
 </div>

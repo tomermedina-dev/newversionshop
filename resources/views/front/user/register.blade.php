@@ -19,6 +19,11 @@
   #nv-btn-signup{
     display: none;
   }
+  @media (max-width: 768px) {
+    .nv-captcha-container {
+      margin-bottom : 30%;
+    }
+  }
 </style>
 <title>New Version - Register</title>
   <div class="d-flex justify-content-center" id="nv-register">
@@ -119,13 +124,17 @@
 
 
                 <h4 class="font-weight-bold">Validate Registration</h4>
-                <div class="row mt-1" id="nv-verify">
+                <!-- <div class="row mt-1" id="nv-verify">
                   <h4>Verify using </h4>
                   <a v-on:click="generateCode" id="nv-btn-sms-code" class="ml-3 badge badge-dark text-white"  style="font-size: 1em;cursor:pointer;margin:1%;">SMS verificaion code</a>
                   <h4 class="ml-3">Or</h4>
                   <a v-on:click="generateEmailCode" id="nv-btn-email-code" class=" ml-3 badge badge-dark text-white"  style="font-size: 1em;cursor:pointer;margin:1%;">Email verificaion code</a>
-                </div>
+                </div> -->
+                <div class="row mt-1" id="nv-verify">
+                  <h4>Verify using </h4>
 
+                  <a v-on:click="generateEmailCode" id="nv-btn-email-code" class=" ml-3 badge badge-dark text-white"  style="font-size: 1em;cursor:pointer;margin:1%;">Email verificaion code</a>
+                </div>
                   <!--live : 6LeucJ0UAAAAABwS_ucAQsf4i2YqEYWhXr4pFVBg-->
                   <!--Local : 6LdF3JoUAAAAAEPm-cs3kzNgfzSdrg5Cfu4MQVpK-->
 
@@ -142,7 +151,7 @@
                       <input  v-model="terms" type="checkbox" class="custom-control-input" id="t_c_flag">
                       <label class="custom-control-label" for="t_c_flag">  I agree to the <a href=""> Terms and Condition</a></label>
                     </div>
-                    <div class="float-left">
+                    <div class="float-left nv-captcha-container">
                       <input type="text" class="hidden_recaptcha required" name="hidden_recaptcha" id="hidden_recaptcha" required>
                       <div class="g-recaptcha" data-sitekey="{{$captcha}}"  data-callback="correctCaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;float:left !important;"></div>
                     </div>

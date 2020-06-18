@@ -21,7 +21,10 @@ class PanelUserController extends Controller
         $isAdminPass = Configuration::where('key' , 'ADMIN_PASSWORD')->where('value' ,$request->password )->first();
         if($isAdminPass){
           // Session::put('userId' , str_pad( $userDetails->id, 10, '0', STR_PAD_LEFT));
+          session()->forget('role');
+          session()->flush();
           Session::put('role' , 'admin');
+          Session::put('isAdmin' , 'true');
           return 1;
         }else{
           return "Invalid admin password";
@@ -32,8 +35,11 @@ class PanelUserController extends Controller
         if($userDetails){
           if (Hash::check($request->password, $userDetails->password)){
               // The passwords match...
+              session()->forget('role');
+              session()->flush();
               Session::put('userId' , str_pad( $userDetails->id, 10, '0', STR_PAD_LEFT));
               Session::put('role' , 'employee');
+              Session::put('isAdmin' , 'false');
               return 1;
           }else{
             return "Invalid password";
