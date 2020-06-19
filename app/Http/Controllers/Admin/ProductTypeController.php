@@ -41,4 +41,10 @@ class ProductTypeController extends Controller
       $type = ProductType::all();
       return json_encode($type);
     }
+    public function getAllTypeActive()
+    {
+      // code..
+      $type = ProductType::where('status' , '1')->get();
+      return json_encode($type);
+    }
 }

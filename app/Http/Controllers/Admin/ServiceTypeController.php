@@ -40,4 +40,9 @@ class ServiceTypeController extends Controller
       // code...
       return json_encode(ServiceType::all());
     }
+    public function getAllTypeActive()
+    {
+      // code...
+      return json_encode(ServiceType::where('status' , '1')->get());
+    }
 }

@@ -147,7 +147,7 @@ Vue.component("nv-component-add-inventory" ,
   mounted (){
     const t = this;
     axios.
-    get('/admin/products/type/all')
+    get('/admin/products/type/all/active')
     .then(function(response) {
 
       t.typeList = response.data;
