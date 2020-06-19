@@ -80,7 +80,7 @@ class ProductController extends Controller
     {
       // code...
       if($category =='all'){
-        $products = DB::select("select * from product_vw where status = '1' order by id");
+        $products = DB::select("select * from product_vw where status = '1' order by id and type_status = '1'");
       }else{
         $products = DB::select("select * from product_vw where status = '1' and  product_categ = '$category' order by id");
       }
