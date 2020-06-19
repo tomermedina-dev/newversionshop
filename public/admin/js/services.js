@@ -83,7 +83,7 @@ Vue.component('nv-component-add-service' ,
   mounted (){
     const t = this;
     axios.
-    get('/admin/services/type/all')
+    get('/admin/services/type/all/active')
     .then(function(response) {
 
       t.typeList = response.data;

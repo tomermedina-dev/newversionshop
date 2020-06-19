@@ -12,7 +12,7 @@ class ServiceTypeController extends Controller
     {
       // code...
       $return = "";
-      if(!isset($request->serviceTypeId)){
+      if(!isset($request->id)){
         $data =[
           'type_name' => $request->type_name,
           'description' => $request->description,
@@ -25,7 +25,7 @@ class ServiceTypeController extends Controller
           'type_name' => $request->type_name,
           'description' => $request->description,
         ];
-          $return = ServiceType::where('id' ,$request->serviceTypeId)->update($data);
+          $return = ServiceType::where('id' ,$request->id)->update($data);
       }
       return $return;
     }
@@ -39,5 +39,10 @@ class ServiceTypeController extends Controller
     {
       // code...
       return json_encode(ServiceType::all());
+    }
+    public function getAllTypeActive()
+    {
+      // code...
+      return json_encode(ServiceType::where('status' , '1')->get());
     }
 }

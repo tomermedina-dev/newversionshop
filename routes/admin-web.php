@@ -5,7 +5,7 @@
          Route::get('', function(){
             return redirect('/admin/login');
          });
-         
+
          Route::get('/login', 'Admin\BladePagesController@getLoginIndex')->name('admin.home.index');
          Route::group(['prefix'=>'' ,'middleware' => 'adminAuth'],function() {
             Route::get('/page/{pageName}', 'Admin\BladePagesController@getAdminBladeIndex')->name('admin.blade.pages.index');
@@ -36,6 +36,7 @@
                      Route::post('/edit', 'Admin\ProductTypeController@createOrEditProductType')->name('admin.products.type.edit');
                      Route::get('/edit/status/{productId}/{status}', 'Admin\ProductTypeController@changeProductTypeStatus')->name('admin.products.type.status.edit');
                      Route::get('/all','Admin\ProductTypeController@getAllType')->name('admin.products.type.all');
+                     Route::get('/all/active','Admin\ProductTypeController@getAllTypeActive')->name('admin.products.type.all');
 
                });
                Route::post('/new', 'Admin\ProductController@createOrEditProduct')->name('admin.products.new');
@@ -56,6 +57,7 @@
                     Route::post('/edit', 'Admin\ServiceTypeController@createOrEditServiceType')->name('admin.services.type.edit');
                     Route::get('/edit/status/{serviceTypeId}/{status}', 'Admin\ServiceTypeController@changeServiceTypeStatus')->name('admin.services.type.status.edit');
                     Route::get('/all','Admin\ServiceTypeController@getAllType')->name('admin.service.type.all');
+                    Route::get('/all/active','Admin\ServiceTypeController@getAllTypeActive')->name('admin.service.type.all');
 
               });
               Route::post('/new', 'Admin\ServiceController@createOrEditService')->name('admin.services.new');

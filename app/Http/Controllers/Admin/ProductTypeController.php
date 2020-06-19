@@ -12,7 +12,7 @@ class ProductTypeController extends Controller
     {
       // code...
       $return = "";
-      if(!isset($request->productTypeId)){
+      if(!isset($request->id)){
         $data =[
           'type_name' => $request->type_name,
           'description' => $request->description,
@@ -25,7 +25,7 @@ class ProductTypeController extends Controller
           'type_name' => $request->type_name,
           'description' => $request->description,
         ];
-          $return = ProductType::where('id' ,$request->productTypeId)->update($data);
+          $return = ProductType::where('id' ,$request->id)->update($data);
       }
       return $return;
     }
@@ -39,6 +39,12 @@ class ProductTypeController extends Controller
     {
       // code..
       $type = ProductType::all();
+      return json_encode($type);
+    }
+    public function getAllTypeActive()
+    {
+      // code..
+      $type = ProductType::where('status' , '1')->get();
       return json_encode($type);
     }
 }
