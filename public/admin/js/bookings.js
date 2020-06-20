@@ -10,12 +10,42 @@ var bookedServices = new Vue({
       const t = this;
       axios.
       get('/admin/services/booking/all/new-confirmed').then(function(response) {
+        $( "#calendar_master .fc-day.fc-widget-content.fc-future" ).html('');
         t.bookedServicesList = response.data;
+        t.bookedServicesList.forEach(function(e){
+               $( "#calendar_master .fc-day.fc-widget-content.fc-future,#calendar_master .fc-day.fc-widget-content" ).each(function( index ) {
 
+                 var calendar_date = $( this ).attr('data-date');
+                 if (t.formatDate(e.bookingData.service_date_new)==calendar_date) {
+                   $( this ).html(`
+                  <a class='badge badge-warning text-left'>
+                   <div class='markers'>`
+                      +`Booking ID : `+
+                      t.pad(e.bookingData.id)
+                      +`<br>`+
+                      e.bookingData.first_name +' ' + e.bookingData.last_name
+                      +`<br>`+
+                      e.bookingData.service_time_new
+                   +`</div>
+                   </a>`);
+                 }
+
+               });
+
+             });
       }).catch(function(error) {
         swalWentWrong();
       });
     } ,
+    formatDate : function (date) {
+      var today = new Date(date);
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+
+      today = yyyy + '-' + mm + '-' + dd   ;
+      return today;
+    },
     pad : function(value) {
       return pad(value , 10);
     } ,
@@ -117,9 +147,31 @@ var bookedServices = new Vue({
      }).catch(function(error) {
        swalWentWrong();
      }).finally(function(response) { });
+   } ,
+   showContainer : function (type) {
+     if(type=='calendar'){
+       $("#nv-booking-table").hide();
+       $("#nv-booking-table-print").hide();
+       $("#nv-booking-table-search").hide();
+       $("#nv-booking-calendar").show();
+     }else {
+       $("#nv-booking-calendar").hide();
+       $("#nv-booking-table").show();
+       $("#nv-booking-table-print").show();
+       $("#nv-booking-table-search").show();
+     }
    }
   } ,
   mounted (){
     this.loadBookedServices();
   }
+});
+$('#calendar_master').fullCalendar({height  : 900});
+
+$('.fc-prev-button').click(function(){
+   bookedServices.loadBookedServices();
+});
+
+$('.fc-next-button').click(function(){
+   bookedServices.loadBookedServices();
 });
