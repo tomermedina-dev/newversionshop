@@ -54,11 +54,11 @@
         <div class="card">
           <div class="card-header">
             <i class="fas fa-car-side"></i>
-            <div class="nv-text nv-font-bc">AVAILABLE CARS</div>
+            <div class="nv-text nv-font-bc">TO RELEASE CARS</div>
           </div>
           <div class="card-body">
             <div class="nv-text">
-              {{$cars->count}}
+              {{$releaseCars->count}}
             </div>
           </div>
         </div>

@@ -29,6 +29,9 @@ class HomeDashboardController extends Controller
       if($filter == 'products'){
         $select = 'select count(*) as count from products where status = 1';
       }
+      if($filter == 'available_release'){
+        $select = 'select count(*) as count from job_order_assigment_vw where is_invoiced = 1';
+      }
       $count = DB::select($select)[0];
       return $count;
     }
@@ -41,9 +44,10 @@ class HomeDashboardController extends Controller
       $cars = self::getCounts('cars');
       $completed = self::getCounts('completed');
       $products = self::getCounts('products');
+      $releaseCars = self::getCounts('available_release');
       if (session('role') == 'employee'){
         return redirect('/admin/page/employee.assigned');
       }
-      return view('admin.pages.home.index' , compact('orderDay' , 'bookedDay' , 'inProgress' , 'cars' , 'completed' , 'products'));
+      return view('admin.pages.home.index' , compact('orderDay' , 'bookedDay' , 'inProgress' , 'cars' , 'completed' , 'products' , 'releaseCars'));
     }
 }
