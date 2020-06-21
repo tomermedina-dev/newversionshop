@@ -39,9 +39,9 @@
             NV SHOP.
           </div>
             <div class="nv-input-group input-group input-group-sm">
-              <input type="text" class="form-control" placeholder="Enter keyword here..." aria-describedby="basic-addon2">
+              <input type="text" class="form-control nv-input-search-footer text-dark" placeholder="Search product"  aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button class="btn btn-sm btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                <button  onclick="window.location.href='/products/search/' + $('.nv-input-search-footer').val()"  class="btn btn-sm btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
               </div>
             </div>
         </div>

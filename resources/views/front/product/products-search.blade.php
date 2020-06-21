@@ -4,16 +4,13 @@
 
 <div class="container">
 
-<script type="text/javascript">
-  var selectedCategory = '{{$categ}}';
-  var newSearchValue;
-</script>
 <link rel="stylesheet" href="{{ asset('front/css/pages/products.css') }}">
 <title>New Version Shop - Products</title>
 <div class="nv-products-content">
 
   <div class="row">
     <div class="col-lg-3">
+
       <div class="list-group nv-category-list mb-3 nv-default-box-shadow">
         <a  class="list-group-item list-group-item-action nv-header nv-items"><i class="fas fa-box-open"></i>&nbsp;&nbsp;Product Categories</a>
         <a   href="/products/all" class="list-group-item list-group-item-action nv-items d-flex justify-content-between align-items-center">
@@ -47,25 +44,16 @@
       <div id="nv-product-grid">
           <nv-component-product-grid></nv-component-product-grid>
       </div>
-
-      <!-- <ul  class="pagination pagination-sm nv-pagination justify-content-center align-items-center">
-        <li class="page-item nv-previous ">
-          <a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a>
-        </li>
-        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item nv-next">
-          <a class="page-link " href="#" tabindex="-1"><i class="fas fa-angle-right"></i></a>
-        </li>
-      </ul> -->
     </div>
   </div>
 
 </div>
 
 </div>
+<script type="text/javascript">
+  var newSearchValue = '{{$searchValue}}';
 
+</script>
 <script src="{{ asset('front\js\customs.js') }}" charset="utf-8"></script>
 <script src="{{ asset('front\js\products.js') }}" ></script>
 <script type="text/javascript">

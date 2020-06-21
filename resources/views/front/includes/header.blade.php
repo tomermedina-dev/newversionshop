@@ -8,10 +8,10 @@
     </button>
     <!-- <input type="text" class="form-control input-search-header" id="first_name" placeholder="Search "> -->
     <div  style="width:100%;">
-      <div class="input-group md-form form-sm form-2 pl-0">
-        <input class="form-control  nv-input-search-header" type="text" placeholder="Search" aria-label="Search">
+      <div class="input-group md-form form-sm form-2 pl-0" id="nv-search">
+        <input v-model="searchValue" class="form-control  nv-input-search-header" type="text" placeholder="Search" aria-label="Search products">
         <div class="input-group-append ">
-          <span class="input-group-text nv-input-search-header" >
+          <span class="input-group-text nv-input-search-header pointer" onclick="window.location.href='/products/search/' + $('.nv-input-search-header').val()" >
             <i class="fas fa-search text-white"aria-hidden="true"></i></span>
         </div>
       </div>
