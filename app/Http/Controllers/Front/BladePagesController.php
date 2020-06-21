@@ -66,6 +66,11 @@ class BladePagesController extends Controller
 
          return view('front.product.products' , compact('categ'));
     }
+    public function searchProduct($searchValue)
+    {
+      // code...
+       return view('front.product.products-search' , compact('searchValue') );
+    }
     public function getProductDetailsIndex($productId , $productSlug)
     {
       // code...
