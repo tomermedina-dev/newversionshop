@@ -146,6 +146,8 @@ Route::group(['prefix'=>'products',],
     Route::get('/checkout', 'Front\BladePagesController@getProductCheckoutIndex')->name('front.products.checkout');
     Route::get('/related/{category}', 'Admin\ProductController@getRelatedProducts')->name('front.products.related');
 
+    Route::get('/search/{value}', 'Front\BladePagesController@searchProduct')->name('front.products.search');
+
   });
 Route::group(['prefix'=>'services',],
     function() {

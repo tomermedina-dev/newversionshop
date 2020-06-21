@@ -95,7 +95,7 @@ var loadProducts = new Vue({
             `,
         mounted (){
           const t = this;
-          var url ="";
+          var url = "";
 
           if(searchValue){
             url = "/products/list/search/"+searchValue;
@@ -141,7 +141,7 @@ var loadProducts = new Vue({
     }
   }
 })
-loadProducts.loadProducts();
+loadProducts.loadProducts(newSearchValue);
 
 new Vue({
   el : ".nv-search-filter-group" ,
@@ -160,4 +160,4 @@ new Vue({
 
     }
   }
-})
+});
