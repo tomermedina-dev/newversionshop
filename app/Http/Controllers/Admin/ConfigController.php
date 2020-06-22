@@ -36,7 +36,7 @@ class ConfigController extends Controller
     // code...
 
     if(env('APP_ENV') == 'live'){
-      if(env('DB_DATABASE' == 'production')){
+      if(env('DB_ENV') == 'production')){
         return 'http://newversion.co/' ;
       }else{
         return 'http://development.newversion.co/' ;
