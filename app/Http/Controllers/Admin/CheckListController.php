@@ -32,6 +32,10 @@ class CheckListController extends Controller
           'checkbox_items' => $request->checkbox_items ,
           'client_type' => $request->client_type
         ];
+        if($request->client_type == 'Walk-In'){
+          $data['client_email'] = $request->email;
+        }
+       
         $return = CheckList::create($data);
         return $return;
     }

@@ -215,5 +215,12 @@ class BladePagesController extends Controller
 
       return view('admin.email.confirmed-order'  , compact('client_name' , 'order_number' , 'email' , 'contact' , 'address' , 'delivery_method' ,'notes'    ));
     }
+    public function getInvoiceLayout()
+    {
+      // code...
+      $client_name = "Tomer Medina";
+      $url = "http://localhost:8000/admin/pdf/invoice_details/1";
+      return view('admin.email.invoice-details' , compact('client_name' , 'url'));
+    }
 
 }

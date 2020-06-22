@@ -24,7 +24,8 @@ var checklist = new Vue({
     type : "" ,
     client_id : client_id ,
     checkbox_items : [] ,
-    client_type : client_type
+    client_type : client_type ,
+    email : ''
   } ,
   methods : {
     getFieldValue : function() {
@@ -50,23 +51,36 @@ var checklist = new Vue({
     } ,
     submitChecklist : function () {
       const t = this;
-      this.getFieldValue();
-      swalLoading("Saving checklist.. Please wait..")
-      axios.
-      post(baseURL +'/new' ,checklistDetails).then(function (response) {
-        swalSuccess("Checklist has been saved.");
-        var url = '';
-        if( t.client_type == 'Walk-In'){
-          url = 'checklist.list-walkin';
+      var err ;
+      if( t.client_type == 'Walk-In'){
+        if(!t.email){
+          swalError("Please enter client email address");
+          err = 1;
         }else {
-          url = "checklist.list-bookings";
+          checklistDetails.append('email' , t.email);
         }
-       window.setTimeout(window.location.href='/admin/page/'+url, 2500);
+      }
 
-      }).catch(function(error) {
-        swalWentWrong();
-      });
-      checklistDetails = new FormData();
+      if(err != 1){
+        this.getFieldValue();
+        swalLoading("Saving checklist.. Please wait..")
+        axios.
+        post(baseURL +'/new' ,checklistDetails).then(function (response) {
+          swalSuccess("Checklist has been saved.");
+          var url = '';
+          if( t.client_type == 'Walk-In'){
+            url = 'checklist.list-walkin';
+          }else {
+            url = "checklist.list-bookings";
+          }
+         window.setTimeout(window.location.href='/admin/page/'+url, 2500);
+
+        }).catch(function(error) {
+          swalWentWrong();
+        });
+        checklistDetails = new FormData();
+      }
+
     },
     addCheckboxItem : function (value) {
       const t = this;
@@ -80,25 +94,37 @@ var checklist = new Vue({
     saveAndPrint : function () {
         //Insert saving here
         const t = this;
-        this.getFieldValue();
-        swalLoading("Saving checklist.. Please wait..")
-        axios.
-        post(baseURL +'/new' ,checklistDetails).then(function (response) {
-          swalSuccess("Checklist has been saved.");
-          window.open("/admin/pdf/checklist/new/" + response.data.id) //Call this after a successful save.
-
-        }).catch(function(error) {
-          swalWentWrong();
-        }).finally(function () {
-          var url = '';
-          if( t.client_type == 'Walk-In'){
-            url = 'checklist.list-walkin';
+        var err ;
+        if( t.client_type == 'Walk-In'){
+          if(!t.email){
+            swalError("Please enter client email address");
+            err = 1;
           }else {
-            url = "checklist.list-bookings";
+            checklistDetails.append('email' , t.email);
           }
-          window.setTimeout(window.location.href='/admin/page/'+url, 2500);
-          checklistDetails = new FormData();
-        });
+        }
+
+        if(err != 1){
+          this.getFieldValue();
+          swalLoading("Saving checklist.. Please wait..")
+          axios.
+          post(baseURL +'/new' ,checklistDetails).then(function (response) {
+            swalSuccess("Checklist has been saved.");
+            window.open("/admin/pdf/checklist/new/" + response.data.id) //Call this after a successful save.
+
+          }).catch(function(error) {
+            swalWentWrong();
+          }).finally(function () {
+            var url = '';
+            if( t.client_type == 'Walk-In'){
+              url = 'checklist.list-walkin';
+            }else {
+              url = "checklist.list-bookings";
+            }
+            window.setTimeout(window.location.href='/admin/page/'+url, 2500);
+            checklistDetails = new FormData();
+          });
+        }
 
 
     }

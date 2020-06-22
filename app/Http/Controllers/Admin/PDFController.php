@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PDF;
+use Illuminate\Support\Facades\Hash;
 class PDFController extends Controller
 {
     //
@@ -101,5 +102,24 @@ class PDFController extends Controller
         return PDF::loadView('admin.pdf.booking_services', ['bookingHistories' => json_decode(json_encode($bookingHistory))])
             ->setPaper('legal', 'portrait')
             ->download('BOOKED SERVICES ' . Carbon::now()->toDateString() . '.pdf');
+    }
+    public function generateInvoiceDetailsClient($id ,$invoiceId)
+    {
+      // code...
+
+      if (Hash::check($id , $invoiceId)){
+        $invoiceDetails = Invoice::where('id' , $id)->first();
+
+        $joTotals = DB::select("SELECT * FROM job_order_totals_vw where job_id= '$invoiceDetails->job_order_id'")[0];
+
+        $jobItems = JobOrderItem::where('job_id' , $invoiceDetails->job_order_id)->get();
+
+        return PDF::loadView('admin.pdf.invoice_details', ['invoiceDetails' => $invoiceDetails, 'joTotals' => $joTotals, 'jobItems' => $jobItems])
+            ->setPaper('legal', 'portrait')
+            ->download('INVOICE DETAILS ' . str_pad( $id, 10, '0', STR_PAD_LEFT) . '.pdf');
+      }else{
+         return "<h1>Invalid Invoice details</h1>";
+      }
+
     }
 }

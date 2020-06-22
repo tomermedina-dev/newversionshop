@@ -92,4 +92,16 @@ class EmailController extends Controller
           $message->from(ConfigController::setEmailSenderConfig(),'New Version Shop');
        });
     }
+    public  static function sendInvoiceDetails($info)
+    {
+      // code...
+      $mail =  $info['email'] ;
+
+      $data = array('client_name'=>$info['client_name'] , 'url' => $info['url']);
+      $mail = Mail::send('admin.email.invoice-details', $data, function($message) use ($mail)  {
+          $message->to($mail, ' ')->subject
+             ('New Version Shop | Invoice Details');
+          $message->from(ConfigController::setEmailSenderConfig(),'New Version Shop');
+       });
+    }
 }

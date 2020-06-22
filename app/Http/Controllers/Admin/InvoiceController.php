@@ -10,6 +10,9 @@ use App\Http\Controllers\Admin\UserAddressController;
 use App\Models\Admin\Invoice;
 use App\Models\Admin\JobOrder;
 use App\Models\Admin\InvoicePayment;
+use App\Http\Controllers\Admin\EmailController;
+use App\Http\Controllers\Admin\ConfigController;
+use Illuminate\Support\Facades\Hash;
 class InvoiceController extends Controller
 {
     //
@@ -36,6 +39,15 @@ class InvoiceController extends Controller
       ];
       $invoice = Invoice::create($invoiceDetails);
       JobOrder::where('id' , $request->job_order_id)->update([ 'is_invoiced' => '1']);
+
+      $id =  str_pad( $invoice->id, 10, '0', STR_PAD_LEFT);
+      $hash = Hash::make($id);
+
+      $url = ConfigController::getDomainAddress() . 'pdf/invoice_details/'.$id.'/'.$hash;
+      $mail = array('client_name'=>$request->client_name , 'url' => $url , 'email' => $request->email);
+
+      EmailController::sendInvoiceDetails($mail);
+
       return json_encode($invoice);
     }
     public function getAllInvoiceList()
