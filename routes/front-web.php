@@ -186,9 +186,14 @@ Route::group(['prefix'=>'mail',],
             Route::get('/confirmed-booking', 'Front\BladePagesController@getConfirmedBookingLayout')->name('front.mail.layout.confirmed.booking');
             Route::get('/confirmed-order', 'Front\BladePagesController@getConfirmedOrderLayout')->name('front.mail.layout.confirmed.order');
             Route::get('/rejected-booking', 'Front\BladePagesController@getRejectedBookingLayout')->name('front.mail.layout.rejected.order');
+            Route::get('/invoice', 'Front\BladePagesController@getInvoiceLayout')->name('front.mail.layout.invoice');
           });
 });
 
+Route::group(['prefix'=>'pdf',],
+    function() {
+      Route::get('/invoice_details/{id}/{invoiceId?}', 'Admin\PDFController@generateInvoiceDetailsClient')->where('invoiceId', '.*');
+});
 Route::get('/cart', 'Front\BladePagesController@getProductCartIndex')->name('front.cart.index');
 
 Route::get('/', 'Front\BladePagesController@getHomeIndex')->name('front.home.index');

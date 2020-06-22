@@ -31,4 +31,18 @@ class ConfigController extends Controller
     $address = Configuration::where('key' , 'DEFAULT_PICKUP_LOCATION')->first();
     return json_encode($address);
   }
+  public static function getDomainAddress()
+  {
+    // code...
+
+    if(env('APP_ENV') == 'live'){
+      if(env('DB_DATABASE' == 'newversi_production')){
+        return 'http://newversion.co/' ;
+      }else{
+        return 'http://development.newversion.co/' ;
+      }
+    }else{
+      return 'http://localhost:8000/';
+    }
+  }
 }
