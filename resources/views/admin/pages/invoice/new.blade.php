@@ -151,13 +151,15 @@
     <button v-on:click="submitInvoice" type="button"  class="btn btn-md nv-btn-txt-dark nv-font-bc">
       <i class="fas fa-save"></i>&nbsp;SAVE
     </button>
-    <button type="button"  class="btn btn-md nv-btn-txt-dark nv-font-bc">
-      <i class="fas fa-print"></i>&nbsp;PRINT
-    </button>
-    <br><br>
-    <button type="button"  class="btn btn-md nv-btn-txt-dark nv-font-bc">
-      <i class="fas fa-save"></i>&nbsp;<i class="fas fa-print"></i>&nbsp;SAVE AND PRINT
-    </button>
+    <div style="display:none;">
+      <button type="button"  class="btn btn-md nv-btn-txt-dark nv-font-bc">
+        <i class="fas fa-print"></i>&nbsp;PRINT
+      </button>
+      <br><br>
+      <button type="button"  class="btn btn-md nv-btn-txt-dark nv-font-bc">
+        <i class="fas fa-save"></i>&nbsp;<i class="fas fa-print"></i>&nbsp;SAVE AND PRINT
+      </button>
+    </div>
   </div>
 </div>
 <script src="{{ asset('admin\js\invoice.create.js') }}" ></script>
