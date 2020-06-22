@@ -24,6 +24,7 @@ class CheckList extends Model
      'contact' ,
      'type' ,
      'notes' ,
-     'client_type'
+     'client_type' ,
+     'client_email'
    ];
 }

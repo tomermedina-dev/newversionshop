@@ -215,6 +215,14 @@
       </div>
     </div>
     <br>
+    <div class="input-group nv-input-group-custom mb-2 w-50">
+      <div class="input-group-prepend">
+        <span class="input-group-text nv-font-c">
+          EMAIL ADDRESS</span>
+      </div>
+      <input v-model="email" type="text" class="form-control"   >
+    </div>
+    <br>
     <a v-on:click="submitChecklist" class="btn btn-lg nv-btn-txt-dark nv-font-bc">
       <i class="fas fa-save"></i>&nbsp;SAVE
     </button>
