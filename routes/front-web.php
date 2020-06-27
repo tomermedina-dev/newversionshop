@@ -172,6 +172,7 @@ Route::group(['prefix'=>'cars',],
 Route::group(['prefix'=>'gallery',],
     function() {
       Route::get('/', 'Front\BladePagesController@getCarIndex')->name('front.home.index');
+      Route::get('/car/{id}', 'Admin\CarController@getCarDetailsIndex')->name('front.gallery.details.index');
 });
 
 Route::group(['prefix'=>'mail',],
