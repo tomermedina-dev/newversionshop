@@ -1,0 +1,481 @@
+nav ul, nav ol, li {
+    list-style: none;
+    list-style-image: none;
+}
+
+@font-face {
+    font-family: 'TradeGothic20';
+    src: url('/frontsite/fonts/TradeGothic20/TradeGothic20.otf');
+    src: url('/frontsite/fonts/TradeGothic20/TradeGothic20.eot?#iefix') format('embedded-opentype'),
+         url('/frontsite/fonts/TradeGothic20/TradeGothic20.woff') format('woff'),
+         url('/frontsite/fonts/TradeGothic20/TradeGothic20.ttf') format('truetype'),
+         url('/frontsite/fonts/TradeGothic20/TradeGothic20.svg#TradeGothic20') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TradeGothic2';
+    src: url('/frontsite/fonts/TradeGothic2/TradeGothic2.otf');
+    src: url('/frontsite/fonts/TradeGothic2/TradeGothic2.eot?#iefix') format('embedded-opentype'),
+         url('/frontsite/fonts/TradeGothic2/TradeGothic2.woff') format('woff'),
+         url('/frontsite/fonts/TradeGothic2/TradeGothic2.ttf') format('truetype'),
+         url('/frontsite/fonts/TradeGothic2/TradeGothic2.svg#TradeGothic2') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FreeStyle';
+    src: url('/frontsite/fonts/FreeStyle/FreeStyle.otf');
+    src: url('/frontsite/fonts/FreeStyle/FreeStyle.eot?#iefix') format('embedded-opentype'),
+         url('/frontsite/fonts/FreeStyle/FreeStyle.woff') format('woff'),
+         url('/frontsite/fonts/FreeStyle/FreeStyle.ttf') format('truetype'),
+         url('/frontsite/fonts/FreeStyle/FreeStyle.svg#FreeStyle') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TradeGothicBD';
+    src: url('/frontsite/fonts/TradeGothicBD/TradeGothicBD.otf');
+    src: url('/frontsite/fonts/TradeGothicBD/TradeGothicBD.eot?#iefix') format('embedded-opentype'),
+         url('/frontsite/fonts/TradeGothicBD/TradeGothicBD.woff') format('woff'),
+         url('/frontsite/fonts/TradeGothicBD/TradeGothicBD.ttf') format('truetype'),
+         url('/frontsite/fonts/TradeGothicBD/TradeGothicBD.svg#TradeGothicBD') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.trans-btn {
+    display: inline-block;
+    letter-spacing: 1px;
+    padding: 10px 45px;
+    border: 2px solid #5b5b5b;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #2d2d2d;
+}
+
+.white-btn {
+    border: 3px solid #FFF;
+    color: #FFF;
+}
+
+.white-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.half-width {
+    width: 50%;
+}
+
+.f-right {
+    float: right;
+}
+
+.f-left {
+    float: left;
+}
+
+.clearfix {
+    display: block;
+    clear: both;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: "";
+    clear: both;
+    height: 0;
+}
+
+.wrapper {
+    background: transparent !important;
+    max-width: 1024px !important;
+    width: 96%;
+    margin: 0 auto;
+}
+
+.title-holder {
+    text-align: center;
+}
+
+.title-holder h3 {
+    text-align: center;
+    font-weight: 400;
+    font-family: 'TradeGothic20';
+    font-size: 50px;
+    color: #fff;
+    line-height: 47px;
+}
+
+.title-holder hr {
+    width: 60px;
+    height: 4px;
+    margin: 10px auto;
+    background: #ffa928;
+    color: #ffa928;
+    border: none;
+}
+
+.title-holder h3 span {
+    display: block;
+    font-size: 40px;
+    font-family: 'FreeStyle';
+    color: #fff;
+    line-height: 32px;
+}
+
+.title-holder p {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/*
+* About Us header
+*/
+
+.about-holder {
+    padding: 40px 0;
+    background: #f4f4f4;
+}
+
+.about-holder .title-holder h3 span {
+    display: block;
+    font-size: 40px;
+    font-family: 'FreeStyle';
+    color: #3f3f3f;
+    line-height: 32px;
+}
+
+.about-holder .title-holder h3 {
+    text-align: center;
+    font-weight: 400;
+    font-family: 'TradeGothic20';
+    font-size: 50px;
+    color: #212121;
+    line-height: 47px;
+}
+
+.about-holder .content-holder h5 {
+    font-size: 20px;
+    color: #2d2d2d;
+}
+
+.about-holder .content-holder {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*
+* About Us content 1
+*/
+
+.about-section {
+    width: 100%;
+    min-height: 537px;
+    overflow: hidden;
+    background-size: cover !important;
+}
+
+.about-section .container {
+    position: relative;
+    min-height: 537px;
+    margin: 0;
+}
+
+.center-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.about-section .container .content-holder h3 {
+    font-weight: 400;
+    font-size: 50px;
+    color: #FFF;
+    font-family: 'TradeGothic20';
+    text-transform: uppercase;
+    line-height: 47px;
+}
+
+.about-section .container .content-holder h3 span {
+    font-size: 50px;
+    font-family: 'FreeStyle';
+    line-height: 47px;
+    display: block;
+    color: #FFF;
+    text-transform: none;
+}
+
+.about-section .container .content-holder p {
+    font-size: 16px;
+    color: #FFF;
+}
+
+.about-section .container {
+    position: relative;
+    min-height: 537px;
+}
+
+.about-section.cont1 .img-holder {
+    position: absolute;
+    bottom: -2%;
+    max-width: 549px;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 
+* About Us content 2
+*/
+
+.about-section.cont2 {
+    background: #f9f9f9;
+    color: #000;
+}
+
+.about-section.cont2 .content-holder h3 span {
+    color: #616161;
+}
+
+.about-section.cont2 .content-holder h3,
+.about-section.cont2 .content-holder p {
+    color: #000000;
+}
+
+/* 
+* How it works content 1
+*/
+
+.hiw-page .banner-holder {
+    min-height: 253px;
+    padding-top: 50px;
+    /*border-bottom: 43px solid #e59e33;*/
+    background-size: cover !important;
+}
+
+.hiw-page .banner-holder .half-width {
+    min-height: 469px;
+    position: relative;
+}
+
+.hiw-page .banner-holder .title-holder {
+    text-align: left;
+}
+
+.hiw-page .banner-holder .title-holder h4 {
+    font-size: 75px;
+    line-height: 70px;
+    font-family: 'TradeGothic20';
+    color: #3592f1;
+    text-transform: uppercase;
+}
+
+.hiw-page .banner-holder .title-holder span {
+    color: #000000;
+    display: block;
+}
+
+.hiw-page .banner-holder .title-holder hr {
+    margin: 10px 0;
+}
+
+.hiw-page .banner-holder .title-holder p {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2a2a2a;
+}
+
+/* 
+* How it works content 2
+*/
+
+.hiw-page .how-section {
+    padding: 180px 0;
+    width: 100%;
+}
+
+.hiw-page .how-section:nth-child(even) .img-holder {
+    float: left;
+}
+
+.hiw-page .how-section .img-holder {
+    padding-top: 20px;
+}
+
+.hiw-page .how-section:nth-child(even) .content-holder {
+    float: right;
+}
+
+.hiw-page .how-section .content-holder {
+    padding: 0 20px;
+}
+
+.hiw-page .how-section .content-holder label {
+    font-size: 165px;
+    line-height: 130px;
+    font-family: 'TradeGothic2';
+    margin-top: 15px;
+}
+
+.hiw-page .how-section .content-holder h3 {
+    font-size: 50px;
+    color: #FFF;
+    line-height: 45px;
+    font-family: 'TradeGothic2';
+    text-transform: uppercase;
+    margin-left: -10px;
+    margin: 0 0 0 -10px;
+}
+
+.hiw-page .box {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.hiw-page .how-section .content-holder h4 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    color: #FFF;
+    line-height: 29px;
+    margin-left: 20px;
+}
+
+.hiw-page .how-section .content-holder p {
+    font-size: 14px;
+    color: #FFF;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+/**
+* Home - How it works
+*/
+
+.how-it-works{min-height: 1000px; position: relative;}
+.how-it-works .main-cont{min-height: 1000px;}
+.how-it-works .main-cont.left-bg{
+  background: #3592f1; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #3592f1, #4498a2); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #3592f1, #4498a2); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #3592f1, #4498a2); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #3592f1, #4498a2); /* Standard syntax */
+}
+.how-it-works .main-cont.right-bg{
+
+  background: #5a519c; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #5a519c, #31495f); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #5a519c, #31495f); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #5a519c, #31495f); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #5a519c, #31495f); /* Standard syntax */
+}
+
+.how-it-works .content-holder{width: 100%; position: absolute; top:5%; z-index: 2; text-align: center;}
+.how-it-works .content-holder .title-holder{margin: 30px 0 -50px;}
+.how-it-works .content-holder .title-holder h3{color:#FFF;margin: 0;}
+.how-it-works .content-holder .title-holder h3 span{color:#FFF;display: block; font-size: 40px; font-family: 'FreeStyle'; line-height: 32px;}
+.how-it-works .content-holder .title-holder hr{background: #FFF; color:#FFF;}
+.how-it-works .content-holder .column{display: inline-block; vertical-align: middle; margin: 0 20px 0;}
+.how-it-works .content-holder .column ul li{ margin:40px 0;}
+.how-it-works .content-holder .column ul li h3{color: #FFF; font-size: 20px; margin-top: 20px; line-height: 17px;}
+.how-it-works .content-holder .column ul li p{color:#fff; font-size: 14px;}
+.how-it-works .content-holder .col1{max-width: 265px;}
+.how-it-works .content-holder .col1 ul li{text-align: right;}
+.how-it-works .content-holder .col1 ul li h3{text-align: right; margin-right: 10px;}
+.how-it-works .content-holder .col3 ul li h3{margin-left: 10px;}
+.how-it-works .content-holder .col1 ul li p{text-align: right; }
+.how-it-works .content-holder .col3 ul li{text-align: left;}
+.how-it-works .content-holder .col3 ul li p{text-align: left; margin-top: 5px;}
+.how-it-works .content-holder .col3{max-width: 265px;}
+.how-it-works .content-holder .col2{padding-top: 100px;}
+.how-it-works .content-holder .read-more p{font-size: 16px; color:#FFF; margin-bottom: 30px;}
+
+/* Home*/
+
+.home-over .wrapper {min-height: 736px; max-width: 100% !important;}
+.client .banner-holder{min-height: 253px; padding-top: 50px; border-bottom: 43px solid #e59e33; background-size: cover !important; }
+.client .home .banner-holder{width: 100%; min-height:736px; position: relative;border-bottom:none;}
+.banner-holder{width: 100%; min-height:736px; position: relative;}
+.banner-holder .content-holder{width: 100%; text-align: center; margin-left:0px; margin-top: -25px;}
+.banner-holder .content-holder .title-holder{margin-left: 0; -ms-transform: rotate(-8deg);     -webkit-transform: rotate(-8deg);   transform: rotate(-8deg);}
+.banner-holder .content-holder .title-holder hr{height:4px; background: #FFF; color:#FFF; border:none; max-width: 59px; width: 100%; margin: 5px auto;}
+.banner-holder .content-holder h3{text-align: center; font-weight: 400; color: #FFF; font-family: 'TradeGothic20'; font-size: 46px; text-transform: uppercase; letter-spacing: -3px; line-height: 40px; }
+.banner-holder .content-holder h3 span{font-size: 59px; color:#ffa928; font-family: 'FreeStyle'; display: block; text-transform: none; letter-spacing: 0px; line-height: 52px;}
+.links-holder{margin-top: 40px; width: 100%;}
+.hexagon-holder{min-height: 209px; position: relative; max-width: 181px; width: 100%; display: inline-block; vertical-align: middle;}
+.hexagon-holder .hexagon {text-align: left; position: absolute;  width: 181px;height: 109px;background:rgba(11,24,35,.86);margin:0; }
+.hexagon-holder .hexagon:before,
+.hexagon-holder .hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 90.5px solid transparent;
+  border-right: 90.5px solid transparent;
+}
+
+.hexagon-holder .hexagon:before {
+  bottom: 100%;
+  border-bottom: 52.25px solid #0b1823;
+  opacity: .86;
+}
+
+.hexagon-holder .hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 52.25px solid #0b1823;
+  opacity: .86;
+}
+.hexagon-holder .text-holder{ margin-top: 40px; z-index: 2; text-align: left; width: 100%;}
+.hexagon-holder .text-holder h2{font-size: 33px; text-align: center; color:#df9524; font-family: 'FreeStyle'; text-transform: none; font-weight: 400; -ms-transform: rotate(-10deg);     -webkit-transform: rotate(-10deg);   transform: rotate(-10deg);}
+.hexagon-holder .text-holder p{  font-family: 'TradeGothicBD'; color: #FFF; font-size: 21px; display: inline-block;  margin:0; padding:3px 19px 0;  -ms-transform: rotate(-6deg);     -webkit-transform: rotate(-6deg);   transform: rotate(-6deg); -webkit-box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75);
+box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.75);}
+.hexagon-holder .text-holder p.light-blue{background: #3592f1; margin-left: 15px; position: relative; z-index: 2;}
+.hexagon-holder .text-holder p.dark-blue{background: #334c81; margin-left: 42px;  margin-top: -6px; position: relative; z-index: 1;}
+.hexagon-holder .text-holder a{display: block; margin-top: 15px; text-align: center;}
+.hexagon-holder .text-holder label{text-align: center; display: block; margin-top: 25px; color:#FFF; font-size: 14px;}
+.scroll{position: absolute; bottom: 2%; left:0; width: 100%; text-align: center;}
+.scroll img{margin-left: 0px;}
+.title-holder{text-align: center;}
+.title-holder h3{text-align: center; font-weight: 400; font-family: 'TradeGothic20'; font-size: 50px; color:#212121; line-height: 47px;}
+.title-holder h3 span{display: block; font-size: 40px; font-family: 'FreeStyle'; color:#3f3f3f; line-height: 32px;}
+.title-holder hr{width:60px; height:4px; margin: 10px auto; background: #ffa928; color:#ffa928; border:none;}
+.about-holder .content-holder{text-align: center; margin: 0 auto;}
+.about-holder .content-holder h5{font-size: 20px; color:#2d2d2d;}
+.about-holder .content-holder p{font-size: 16px; color:#4a4a4a; margin-top: 10px;}
+.about-holder .content-holder a{margin: 20px 0;}
+.about-holder .content-holder a:hover{background:#5b5b5b; color:#fff;}
+.pro-signup .pro-banner{width: 100%; min-height: 335px; background-size: cover !important;}
+.pro-signup .pro-container{margin-top: -150px; text-align: center;}
+.pro-signup .pro-container .pro-holder{display: inline-block; vertical-align: top; margin:0 5px 10px; position: relative;}
+.pro-signup .pro-container .pro-holder .content-holder{position: absolute; bottom:8%; width: 100%;}
+.pro-signup .pro-container .pro-holder .content-holder h3{color:#FFF; font-size: 24px; font-family: 'TradeGothic20'; line-height: 22px; }
+.pro-signup .pro-container .pro-holder .content-holder h3{color:#FFF; font-size: 24px; font-family: 'TradeGothic20'; line-height: 22px; }
+.pro-signup .text-cont{font-size: 18px; color:#3c3c3c; margin:40px 0 70px; width: 100%; text-align: center;}
+.pro-signup .text-cont p {margin-bottom: 20px;}
+
+/*.hex-slide-res.in-active {opacity:0;}*/
+.hex-slide-res {text-align: center; position: relative;transition:all 1s ease-in-out; -ms-transition:all 1s ease-in-out; -webkit-transition:all 1s ease-in-out; -o-transition:all 1s ease-in-out;}
+.hex-slide-res ul li {max-width: 181px; width: 100%;display: inline-block!important; vertical-align: top;margin: 10px 80px;}
+.hex-slide-res .flex-direction-nav .flex-prev,.hex-slide-res .flex-direction-nav .flex-next {font: normal normal normal 14px/1 FontAwesome; font-size: inherit; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;color: #fff;}
+.hex-slide-res .flex-direction-nav .flex-prev:before {content:"\f053";}
+.hex-slide-res .flex-direction-nav .flex-next:before {content:"\f054"}
+.home-over {overflow:hidden;}
