@@ -82,6 +82,7 @@
              Route::get('/edit/status/{carId}/{status}', 'Admin\CarController@changeCarStatus')->name('admin.products.car.status.edit');
              Route::get('/all','Admin\CarController@getAllCar')->name('admin.car.all');
              Route::get('/image/{carId}', 'Admin\ImageController@getCarImages')->name('admin.products.image');
+             Route::get('/edit/{carId}', 'Admin\CarController@getEditIndex')->name('admin.car.edit');
         });
 
          Route::group(['prefix'=>'upload',],

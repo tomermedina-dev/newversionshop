@@ -17,8 +17,7 @@ var carList = new Vue ({
     } ,
     getCarImagesPath: function(img){
       return window.location.origin + "/uploads/images/cars/"+img;
-    }
-
+    } 
   } ,
   mounted(){
     this.loadList();

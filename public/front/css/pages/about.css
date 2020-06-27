@@ -1,0 +1,83 @@
+.nv-section.about{
+  position: relative;
+  background: url('/images/about/thumbnail2.jpg') no-repeat;
+  width: 100vw;
+  background-size: cover;
+  height: calc(100vh - 153px);
+}
+
+.nv-section.vision{
+  background: url('/images/about/thumbnail4.jpg') no-repeat;
+  width: 100vw;
+  background-size: cover;
+  background-position: top;
+  height: calc(100vh - 153px);
+}
+
+.nv-section .nv-title {
+  margin: 0;
+  padding: 48px 0;
+  color: white;
+  text-align: center;
+  font-weight: lighter;
+  letter-spacing: 4px;
+}
+
+.nv-title-container {
+  position: relative;
+}
+
+.nv-title-container .nv-title .nv-divider{
+  border: 1px solid white;
+  border-radius: 8px;
+  width: 10%;
+  margin: auto;
+  margin-top: 12px;
+}
+
+.nv-content-text {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.nv-content-text .nv-header {
+  text-align: center;
+  font-size: 7vh;
+}
+
+.nv-content-text .nv-text {
+  font-size: 4vh;
+  width: 50vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.nv-title-container.black .nv-title {
+  color: black;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+.condensed {
+  letter-spacing: 2px !important;
+}
+
+.nv-title-container.black .nv-title .nv-divider {
+  border: 1px solid black;
+}
+
+/**
+Locate
+ **/
+.nv-section.location {
+  margin-bottom: 32px;
+}
+
+.nv-section.mission * {
+  color: black;
+  margin: 48px 0;
+}

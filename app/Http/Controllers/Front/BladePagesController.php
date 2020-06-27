@@ -36,7 +36,7 @@ class BladePagesController extends Controller
     public function getHomeIndex()
     {
       // code...
-      return redirect('/products/all');
+      // return redirect('/products/all');
       return view('front.pages.home');
     }
     public function getCarIndex()
@@ -47,7 +47,7 @@ class BladePagesController extends Controller
     public function getAboutIndex()
     {
       // code...
-      return redirect('/products/all');
+      // return redirect('/products/all');
       return view('front.pages.about');
     }
     public function getForgotIndex()

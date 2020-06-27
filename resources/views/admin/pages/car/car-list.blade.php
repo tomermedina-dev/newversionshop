@@ -42,7 +42,9 @@
               <i class="fas fa-ellipsis-h"></i>
             </div>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <a class="dropdown-item" v-on:click="editItem(item.id,item.car_manufacturer ,item.car_model , item.color , item.price,item.description )" href="#">Edit</a>
+              <a class="dropdown-item"  target="_blank" :href="'/admin/car/edit/' + pad(item.id,10)">Edit</a>
+              <!-- <a class="dropdown-item" v-on:click="editItem(item.id,item.car_manufacturer ,item.car_model , item.color , item.price,item.description )" href="#">Edit</a> -->
+
               <!-- <a class="dropdown-item" v-on:click="deleteItem(item.id)" href="#">Delete</a> -->
             </div>
           </div>

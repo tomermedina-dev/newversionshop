@@ -81,7 +81,7 @@
 }
 
 .nv-car-gallery-content .nv-divider > .nv-label{
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .nv-car-gallery-content .nv-divider *{
@@ -139,13 +139,13 @@
 
 .nv-list-container .card .nv-img-container{
   position: relative;
-  padding-top: 30%;
+  /* padding-top: 30%; */
   width: 100%;
 }
 
 
 .nv-list-container .card .nv-img-container img{
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
   width: 100%;

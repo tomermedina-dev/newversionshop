@@ -2,9 +2,12 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('admin/css/pages/parts-and-materials-inventory.css') }}">
+<link rel="stylesheet" href="{{ asset('tinymce/cms-tinymce.css') }}">
+<link rel="stylesheet" href="{{ asset('tinymce/flexslider.css') }}">
 
+<!-- <script src="{{ asset('tinymce\tinymce.min.js') }}"  ></script>
+<script>tinymce.init({selector:'textarea#tinymce' });</script> -->
 <div class="nv-pami-content">
-
   <div class="row">
     <div class="col-lg-9 col-md-9">
       <h3 class="nv-header nv-font-bc">
@@ -29,5 +32,10 @@
   <script src="{{ asset('dropzone\js\dropzone.js') }}" ></script>
   <script src="{{ asset('dropzone\js\croppic.min.js') }}" ></script>
   <script src="{{ asset('admin\js\car.js') }}" ></script>
+  <script src="{{ asset('jquery\js\jquery.min.js') }}"  ></script>
+  <script src="{{ asset('jquery\js\jquery-ui.min.js') }}"  ></script>
+  <script src="{{ asset('tinymce\tinymce.min.js') }}"  ></script>
+
+  <script src="{{ asset('admin\js\car-tinymce.js') }}"  ></script>
 </div>
 @endsection
