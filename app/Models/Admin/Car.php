@@ -14,6 +14,7 @@ class Car extends Model
      'color',
      'price',
      'description' ,
-     'status'
+     'status' ,
+     'details'
    ];
 }

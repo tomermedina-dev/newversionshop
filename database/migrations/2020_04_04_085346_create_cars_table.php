@@ -20,6 +20,7 @@ class CreateCarsTable extends Migration
             $table->string('color');
             $table->string('price');
             $table->longText('description');
+            $table->longText('details');
             $table->string('status');
             $table->timestamps();
         });

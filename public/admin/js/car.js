@@ -3,160 +3,115 @@ var arr_categories = [];
 var arrImages = [];
 var arrImagesEdit = [];
 var formItems = new FormData();
-Vue.component("nv-component-add-car" ,
-{
-  data :function() {
-    return {
-      car_manufacturer : "" ,
-      car_model : "" ,
-      color : "" ,
-      price : "" ,
-      description : ""
-    }
-  } ,
-  template : `<div>
-  <div class="modal-body">
+// Vue.component("nv-component-add-car" ,
+// {
+//   data :function() {
+//     return {
+//       car_manufacturer : "" ,
+//       car_model : "" ,
+//       color : "" ,
+//       price : "" ,
+//       description : ""
+//     }
+//   } ,
+//   template : `<div>
+//   <div class="modal-body">
+//
+//     <div class="row">
+//     <div class="col-lg-6">
+//        <div class="input-group nv-input-group-custom mb-2">
+//           <div class="input-group-prepend">
+//              <span class="input-group-text nv-font-c">
+//              <i class="fas fa-car"></i>&nbsp;&nbsp;<small>MANUFACTURER</small></span>
+//           </div>
+//           <input v-model="car_manufacturer" type="text" class="form-control">
+//        </div>
+//        <div class="input-group nv-input-group-custom mb-2">
+//           <div class="input-group-prepend">
+//              <span class="input-group-text nv-font-c">
+//              <i class="fas fa-car"></i>&nbsp;&nbsp;MODEL</span>
+//           </div>
+//           <input v-model="car_model" type="text" class="form-control">
+//        </div>
+//        <div class="input-group nv-input-group-custom mb-2">
+//           <div class="input-group-prepend">
+//              <span class="input-group-text nv-font-c">
+//              <i class="fas fa-car"></i>&nbsp;&nbsp;COLOR</span>
+//           </div>
+//           <input v-model="color" type="text" class="form-control">
+//        </div>
+//
+//     </div>
+//      <div class="col-lg-6">
+//        <div class="input-group nv-input-group-custom mb-2">
+//           <div class="input-group-prepend">
+//              <span class="input-group-text nv-font-c">
+//              <i class="fas fa-car"></i>&nbsp;&nbsp;PRICE</span>
+//           </div>
+//           <input  onkeypress="return isNumber(event)"  v-model="price" type="text" class="form-control">
+//        </div>
+//
+//
+//         <div class="input-group nv-input-group-custom mb-2">
+//           <div class="input-group-prepend">
+//             <span class="input-group-text nv-font-c">
+//               <i class="fas fa-car"></i>&nbsp;&nbsp;DESCRIPTION</span>
+//           </div>
+//           <input v-model="description" type="text" class="form-control">
+//         </div>
+//
+//       </div>
+//       </div>
+//     <div class="container">
+//       <h3>Car Image</h3>
+//       <div class="dropzone" id="dropzoneItem">
+//         <div class="dz-message" data-dz-message>Drop image or click to upload image</div>
+//       </div>
+//     </div>
+//   </div>
+//   <div class="modal-footer">
+//     <button v-on:click="saveItem" type="button" class="btn btn-sm nv-btn-txt-dark nv-font-bc" data-toggle="modal" >
+//       <i class="fas fa-forward"></i>&nbsp;
+//       PROCEED
+//     </button>
+//   </div>
+//   </div>` ,
+//
+//   methods : {
+//     saveItem : function () {
+//       const t = this;
+//       if(!t.car_manufacturer.trim()){
+//         swalError("Please enter car manufacturer.");
+//       }else if(!t.car_model.trim()){
+//           swalError("Please enter car model.");
+//       }else{
+//         this.getFieldValue();
+//         swalLoading("Saving car details. Please wait.")
+//         axios.post('/admin/car/new' , formItems).then(function (response) {
+//           swalSuccess("Successfully saved.")
+//           carList.loadList()
+//           $("#addItemModal").modal("hide");
+//         }).catch(function (error) {
+//           swalWentWrong();
+//         }).finally(function(response) {});
+//       }
+//
+//
+//
+//     } ,
+//     getFieldValue : function() {
+//
+//       const t = this;
+//       formItems.append('car_manufacturer' , t.car_manufacturer);
+//       formItems.append('car_model' , t.car_model);
+//       formItems.append('color' , t.color);
+//       formItems.append('price' , t.price);
+//       formItems.append('description' , t.description);
+//       formItems.append('images' , arrImages);
+//     }
+//   }
+// });
 
-    <div class="row">
-    <div class="col-lg-6">
-       <div class="input-group nv-input-group-custom mb-2">
-          <div class="input-group-prepend">
-             <span class="input-group-text nv-font-c">
-             <i class="fas fa-car"></i>&nbsp;&nbsp;<small>MANUFACTURER</small></span>
-          </div>
-          <input v-model="car_manufacturer" type="text" class="form-control">
-       </div>
-       <div class="input-group nv-input-group-custom mb-2">
-          <div class="input-group-prepend">
-             <span class="input-group-text nv-font-c">
-             <i class="fas fa-car"></i>&nbsp;&nbsp;MODEL</span>
-          </div>
-          <input v-model="car_model" type="text" class="form-control">
-       </div>
-       <div class="input-group nv-input-group-custom mb-2">
-          <div class="input-group-prepend">
-             <span class="input-group-text nv-font-c">
-             <i class="fas fa-car"></i>&nbsp;&nbsp;COLOR</span>
-          </div>
-          <input v-model="color" type="text" class="form-control">
-       </div>
-
-    </div>
-     <div class="col-lg-6">
-       <div class="input-group nv-input-group-custom mb-2">
-          <div class="input-group-prepend">
-             <span class="input-group-text nv-font-c">
-             <i class="fas fa-car"></i>&nbsp;&nbsp;PRICE</span>
-          </div>
-          <input  onkeypress="return isNumber(event)"  v-model="price" type="text" class="form-control">
-       </div>
-
-
-        <div class="input-group nv-input-group-custom mb-2">
-          <div class="input-group-prepend">
-            <span class="input-group-text nv-font-c">
-              <i class="fas fa-car"></i>&nbsp;&nbsp;DESCRIPTION</span>
-          </div>
-          <input v-model="description" type="text" class="form-control">
-        </div>
-
-      </div>
-      </div>
-    <div class="container">
-      <h3>Car Image</h3>
-      <div class="dropzone" id="dropzoneItem">
-        <div class="dz-message" data-dz-message>Drop image or click to upload image</div>
-      </div>
-    </div>
-  </div>
-  <div class="modal-footer">
-    <button v-on:click="saveItem" type="button" class="btn btn-sm nv-btn-txt-dark nv-font-bc" data-toggle="modal" >
-      <i class="fas fa-forward"></i>&nbsp;
-      PROCEED
-    </button>
-  </div>
-  </div>` ,
-
-  methods : {
-    saveItem : function () {
-      const t = this;
-      if(!t.car_manufacturer.trim()){
-        swalError("Please enter car manufacturer.");
-      }else if(!t.car_model.trim()){
-          swalError("Please enter car model.");
-      }else{
-        this.getFieldValue();
-        swalLoading("Saving car details. Please wait.")
-        axios.post('/admin/car/new' , formItems).then(function (response) {
-          swalSuccess("Successfully saved.")
-          carList.loadList()
-          $("#addItemModal").modal("hide");
-        }).catch(function (error) {
-          swalWentWrong();
-        }).finally(function(response) {});
-      }
-
-
-
-    } ,
-    getFieldValue : function() {
-
-      const t = this;
-      formItems.append('car_manufacturer' , t.car_manufacturer);
-      formItems.append('car_model' , t.car_model);
-      formItems.append('color' , t.color);
-      formItems.append('price' , t.price);
-      formItems.append('description' , t.description);
-      formItems.append('images' , arrImages);
-    }
-  }
-});
-
-var addItem = new Vue({
-  el : ".nv-add-car"
-});
-
-Dropzone.options.dropzoneItem= {
-          url: '/admin/upload/new/image/cars',
-          renameFile: function(file) {
-                var dt = new Date();
-                var time = dt.getTime();
-               return time+file.name;
-            },
-            acceptedFiles: ".jpeg,.jpg,.png,.gif",
-            addRemoveLinks: true,
-            maxFiles: 10 ,
-            removedfile: function(file)
-            {
-                var name = file.upload.filename;
-                var inx = arrImages.indexOf('"'+name+'"');
-                arrImages.splice(inx, 1);
-                var form_media = {
-                  filename : name
-                };
-                axios.post('/admin/upload/delete/image/cars' , form_media).then(
-                  function(response) {
-
-                  }
-                ).catch(function(error) {
-                  swalWentWrong();
-                }).finally(function (response) {
-
-                });
-
-                var fileRef;
-                return (fileRef = file.previewElement) != null ?
-                fileRef.parentNode.removeChild(file.previewElement) : void 0;
-            },
-            success: function(file, response)
-            {
-                //console.log(response);
-                arrImages.push(response);
-
-
-            },
-            init: function() {}
-        };
 
 
 var carList = new Vue ({

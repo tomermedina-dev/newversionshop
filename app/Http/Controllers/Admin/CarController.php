@@ -20,6 +20,7 @@ class CarController extends Controller
           'color' => $request->color,
           'price' => $request->price,
           'description' => $request->description,
+          'details' => $request->details ,
           'status' => '1',
         ];
         $return = Car::create($data);
@@ -37,6 +38,7 @@ class CarController extends Controller
           'car_model' => $request->car_model,
           'color' => $request->color,
           'price' => $request->price,
+          'details' => $request->details ,
           'description' => $request->description
         ];
 
@@ -69,5 +71,18 @@ class CarController extends Controller
       // code...
       $car = DB::select("select * from car_vw where status ='$status' ");
       return json_encode($car);
+    }
+    function getEditIndex($id) {
+      // code...
+      $carDetails =  Car::where('id' ,$id)->first();
+      $carImages = Image::where('type' , 'car')->where('ref_id' ,$id )->get();
+      return view('admin.pages.car.edit' , compact('carDetails' , 'carImages'));
+    }
+    public function getCarDetailsIndex($id)
+    {
+      // code...
+      $carDetails =  Car::where('id' ,$id)->first();
+      $carImages = Image::where('type' , 'car')->where('ref_id' , str_pad( $id, 10, '0', STR_PAD_LEFT) )->get();
+      return view('front.cars.details', compact('carDetails' , 'carImages'));
     }
 }

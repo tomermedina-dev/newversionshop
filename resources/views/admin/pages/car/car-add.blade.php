@@ -4,10 +4,10 @@
 <link rel="stylesheet"  href="{{ asset('dropzone/css/dropzone.css') }}">
 @include('admin.pages.car.car-edit')
 <div class="nv-add-car">
-  <button type="button" class="btn btn-lg nv-btn-txt-dark nv-font-bc" data-toggle="modal" data-target="#addCarModal">
+  <a target="_blank" href="/admin/page/car.create" class="btn btn-lg nv-btn-txt-dark nv-font-bc" >
     <i class="fas fa-plus-circle"></i>&nbsp;
     ADD CAR
-    </button>
+  </a>
 
     <div class="modal fade nv-modal" id="addCarModal" tabindex="-1" role="dialog" aria-labelledby="addCarModalLabel" aria-hidden="true">
       <!-- <div class="nv-invisible-padding"></div> -->
@@ -22,7 +22,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <nv-component-add-car></nv-component-add-car>
+        <!-- <nv-component-add-car></nv-component-add-car> -->
 
       </div>
     </div>
