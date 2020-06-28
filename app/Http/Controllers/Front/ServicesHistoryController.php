@@ -16,6 +16,13 @@ class ServicesHistoryController extends Controller
       $servicesDetails = DB::select("select * from bookings_vw where user_id = '$userId' order by created_at desc");
       return view('front.user.services.history' , compact('servicesDetails'));
     }
+    public function getUserServicesConfirmedIndex()
+    {
+      // code...
+      $userId =  session('userId');
+      $servicesDetails = DB::select("select * from bookings_vw where user_id = '$userId' and status='1' order by created_at desc");
+      return view('front.user.services.confirmed' , compact('servicesDetails'));
+    }
     public function getUserServicesPendingIndex()
     {
       // code...
