@@ -70,6 +70,7 @@ Route::group(['prefix'=> 'user' ,],
     Route::group(['prefix'=>'services',],
       function() {
         Route::get('/pending', 'Front\ServicesHistoryController@getUserServicesPendingIndex')->name('front.user.services.pending');
+        Route::get('/confirmed', 'Front\ServicesHistoryController@getUserServicesConfirmedIndex')->name('front.user.services.confirmed');      
         Route::get('/rejected', 'Front\ServicesHistoryController@getUserServicesRejectedIndex')->name('front.user.services.rejected');
         Route::get('/history', 'Front\ServicesHistoryController@getUserServicesHistory')->name('front.user.services.history');
         Route::get('/completed', 'Front\ServicesHistoryController@getUserServicesCompletedHistoryIndex')->name('front.user.services.completed.index');

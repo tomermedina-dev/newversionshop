@@ -36,7 +36,8 @@
     <li class="nv-header nv-font-bc">
       SERVICES
       <li class="nv-items"> <a href="/user/services/pending">Pending</a> </li>
-      <li class="nv-items"> <a href="/user/services/rejected">Rejected</a> </li>
+      <li class="nv-items"> <a href="/user/services/confirmed">Confirmed</a> </li>
+      <!-- <li class="nv-items"> <a href="/user/services/rejected">Rejected</a> </li> -->
       <li class="nv-items"> <a href="/user/services/jobs">Job Monitoring</a> </li>
       <li class="nv-items"> <a href="/user/services/warranty">Warranty History</a> </li>
       <li class="nv-items"> <a href="/user/services/completed">Completed History</a> </li>
