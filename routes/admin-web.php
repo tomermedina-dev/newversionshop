@@ -135,6 +135,14 @@
                      Route::get('/list/{filter}/{userId}', 'Admin\JobOrderController@getEmployeeAssignedJobs')->name('admin.job.assignment.list');
 
                });
+
+               Route::group(['prefix'=>'time',],
+                   function() {
+                     Route::post('/history/new', 'Admin\JobOrderController@createUpdateJobTimeHistory')->name('admin.job.time.history');
+                     Route::get('/history/current-day/{employee_id}/{assignment_id}/{job_id}', 'Admin\JobOrderController@getCurrentDateTimeHistory')->name('admin.job.time.current.date');
+                     Route::get('/history/all/{employee_id}/{assignment_id}/{job_id}', 'Admin\JobOrderController@getAllTimeHistoryIndex')->name('admin.job.time.history.all');
+
+               });
          });
          Route::group(['prefix'=>'invoice',],
              function() {
