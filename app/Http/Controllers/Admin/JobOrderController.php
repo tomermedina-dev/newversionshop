@@ -14,6 +14,7 @@ use App\Models\Admin\ServiceWarranty;
 use DB ;
 use App\Models\Admin\JobEvaluation;
 use App\Models\Admin\ShopFloorSlots;
+use App\Models\Admin\JobTimeHistory;
 class JobOrderController extends Controller
 {
     //
@@ -215,5 +216,55 @@ class JobOrderController extends Controller
     {
       // code...
       return json_encode(JobOrderAssignment::where('job_order_id', $request->job_order_id)->update(['slot_id' => $request->slot_id]));
+    }
+    public function createUpdateJobTimeHistory(Request $request)
+    {
+      // code...
+      $current_time = \Carbon\Carbon::now();
+      if(isset($request->id)){
+          $return = JobTimeHistory::where('id'  , $request->id )->update(['end' =>$current_time ]);
+      }else {
+        // code...
+        $history = [
+          'employee_id' => $request->employee_id ,
+          'assignment_id' => $request->assignment_id ,
+          'job_id' => $request->job_id ,
+          'start' =>  $current_time
+        ];
+        $return = JobTimeHistory::create($history);
+      }
+      return json_encode($return);
+
+    }
+    public function getCurrentDateTimeHistory($employee_id , $assignment_id , $job_id)
+    {
+      // code...
+      $sql = "select id FROM job_time_histories where DATE(START) = DATE(NOW()) and employee_id = '$employee_id' and assignment_id = '$assignment_id' and job_id ='$job_id'  ";
+      $sqlOutChecker = "select id FROM job_time_histories where DATE(START) = DATE(NOW()) and DATE(end) = DATE(NOW()) and employee_id = '$employee_id' and assignment_id = '$assignment_id' and job_id ='$job_id'  ";
+      if(json_encode(DB::select($sqlOutChecker)) != '[]'){
+        return  'X';
+      }
+      $result =   DB::select($sql);
+      if(json_encode($result) != '[]'){
+        return  str_pad( $result[0]->id , 10, '0', STR_PAD_LEFT );
+      }else {
+        return '0';
+      }
+    }
+    public function getAllTimeHistoryIndex($employee_id , $assignment_id , $job_id)
+    {
+      // code...
+      $joDetails = DB::select("SELECT * FROM job_order_vw where job_order_id= '$job_id'")[0];
+      $sql = "select * FROM job_time_histories where  employee_id = '$employee_id' and assignment_id = '$assignment_id' and job_id ='$job_id'  ";
+      $history = DB::select($sql);
+
+      $jobAssignment = JobOrderAssignment::where('job_order_id' ,$job_id )->first();
+      if($jobAssignment){
+        $jobAssignment = DB::select("select * from job_order_assigment_vw where job_order_id = '$job_id' ")[0];
+      }else {
+        $jobAssignment = "";
+      }
+
+      return view('admin.pages.job.time-history' , compact('history' , 'joDetails' , 'jobAssignment'));
     }
 }

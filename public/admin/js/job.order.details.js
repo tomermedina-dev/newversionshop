@@ -1,5 +1,6 @@
 var jobAction = '';
 var jobActionData = {};
+var timeInChecker = 0;
 var jobOrderHistory = new Vue ({
   el : "#nv-jo-list-details" ,
   data : {
@@ -16,7 +17,8 @@ var jobOrderHistory = new Vue ({
     start : '' ,
     end : '' ,
     warrantyDate : '' ,
-    warrantyDetails : []
+    warrantyDetails : [] ,
+    timeInChecker : ''
   } ,
   methods : {
     computeTotal : function (amount) {
@@ -123,18 +125,18 @@ var jobOrderHistory = new Vue ({
         if(!t.assignedEmployee.start || !t.assignedEmployee.end){
           if(t.assignedEmployee.start){
             temp = 'end';
-            $("#nv-job-action-btn").text("Click End Job");
+            $("#nv-job-action-btn").text("Click to End Job");
 
           }else {
             temp = 'start';
-            $("#nv-job-action-btn").text("Click Start Job");
+            $("#nv-job-action-btn").text("Click to Start Job");
           }
           $("#nv-job-action-btn").show();
         }
 
         jobAction = temp;
 
-        jobActionData ={
+        jobActionData = {
           'action' :jobAction ,
           'assignmentId' :  t.pad(t.assignedEmployee.id) ,
           'jobId' : t.assignedEmployee.job_order_id,
@@ -147,10 +149,13 @@ var jobOrderHistory = new Vue ({
         }
         t.start = t.assignedEmployee.start;
         t.end = t.assignedEmployee.end;
+        t.getCurrentDateTimeHistory( t.assignedEmployee.employee_id  ,t.pad(t.assignedEmployee.id) ,   t.assignedEmployee.job_order_id);
+
         // getQRImage('assignid_'t.assignedEmployee.id+'joid_'+t.assignedEmployee.job_order_id+'empid_'+t.assignedEmployee.employee_id);
       }).catch(function(error) {
         swalWentWrong(error);
       });
+
     },
     pad : function(value) {
       return pad(parseInt(value) , 10);
@@ -164,6 +169,47 @@ var jobOrderHistory = new Vue ({
       then(function (response) {
         swalSuccess("Job time " + jobAction+ " has bee saved.")
         window.setTimeout(window.location.href='', 2500);
+      }).catch(function (error) {
+        swalWentWrong(error);
+      });
+    } ,
+    submitTimeHistory : function (action ,assignment_id , employee_id  , job_id) {
+      var data = {};
+      const t = this;
+      if(action == 'in'){
+        data = {
+          'employee_id' : employee_id ,
+          'assignment_id' : assignment_id ,
+          'job_id' : job_id
+        };
+      }else {
+        data = {
+          'id' : this.timeInChecker ,
+        }
+      }
+
+      axios.post('/admin/job/time/history/new' , data).
+      then(function (response) {
+        swalSuccess("Time-" + action + " has been saved.")
+        window.setTimeout(window.location.href = '/admin/job/details/'+t.pad(joID), 2500);
+      }).catch(function (error) {
+        swalWentWrong(error);
+      });
+
+    } ,
+    getCurrentDateTimeHistory : function (employee_id , assignment_id ,job_id ) {
+      const t = this;
+      axios.get('/admin/job/time/history/current-day/'+ employee_id + '/' + assignment_id+ '/' + job_id).
+      then(function (response) {
+        t.timeInChecker = response.data;
+        if(t.timeInChecker != 'X'){
+          if(t.timeInChecker == 0){
+            $("#nv-job-start-day").show();
+          }else {
+            $("#nv-job-end-day").show();
+          }
+        }
+
       }).catch(function (error) {
         swalWentWrong(error);
       });
