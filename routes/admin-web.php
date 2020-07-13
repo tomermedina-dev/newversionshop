@@ -28,7 +28,7 @@
                });
 
          });
-         Route::group(['prefix'=>'products',],
+         Route::group(['prefix'=>'products',  'middleware' => 'adminAuth'],
              function() {
                Route::group(['prefix'=>'type',],
                    function() {
@@ -49,7 +49,7 @@
               Route::get('/image/{productId}', 'Admin\ImageController@getProductImages')->name('admin.products.image');
          });
 
-         Route::group(['prefix'=>'services',],
+         Route::group(['prefix'=>'services',  'middleware' => 'adminAuth'],
             function() {
               Route::group(['prefix'=>'type',],
                   function() {
@@ -75,7 +75,7 @@
               });
          });
 
-         Route::group(['prefix'=>'car',],
+         Route::group(['prefix'=>'car',  'middleware' => 'adminAuth'],
            function() {
              Route::post('/new', 'Admin\CarController@createOrEditCar')->name('admin.car.new');
              Route::post('/edit', 'Admin\CarController@createOrEditCar')->name('admin.car.new');
@@ -92,7 +92,7 @@
          });
          Route::get('/image/first/{type}/{id}', 'Admin\ImageController@getFirstImage')->name('admin.image.delete');
 
-         Route::group(['prefix'=>'orders',],
+         Route::group(['prefix'=>'orders',  'middleware' => 'adminAuth'],
              function() {
                Route::get('/all','Admin\OrderController@getAllOrders')->name('admin.orders.all');
                Route::post('/edit/status','Admin\OrderController@changeOrderStatus')->name('admin.orders.status.edit');
@@ -101,7 +101,7 @@
                Route::get('/items/total/{orderId}','Admin\OrderController@getOrderTotals')->name('admin.orders.items');
 
          });
-         Route::group(['prefix'=>'checklist',],
+         Route::group(['prefix'=>'checklist',  'middleware' => 'adminAuth'],
              function() {
                Route::post('/new', 'Admin\CheckListController@createOrEditCheckList')->name('admin.checklist.new');
                Route::get('/new/{id}', 'Admin\CheckListController@getChecklistIndex')->name('admin.checklist.index');
@@ -109,7 +109,7 @@
                Route::get('/details/{checklistId}', 'Admin\CheckListController@getChecklistDetailsIndex')->name('admin.checklist.details.index');
                Route::get('/details/{checklistId}/print', 'Admin\CheckListController@printChecklistDetails')->name('admin.checklist.details.print');
          });
-         Route::group(['prefix'=>'job',],
+         Route::group(['prefix'=>'job',  'middleware' => 'adminAuth'],
              function() {
                Route::get('/new/{id}', 'Admin\JobOrderController@getJobOrderIndex')->name('admin.job.new.index');
                Route::post('/new', 'Admin\JobOrderController@createJobOrder')->name('admin.job.new');
@@ -144,7 +144,7 @@
                      Route::get('/history/log/{employee_id}/{assignment_id}/{job_id}', 'Admin\JobOrderController@getTimeOptionsIndex')->name('admin.job.time.history.log.index');
                });
          });
-         Route::group(['prefix'=>'invoice',],
+         Route::group(['prefix'=>'invoice',  'middleware' => 'adminAuth'],
              function() {
                Route::get('/new/{id}', 'Admin\InvoiceController@getInvoiceIndex')->name('admin.invoice.index');
                Route::post('/new', 'Admin\InvoiceController@createInvoice')->name('admin.invoice.new');
@@ -157,7 +157,7 @@
 
          });
 
-         Route::group(['prefix'=>'employee',],
+         Route::group(['prefix'=>'employee', ],
              function() {
                Route::get('/register', 'Admin\EmployeeController@getRegisterIndex')->name('admin.employee.register');
                Route::post('/register', 'Admin\EmployeeController@registerEmployee')->name('admin.employee.new');
@@ -168,13 +168,13 @@
                Route::get('/list/{status}', 'Admin\ShopFloorSlotController@getSlotByStatus')->name('admin.slot.list');
                Route::post('/update', 'Admin\ShopFloorSlotController@updateSlot')->name('admin.slot.update');
          });
-         Route::group(['prefix'=>'purchasing',],
+         Route::group(['prefix'=>'purchasing',  'middleware' => 'adminAuth'],
              function() {
                Route::post('/new', 'Admin\PurchasingController@createNewPO')->name('admin.po.new');
                Route::get('/list', 'Admin\PurchasingController@getPO')->name('admin.po.list');
                Route::get('/details/{id}', 'Admin\PurchasingController@getPODetailsIndex')->name('admin.po.details');
          });
-         Route::group(['prefix'=>'promo',],
+         Route::group(['prefix'=>'promo',  'middleware' => 'adminAuth'],
              function() {
                Route::get('/new/{productId}', 'Admin\PromoController@getNewPromoIndex')->name('admin.promo.new.index');
                Route::post('/new', 'Admin\PromoController@createNewPromo')->name('admin.promo.create');

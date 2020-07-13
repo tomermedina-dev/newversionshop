@@ -39,7 +39,11 @@ var jobOrderHistory = new Vue ({
             temp = 'start';
             $("#nv-job-action-btn .card-body").html("<h1> Click to Start Job </h1>");
           }
+
           $("#nv-job-action-btn").show();
+        }
+        if(t.assignedEmployee.end){
+          window.location.href = '/admin/dashboard/home';
         }
         jobAction = temp;
 
@@ -67,7 +71,7 @@ var jobOrderHistory = new Vue ({
       axios.post('/admin/qr/job/scan' , jobActionData).
       then(function (response) {
 
-          window.setTimeout(window.location.href = '/admin/job/details/'+t.pad(joID), 2500);
+          window.setTimeout(window.location.href = '', 2500);
       }).catch(function (error) {
         swalWentWrong(error);
       });
@@ -90,7 +94,7 @@ var jobOrderHistory = new Vue ({
       axios.post('/admin/job/time/history/new' , data).
       then(function (response) {
         swalSuccess("Time-" + action + " has been saved.")
-        window.setTimeout(window.location.href = '/admin/job/details/'+t.pad(joID), 2500);
+        window.setTimeout(window.location.href = '', 2500);
       }).catch(function (error) {
         swalWentWrong(error);
       });
