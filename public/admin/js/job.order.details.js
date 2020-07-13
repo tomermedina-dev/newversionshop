@@ -142,14 +142,11 @@ var jobOrderHistory = new Vue ({
           'jobId' : t.assignedEmployee.job_order_id,
           'employeeId' : t.assignedEmployee.employee_id
         };
-        var qrValue = window.location.hostname + "-admin-qr-job-"+temp+"-"+ t.pad(t.assignedEmployee.id)+'-'+t.assignedEmployee.job_order_id+'-'+t.assignedEmployee.employee_id;
+        var qrValue = window.location.hostname + "-admin-job-time-history-log-"+t.assignedEmployee.employee_id+ '-' + t.pad(t.assignedEmployee.id)+'-'+t.assignedEmployee.job_order_id;
 
         if(!t.assignedEmployee.end){
           getQRImage(qrValue);
         }
-        t.start = t.assignedEmployee.start;
-        t.end = t.assignedEmployee.end;
-        t.getCurrentDateTimeHistory( t.assignedEmployee.employee_id  ,t.pad(t.assignedEmployee.id) ,   t.assignedEmployee.job_order_id);
 
         // getQRImage('assignid_'t.assignedEmployee.id+'joid_'+t.assignedEmployee.job_order_id+'empid_'+t.assignedEmployee.employee_id);
       }).catch(function(error) {
@@ -169,47 +166,6 @@ var jobOrderHistory = new Vue ({
       then(function (response) {
         swalSuccess("Job time " + jobAction+ " has bee saved.")
         window.setTimeout(window.location.href='', 2500);
-      }).catch(function (error) {
-        swalWentWrong(error);
-      });
-    } ,
-    submitTimeHistory : function (action ,assignment_id , employee_id  , job_id) {
-      var data = {};
-      const t = this;
-      if(action == 'in'){
-        data = {
-          'employee_id' : employee_id ,
-          'assignment_id' : assignment_id ,
-          'job_id' : job_id
-        };
-      }else {
-        data = {
-          'id' : this.timeInChecker ,
-        }
-      }
-
-      axios.post('/admin/job/time/history/new' , data).
-      then(function (response) {
-        swalSuccess("Time-" + action + " has been saved.")
-        window.setTimeout(window.location.href = '/admin/job/details/'+t.pad(joID), 2500);
-      }).catch(function (error) {
-        swalWentWrong(error);
-      });
-
-    } ,
-    getCurrentDateTimeHistory : function (employee_id , assignment_id ,job_id ) {
-      const t = this;
-      axios.get('/admin/job/time/history/current-day/'+ employee_id + '/' + assignment_id+ '/' + job_id).
-      then(function (response) {
-        t.timeInChecker = response.data;
-        if(t.timeInChecker != 'X'){
-          if(t.timeInChecker == 0){
-            $("#nv-job-start-day").show();
-          }else {
-            $("#nv-job-end-day").show();
-          }
-        }
-
       }).catch(function (error) {
         swalWentWrong(error);
       });

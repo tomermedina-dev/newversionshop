@@ -22,14 +22,14 @@
             <ul class="list-unstyled components nv-menu">
               @if( session('isAdmin') == 'true' )
                 <li class="active">
-                    <div href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
+                    <div   onclick="window.location.href ='/admin/dashboard/home';"  class="dropdown-toggle nv-main-menu">
                       <div class="nv-title">
                         <i class="fas fa-home"></i>
                         <div class="nv-text nv-font-bc">Home/Dashboard</div>
                       </div>
-                      <div class="nv-caret">
+                      <!-- <div class="nv-caret">
                         <i class="fas fa-angle-down"></i>
-                      </div>
+                      </div> -->
                     </div>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li >

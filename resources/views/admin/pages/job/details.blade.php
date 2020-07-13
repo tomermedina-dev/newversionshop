@@ -41,7 +41,7 @@
         <h5>Warranty Start Date :   @{{warrantyDetails.warranty_start}} </h5>
         <h5>Warranty End Date :  @{{warrantyDetails.warranty_end}} </h5>
       </div>
-
+    @if( session('isAdmin') == 'true' )
       <div v-if="!assignedEmployee" class="shadow-lg p-3 mb-2 bg-white rounded">
         <h2>Assign to Employee</h2>
         <div class="form-group">
@@ -98,22 +98,13 @@
     </div>
 
   </div>
+
   <div>
     <a   target="_blank"   :href="'/admin/job/time/history/all/' + assignedEmployee.employee_id   + '/' +   pad(assignedEmployee.id)  + '/' + assignedEmployee.job_order_id"  class="mt-2 btn btn-lg nv-btn-txt-dark nv-font-bc">
     View Time in / out history
     </a>
-    <br>
-    <a    style="display:none;" id="nv-job-start-day" v-on:click="submitTimeHistory('in', pad(assignedEmployee.id) , assignedEmployee.employee_id , assignedEmployee.job_order_id )" class="mt-2 btn btn-lg nv-btn-txt-dark nv-font-bc">
-      Time-in Today
-    </a>
-    <a  style="display:none;"  id="nv-job-end-day" v-on:click="submitTimeHistory('out')" class="mt-2 btn btn-lg nv-btn-txt-dark nv-font-bc">
-      Time-out Today
-    </a>
-    <a  style="display:none;" id="nv-job-end-day" v-on:click="submitJobAction()" class="mt-2 btn btn-lg nv-btn-txt-dark nv-font-bc"></a>
-
-    <a  style="display:none;" id="nv-job-action-btn" v-on:click="submitJobAction()" class="mt-2 btn btn-lg nv-btn-txt-dark nv-font-bc"></a>
-
   </div>
+  @endif
   <div class="nv-table-container mb-3 mt-2">
     <table class="nv-table table table-striped ">
       <thead>
