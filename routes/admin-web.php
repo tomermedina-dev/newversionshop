@@ -136,12 +136,12 @@
 
                });
 
-               Route::group(['prefix'=>'time',],
+               Route::group(['prefix'=>'time', ],
                    function() {
                      Route::post('/history/new', 'Admin\JobOrderController@createUpdateJobTimeHistory')->name('admin.job.time.history');
                      Route::get('/history/current-day/{employee_id}/{assignment_id}/{job_id}', 'Admin\JobOrderController@getCurrentDateTimeHistory')->name('admin.job.time.current.date');
                      Route::get('/history/all/{employee_id}/{assignment_id}/{job_id}', 'Admin\JobOrderController@getAllTimeHistoryIndex')->name('admin.job.time.history.all');
-                     Route::get('/history/log/{employee_id}/{assignment_id}/{job_id}', 'Admin\JobOrderController@getTimeOptionsIndex')->name('admin.job.time.history.log.index');
+                     // Route::get('/history/log/{employee_id}/{assignment_id}/{job_id}', 'Admin\JobOrderController@getTimeOptionsIndex')->name('admin.job.time.history.log.index');
                });
          });
          Route::group(['prefix'=>'invoice',  'middleware' => 'adminAuth'],
@@ -218,4 +218,7 @@
                Route::get('/default/pickup', 'Admin\ConfigController@getDefaultPickup')->name('admin.address.default.pickup');
                Route::get('/home/count/{filter}', 'Admin\HomeDashboardController@getCounts')->name('admin.home.counts');
          });
+
+         Route::get('job/time/history/log/{employee_id}/{assignment_id}/{job_id}', 'Admin\JobOrderController@getTimeOptionsIndex')->name('admin.job.time.history.log.index');
+
    });
