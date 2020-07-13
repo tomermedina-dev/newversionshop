@@ -126,15 +126,7 @@
                       Route::post('/void', 'Admin\WarrantyController@voidWarranty')->name('admin.job.warranty.void');
 
                });
-               Route::group(['prefix'=>'assignment',],
-                   function() {
-                     Route::post('/new', 'Admin\JobOrderController@assignJob')->name('admin.assignment.new');
-                     Route::post('/evaluate', 'Admin\JobOrderController@evaluateJob')->name('admin.assignment.evaluate');
-                     Route::get('/{joId}', 'Admin\JobOrderController@getAssignedEmployee')->name('admin.job.assigned');
-                     Route::get('/list/{filter}', 'Admin\JobOrderController@getAssignmentList')->name('admin.job.assignment.list');
-                     Route::get('/list/{filter}/{userId}', 'Admin\JobOrderController@getEmployeeAssignedJobs')->name('admin.job.assignment.list');
 
-               });
 
 
          });
@@ -220,5 +212,14 @@
                Route::get('/history/current-day/{employee_id}/{assignment_id}/{job_id}', 'Admin\JobOrderController@getCurrentDateTimeHistory')->name('admin.job.time.current.date');
                Route::get('/history/all/{employee_id}/{assignment_id}/{job_id}', 'Admin\JobOrderController@getAllTimeHistoryIndex')->name('admin.job.time.history.all');
                // Route::get('/history/log/{employee_id}/{assignment_id}/{job_id}', 'Admin\JobOrderController@getTimeOptionsIndex')->name('admin.job.time.history.log.index');
+         });
+         Route::group(['prefix'=>'job/assignment',],
+             function() {
+               Route::post('/new', 'Admin\JobOrderController@assignJob')->name('admin.assignment.new');
+               Route::post('/evaluate', 'Admin\JobOrderController@evaluateJob')->name('admin.assignment.evaluate');
+               Route::get('/{joId}', 'Admin\JobOrderController@getAssignedEmployee')->name('admin.job.assigned');
+               Route::get('/list/{filter}', 'Admin\JobOrderController@getAssignmentList')->name('admin.job.assignment.list');
+               Route::get('/list/{filter}/{userId}', 'Admin\JobOrderController@getEmployeeAssignedJobs')->name('admin.job.assignment.list');
+
          });
    });
