@@ -142,7 +142,7 @@ class JobOrderController extends Controller
         $jobAssignment = DB::select("select * from job_order_assigment_vw where status = '0' and end is null ");
       }
       if($filter == 'completed'){
-        $jobAssignment = DB::select("select * from job_order_assigment_vw where end is not null and is_approved = '0'and is_invoiced = '0' and status = '0' ");
+        $jobAssignment = DB::select("select * from job_order_assigment_vw where end is not null and is_approved = '0' and is_invoiced = '0' and status = '0' ");
       }
       if($filter == 'history'){
         $jobAssignment = DB::select("select * from job_order_assigment_vw ");
@@ -266,5 +266,13 @@ class JobOrderController extends Controller
       }
 
       return view('admin.pages.job.time-history' , compact('history' , 'joDetails' , 'jobAssignment'));
+    }
+
+    public function getTimeOptionsIndex($employee_id , $assignment_id , $job_id)
+    {
+      // code...
+      $joDetails = DB::select("SELECT * FROM job_order_vw where job_order_id= '$job_id'")[0];
+      $joTotals = DB::select("SELECT * FROM job_order_totals_vw where job_id= '$job_id'")[0];
+      return view('admin.pages.job.time-options' , compact('joDetails' , 'joTotals'));
     }
 }
