@@ -6,6 +6,11 @@
     margin: 2%;
 
   }
+
+   .nv-sidebar , .nv-navbar {
+      display: none !important;
+    }
+
 </style>
 <script type="text/javascript">
   var joID = "{{$joDetails->job_order_id}}";
