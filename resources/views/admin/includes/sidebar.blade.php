@@ -80,25 +80,12 @@
                     </ul>
                 </li>
                 <li class="active">
-                    <div href="#orders-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
+                    <div v-on:click="loadAdminPage('orders.index')" aria-expanded="false" class="dropdown-toggle nv-main-menu">
                       <div class="nv-title">
                         <i class="fas fa-clipboard-list"></i>
-                        <div class="nv-text nv-font-bc">Orders</div>
-                      </div>
-                      <div class="nv-caret">
-                        <i class="fas fa-angle-down"></i>
+                        <div class="nv-text nv-font-bc">Orders List</div>
                       </div>
                     </div>
-                    <ul class="collapse list-unstyled" id="orders-sub-menu">
-                        <li>
-                          <div class="nv-sub-menu" v-on:click="loadAdminPage('orders.index')">
-                            <div class="nv-title">
-                              <i class="fas fa-circle"></i>
-                              <div class="nv-text nv-font-c">List</div>
-                            </div>
-                          </div>
-                        </li>
-                    </ul>
                 </li>
                 <li class="active">
                     <div href="#booked-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
@@ -161,6 +148,14 @@
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
                               <div class="nv-text nv-font-c">History - Walk-In</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('checklist.list-backjob')">
+                            <div class="nv-title">
+                              <i class="fas fa-circle"></i>
+                              <div class="nv-text nv-font-c">History - Back-Job</div>
                             </div>
                           </div>
                         </li>
@@ -229,16 +224,16 @@
                     </ul>
                 </li>
                 <li class="active">
-                    <div href="#invoicing-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
+                    <div v-on:click="loadAdminPage('invoice.history')" aria-expanded="false" class="dropdown-toggle nv-main-menu">
                       <div class="nv-title">
                         <i class="fas fa-file-invoice"></i>
-                        <div class="nv-text nv-font-bc">Invoicing</div>
+                        <div class="nv-text nv-font-bc">Invoicing - History</div>
                       </div>
-                      <div class="nv-caret">
+                      <!-- <div class="nv-caret">
                         <i class="fas fa-angle-down"></i>
-                      </div>
+                      </div> -->
                     </div>
-                    <ul class="collapse list-unstyled" id="invoicing-sub-menu">
+                    <!-- <ul class="collapse list-unstyled" id="invoicing-sub-menu">
                         <li>
                           <div class="nv-sub-menu"  v-on:click="loadAdminPage('invoice.history')">
                             <div class="nv-title">
@@ -247,28 +242,17 @@
                             </div>
                           </div>
                         </li>
-                    </ul>
+                    </ul> -->
                 </li>
                 <li class="active">
-                    <div href="#releasing-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
+                    <div  v-on:click="loadAdminPage('releasing.list')" aria-expanded="false" class="dropdown-toggle nv-main-menu">
                       <div class="nv-title">
                         <i class="fas fa-share-square"></i>
-                        <div class="nv-text nv-font-bc">Releasing Module</div>
+                        <div class="nv-text nv-font-bc">Available for Release</div>
                       </div>
-                      <div class="nv-caret">
-                        <i class="fas fa-angle-down"></i>
-                      </div>
+
                     </div>
-                    <ul class="collapse list-unstyled" id="releasing-sub-menu">
-                        <li>
-                          <div class="nv-sub-menu"  v-on:click="loadAdminPage('releasing.list')">
-                            <div class="nv-title">
-                              <i class="fas fa-circle"></i>
-                              <div class="nv-text nv-font-c">Available for Release</div>
-                            </div>
-                          </div>
-                        </li>
-                    </ul>
+
                 </li>
                 <li class="active">
                     <div href="#warranty-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
@@ -300,67 +284,32 @@
                     </ul>
                 </li>
                 <li class="active">
-                    <div href="#vehicle-storage-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
+                    <div v-on:click="loadAdminPage('vehicle.index')" aria-expanded="false" class="dropdown-toggle nv-main-menu">
                       <div class="nv-title">
                         <i class="fas fa-warehouse"></i>
                         <div class="nv-text nv-font-bc">Vehicle Storage Mgmt.</div>
                       </div>
-                      <div class="nv-caret">
-                        <i class="fas fa-angle-down"></i>
-                      </div>
+
                     </div>
-                    <ul class="collapse list-unstyled" id="vehicle-storage-sub-menu">
-                        <li>
-                          <div class="nv-sub-menu" v-on:click="loadAdminPage('vehicle.index')">
-                            <div class="nv-title">
-                              <i class="fas fa-circle"></i>
-                              <div class="nv-text nv-font-c">List</div>
-                            </div>
-                          </div>
-                        </li>
-                    </ul>
+
                 </li>
                 <li class="active">
-                    <div href="#featured-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
+                    <div  v-on:click="loadAdminPage('featured.list')" aria-expanded="false" class="dropdown-toggle nv-main-menu">
                       <div class="nv-title">
                         <i class="fas fa-star"></i>
-                        <div class="nv-text nv-font-bc">Featured </div>
+                        <div class="nv-text nv-font-bc">Featured List</div>
                       </div>
-                      <div class="nv-caret">
-                        <i class="fas fa-angle-down"></i>
-                      </div>
+
                     </div>
-                    <ul class="collapse list-unstyled" id="featured-sub-menu">
-                        <li>
-                          <div class="nv-sub-menu" v-on:click="loadAdminPage('featured.list')">
-                            <div class="nv-title">
-                              <i class="fas fa-circle"></i>
-                              <div class="nv-text nv-font-c">List</div>
-                            </div>
-                          </div>
-                        </li>
-                    </ul>
+
                 </li>
                 <li class="active">
-                    <div href="#promos-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
+                    <div v-on:click="loadAdminPage('promo.list')" aria-expanded="false" class="dropdown-toggle nv-main-menu">
                       <div class="nv-title">
                         <i class="fas fa-percentage"></i>
-                        <div class="nv-text nv-font-bc">Sale Products</div>
-                      </div>
-                      <div class="nv-caret">
-                        <i class="fas fa-angle-down"></i>
+                        <div class="nv-text nv-font-bc">Sale Products List</div>
                       </div>
                     </div>
-                    <ul class="collapse list-unstyled" id="promos-sub-menu">
-                        <li>
-                          <div class="nv-sub-menu" v-on:click="loadAdminPage('promo.list')">
-                            <div class="nv-title">
-                              <i class="fas fa-circle"></i>
-                              <div class="nv-text nv-font-c">List</div>
-                            </div>
-                          </div>
-                        </li>
-                    </ul>
                 </li>
                 <li class="active">
                     <div href="#purchase-sub-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nv-main-menu">
