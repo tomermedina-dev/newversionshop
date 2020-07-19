@@ -47,7 +47,10 @@ var checklist = new Vue({
       checklistDetails.append('type' , t.type);
       checklistDetails.append('client_type' , t.client_type);
       checkbox_items = [];
-
+      if(warrantyId){
+        checklistDetails.append('job_order_id' , jobOrderId);
+        checklistDetails.append('warranty_id' , warrantyId);
+      }
     } ,
     submitChecklist : function () {
       const t = this;
@@ -70,6 +73,8 @@ var checklist = new Vue({
           var url = '';
           if( t.client_type == 'Walk-In'){
             url = 'checklist.list-walkin';
+          }else if(t.client_type == 'Back-Job') {
+            url = "checklist.list-backjob";
           }else {
             url = "checklist.list-bookings";
           }
@@ -118,6 +123,8 @@ var checklist = new Vue({
             var url = '';
             if( t.client_type == 'Walk-In'){
               url = 'checklist.list-walkin';
+            }else if(t.client_type == 'Back-Job') {
+              url = "checklist.list-backjob";
             }else {
               url = "checklist.list-bookings";
             }
@@ -129,5 +136,10 @@ var checklist = new Vue({
 
     }
 
+  } ,
+  mounted () {
+    if(warrantyId){
+      this.name = clientName;
+    }
   }
 }) ;

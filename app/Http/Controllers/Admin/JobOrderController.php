@@ -255,9 +255,11 @@ class JobOrderController extends Controller
     {
       // code...
       $joDetails = DB::select("SELECT * FROM job_order_vw where job_order_id= '$job_id'")[0];
-      $sql = "select * FROM job_time_histories where  employee_id = '$employee_id' and assignment_id = '$assignment_id' and job_id ='$job_id'  ";
+      $sql = "select * FROM job_time_histories_vw where  employee_id = '$employee_id' and assignment_id = '$assignment_id' and job_id ='$job_id'  ";
       $history = DB::select($sql);
 
+      $sqlHrs = "select sum(total_work_hrs) as total_hrs FROM job_time_histories_vw where  employee_id = '$employee_id' and assignment_id = '$assignment_id' and job_id ='$job_id'  ";
+      $totalHrs = DB::select($sqlHrs)[0];
       $jobAssignment = JobOrderAssignment::where('job_order_id' ,$job_id )->first();
       if($jobAssignment){
         $jobAssignment = DB::select("select * from job_order_assigment_vw where job_order_id = '$job_id' ")[0];
@@ -265,7 +267,7 @@ class JobOrderController extends Controller
         $jobAssignment = "";
       }
 
-      return view('admin.pages.job.time-history' , compact('history' , 'joDetails' , 'jobAssignment'));
+      return view('admin.pages.job.time-history' , compact('history' , 'joDetails' , 'jobAssignment' , 'totalHrs'));
     }
 
     public function getTimeOptionsIndex($employee_id , $assignment_id , $job_id)

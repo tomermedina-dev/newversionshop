@@ -12,6 +12,7 @@
     }
 
 </style>
+<title>Job Time Log</title>
 <script type="text/javascript">
   var joID = "{{$joDetails->job_order_id}}";
 </script>

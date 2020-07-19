@@ -18,6 +18,7 @@
   var client_id =  "{{$details->user_id}}" ;
   var id = "{{$details->id}}";
   var client_type = 'Booking';
+    var warrantyId = '';
 </script>
 <div class="nv-vcm-content" id="nv-vcm-content">
   <h3 class="nv-header nv-font-bc">

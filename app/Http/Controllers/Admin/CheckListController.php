@@ -7,6 +7,7 @@ use Barryvdh\DomPDF\Facade as PDF;
 
 use Illuminate\Http\Request;
 use App\Models\Admin\CheckList;
+use App\Models\Admin\BackJobChecklist;
 use DB ;
 class CheckListController extends Controller
 {
@@ -35,8 +36,17 @@ class CheckListController extends Controller
         if($request->client_type == 'Walk-In'){
           $data['client_email'] = $request->email;
         }
-       
+
         $return = CheckList::create($data);
+        if($request->client_type == 'Back-Job'){
+          $backjoData = [
+            'warranty_id' =>  $request->warranty_id,
+            'job_order_id_reference' => $request->job_order_id ,
+            'new_checklist_id' => str_pad( $return->id, 10, '0', STR_PAD_LEFT) 
+
+          ];
+          BackJobChecklist::create($backjoData);
+        }
         return $return;
     }
     public function getChecklistIndex($bookingId)

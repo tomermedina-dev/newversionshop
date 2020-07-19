@@ -16,16 +16,20 @@
   var notes = "";
   var order_dt_time = getCurrentDate() ;
   var client_id =  "000000000" ;
-  var client_type = 'Walk-In';
-  var warrantyId = '';
+  var client_type = 'Back-Job';
+  var jobOrderId = '{{$jobOrderId}}';
+  var warrantyId = '{{$warrantyId}}';
+  var clientName = '{{$jobDetails->client_name}}';
 </script>
 <div class="nv-vcm-content" id="nv-vcm-content">
   <h3 class="nv-header nv-font-bc">
-    VEHICLE CHECK LIST MODULE
+    VEHICLE CHECK LIST MODULE - BACK JOB
   </h3>
   <div class="container">
     <div class="nv-vcm-body">
-
+      <h5>Warranty ID : {{$warrantyId}}</h5>
+      <h5>Job Order ID : {{$jobOrderId}}</h5>
+     
       <div class="row">
 
         <div class="col-lg-7">
@@ -34,7 +38,7 @@
               <span class="input-group-text nv-font-c">
                 CLIENT NAME</span>
             </div>
-            <input v-model="name" type="text" class="form-control"   >
+            <input v-model="name" type="text" class="form-control"    >
           </div>
         </div>
 
@@ -221,7 +225,7 @@
         <span class="input-group-text nv-font-c">
           EMAIL ADDRESS</span>
       </div>
-      <input v-model="email" type="text" class="form-control"   >
+      <input v-model="email" type="text" class="form-control"     >
     </div>
     <br>
     <a v-on:click="submitChecklist" class="btn btn-lg nv-btn-txt-dark nv-font-bc">
