@@ -222,4 +222,9 @@
                Route::get('/list/{filter}/{userId}', 'Admin\JobOrderController@getEmployeeAssignedJobs')->name('admin.job.assignment.list');
 
          });
+         Route::group(['prefix'=>'backjob',],
+             function() {
+              Route::get('/checklist/new/{jobId}/{warrantyId}', 'Admin\BackJobController@getBackJobCheckListIndex')->name('admin.backjob.checklist.new');
+ 
+         });
    });

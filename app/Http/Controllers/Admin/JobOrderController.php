@@ -255,7 +255,7 @@ class JobOrderController extends Controller
     {
       // code...
       $joDetails = DB::select("SELECT * FROM job_order_vw where job_order_id= '$job_id'")[0];
-      $sql = "select * FROM job_time_histories where  employee_id = '$employee_id' and assignment_id = '$assignment_id' and job_id ='$job_id'  ";
+      $sql = "select * FROM job_time_histories_vw where  employee_id = '$employee_id' and assignment_id = '$assignment_id' and job_id ='$job_id'  ";
       $history = DB::select($sql);
 
       $jobAssignment = JobOrderAssignment::where('job_order_id' ,$job_id )->first();

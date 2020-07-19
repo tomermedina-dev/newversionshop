@@ -218,7 +218,7 @@
     <button v-on:click="submitChecklist" type="button"  class="btn btn-lg nv-btn-txt-dark nv-font-bc">
       <i class="fas fa-save"></i>&nbsp;SAVE
     </button>
- 
+
 
   </div>
 </div>
