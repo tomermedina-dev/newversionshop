@@ -23,6 +23,7 @@
           <tr>
             <td class="nv-font-bc" scope="col">Time-In</td>
             <td class="nv-font-bc" scope="col">Time-Out</td>
+          <td class="nv-font-bc" scope="col">Total Working Hours</td>
           </tr>
         </thead>
         <tbody id="table-jo-history-list">
@@ -31,15 +32,18 @@
           <tr >
             <td class="nv-font-bc" scope="col"> {{$items->start}}  </td>
             <td class="nv-font-bc" scope="col"> {{$items->end}}  </td>
+              <td class="nv-font-bc" scope="col"> {{$items->total_work_hrs}}  </td>
           </tr>
           @endforeach
         </tbody>
       </table>
+      <h1 class="p-2">Total Hours : {{$totalHrs->total_hrs}}</h1>
       @else
         <div class="p-2">
           <h2>No result found.</h2>
         </div>
       @endif
+
     </div>
   </div>
 </div>
