@@ -147,7 +147,7 @@ var orderItems = new Vue({
             mounted (){
               const t =  this;
               axios.
-              get(baseURL+'items/'+orderId).
+              get(baseURL+'/items/'+orderId).
               then(function (response) {
                 t.orderItems = response.data;
               }).catch(function(error) {
@@ -157,7 +157,7 @@ var orderItems = new Vue({
               });
 
               axios.
-              get(baseURL+'items/total/'+orderId).
+              get(baseURL+'/items/total/'+orderId).
               then(function (response) {
                 t.totalAmount = response.data.total_amount;
               }).catch(function(error) {
