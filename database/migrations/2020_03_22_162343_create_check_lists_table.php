@@ -32,6 +32,7 @@ class CreateCheckListsTable extends Migration
             $table->string('checkbox_items')->nullable();
             $table->string('check_lists')->nullable();
             $table->string('client_email')->nullable();
+            $table->string('booking_id')->nullable();
             $table->timestamps();
         });
         DB::statement('ALTER TABLE check_lists CHANGE id id INT(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT');

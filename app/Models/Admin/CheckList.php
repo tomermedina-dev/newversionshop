@@ -25,6 +25,7 @@ class CheckList extends Model
      'type' ,
      'notes' ,
      'client_type' ,
-     'client_email'
+     'client_email' ,
+     'booking_id'
    ];
 }

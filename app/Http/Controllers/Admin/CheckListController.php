@@ -35,6 +35,9 @@ class CheckListController extends Controller
         ];
         if($request->client_type == 'Walk-In'){
           $data['client_email'] = $request->email;
+        }else {
+          // code...
+          $data['booking_id'] = str_pad( $request->booking_id, 10, '0', STR_PAD_LEFT) ;
         }
 
         $return = CheckList::create($data);
@@ -42,7 +45,7 @@ class CheckListController extends Controller
           $backjoData = [
             'warranty_id' =>  $request->warranty_id,
             'job_order_id_reference' => $request->job_order_id ,
-            'new_checklist_id' => str_pad( $return->id, 10, '0', STR_PAD_LEFT) 
+            'new_checklist_id' => str_pad( $return->id, 10, '0', STR_PAD_LEFT)
 
           ];
           BackJobChecklist::create($backjoData);

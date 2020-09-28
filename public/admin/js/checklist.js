@@ -51,6 +51,10 @@ var checklist = new Vue({
         checklistDetails.append('job_order_id' , jobOrderId);
         checklistDetails.append('warranty_id' , warrantyId);
       }
+      if(t.client_type == 'Booking'){
+        checklistDetails.append('booking_id' , id);
+      }
+
     } ,
     submitChecklist : function () {
       const t = this;

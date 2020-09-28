@@ -3,15 +3,27 @@
 @section('content')
 <script type="text/javascript">
   var joID = "{{$joDetails->job_order_id}}";
-  var totals = numberWithCommas("{{$joTotals->totals}}") ;
+  var totals = "{{$joTotals->totals}}";
   var joNotes = "{{$joDetails->notes}}";
   var address  = "{{$clientAddress->address_details}}";
   var email  = "{{$clientDetails->email}}";
   var phone = "{{$clientDetails->contact_num}}" ;
   var clientId = "{{$joDetails->client_id}}" ;
   var clientName = "{{$joDetails->client_name}}";
+  var deduction = 0 ;
 </script>
 <link rel="stylesheet" href="{{ asset('admin/css/pages/invoicing.css') }}">
+@if($joDetails->booking_payment_status == '1')
+
+  <script type="text/javascript">
+    deduction = '{{$joDetails->booking_price}}';
+    totals = parseInt(totals) - parseInt(deduction);
+  </script>
+
+@endif
+<script type="text/javascript">
+  totals = numberWithCommas(totals);
+</script>
 <div class="nv-invoice-content container" id="nv-invoice-new">
 
   <div class="row">
@@ -104,6 +116,18 @@
 
       </tbody>
     </table>
+      @if($joDetails->client_type == 'Booking')
+        <div class="m-2">
+          <p>Booking Fee : {{$joDetails->booking_price}}
+            @if($joDetails->booking_payment_status == '1')
+              (Paid)
+
+            @else
+              (Unpaid)
+            @endif
+          </p>
+        </div>
+      @endif
   </div>
   <div class="row">
     <div class="col-lg-6 col-md-12">

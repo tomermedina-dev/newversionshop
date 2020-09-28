@@ -115,4 +115,9 @@ class BookingController extends Controller
           return Booking::where('id' , $request->serviceId)->update(['status'=> '1']);
       }
     }
+    public function changePaymentStatus(Request $request)
+    {
+      // code...
+      return Booking::where('id' , $request->serviceId)->update(['payment_status'=> '1' ]);
+    }
 }

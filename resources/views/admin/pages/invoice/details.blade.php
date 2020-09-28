@@ -95,6 +95,21 @@
 
       </tbody>
     </table>
+    <?php $deduction = 0 ; ?>
+    @if($joDetails->client_type == 'Booking')
+      <div class="m-2">
+        <p>Booking Fee : {{$joDetails->booking_price}}
+          @if($joDetails->booking_payment_status == '1')
+            (Paid)
+            <?php
+              $deduction = $joDetails->booking_price;
+             ?>
+          @else
+            (Unpaid)
+          @endif
+        </p>
+      </div>
+    @endif
   </div>
   <div class="row">
     <div class="col-lg-6 col-md-12">
@@ -103,7 +118,7 @@
           <span class="input-group-text nv-font-c">
             <i class="fas fa-box-open"></i>&nbsp;&nbsp;SUBTOTAL</span>
         </div>
-        <input disabled type="text" class="form-control" value="{{$joTotals->totals}}">
+        <input disabled type="text" class="form-control" value="{{$joTotals->totals - $deduction}}">
       </div>
       <div class="input-group nv-input-group-custom mb-2">
         <div class="input-group-prepend">
@@ -119,7 +134,7 @@
           <span class="input-group-text nv-font-c">
             <i class="fas fa-box-open"></i>&nbsp;&nbsp;TOTAL</span>
         </div>
-        <input disabled value="{{$joTotals->totals}}" type="text" class="form-control">
+        <input disabled value="{{$joTotals->totals - $deduction}}" type="text" class="form-control">
       </div>
     </div>
   </div>
