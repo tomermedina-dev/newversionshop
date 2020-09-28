@@ -15,7 +15,7 @@ Vue.component("nv-component-product-category" ,
   mounted (){
     const t = this;
     axios.
-    get('/admin/products/type/all/active')
+    get('/products/type/all/active')
     .then(function(response) {
 
       t.typeList = response.data;

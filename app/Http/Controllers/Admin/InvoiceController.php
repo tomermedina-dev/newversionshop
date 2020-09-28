@@ -58,9 +58,11 @@ class InvoiceController extends Controller
     public function getInvoiceDetails($invoiceId)
     {
       // code...
+
       $invoiceDetails = Invoice::where('id' , $invoiceId)->first();
       $joTotals = DB::select("SELECT * FROM job_order_totals_vw where job_id= '$invoiceDetails->job_order_id'")[0];
-      return view('admin.pages.invoice.details' , compact( 'invoiceDetails' , 'joTotals'));
+      $joDetails = DB::select("SELECT * FROM job_order_vw where job_order_id= '$invoiceDetails->job_order_id'")[0];
+      return view('admin.pages.invoice.details' , compact( 'invoiceDetails' , 'joTotals' , 'joDetails'));
     }
     public function setPayment(Request $request)
     {

@@ -9,7 +9,8 @@
         <td class="nv-font-bc" scope="col">Date of Service</td>
         <td class="nv-font-bc" scope="col">Time</td>
         <td class="nv-font-bc" scope="col">Notes</td>
-        <td class="nv-font-bc" scope="col">Status</td>
+        <td class="nv-font-bc" scope="col">Status </td>
+        <td class="nv-font-bc" scope="col">Booking Fee Status </td>
         <td class="nv-font-bc nv-option-td" scope="col"></td>
       </tr>
     </thead>
@@ -29,6 +30,12 @@
               <label class="custom-control-label" :for="'customSwitch_' + booking.bookingData.id"></label>
             </div>
           </td>
+          <td class="nv-font-bc" scope="col">
+            <span v-if="booking.bookingData.payment_status == 0 ">
+              Unpaid
+            </span>
+            <span v-else>Paid</span>
+          </td>
           <td class="nv-font-bc" scope="col" class="info" id="nv-option-td">
             <div class="dropdown">
               <div class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,10 +43,15 @@
               </div>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <a class="dropdown-item" :href="'/admin/checklist/new/' + pad(booking.bookingData.id)">Proceed to Checklist</a>
-                <a class="dropdown-item" v-on:click="rejectBooking(booking.bookingData.id)">Reject</a>
+                <a class="dropdown-item pointer" v-on:click="rejectBooking(booking.bookingData.id)">Reject</a>
+                <span v-if="booking.bookingData.payment_status == 0 ">
+                  <a class="dropdown-item pointer" v-on:click="setPaymentPaid(booking.bookingData.id)">Set Payment to Paid</a>
+                </span>
+ 
               </div>
             </div>
           </td>
+
       </tr>
       <tr v-if="booking.schedules  != '[]'" class="nv-schedule-request">
         <td colspan="7">

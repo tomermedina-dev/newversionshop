@@ -72,6 +72,7 @@
                     Route::get('/all/new/data-only', 'Admin\BookingController@getAllNewBookingsDataOnly')->name('front.bookings.new');
                     Route::get('/request-change-date/{schedId}/{response}', 'Admin\BookingController@setRequestChangeDateResponse')->name('front.bookings.change.date');
                     Route::post('/edit/status', 'Admin\BookingController@changeBookingStatus')->name('front.bookings.change.status');
+                    Route::post('/edit/payment', 'Admin\BookingController@changePaymentStatus')->name('front.bookings.change.payment.status');
               });
          });
 
@@ -225,6 +226,6 @@
          Route::group(['prefix'=>'backjob',],
              function() {
               Route::get('/checklist/new/{jobId}/{warrantyId}', 'Admin\BackJobController@getBackJobCheckListIndex')->name('admin.backjob.checklist.new');
- 
+
          });
    });

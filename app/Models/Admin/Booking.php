@@ -22,6 +22,8 @@ class Booking extends Model
      'service_date_new' ,
      'service_time_new' ,
      'notes' ,
-     'status'
+     'status' ,
+     'reject_reason' ,
+     'payment_status'
    ];
 }

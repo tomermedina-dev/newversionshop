@@ -77,6 +77,20 @@ var bookedServices = new Vue({
       });
 
    } ,
+   setPaymentPaid : function(bookingId) {
+      bookingId = this.pad(bookingId);
+      const t = this;
+      var data = {
+        'serviceId' : bookingId
+      };
+      axios.post("/admin/services/booking/edit/payment" , data).
+      then(function(response) {
+        swalSuccess("Booking fee has been paid.");
+        t.loadBookedServices();
+      }).catch(function(error) {
+        swalWentWrong(error);
+      });
+   } ,
    rejectBooking : function (bookingId) {
      bookingId = this.pad(bookingId);
       Swal.fire({

@@ -30,6 +30,7 @@ class CreateBookingsTable extends Migration
             $table->longText('notes')->nullable();
             $table->string('status');
             $table->longText('reject_reason')->nullable();
+            $table->string('payment_status')->default('0');
             $table->timestamps();
         });
         DB::statement('ALTER TABLE bookings CHANGE id id INT(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT');
