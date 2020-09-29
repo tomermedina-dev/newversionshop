@@ -147,6 +147,11 @@ class BladePagesController extends Controller
       // code...
       return view('front.services.services');
     }
+    public function getServicesIndexByCateg($category)
+    {
+      // code...
+      return view('front.services.services' , compact('category'));
+    }
     public function getBookingFormIndex($id , $slug)
     {
       // code...
