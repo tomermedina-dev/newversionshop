@@ -47,6 +47,7 @@
                 <span v-if="booking.bookingData.payment_status == 0 ">
                   <a class="dropdown-item pointer" v-on:click="setPaymentPaid(booking.bookingData.id)">Set Payment to Paid</a>
                 </span>
+ 
               </div>
             </div>
           </td>
