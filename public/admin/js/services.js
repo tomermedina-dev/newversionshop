@@ -126,7 +126,7 @@ Vue.component('nv-component-add-service' ,
           t.name = '';
           t.description = '';
           t.price = '';
-
+          serviceList.loadServices();
         }).catch(function(error) {
 
         }).finally(function(response) {});

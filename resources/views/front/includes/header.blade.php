@@ -41,12 +41,12 @@
                    </a>
                </li>
              @endif
-             <li class="nav-item ">
+             <!-- <li class="nav-item ">
                <a id="nav-products" class="nav-link" href="/products">
-                 <!-- <i class="fa fa-cube"></i> -->
+
                  <h5>Products</h5>
                  </a>
-             </li>
+             </li> -->
              <li class="nav-item ">
                <a id="nav-services" class="nav-link" href="/services">
                  <!-- <i class="fa fa-cube"></i> -->
