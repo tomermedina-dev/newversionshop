@@ -50,6 +50,17 @@ class ServiceController extends Controller
       $return =  Service::where('id' ,$serviceId)->update(['status' =>$status]);
       return   $return;
     }
+    public function getAllServicesByType($type)
+    {
+      // code...
+      if ($type == 'all'){
+          return json_encode(DB::select("select * from services_vw where status = '1' "));
+      }else {
+        // code...
+        return json_encode(DB::select("select * from services_vw where service_categ like '%$type%' and status = '1' "));
+      }
+
+    }
     public function getAllServices()
     {
       // code...
@@ -66,4 +77,5 @@ class ServiceController extends Controller
       $service = DB::select("select * from services_vw where status = '1' and name like '%$value%' order by id");
       return json_encode($service);
     }
+
 }

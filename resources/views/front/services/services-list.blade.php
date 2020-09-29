@@ -5,6 +5,9 @@
     display: block; /* remove extra space below image */
     object-fit: cover;
   }
+  .nv-service-categs span{
+    font-size: 1.5em;
+  }
 </style>
 <div  class="bg-dark nv-featured-bottom d-flex flex-row" >
   <div class="nv-label nv-font-bc" style="font-size: 1.5rem;color:#f5f6fa;">
@@ -18,7 +21,18 @@
     </div>
   </div>
 </div>
+
 <div v-cloak class="container mt-2" id="nv-service-list">
+  <div class="nv-service-categs p-2 mb-5">
+    <h3>Categories : </h3>
+    <div class="float-left p-1">
+      <a href="/services/all" >  <span id="all" class="badge badge-pill badge-dark"> All </span> </a>
+    </div>
+    <div v-for="types in serviceTypes" class="float-left p-1">
+      <a :href="'/services/' + types.type_name" >  <span :id="types.type_name.replace(/ /g,'').toLowerCase()" class="badge badge-pill badge-dark"> @{{types.type_name}}</span> </a>
+    </div>
+  </div>
+
   <div style="cursor:pointer" class="nv-service-grid row" v-if="serviceList.length > 0">
     <div v-for='service in serviceList' class="col-lg-6">
       <div class="card nv-service-card nv-default-box-shadow">
@@ -63,3 +77,11 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  var selectedCategory = '{{$category}}';
+  // $('#'+id ).removeClass('badge-dark');
+  // $('#'+id ).addClass('badge-secondary');
+  // console.log(id);
+
+  // $('#bodyworks').css('background-color','#6c757d');
+</script>

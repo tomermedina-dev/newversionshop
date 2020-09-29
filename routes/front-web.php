@@ -153,7 +153,10 @@ Route::group(['prefix'=>'products',],
 Route::group(['prefix'=>'services',],
     function() {
       Route::get('/', 'Front\BladePagesController@getServicesIndex')->name('front.service.index');
+      Route::get('/{category}', 'Front\BladePagesController@getServicesIndexByCateg')->name('front.service.index');
       Route::get('/list/{status}','Admin\ServiceController@getAllServicesByStatus')->name('admin.services.all');
+      Route::get('/list/by-type/{category}','Admin\ServiceController@getAllServicesByType')->name('admin.services.all');
+
       Route::get('/list/search/{value}' ,'Admin\ServiceController@getServiceBySearch')->name('admin.services.all');
 
       Route::group(['prefix'=>'booking',],
@@ -198,6 +201,8 @@ Route::group(['prefix'=>'pdf',],
 });
 Route::get('/cart', 'Front\BladePagesController@getProductCartIndex')->name('front.cart.index');
 Route::get('/products/type/all/active','Admin\ProductTypeController@getAllTypeActive')->name('admin.products.type.all');
+Route::get('/services/type/all/active','Admin\ServiceTypeController@getAllTypeActive')->name('admin.service.type.all');
+
 Route::get('/', 'Front\BladePagesController@getHomeIndex')->name('front.home.index');
 Route::get('/about', 'Front\BladePagesController@getAboutIndex')->name('front.home.index');
 Route::get('/register', 'Front\BladePagesController@getRegistrationIndex')->name('front.register.index');

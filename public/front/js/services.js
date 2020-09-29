@@ -3,18 +3,33 @@ var serviceList = new Vue({
   el : "#nv-service-list"  ,
   data : {
     serviceList : [] ,
-    searchValue : ''
+    searchValue : '' ,
+    serviceTypes : []
   } ,
   methods :{
-    loadServices : function(){
+    loadServices : function(selectedCategory){
+      console.log(selectedCategory);
       const t = this;
       axios.
-      get('/services/list/1').
+      get('/services/list/by-type/'+selectedCategory).
       then(function (response) {
         t.serviceList = response.data;
       }).catch(function(error) {
         swalWentWrong();
+      }).finally(function() {
+        if(t.serviceList.length == 0){
+          noResultMessage()
+        }
+      });
+
+      axios.
+      get('/services/type/all/active').
+      then(function (response) {
+        t.serviceTypes = response.data;
+      }).catch(function(error) {
+        swalWentWrong();
       }).finally(function() {});
+
     } ,
     numberWithCommas : function(x) {
       return numberWithCommas(x);
@@ -69,4 +84,4 @@ var serviceList = new Vue({
     }
   }
 });
-serviceList.loadServices();
+serviceList.loadServices(selectedCategory);
