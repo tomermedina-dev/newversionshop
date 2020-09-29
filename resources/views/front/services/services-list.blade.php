@@ -78,7 +78,7 @@
   </div>
 </div>
 <script type="text/javascript">
-  // var selectedCategory = '{{$category}}';
+  var selectedCategory = '{{$category}}';
   // $('#'+id ).removeClass('badge-dark');
   // $('#'+id ).addClass('badge-secondary');
   // console.log(id);

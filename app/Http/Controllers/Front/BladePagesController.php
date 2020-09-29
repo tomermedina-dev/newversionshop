@@ -145,6 +145,7 @@ class BladePagesController extends Controller
     public function getServicesIndex()
     {
       // code...
+      return redirect('/services/all');
       return view('front.services.services');
     }
     public function getServicesIndexByCateg($category)
