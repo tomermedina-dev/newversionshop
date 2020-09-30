@@ -31,6 +31,7 @@
     <div v-for="types in serviceTypes" class="float-left p-1">
       <a :href="'/services/' + types.type_name" >  <span :id="types.type_name.replace(/ /g,'').toLowerCase()" class="badge badge-pill badge-dark"> @{{types.type_name}}</span> </a>
     </div>
+    <br><br>
   </div>
 
   <div style="cursor:pointer" class="nv-service-grid row" v-if="serviceList.length > 0">
