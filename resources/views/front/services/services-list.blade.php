@@ -23,7 +23,7 @@
 </div>
 
 <div v-cloak class="container mt-2" id="nv-service-list">
-  <div class="nv-service-categs p-2 mb-5">
+  <div class="nv-service-categs p-2 mb-5 nv-service-grid row">
     <h3>Categories : </h3>
     <div class="float-left p-1">
       <a href="/services/all" >  <span id="all" class="badge badge-pill badge-dark"> All </span> </a>
@@ -31,7 +31,6 @@
     <div v-for="types in serviceTypes" class="float-left p-1">
       <a :href="'/services/' + types.type_name" >  <span :id="types.type_name.replace(/ /g,'').toLowerCase()" class="badge badge-pill badge-dark"> @{{types.type_name}}</span> </a>
     </div>
-    <br><br>
   </div>
 
   <div style="cursor:pointer" class="nv-service-grid row" v-if="serviceList.length > 0">
