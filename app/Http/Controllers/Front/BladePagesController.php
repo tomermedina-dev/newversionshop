@@ -42,6 +42,7 @@ class BladePagesController extends Controller
     public function getCarIndex()
     {
       // code...
+      return redirect('/services');
       return view('front.cars.index');
     }
     public function getAboutIndex()

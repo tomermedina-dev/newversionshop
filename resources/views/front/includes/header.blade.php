@@ -27,12 +27,12 @@
 
     <div id="nav" class="navbar-collapse collapse w-100 order-3 dual-collapse2" >
          <ul class="navbar-nav ml-auto white">
-             <li class="nav-item ">
+             <!-- <li class="nav-item ">
                <a id="nav-home" class="nav-link" href="/">
-                 <!-- <i class="fa fa-home"></i> -->
+
                  <h5>Home</h5>
                  </a>
-             </li>
+             </li> -->
              @if(!session()->has('userId'))
                <li class="nav-item">
                  <a id="nav-login" class="nav-link" href="/login">
@@ -53,18 +53,18 @@
                  <h5>Services</h5>
                  </a>
              </li>
-             <li class="nav-item ">
+             <!-- <li class="nav-item ">
                <a id="nav-cars" class="nav-link" href="/gallery">
-                 <!-- <i class="fas fa-car"></i> -->
+
                  <h5>Gallery</h5>
                  </a>
              </li>
              <li class="nav-item ">
                <a id="nav-about" class="nav-link" href="/about">
-                 <!-- <i class="fas fa-user-plus"></i> -->
+
                  <h5>About</h5>
                  </a>
-             </li>
+             </li> -->
              @if(session()->has('userId'))
              <li class="nav-item ">
                <a id="nav-cart" class="nav-link" href="/cart">
