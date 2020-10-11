@@ -9,7 +9,12 @@
     <div class="dropdown">
       <div class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-user"></i>
-        <div class="nv-name nv-font-bc">Admin</div>
+          @if( session('role') == 'subadmin' )
+            <div class="nv-name nv-font-bc">{{session('userName')}}</div>
+          @else
+            <div class="nv-name nv-font-bc">Admin</div>
+          @endif
+
         <i class="fas fa-angle-down"></i>
       </div>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

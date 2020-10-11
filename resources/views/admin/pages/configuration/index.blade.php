@@ -35,10 +35,29 @@
           </div>
             <div class="dropdown-divider"></div>
             <div class="">
-                @include('admin.pages.configuration.category-services')  
+                @include('admin.pages.configuration.category-services')
             </div>
         </div>
       </div>
+      @if( session('role') != 'subadmin' )
+        <div class="col-sm-5">
+          <div class="card p-2">
+            <div class="row">
+              <div class="col sm-6">
+                <h3>Admin Users</h3>
+              </div>
+              <div class="col sm-6">
+                <a   v-on:click="newAdminUser" class="btn float-right">Add New</a>
+              </div>
+            </div>
+              <div class="dropdown-divider"></div>
+              <div class="">
+                  @include('admin.pages.configuration.admin-user')
+              </div>
+          </div>
+        </div>
+      @endif
+
 
       <div class="col-sm-5 mt-2 " style="display:none">
         <div class="card p-2">

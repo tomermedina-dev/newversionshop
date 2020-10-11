@@ -20,7 +20,7 @@
          <i class="fa fa-envelope text-white"aria-hidden="true"></i>
          <span  > info@newversion.co</span>
          <i class="fa fa-phone-alt "></i>
-         <span  > +63 961 285 1587</span>
+         <span > <a href="/admin/login" style="color:white;text-decoration:none;"> +63 961 285 1587</a> </span>
          <i class="fab fa-facebook-square" style="display:none"></i>
       </div>
     </div>

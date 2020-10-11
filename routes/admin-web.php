@@ -177,6 +177,7 @@
 
          Route::get('/home', 'Admin\BladePagesController@getAdminHomeIndex')->name('admin.blade.home.index');
          Route::post('/login', 'Admin\PanelUserController@validateAccount')->name('admin.users.login');
+         Route::post('/login/sub', 'Admin\PanelUserController@validateSubAdminAccount')->name('admin.users.login');
 
          Route::group(['prefix'=>'pdf',],
              function() {
@@ -227,5 +228,11 @@
              function() {
               Route::get('/checklist/new/{jobId}/{warrantyId}', 'Admin\BackJobController@getBackJobCheckListIndex')->name('admin.backjob.checklist.new');
 
+         });
+         Route::group(['prefix'=>'users',],
+             function() {
+               Route::post('/new', 'Admin\AdminUserController@creteNewOrEditUser')->name('admin.users.new');
+               Route::get('/list', 'Admin\AdminUserController@getAdminUserList')->name('admin.users.list');
+               Route::get('/edit/status/{id}/{status}', 'Admin\AdminUserController@changeStatus')->name('admin.users.edit.status');
          });
    });

@@ -31,11 +31,21 @@ Vue.component('nv-component-login' , {
         if(!t.username.trim() || !t.password.trim()){
           swalError("Please enter your username and password")
         }else{
+          var checker = t.username.substring(0,6) ;
+          var url = '';
+          if(checker == 'admin_'){
+            url = '/admin/login/sub';
+          }else {
+            url = '/admin/login';
+          }
           swalLoading("Logging in.. Please wait..")
           var formLogin = new FormData();
+
+
+
           formLogin.append('username' , t.username);
           formLogin.append('password' , t.password);
-          axios.post('/admin/login' ,formLogin ).then(function(response) {
+          axios.post(url,formLogin ).then(function(response) {
             var response = response.data;
 
             if(response == 1){
