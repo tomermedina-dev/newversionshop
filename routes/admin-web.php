@@ -44,6 +44,7 @@
                Route::get('/edit/status/{productId}/{status}', 'Admin\ProductController@changeProductStatus')->name('admin.products.status.edit');
                Route::get('/all/{status}' ,'Admin\ProductController@getAllProductsByStatus')->name('admin.products.all');
                Route::get('/all' ,'Admin\ProductController@getAllProducts')->name('admin.products.all');
+               Route::get('/all/target/{target}' ,'Admin\ProductController@getAllProductsByTarget')->name('admin.products.all.target');
                Route::get('/page/{start}/{end}' ,'Admin\ProductController@getPaginatedProducts')->name('admin.products.page');
 
               Route::get('/image/{productId}', 'Admin\ImageController@getProductImages')->name('admin.products.image');
