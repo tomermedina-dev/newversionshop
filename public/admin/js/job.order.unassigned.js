@@ -31,7 +31,7 @@ var jobOrderUnassigned = new Vue ({
       }).then(function (result)   {
         if (result.value) {
           var data = {
-            'id' : jobId
+            'id' : t.pad(jobId)
           }
           swalLoading("Deleting.. Please wait..")
           axios.
