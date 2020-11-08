@@ -36,7 +36,7 @@ var invoiceHistory = new Vue({
       }).catch(function(error) {
         swalWentWrong(error);
       });
-    }
+    }     
   } ,
   mounted () {
     this.loadJobList();
