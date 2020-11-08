@@ -60,6 +60,11 @@
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <a class="dropdown-item"  :href="'/admin/checklist/details/' + pad(checklist.id)">View Details</a>
                 <a class="dropdown-item" :href="'/admin/job/new/' + pad(checklist.id)">Create Job Order</a>
+                @if(session('role') == 'admin')
+                  <a class="dropdown-item" v-on:click="deleteCheckList(checklist.id)">
+                       Delete CheckList
+                  </a>
+                @endif
               </div>
             </div>
           </td>

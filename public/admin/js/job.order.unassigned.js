@@ -17,6 +17,33 @@ var jobOrderUnassigned = new Vue ({
     } ,
     pad : function(value) {
       return pad(value , 10);
+    },
+    deleteJo : function (jobId) {
+      const t  = this;
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (result)   {
+        if (result.value) {
+          var data = {
+            'id' : jobId
+          }
+          swalLoading("Deleting.. Please wait..")
+          axios.
+          post('/admin/job/delete' , data).
+          then(function (response) {
+            swalSuccess("Job Order has been deleted.");
+            t.loadJobOrders();
+          }).catch(function(error) {
+            swalWentWrong(error);
+          });
+        }
+      });
     }
   } ,
   mounted (){

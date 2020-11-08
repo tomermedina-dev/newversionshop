@@ -8,7 +8,7 @@
   <div class="row">
     <div class="col-lg-9 col-md-9">
       <h3 class="nv-header nv-font-bc">
-        PARTS AND MATERIALS INVENTORY for Online
+        PARTS AND MATERIALS INVENTORY for Admin
       </h3>
     </div>
     <div class="col-lg-3 col-md-9">
@@ -27,7 +27,8 @@
   <br>
   @include('admin.pages.inventory.parts-and-materials-inventory-list')
   <script type="text/javascript">
-    var target = 'online';
+    var target = 'admin';
+    $("#col-status").hide();
   </script>
   <script src="{{ asset('dropzone\js\dropzone.js') }}" ></script>
   <script src="{{ asset('dropzone\js\croppic.min.js') }}" ></script>

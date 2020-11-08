@@ -14,7 +14,7 @@
           <td class="nv-font-bc" scope="col">Description</td>
           <td class="nv-font-bc" scope="col">Quantity</td>
           <td class="nv-font-bc" scope="col">Price</td>
-          <td class="nv-font-bc" scope="col">Status</td>
+          <td class="nv-font-bc" scope="col" id='col-status'>Status</td>
 
           <td class="nv-font-bc" scope="col"></td>
         </tr>
@@ -35,13 +35,13 @@
         <td   scope="col">@{{item.description}}</td>
         <td   scope="col">@{{item.quantity}}</td>
         <td   scope="col">PHP @{{item.price}}</td>
-        <td>
+        <td  v-if='item.target == "online"' >
           <div class="custom-control custom-switch">
             <input v-on:click="changeStatus(item.status , pad(item.id,10) )" type="checkbox" class="custom-control-input" :checked="item.status == 1 ? 'checked' : '' " :id="'customSwitch_' + item.id">
             <label class="custom-control-label" :for="'customSwitch_' + item.id"></label>
           </div>
         </td>
-        <td   scope="col" class="info">
+        <td  scope="col" class="info">
           <div class="dropdown">
             <div class="nv-account dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-ellipsis-h"></i>

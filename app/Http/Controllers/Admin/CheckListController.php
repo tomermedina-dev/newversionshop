@@ -61,7 +61,7 @@ class CheckListController extends Controller
     public function getChecklistAll($type)
     {
       // code...
-      $checklist = CheckList::where('client_type' ,$type )->get();
+      $checklist = CheckList::where('client_type' ,$type )->where('is_deleted', '0')->get();
       return json_encode($checklist);
     }
     public function getChecklistDetailsIndex($checklistId)
@@ -77,5 +77,10 @@ class CheckListController extends Controller
         return PDF::loadView('admin.pages.checklist.print.details', ['details' => $details])
             ->setPaper('legal', 'portrait')
             ->download('VEHICLE CHECK LIST DETAILS ' . str_pad( $details->id, 10, '0', STR_PAD_LEFT) . '.pdf');
+    }
+    public function deleteCheckList(Request $request)
+    {
+      // code...
+      return CheckList::where('id'  , $request->id )->update(['is_deleted' =>'1' ]);
     }
 }

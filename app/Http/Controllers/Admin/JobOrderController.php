@@ -29,7 +29,7 @@ class JobOrderController extends Controller
     {
       // code...
       $labor = explode(',' , $request->labor);
-
+      $count = count($labor);
       $product =  explode(',' ,$request->product);
       $quantity =  explode(',' ,$request->quantity);
       $unit_price = explode(',' , $request->unit_price);
@@ -46,7 +46,7 @@ class JobOrderController extends Controller
         'notes' => $notes
       ];
       $jobOrder = JobOrder::create($jobDetails);
-      for($x = 0; $x < count($labor); $x++) {
+      for($x = 0; $x <$count; $x++) {
 
         if($labor[$x] != 0000000000){
           $serviceDetatils = Service::where('id' , $labor[$x])->first();
@@ -70,11 +70,11 @@ class JobOrderController extends Controller
 
         $jobItem = [
           'job_id' => str_pad( $jobOrder->id , 10, '0', STR_PAD_LEFT)  ,
-          'service_id' => $labor[$x],
+          'service_id' => ($labor[$x] == 'manualInput') ? '0000000000' : $labor[$x] ,
           'service_name' => $serviceName ,
           'service_description' => $serviceDescription,
-          'product_id'  => $product[$x],
-          'product_name'  => $productName ,
+          'product_id'  => ($labor[$x] == 'manualInput') ? '0000000000' :  $product[$x],
+          'product_name'  => ($labor[$x] == 'manualInput') ? $product[$x] : $productName ,
           'product_description' => $productDescription ,
           'quantity' => $quantity[$x],
           'unit_price' => $unit_price[$x] ,
@@ -94,7 +94,7 @@ class JobOrderController extends Controller
         $jobs = DB::select("SELECT * FROM job_order_vw where job_order_status = '0' order by job_order_date DESC");
       }
       if($filter == 'unassigned'){
-        $jobs = DB::select("SELECT * FROM job_order_vw where job_order_status = '0' and (job_monitoring_id is NULL or job_monitoring_id = '') order by job_order_date DESC");
+        $jobs = DB::select("SELECT * FROM job_order_vw where job_order_status = '0' and is_deleted ='0' and  (job_monitoring_id is NULL or job_monitoring_id = '' ) order by job_order_date DESC");
       }
       return json_encode($jobs);
     }
@@ -139,16 +139,16 @@ class JobOrderController extends Controller
     {
       // code...
       if($filter == 'monitoring'){
-        $jobAssignment = DB::select("select * from job_order_assigment_vw where status = '0' and end is null ");
+        $jobAssignment = DB::select("select * from job_order_assigment_vw where status = '0' and end is null and is_deleted ='0' ");
       }
       if($filter == 'completed'){
-        $jobAssignment = DB::select("select * from job_order_assigment_vw where end is not null and is_approved = '0' and is_invoiced = '0' and status = '0' ");
+        $jobAssignment = DB::select("select * from job_order_assigment_vw where end is not null and is_approved = '0' and is_invoiced = '0' and status = '0'  and is_deleted ='0' ");
       }
       if($filter == 'history'){
-        $jobAssignment = DB::select("select * from job_order_assigment_vw ");
+        $jobAssignment = DB::select("select * from job_order_assigment_vw  where is_deleted ='0'");
       }
       if($filter == 'release'){
-        $jobAssignment = DB::select("select * from job_order_assigment_vw where is_invoiced = '1' and is_released != '1' ");
+        $jobAssignment = DB::select("select * from job_order_assigment_vw where is_invoiced = '1' and is_released != '1'  and is_deleted ='0' ");
       }
       return json_encode($jobAssignment);
     }
@@ -276,5 +276,10 @@ class JobOrderController extends Controller
       $joDetails = DB::select("SELECT * FROM job_order_vw where job_order_id= '$job_id'")[0];
       $joTotals = DB::select("SELECT * FROM job_order_totals_vw where job_id= '$job_id'")[0];
       return view('admin.pages.job.time-options' , compact('joDetails' , 'joTotals'));
+    }
+    public function deleteJobOrder(Request $request)
+    {
+      // code...
+      return JobOrder::where('id'  , $request->id )->update(['is_deleted' =>'1' ]);
     }
 }

@@ -56,7 +56,12 @@
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <a class="dropdown-item"  :href="'/admin/job/details/' + pad(jo.job_order_id)">Assign Worker and Set slot</a>
                 <a class="dropdown-item"  :href="'/admin/job/details/' + pad(jo.job_order_id)">View Job Details</a>
-                <a class="dropdown-item"  :href="'/admin/checklist/details/' + pad(jo.checklist_id)" target="_blank" >View Checklist Details</a>
+                <a class="dropdown-item"  :href="'/admin/checklist/details/' + pad(jo.checklist_id)" target="_blank" >View Checklist Details</a>          
+                @if(session('role') == 'admin')
+                  <a class="dropdown-item" v-on:click="deleteJo(jo.job_order_id)">
+                       Delete JO
+                  </a>
+                @endif
               </div>
             </div>
           </td>

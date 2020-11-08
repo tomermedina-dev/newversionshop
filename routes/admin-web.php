@@ -44,6 +44,7 @@
                Route::get('/edit/status/{productId}/{status}', 'Admin\ProductController@changeProductStatus')->name('admin.products.status.edit');
                Route::get('/all/{status}' ,'Admin\ProductController@getAllProductsByStatus')->name('admin.products.all');
                Route::get('/all' ,'Admin\ProductController@getAllProducts')->name('admin.products.all');
+               Route::get('/all/target/{target}' ,'Admin\ProductController@getAllProductsByTarget')->name('admin.products.all.target');
                Route::get('/page/{start}/{end}' ,'Admin\ProductController@getPaginatedProducts')->name('admin.products.page');
 
               Route::get('/image/{productId}', 'Admin\ImageController@getProductImages')->name('admin.products.image');
@@ -105,6 +106,7 @@
          Route::group(['prefix'=>'checklist',  'middleware' => 'adminAuth'],
              function() {
                Route::post('/new', 'Admin\CheckListController@createOrEditCheckList')->name('admin.checklist.new');
+               Route::post('/delete', 'Admin\CheckListController@deleteCheckList')->name('admin.checklist.delete');
                Route::get('/new/{id}', 'Admin\CheckListController@getChecklistIndex')->name('admin.checklist.index');
                Route::get('/list/all/{type}', 'Admin\CheckListController@getChecklistAll')->name('admin.checklist.list');
                Route::get('/details/{checklistId}', 'Admin\CheckListController@getChecklistDetailsIndex')->name('admin.checklist.details.index');
@@ -114,6 +116,7 @@
              function() {
                Route::get('/new/{id}', 'Admin\JobOrderController@getJobOrderIndex')->name('admin.job.new.index');
                Route::post('/new', 'Admin\JobOrderController@createJobOrder')->name('admin.job.new');
+               Route::post('/delete', 'Admin\JobOrderController@deleteJobOrder')->name('admin.job.delete');
                Route::get('/list/{filter}', 'Admin\JobOrderController@getJobOrders')->name('admin.job.list');
                Route::get('/list/items/{id}', 'Admin\JobOrderController@getJobOrderItems')->name('admin.job.list');
                Route::get('/details/{jobId}', 'Admin\JobOrderController@getJobOrderDetailsIndex')->name('admin.job.details.index');

@@ -142,6 +142,7 @@ Vue.component("nv-component-add-inventory" ,
       formItems.append('car_model' , t.car_model);
       formItems.append('quantity' , t.quantity);
       formItems.append('images' , arrImages);
+      formItems.append('target' , target);
     }
   } ,
   mounted (){
@@ -215,7 +216,7 @@ var inventoryList = new Vue ({
         const t = this;
       axios.
       // get('/admin/products/page/'+start+'/'+end)
-      get('/admin/products/all')
+      get('/admin/products/all/target/'+target)
       .then(function(response) {
 
         t.inventoryList = response.data;

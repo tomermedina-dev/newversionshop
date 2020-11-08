@@ -23,6 +23,33 @@ var checklistList = new Vue({
     } ,
     pad : function (value) {
       return pad(value , 10);
+    } ,
+    deleteCheckList : function (checkListId) {
+      const t  = this;
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (result)   {
+        if (result.value) {
+          var data = {
+            'id' : checkListId
+          }
+          swalLoading("Deleting.. Please wait..")
+          axios.
+          post('/admin/checklist/delete' , data).
+          then(function (response) {
+            swalSuccess("Checklist has been deleted.");
+            t.loadCheckList();
+          }).catch(function(error) {
+            swalWentWrong(error);
+          });
+        }
+      });
     }
   } ,
   mounted : function (){

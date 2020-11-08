@@ -25,6 +25,7 @@ class ProductController extends Controller
           'price' => $request->price,
           'quantity' => $request->quantity,
           'status' => '1',
+          'target' => $request->target
         ];
 
         $return = Product::create($data);
@@ -67,20 +68,26 @@ class ProductController extends Controller
     public function getAllProducts()
     {
       // code...
-      $products = DB::select("select * from product_vw    order by id");
+      $products = DB::select("select * from product_vw order by id");
+      return json_encode($products);
+    }
+    public function getAllProductsByTarget($target)
+    {
+      // code...
+      $products = DB::select("select * from product_vw where target ='$target' order by id");
       return json_encode($products);
     }
     public function getAllProductsByStatus($status)
     {
       // code...
-      $products = DB::select("select * from product_vw where status = '$status' order by id");
+      $products = DB::select("select * from product_vw where status = '$status'  order by id");
       return json_encode($products);
     }
     public function getProductByType($category)
     {
       // code...
       if($category =='all'){
-        $products = DB::select("select * from product_vw where status = '1' order by id and type_status = '1'");
+        $products = DB::select("select * from product_vw where status = '1'  and type_status = '1' and target = 'online' order by id");
       }else{
         $products = DB::select("select * from product_vw where status = '1' and  product_categ = '$category' order by id");
       }

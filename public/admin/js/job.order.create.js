@@ -30,13 +30,40 @@ new Vue({
         swalWentWrong(error);
       });
     } ,
-    newLabor : function() {
+    newLabor : function(action) {
 
       const t = this ;
       t.jobItemsCtr ++;
       var servicesOption = $("#service-list").html();
       var productOption = $("#product-list").html();
-      var laborItemHTML = `<tr id="job_`+t.jobItemsCtr+`">
+      var laborItemHTML = '';
+      if(action == 'manual'){
+        laborItemHTML = `<tr id="job_`+t.jobItemsCtr+`">
+
+        <td class="nv-font-bc" scope="col">
+          <input name="customLabor[]" type="hidden" value="manualInput" placeholder="Enter product name"    >
+        </td>
+        <td class="nv-font-bc" scope="col">
+          <input name="customProduct[]" type="text"   placeholder="Enter product name"    >
+        </td>
+        <td class="nv-font-bc" scope="col">
+          <input  onkeyup='jobOrder.setAmountCustom()'  name="customQuantity[]" type="text" placeholder="Enter quantity"  >
+        </td>
+        <td class="nv-font-bc" scope="col">
+          <input  onkeyup='jobOrder.setAmountCustom()'   name="customUnit_price[]"  type="text" placeholder="Enter price"  >
+        </td>
+        <td class="nv-font-bc" scope="col">
+          <input  name="customAmount[]" type="text" value="0"   >
+        </td>
+        <td>
+          <button onclick="jobOrder.removeJob(`+t.jobItemsCtr+`)"  type="button"  class="btn btn-sm nv-btn-txt-dark nv-font-bc">
+            <i class="fas fa-trash"></i>
+          </button>
+        </td>
+      </tr>`;
+        $("#labor-list-manual").append(laborItemHTML);
+      }else {
+        laborItemHTML = `<tr id="job_`+t.jobItemsCtr+`">
 
         <td class="nv-font-bc" scope="col">
           <div class="form-group">
@@ -67,12 +94,18 @@ new Vue({
           </button>
         </td>
       </tr>`;
+        $("#labor-list").append(laborItemHTML);
+
+      }
 
 
 
-      $("#labor-list").append(laborItemHTML);
+
 
     } ,
+    newLaborManual  : function() {
+
+    },
     removeJob: function (index) {
       const t = this;
       $("#job_"+index).remove();
@@ -124,6 +157,22 @@ new Vue({
 
       $("input[name='amount[]']").eq(index).val((unitPrice * quantity) + servicePrice);
     },
+    setAmountCustom : function () {
+      var index = currentSelectedIndex;
+      const t = this;
+      console.log(index);
+      var quantity = parseInt($("input[name='customQuantity[]']").eq(index).val());
+      var unitPrice = parseInt($("input[name='customUnit_price[]']").eq(index).val());
+
+      if(quantity == '' || !quantity){
+        quantity = 0;
+      }
+      if(unitPrice == '' || !unitPrice){
+        unitPrice = 0;
+      }
+
+      $("input[name='customAmount[]']").eq(index).val((unitPrice * quantity) );
+    },
     selectedServicePrice : function () {
       var index = currentSelectedIndex;
       var serviceDetails = $("select[name='labor[]']").eq(index).val();
@@ -171,12 +220,18 @@ new Vue({
         var unit_price = $("input[name='unit_price[]']").map(function(){return this.value ;}).get();
         var amount = $("input[name='amount[]']").map(function(){return this.value ;}).get();
 
+        var manualLabor = $("input[name='customLabor[]']").map(function(){return this.value ;}).get();
+        var manualProduct = $("input[name='customProduct[]']").map(function(){return this.value ;}).get();
+        var manualQuantity = $("input[name='customQuantity[]']").map(function(){return this.value ;}).get();
+        var manualUnit_price = $("input[name='customUnit_price[]']").map(function(){return this.value ;}).get();
+        var manualAmount = $("input[name='customAmount[]']").map(function(){return this.value ;}).get();
 
-        jobOrderDetails.append('labor', labor);
-        jobOrderDetails.append('product', product);
-        jobOrderDetails.append('quantity', quantity);
-        jobOrderDetails.append('unit_price', unit_price);
-        jobOrderDetails.append('amount', amount);
+
+        jobOrderDetails.append('labor', labor + ',' + manualLabor);
+        jobOrderDetails.append('product', product + ',' + manualProduct);
+        jobOrderDetails.append('quantity', quantity+ ',' +manualQuantity);
+        jobOrderDetails.append('unit_price', unit_price+ ',' +manualUnit_price);
+        jobOrderDetails.append('amount', amount+ ',' +manualAmount);
         jobOrderDetails.append('client_id' , client_id);
         jobOrderDetails.append('client_name' , client_name);
         jobOrderDetails.append('notes' , t.notes);
@@ -185,7 +240,7 @@ new Vue({
         post('/admin/job/new' , jobOrderDetails).
         then(function (response) {
           swalSuccess("Job order has been saved.");
-          window.setTimeout(window.location.href = '/admin/page/job.unassigned', 2500);
+          // window.setTimeout(window.location.href = '/admin/page/job.unassigned', 2500);
         }).catch(function (error) {
           swalWentWrong(error);
         });

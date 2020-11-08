@@ -57,7 +57,15 @@
                           <div class="nv-sub-menu" v-on:click="loadAdminPage('inventory.index')">
                             <div class="nv-title">
                               <i class="fas fa-circle"></i>
-                              <div class="nv-text nv-font-c">Parts and Accessories</div>
+                              <div class="nv-text nv-font-c">Parts and Accessories for Online</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="nv-sub-menu" v-on:click="loadAdminPage('inventory.index-admin')">
+                            <div class="nv-title">
+                              <i class="fas fa-circle"></i>
+                              <div class="nv-text nv-font-c">Parts and Accessories for Admin</div>
                             </div>
                           </div>
                         </li>

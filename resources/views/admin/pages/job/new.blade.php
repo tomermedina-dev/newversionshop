@@ -66,14 +66,19 @@
         </tr>
 
       </tbody>
-
+      <tbody id="labor-list-manual"  >
+      </tbody>
     </table>
     <div class="m-1">
 
       <button v-on:click="newLabor" type="button"  class="btn btn-sm nv-btn-txt-dark">
         <i class="fas fa-plus-circle"></i> NEW LABOR
       </button>
-      <button v-on:click="submitJobOrder" type="button"  class="btn btn-sm nv-btn-txt-dark nv-font-bc">
+      <button v-on:click="newLabor('manual')" type="button"  class="btn btn-sm nv-btn-txt-dark">
+        <i class="fas fa-plus-circle"></i> NEW LABOR (Manual Input)
+      </button>
+      <br>
+      <button v-on:click="submitJobOrder" type="button"  class="mt-5 btn btn-sm nv-btn-txt-dark nv-font-bc">
         <i class="fas fa-save"></i> SAVE
       </button>
     </div>
