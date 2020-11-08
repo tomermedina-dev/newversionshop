@@ -41,6 +41,8 @@
           <td class="nv-font-bc" scope="col">Invoice ID</td>
           <td class="nv-font-bc" scope="col">Job Order ID</td>
           <td class="nv-font-bc" scope="col">Client Name</td>
+          <td class="nv-font-bc" scope="col">Amount</td>
+          <td class="nv-font-bc" scope="col">Paid Amount</td>
           <td class="nv-font-bc" scope="col">Payment Status</td>
           <td></td>
         </tr>
@@ -57,10 +59,19 @@
            @{{jo.client_name}}
           </td>
           <td class="nv-font-bc" scope="col">
-            <span v-if="jo.total_paid == jo.totals">
+           @{{jo.totals}}
+          </td>
+          <td class="nv-font-bc" scope="col">
+           @{{jo.total_paid}}
+          </td>
+          <td class="nv-font-bc" scope="col">
+            <span v-if="jo.total_paid == jo.totals  ">
               Fully Paid
             </span>
-            <span v-else>Unpaid</span>
+            <span v-if="jo.totals > jo.total_paid && jo.total_paid != null ">
+              Partially Paid
+            </span>
+            <span  v-if="jo.total_paid == null ">Unpaid</span>
           </td>
           <td class="nv-font-bc" scope="col" class="info">
             <div class="dropdown" >
@@ -71,6 +82,7 @@
                 <a class="dropdown-item"  :href="'/admin/job/details/' + jo.job_order_id" target="_blank" >View Job Details</a>
                 <a class="dropdown-item"  :href="'/admin/invoice/details/' + pad(jo.id)" target="_blank" >View Invoice Details</a>
                 <a v-if="jo.total_paid != jo.totals" class="dropdown-item pointer"  v-on:click="setPayment( pad(jo.id) , pad(jo.job_order_id) ,'full')" target="_blank" >Set Invoice to Fully Paid</a>
+                <a v-if="jo.total_paid != jo.totals" class="dropdown-item pointer"  v-on:click="setPartial( pad(jo.id) , pad(jo.job_order_id))" target="_blank" >Set Partial Payment</a>
               </div>
             </div>
           </td>

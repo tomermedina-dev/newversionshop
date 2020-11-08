@@ -98,16 +98,16 @@
     <?php $deduction = 0 ; ?>
     @if($joDetails->client_type == 'Booking')
       <div class="m-2">
-        <p>Booking Fee : {{$joDetails->booking_price}}
+        <!-- <p>Booking Fee : {{$joDetails->booking_price}} -->
           @if($joDetails->booking_payment_status == '1')
-            (Paid)
+            <!-- (Paid) -->
             <?php
               $deduction = $joDetails->booking_price;
              ?>
           @else
-            (Unpaid)
+            <!-- (Unpaid) -->
           @endif
-        </p>
+        <!-- </p> -->
       </div>
     @endif
   </div>
