@@ -106,12 +106,13 @@ var checklist = new Vue({
         const t = this;
         var err ;
         if( t.client_type == 'Walk-In'){
-          if(!t.email){
-            swalError("Please enter client email address");
-            err = 1;
-          }else {
-            checklistDetails.append('email' , t.email);
-          }
+          checklistDetails.append('email' , t.email);
+          // if(!t.email){
+          //   swalError("Please enter client email address");
+          //   err = 1;
+          // }else {
+          //   checklistDetails.append('email' , t.email);
+          // }
         }
 
         if(err != 1){
