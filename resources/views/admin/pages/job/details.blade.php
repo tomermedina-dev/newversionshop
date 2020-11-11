@@ -100,11 +100,15 @@
   </div>
 
   <div>
+
     <a   target="_blank"   :href="'/admin/job/time/history/all/' + assignedEmployee.employee_id   + '/' +   pad(assignedEmployee.id)  + '/' + assignedEmployee.job_order_id"  class="mt-2 btn btn-lg nv-btn-txt-dark nv-font-bc">
     View Time in / out history
     </a>
   </div>
   @endif
+  <a   target="_blank"   :href="'/admin/job/time/history/log/' + assignedEmployee.employee_id   + '/' +   pad(assignedEmployee.id)  + '/' + assignedEmployee.job_order_id"  class="mt-2 btn btn-lg nv-btn-txt-dark nv-font-bc">
+   Set Time in / out  for Today
+  </a>
   <div class="nv-table-container mb-3 mt-2">
     <table class="nv-table table table-striped ">
       <thead>
