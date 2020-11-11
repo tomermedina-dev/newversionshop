@@ -75,7 +75,7 @@
         <i class="fas fa-plus-circle"></i> NEW LABOR
       </button>
       <button v-on:click="newLabor('manual')" type="button"  class="btn btn-sm nv-btn-txt-dark">
-        <i class="fas fa-plus-circle"></i> NEW LABOR (Manual Input)
+        <i class="fas fa-plus-circle"></i> NEW PART (Manual Input)
       </button>
       <br>
       <button v-on:click="submitJobOrder" type="button"  class="mt-5 btn btn-sm nv-btn-txt-dark nv-font-bc">
