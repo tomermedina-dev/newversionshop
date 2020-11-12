@@ -115,6 +115,7 @@
          Route::group(['prefix'=>'job',  'middleware' => 'adminAuth'],
              function() {
                Route::get('/new/{id}', 'Admin\JobOrderController@getJobOrderIndex')->name('admin.job.new.index');
+               Route::get('/edit/{id}', 'Admin\JobOrderController@getJobOrderIndexEdit')->name('admin.job.new.index');
                Route::post('/new', 'Admin\JobOrderController@createJobOrder')->name('admin.job.new');
                Route::post('/delete', 'Admin\JobOrderController@deleteJobOrder')->name('admin.job.delete');
                Route::get('/list/{filter}', 'Admin\JobOrderController@getJobOrders')->name('admin.job.list');
@@ -130,7 +131,8 @@
                       Route::post('/void', 'Admin\WarrantyController@voidWarranty')->name('admin.job.warranty.void');
 
                });
-
+               Route::post('/item/delete', 'Admin\JobOrderController@deleteJobOrderItem')->name('admin.job.item.delete');
+               Route::post('/item/edit', 'Admin\JobOrderController@createJobOrderEdit')->name('admin.job.item.edit');
 
 
          });
