@@ -24,7 +24,13 @@ class JobOrderController extends Controller
       $checklist = CheckList::where('id' , $checklistId)->first();
       return view('admin.pages.job.new' , compact('checklist'));
     }
-
+    public function getJobOrderIndexEdit($joId)
+    {
+      // code...
+      $jo = JobOrder::where('id' , $joId)->first();
+      $joItems = JobOrderItem::where('job_id' , $joId)->where('is_deleted' , '0')->get();
+      return view('admin.pages.job.edit' , compact('jo' , 'joItems'));
+    }
     public function createJobOrder(Request $request)
     {
       // code...
@@ -281,5 +287,60 @@ class JobOrderController extends Controller
     {
       // code...
       return JobOrder::where('id'  , $request->id )->update(['is_deleted' =>'1' ]);
+    }
+    public function deleteJobOrderItem(Request $request)
+    {
+      // code...
+        return JobOrderItem::where('id'  , $request->id )->update(['is_deleted' =>'1' ]);
+    }
+    public function createJobOrderEdit(Request $request)
+    {
+      // code...
+       
+      $labor = explode(',' , $request->labor);
+      $count = count($labor);
+      $product =  explode(',' ,$request->product);
+      $quantity =  explode(',' ,$request->quantity);
+      $unit_price = explode(',' , $request->unit_price);
+      $amout =  explode(',' ,$request->amount);
+
+
+      for($x = 0; $x <$count; $x++) {
+
+        if($labor[$x] != 0000000000){
+          $serviceDetatils = Service::where('id' , $labor[$x])->first();
+          $serviceName = $serviceDetatils->name;
+          $serviceDescription  = $serviceDetatils->description ;
+          $serviceFee = $serviceDetatils->price;
+        }else{
+          $serviceName = '';
+          $serviceDescription = '';
+          $serviceFee = '';
+        }
+
+        if($product[$x] != 0000000000){
+          $productDetails = Product::where('id' , $product[$x])->first();
+          $productName = $productDetails->name;
+          $productDescription = $productDetails->description;
+        }else{
+          $productName = '';
+          $productDescription = '';
+        }
+
+        $jobItem = [
+          'job_id' => str_pad( $request->job_id , 10, '0', STR_PAD_LEFT)  ,
+          'service_id' => ($labor[$x] == 'manualInput') ? '0000000000' : $labor[$x] ,
+          'service_name' => $serviceName ,
+          'service_description' => $serviceDescription,
+          'product_id'  => ($labor[$x] == 'manualInput') ? '0000000000' :  $product[$x],
+          'product_name'  => ($labor[$x] == 'manualInput') ? $product[$x] : $productName ,
+          'product_description' => $productDescription ,
+          'quantity' => $quantity[$x],
+          'unit_price' => $unit_price[$x] ,
+          'service_fee' => $serviceFee
+        ] ;
+        JobOrderItem::create($jobItem);
+      }
+      return json_encode("success");
     }
 }
