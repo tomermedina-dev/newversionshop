@@ -48,23 +48,24 @@
                               <div class="col-12">
                                   <div class="row">
 
-                                      <div class="col-sm-6">
+                                      <div class="col-sm-12">
                                           <div class="form-group">
                                               <input v-model="first_name" type="text" class="form-control nv-input-custom" id="first_name" placeholder="First Name">
+                                          </div>
+                                          <div class="form-group">
+                                              <input v-model="last_name" type="text" class="form-control nv-input-custom" id="last_name" placeholder="Last Name">
                                           </div>
                                           <div class="form-group">
                                               <input v-model="username" type="text" class="form-control nv-input-custom" id="username" placeholder="Username">
                                           </div>
                                       </div>
 
-                                      <div class="col-sm-6">
-                                          <div class="form-group">
-                                              <input v-model="last_name" type="text" class="form-control nv-input-custom" id="last_name" placeholder="Last Name">
-                                          </div>
-                                          <div class="form-group">
+                                      <div class="col-sm-12">
+
+                                          <!-- <div class="form-group">
                                               <input   v-model="email" type="text" class="form-control nv-input-custom" id="email" placeholder="Email Address">
                                               <small style="color:red;" id="err_email"></small>
-                                          </div>
+                                          </div> -->
                                       </div>
 
                                       <div class="col-sm-12">
@@ -75,12 +76,12 @@
                                           <div class="form-group">
                                               <input v-model="confirm_password" type="password" class="form-control nv-input-custom" id="confirm_password" placeholder="Confirm Password">
                                           </div>
-                                          <div class="form-group">
+                                          <!-- <div class="form-group">
                                               <input v-model="address" type="text" class="form-control nv-input-custom" id="address" placeholder="Address">
                                           </div>
                                           <div class="form-group">
                                               <input v-model="contact" onkeypress="return isNumber(event)" type="text" class="form-control nv-input-custom" id="contact_no" placeholder="Contact No.">
-                                          </div>
+                                          </div> -->
 
 
                                       </div>
