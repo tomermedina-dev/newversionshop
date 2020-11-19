@@ -58,14 +58,14 @@ new Vue({
       if(this.password != this.confirm_password || !this.confirm_password){
        return "Those password didn't match.";
       }
-      if (!this.contact){
-        return "Please enter your contact number.";
-      }
-
-
-      if (!this.address){
-        return "Please enter your address.";
-      }
+      // if (!this.contact){
+      //   return "Please enter your contact number.";
+      // }
+      //
+      //
+      // if (!this.address){
+      //   return "Please enter your address.";
+      // }
 
 
 
