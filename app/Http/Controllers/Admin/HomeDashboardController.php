@@ -32,6 +32,9 @@ class HomeDashboardController extends Controller
       if($filter == 'available_release'){
         $select = 'select count(*) as count from job_order_assigment_vw where is_invoiced = 1';
       }
+      if($filter == 'jo_totals'){
+        $select = 'select sum(totals) as count from job_order_totals_vw';
+      }
       $count = DB::select($select)[0];
       return $count;
     }
@@ -45,9 +48,10 @@ class HomeDashboardController extends Controller
       $completed = self::getCounts('completed');
       $products = self::getCounts('products');
       $releaseCars = self::getCounts('available_release');
+      $joTotals = self::getCounts('jo_totals');
       if (session('role') == 'employee'){
         return redirect('/admin/page/employee.assigned');
       }
-      return view('admin.pages.home.index' , compact('orderDay' , 'bookedDay' , 'inProgress' , 'cars' , 'completed' , 'products' , 'releaseCars'));
+      return view('admin.pages.home.index' , compact('orderDay' , 'bookedDay' , 'inProgress' , 'cars' , 'completed' , 'products' , 'releaseCars' , 'joTotals'));
     }
 }
