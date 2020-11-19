@@ -89,6 +89,19 @@
           </div>
         </div>
       </div>
+      <div class="col-sm-12 col-lg-12 nv-items">
+        <div class="card">
+          <div class="card-header">
+              <i class="fas fa-tools"></i>
+            <div class="nv-text nv-font-bc">Job Order Total Sales</div>
+          </div>
+          <div class="card-body">
+            <div class="nv-text">
+              ₱ {{number_format($joTotals->count,2)}}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
