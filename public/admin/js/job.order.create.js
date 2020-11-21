@@ -240,7 +240,7 @@ new Vue({
         post('/admin/job/new' , jobOrderDetails).
         then(function (response) {
           swalSuccess("Job order has been saved.");
-          // window.setTimeout(window.location.href = '/admin/page/job.unassigned', 2500);
+          window.setTimeout(window.location.href = '/admin/page/job.unassigned', 2500);
         }).catch(function (error) {
           swalWentWrong(error);
         });

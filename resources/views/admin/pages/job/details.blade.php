@@ -110,8 +110,8 @@
    Set Time in / out  for Today
   </a>
   <br><br>
-  <a   target="_blank"   :href="'/admin/job/edit/'  + assignedEmployee.job_order_id"  class="mt-2 btn btn-sm nv-btn-txt-dark nv-font-bc">
-    Edit Items
+  <a   target="_blank"   href="/admin/job/edit/{{str_pad( $joDetails->job_order_id, 10, '0', STR_PAD_LEFT)}}"  class="mt-2 btn btn-sm nv-btn-txt-dark nv-font-bc">
+    Edit
   </a>
   <div class="nv-table-container mb-3 mt-2">
 
