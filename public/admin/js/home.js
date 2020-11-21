@@ -8,7 +8,9 @@ new Vue({
   methods : {
     loadJoTotalSales : function () {
       const t = this;
-      axios.get('/admin/job/total/sales/'+t.month+'/'+t.year ).
+      var m = t.month;
+      m++;
+      axios.get('/admin/job/total/sales/'+m+'/'+t.year ).
       then(function(response) {
         $("#jo_total_sales").text('₱ ' + numberWithCommas(response.data)) ;
       }).catch(function(error) {
