@@ -296,7 +296,7 @@ class JobOrderController extends Controller
     public function createJobOrderEdit(Request $request)
     {
       // code...
-       
+
       $labor = explode(',' , $request->labor);
       $count = count($labor);
       $product =  explode(',' ,$request->product);
@@ -342,5 +342,13 @@ class JobOrderController extends Controller
         JobOrderItem::create($jobItem);
       }
       return json_encode("success");
+    }
+
+    public function getTotalSales($month , $year)
+    {
+      // code...
+      $select = "select sum(totals) as total from job_order_totals_monthly_vw where  YEAR = '$year' and MONTH = '$month'";
+      $count = DB::select($select)[0];
+      return json_encode($count->total == null ? 0 : $count->total);
     }
 }

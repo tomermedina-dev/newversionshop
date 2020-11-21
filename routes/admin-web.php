@@ -133,6 +133,7 @@
                });
                Route::post('/item/delete', 'Admin\JobOrderController@deleteJobOrderItem')->name('admin.job.item.delete');
                Route::post('/item/edit', 'Admin\JobOrderController@createJobOrderEdit')->name('admin.job.item.edit');
+               Route::get('/total/sales/{month}/{year}', 'Admin\JobOrderController@getTotalSales')->name('admin.job.total.sales');
 
 
          });

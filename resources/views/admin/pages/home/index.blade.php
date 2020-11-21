@@ -89,15 +89,48 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-12 col-lg-12 nv-items">
+      <div class="col-sm-12 col-lg-12 nv-items" id="nv-home-admin">
         <div class="card">
           <div class="card-header">
               <i class="fas fa-tools"></i>
-            <div class="nv-text nv-font-bc">Job Order Total Sales</div>
+            <div class="nv-text nv-font-bc">Job Order Total Sales &emsp;</div>
+
+              <div class="w-25">
+
+                <div class="form-row">
+                  <div class="col">
+                    <select class="custom-select float-left" v-model="month">
+                      <option  value="1" >January</option>
+                      <option  value="2" >February</option>
+                      <option  value="3" >March</option>
+                      <option  value="4" >April</option>
+                      <option  value="5" >May</option>
+                      <option  value="6" >June</option>
+                      <option  value="7" >July</option>
+                      <option  value="8" >August</option>
+                      <option  value="9" >September</option>
+                      <option  value="10" >October</option>
+                      <option  value="11" >November</option>
+                      <option  value="12" >December</option>
+                    </select>
+                  </div>
+                  <div class="col">
+                    <input v-model="year" type="text" class="form-control nv-input-custom float-left"   placeholder="Year">
+                  </div>
+                  <div class="col">
+                    <button  v-on:click="loadJoTotalSales" type="button"  class="btn btn-sm nv-btn-txt-mustard nv-font-bc mt-1">
+                      View
+                    </button>
+                  </div>
+
+
+                </div>
+              </div>
+
           </div>
           <div class="card-body">
-            <div class="nv-text">
-              ₱ {{number_format($joTotals->count,2)}}
+            <div class="nv-text" id='jo_total_sales'>
+               
             </div>
           </div>
         </div>
@@ -106,5 +139,5 @@
   </div>
 
 </div>
-
+  <script src="{{ asset('admin\js\home.js') }}" ></script>
 @endsection
