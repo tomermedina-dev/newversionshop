@@ -98,10 +98,10 @@ Vue.component('nv-component-add-service' ,
 
       const t = this ;
       var err ;
-      if(!serviceImage || serviceImage == ''){
-        swalError("Please upload service image");
-        err = 1;
-      }
+      // if(!serviceImage || serviceImage == ''){
+      //   swalError("Please upload service image");
+      //   err = 1;
+      // }
       if(!t.price.trim()){
         swalError("Please enter price");
         err = 1;
