@@ -323,12 +323,12 @@ var serviceList = new Vue({
 
             const t = this ;
             var err ;
-            if(!t.image){
-              if(!serviceImage || serviceImage ==''){
-                swalError("Please upload service image");
-                err = 1;
-              }
-            }
+            //if(!t.image){
+            //  if(!serviceImage || serviceImage ==''){
+            //    swalError("Please upload service image");
+            //    err = 1;
+            // }
+            //}
             if(!t.price.trim()){
               swalError("Please enter price");
               err = 1;
