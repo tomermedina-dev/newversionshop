@@ -41,6 +41,7 @@ class ServiceController extends Controller
         }
 
       }
+      Image::where('image_name' , 'undefined')->delete();
       return $return;
     }
 
