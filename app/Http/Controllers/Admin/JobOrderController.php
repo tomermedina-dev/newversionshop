@@ -88,6 +88,9 @@ class JobOrderController extends Controller
         ] ;
         JobOrderItem::create($jobItem);
       }
+      $updateSql = "update job_order_items set is_deleted = '1' where (service_id = '0000000000' and service_name = '' and service_description = '' and product_id = '0000000000' and product_name = '' and product_description = ''
+      and quantity = '0' and unit_price = '0')  or (service_id = '' and service_name = '' and service_description = '' and product_id = '' and product_name = '' and product_description = '' and quantity = '' and unit_price = '')" ;
+      DB::statement($updateSql);
       return json_encode($jobOrder);
     }
     public function getJobOrders($filter)
@@ -107,7 +110,7 @@ class JobOrderController extends Controller
     public static function getJobOrderItems($id)
     {
       // code...
-      $jobItems = JobOrderItem::where('job_id' , $id)->get();
+      $jobItems = JobOrderItem::where('job_id' , $id)->where('is_deleted' , '0')->get();
       return json_encode($jobItems);
     }
     public function getJobOrderDetailsIndex($id)

@@ -20,8 +20,8 @@
 
   }
 </style>
+<div loading class="loader-spin"></div>
 <div class="nv-bss-content" id='nv-jo-list-details'>
-
   <div class="row">
     <div class="col-lg-9 col-md-9">
       <h3 class="nv-header nv-font-bc">
@@ -101,12 +101,12 @@
 
   <div>
 
-    <a   target="_blank"   :href="'/admin/job/time/history/all/' + assignedEmployee.employee_id   + '/' +   pad(assignedEmployee.id)  + '/' + assignedEmployee.job_order_id"  class="mt-2 btn btn-md nv-btn-txt-dark nv-font-bc">
+    <a v-if="assignedEmployee.employee_id"  v-cloak target="_blank"   :href="'/admin/job/time/history/all/' + assignedEmployee.employee_id   + '/' +   pad(assignedEmployee.id)  + '/' + assignedEmployee.job_order_id"  class="mt-2 btn btn-md nv-btn-txt-dark nv-font-bc">
     View Time in / out history
     </a>
   </div>
   @endif
-  <a   target="_blank"   :href="'/admin/job/time/history/log/' + assignedEmployee.employee_id   + '/' +   pad(assignedEmployee.id)  + '/' + assignedEmployee.job_order_id"  class="mt-2 btn btn-md nv-btn-txt-dark nv-font-bc">
+  <a v-if="assignedEmployee.employee_id" v-cloak  target="_blank"   :href="'/admin/job/time/history/log/' + assignedEmployee.employee_id   + '/' +   pad(assignedEmployee.id)  + '/' + assignedEmployee.job_order_id"  class="mt-2 btn btn-md nv-btn-txt-dark nv-font-bc">
    Set Time in / out  for Today
   </a>
   <br><br>
@@ -145,6 +145,11 @@
   </div>
 </div>
 <script src="{{ asset('front\js\customs.js') }}" charset="utf-8"></script>
-
 <script src="{{ asset('admin\js\job.order.details.js') }}" ></script>
+<script type="text/javascript">
+$(window).bind("load", function() {
+	$("#cover-spin").remove();
+	$(".loader-spin").css('display','none');
+});
+</script>
 @endsection
