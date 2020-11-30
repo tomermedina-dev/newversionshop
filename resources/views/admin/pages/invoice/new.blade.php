@@ -5,9 +5,9 @@
   var joID = "{{$joDetails->job_order_id}}";
   var totals = "{{$joTotals->totals}}";
   var joNotes = "{{$joDetails->notes}}";
-  var address  = "{{$clientAddress->address_details}}";
-  var email  = "{{$clientDetails->email}}";
-  var phone = "{{$clientDetails->contact_num}}" ;
+  var address  = "{{isset($clientAddress->address_details) ? $clientAddress->address_details : ""}}";
+  var email  = "{{isset($clientDetails->email) ? $clientDetails->email : ""}}";
+  var phone = "{{isset($clientDetails->contact_num) ? $clientDetails->contact_num : ""}}" ;
   var clientId = "{{$joDetails->client_id}}" ;
   var clientName = "{{$joDetails->client_name}}";
   var deduction = 0 ;
