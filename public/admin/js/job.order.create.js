@@ -195,10 +195,10 @@ new Vue({
       var tempProductDetails = $("select[name='product[]']").eq(0).val();
       var tempProductDetails  = tempProductDetails.split('*');
       var tempProductId = tempProductDetails[0];
-      if(tempProductId == 0 && tempServiceId == 0){
-        swalWarning("Please select atlease one labor / service or a product.");
-        err = 1;
-      }
+      // if(tempProductId == 0 && tempServiceId == 0){
+      //   swalWarning("Please select atlease one labor / service or a product.");
+      //   err = 1;
+      // }
 
       if(err != 1){
         swalLoading("Saving job order.. Please wait..");
