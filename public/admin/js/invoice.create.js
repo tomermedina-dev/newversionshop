@@ -40,18 +40,18 @@ var invoice = new Vue ({
       formInvoice.append('phone' ,  t.phone);
       formInvoice.append('notes' , t.notes );
 
-      if(!t.address.trim()){
-        swalWarning("Please enter client address.");
-        err = 1;
-      }
-      if(!t.email.trim()){
-        swalWarning("Please enter client email.");
-        err = 1;
-      }
-      if(!t.phone.trim()){
-        swalWarning("Please enter client phone number.");
-        err = 1;
-      }
+      // if(!t.address.trim()){
+      //   swalWarning("Please enter client address.");
+      //   err = 1;
+      // }
+      // if(!t.email.trim()){
+      //   swalWarning("Please enter client email.");
+      //   err = 1;
+      // }
+      // if(!t.phone.trim()){
+      //   swalWarning("Please enter client phone number.");
+      //   err = 1;
+      // }
       if(err != 1){
         swalLoading("Creating invoice.. Please wait..")
         axios.
