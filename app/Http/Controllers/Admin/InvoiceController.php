@@ -46,7 +46,12 @@ class InvoiceController extends Controller
       $url = ConfigController::getDomainAddress() . 'pdf/invoice_details/'.$id.'/'.$hash;
       $mail = array('client_name'=>$request->client_name , 'url' => $url , 'email' => $request->email);
 
-      EmailController::sendInvoiceDetails($mail);
+      try {
+        EmailController::sendInvoiceDetails($mail);
+      } catch (\Exception $e) {
+
+      }
+
 
       return json_encode($invoice);
     }
