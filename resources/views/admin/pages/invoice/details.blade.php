@@ -48,6 +48,9 @@
         <div class="nv-label-2 nv-font-bc">
           Phone   : {{$invoiceDetails->phone}}
         </div>
+        <div class="nv-label-2 nv-font-bc">
+          Date&Time Created   : {{$invoiceDetails->created_at}}
+        </div>
       </div>
     </div>
 
