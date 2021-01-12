@@ -30,7 +30,7 @@ class HomeDashboardController extends Controller
         $select = 'select count(*) as count from products where status = 1';
       }
       if($filter == 'available_release'){
-        $select = 'select count(*) as count from job_order_assigment_vw where is_invoiced = 1';
+        $select = 'select count(*) as count from job_order_assigment_vw where is_invoiced = 1 and is_released = 0';
       }
       if($filter == 'jo_totals'){
         $select = 'select sum(totals) as count from job_order_totals_vw';

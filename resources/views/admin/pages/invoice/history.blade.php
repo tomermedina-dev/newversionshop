@@ -44,6 +44,7 @@
           <td class="nv-font-bc" scope="col">Amount</td>
           <td class="nv-font-bc" scope="col">Paid Amount</td>
           <td class="nv-font-bc" scope="col">Payment Status</td>
+          <td class="nv-font-bc" scope="col">Date&Time Created</td>
           <td></td>
         </tr>
       </thead>
@@ -72,6 +73,9 @@
               Partially Paid
             </span>
             <span  v-if="jo.total_paid == null ">Unpaid</span>
+          </td>
+          <td class="nv-font-bc" scope="col">
+           @{{jo.created_at}}
           </td>
           <td class="nv-font-bc" scope="col" class="info">
             <div class="dropdown" >
